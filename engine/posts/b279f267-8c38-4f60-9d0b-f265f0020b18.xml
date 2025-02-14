@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Checked GroupBox</title>
+  <description />
+  <content>&lt;p&gt;Here's a bit of code that i'm using in an application to give this result (Checked GroupBox)&lt;/p&gt;
+&lt;p&gt;&lt;img src="/blog/image.axd?picture=2010%2f2%2fWizard1.jpg" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;[code:c#]&lt;/p&gt;
+&lt;p&gt;&amp;lt;GroupBox Grid.Row="3" Grid.Column="1" BorderBrush="Black" Margin="0,0,116,0"&amp;gt;&lt;br /&gt;&amp;lt;GroupBox.Header&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;CheckBox x:Name="cbValidity" IsChecked="{Binding Path=HasValidity}" &amp;gt;Validity&amp;lt;/CheckBox&amp;gt;&lt;br /&gt;&amp;lt;/GroupBox.Header&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;StackPanel&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;StackPanel.Style&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;Style&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;Style.Triggers&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;DataTrigger Binding ="{Binding ElementName=cbValidity, Path=IsChecked}" Value="false"&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;Setter Property="Button.IsEnabled" Value="false"/&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;/DataTrigger&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;/Style.Triggers&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;/Style&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;/StackPanel.Style&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;TextBlock Margin="10,10,0,0" Text="This job is valid from" /&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;wfi:WindowsFormsHost x:Name="propertiesCtrlHost" SnapsToDevicePixels="True" Background="Transparent" Height="22" Margin="10" Width="200" HorizontalAlignment="Left"&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;wf:DateTimePicker x:Name="dtpFrom" Format="Custom" CustomFormat="dd MMMM yyyy&amp;nbsp; HH:mm" ValueChanged="dtpFrom_ValueChanged" /&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;/wfi:WindowsFormsHost&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;TextBlock Margin="10,10,0,0" Text="This job is valid to" /&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;wfi:WindowsFormsHost SnapsToDevicePixels="True" Background="Transparent" Height="22" Margin="10" Width="200" HorizontalAlignment="Left"&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;wf:DateTimePicker x:Name="dtpTo" Format="Custom" CustomFormat="dd MMMM yyyy&amp;nbsp; HH:mm" ValueChanged="dtpTo_ValueChanged" /&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;/wfi:WindowsFormsHost&amp;gt;&lt;br /&gt;&amp;lt;/StackPanel&amp;gt;&lt;br /&gt;&amp;lt;/GroupBox&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;[/code]&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2010-02-17 19:47:00</pubDate>
+  <lastModified>2015-07-09 11:12:13</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Checked-GroupBox</slug>
+  <tags>
+    <tag>wpf triggers checkedgroupbox</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

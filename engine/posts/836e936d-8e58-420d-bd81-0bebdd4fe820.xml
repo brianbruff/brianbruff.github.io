@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>The lazy singleton pattern revisited.</title>
+  <description />
+  <content>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;If you want to get a feel for the singleton pattern in C# one of the best resources I always revisit is on John Skeet&amp;rsquo;s (@jonskeet) website&amp;nbsp; &lt;a href="http://www.yoda.arachsys.com/csharp/singleton.html"&gt;&lt;span style="color: #0066cc;"&gt;http://www.yoda.arachsys.com/csharp/singleton.html&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I encourage you to read the above article to appreciate the little intricacies or requiring static constructor, BeforeFieldInit, volatile etc.&lt;/p&gt;
+&lt;p&gt;However: If you just want the easiest lazy evaluation solution in .net4+, then you&amp;rsquo;ve come to the right place.&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_230.png"&gt;&lt;img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="./image.axd?picture=image_thumb_230.png" alt="image" width="711" height="508" border="0" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Lazy&amp;lt;T&amp;gt; guarantees thread-safe lazy construction.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h1&gt;&lt;span style="color: #ff0000;"&gt;UPDATE: &lt;/span&gt;&lt;/h1&gt;
+&lt;p&gt;If I&amp;rsquo;d followed Jon&amp;rsquo;s notice, at the top of the page I linked to, I would have seen the post is now located &lt;a href="http://csharpindepth.com/Articles/General/Singleton.aspx" target="_blank"&gt;here&lt;/a&gt; and moreover, he covers the Lazy&amp;lt;T&amp;gt; approach there.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2 class="username" style="unicode-bidi: embed; white-space: normal; text-transform: none; word-spacing: 0px; color: #777777; direction: ltr; font: 18px/24px arial, sans-serif; margin: 0px 0px 1px; orphans: 2; widows: 2; letter-spacing: normal; background-color: #ffffff; text-indent: 0px; text-rendering: optimizelegibility; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;"&gt;&amp;nbsp;&lt;/h2&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2012-10-30 09:18:00</pubDate>
+  <lastModified>2015-07-09 11:04:27</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>The-lazy-singleton-pattern-revisited</slug>
+  <tags>
+    <tag>Thread safe lazy singleton .net 4+</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

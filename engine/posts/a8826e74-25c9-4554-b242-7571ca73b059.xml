@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Be careful of deferred execution</title>
+  <description />
+  <content>&lt;p&gt;Take the following code, if you have ReSharper installed you’ll be warned that there is possible multiple enumeration of your IEnumerable, this means that&amp;#160; Select will be repeated twice for everything in the array.&lt;a href="./image.axd?picture=image_291.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; margin-left: 0px; display: block; border-top-width: 0px; margin-right: 0px" border="0" alt="image" align="left" src="./image.axd?picture=image_thumb_292.png" width="575" height="246" /&gt;&lt;/a&gt; &lt;/p&gt;  &lt;h2&gt;ToArray()&lt;/h2&gt;  &lt;p&gt;One solution is to Enumerate one and immediately after the select by calling .ToArray&lt;a href="./image.axd?picture=image_292.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; display: inline" border="0" alt="image" src="./image.axd?picture=image_thumb_293.png" width="431" height="67" /&gt;&lt;/a&gt; &lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;h3&gt;Guava / Java&lt;/h3&gt;  &lt;p&gt;It’s not just C# that you need to be careful with, take the google java library Guava&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_293.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; display: inline" border="0" alt="image" src="./image.axd?picture=image_thumb_294.png" width="663" height="118" /&gt;&lt;/a&gt; We don’t get the same nice warning in IntelliJ* yet the solution in this case is much the same.&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_294.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; display: inline" border="0" alt="image" src="./image.axd?picture=image_thumb_295.png" width="680" height="136" /&gt;&lt;/a&gt; &lt;/p&gt;  &lt;p&gt;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;h4&gt;*IntelliJ&lt;/h4&gt;  &lt;p&gt;If you’re from a MS background like me and doing any Java, then do yourself a favour and use IntelliJ, it’s much easier to use.&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2014-01-31 13:49:10</pubDate>
+  <lastModified>2014-01-31 13:52:04</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Becareful-of-deferred-execution</slug>
+  <tags>
+    <tag>deferred execution</tag>
+  </tags>
+  <comments />
+  <categories>
+    <category>67054983-5ca1-4bc7-a7b8-42b08c4ba45d</category>
+    <category>f0fd25ee-9b7c-45fe-828e-23afee5320e0</category>
+    <category>685ee338-e539-4bf1-bb23-8d9f10590dc0</category>
+  </categories>
+  <notifications />
+</post>

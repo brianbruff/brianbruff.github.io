@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>admin</author>
+  <title>Websockets</title>
+  <description />
+  <content>&lt;p&gt;This video shows you how to create a websocket server in java&lt;/p&gt;&lt;p&gt;Links:&lt;/p&gt;&lt;p&gt;&lt;a href="https://www.javainuse.com/spring/boot-websocket"&gt;https://www.javainuse.com/spring/boot-websocket&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="https://start.spring.io/"&gt;https://start.spring.io/&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="https://www.websocket.org/echo.html"&gt;https://www.websocket.org/echo.html&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Azure:&lt;br&gt;&lt;a href="https://azure.microsoft.com/en-us/services/web-pubsub/"&gt;https://azure.microsoft.com/en-us/services/web-pubsub/&lt;/a&gt;&lt;br&gt;&lt;font color="#0064c4"&gt;&lt;a href="https://azure.microsoft.com/en-us/services/signalr-service/"&gt;https://azure.microsoft.com/en-us/services/signalr-service/&lt;/a&gt;&lt;font color="#0064c4"&gt;&lt;br&gt;&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;AWS:&lt;br&gt;&lt;a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html"&gt;https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;iframe width="560" height="315" title="YouTube video player" src="https://www.youtube.com/embed/DHXps8IgBWw" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"&gt;&lt;/iframe&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2021-06-30 11:03:48</pubDate>
+  <lastModified>2021-06-30 11:30:42</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Websockets</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

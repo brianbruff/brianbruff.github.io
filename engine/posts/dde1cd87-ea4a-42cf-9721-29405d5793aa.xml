@@ -1,0 +1,753 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Supporting WSE plain text password with WCF BasicHttpBinding</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;Hi all,&lt;/p&gt;  &lt;p&gt;Ok, so I did a bit of googling to see if this had been done by someone else, turns out I failed to find a suitable solution, just many frustrated people.&lt;/p&gt;  &lt;p&gt;So this post is an attempt to make those people a little happier.&lt;/p&gt;  &lt;p&gt;The solutions is as follows(, It’s a bit rough around the edges at the moment as I have just got it working and have not yet cleaned up the code).&lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;Firstly, I created a binding to manage the header&lt;/li&gt; &lt;/ul&gt;  &lt;div class="csharpcode"&gt;   &lt;pre class="alt"&gt;&lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;class&lt;/span&gt; MyBehavior : BehaviorExtensionElement, IEndpointBehavior&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;    {      &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; MyBehavior(&lt;span class="kwrd"&gt;string&lt;/span&gt; userName, &lt;span class="kwrd"&gt;string&lt;/span&gt; password)&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        {&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;            &lt;span class="kwrd"&gt;this&lt;/span&gt;.UserName = userName;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;            &lt;span class="kwrd"&gt;this&lt;/span&gt;.Password = password;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        &lt;span class="preproc"&gt;#region&lt;/span&gt; IEndpointBehavior Members&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        {&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        {&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;            clientRuntime.MessageInspectors.Add(&lt;span class="kwrd"&gt;new&lt;/span&gt; MyMessageInspector(&lt;span class="kwrd"&gt;this&lt;/span&gt;.UserName, &lt;span class="kwrd"&gt;this&lt;/span&gt;.Password));&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; ApplyDispatchBehavior(ServiceEndpoint endpoint, EndpointDispatcher endpointDispatcher) &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        {&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; Validate(ServiceEndpoint endpoint) &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        { &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;            &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        &lt;span class="preproc"&gt;#endregion&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;override&lt;/span&gt; Type BehaviorType&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        {&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;            get &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;            { &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;                &lt;span class="kwrd"&gt;return&lt;/span&gt; &lt;span class="kwrd"&gt;typeof&lt;/span&gt;(MyBehavior); &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;            } &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;protected&lt;/span&gt; &lt;span class="kwrd"&gt;override&lt;/span&gt; &lt;span class="kwrd"&gt;object&lt;/span&gt; CreateBehavior() &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        { &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;            &lt;span class="kwrd"&gt;return&lt;/span&gt; &lt;span class="kwrd"&gt;new&lt;/span&gt; MyBehavior(&lt;span class="kwrd"&gt;this&lt;/span&gt;.UserName, &lt;span class="kwrd"&gt;this&lt;/span&gt;.Password); &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;string&lt;/span&gt; UserName { get; set; }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;string&lt;/span&gt; Password { get; set; }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;    }&lt;/pre&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;
+
+
+
+&lt;p&gt;Ok so now we can see this behavior adds a MessageInspector to every message. lets take a look at what the message inspector does.&lt;/p&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;MessageInspector&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class="csharpcode"&gt;&lt;span class="kwrd"&gt;class&lt;/span&gt; MyMessageInspector : IClientMessageInspector
+{
+    &lt;span class="kwrd"&gt;public&lt;/span&gt; MyMessageInspector(&lt;span class="kwrd"&gt;string&lt;/span&gt; username, &lt;span class="kwrd"&gt;string&lt;/span&gt; password)
+    {
+        _username = username;
+        _password = password;
+    }
+
+    &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; AfterReceiveReply(&lt;span class="kwrd"&gt;ref&lt;/span&gt; System.ServiceModel.Channels.Message reply, &lt;span class="kwrd"&gt;object&lt;/span&gt; correlationState)
+    {
+            
+    }
+
+    &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;object&lt;/span&gt; BeforeSendRequest(&lt;span class="kwrd"&gt;ref&lt;/span&gt; System.ServiceModel.Channels.Message request, System.ServiceModel.IClientChannel channel)
+    {
+        var header = &lt;span class="kwrd"&gt;new&lt;/span&gt; WseHeader(_username, _password);            
+                
+        request.Headers.Add(header); 
+            
+        &lt;span class="kwrd"&gt;return&lt;/span&gt; &lt;span class="kwrd"&gt;null&lt;/span&gt;;
+    }
+
+
+    &lt;span class="kwrd"&gt;private&lt;/span&gt; &lt;span class="kwrd"&gt;string&lt;/span&gt; _username;
+    &lt;span class="kwrd"&gt;private&lt;/span&gt; &lt;span class="kwrd"&gt;string&lt;/span&gt; _password;
+}&lt;/pre&gt;
+
+&lt;p&gt;&lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;&lt;/p&gt;
+
+&lt;p&gt;So here in my message inspector I add a new header.&lt;/p&gt;
+
+&lt;p&gt;In fact it’s this header that was making life hard for most people.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;WseHeader&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;&lt;span class="kwrd"&gt;class&lt;/span&gt; WseHeader : MessageHeader&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;    {        &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; WseHeader(&lt;span class="kwrd"&gt;string&lt;/span&gt; userName, &lt;span class="kwrd"&gt;string&lt;/span&gt; password)&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        {&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;            &lt;span class="kwrd"&gt;this&lt;/span&gt;.UserName = userName;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;            &lt;span class="kwrd"&gt;this&lt;/span&gt;.Password = password;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;              &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;string&lt;/span&gt; UserName&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        {&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;            get;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;            &lt;span class="kwrd"&gt;private&lt;/span&gt; set;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;private&lt;/span&gt; &lt;span class="kwrd"&gt;string&lt;/span&gt; Password&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        {&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;            get;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;            set;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;protected&lt;/span&gt; &lt;span class="kwrd"&gt;override&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; OnWriteStartHeader(System.Xml.XmlDictionaryWriter writer, MessageVersion messageVersion)&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        {&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;            &lt;span class="kwrd"&gt;base&lt;/span&gt;.OnWriteStartHeader(writer, messageVersion);&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;            writer.WriteAttributeString(&lt;span class="str"&gt;&amp;quot;s:mustUnderstand&amp;quot;&lt;/span&gt;, &lt;span class="str"&gt;&amp;quot;0&amp;quot;&lt;/span&gt;);&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;            writer.WriteAttributeString(&lt;span class="str"&gt;&amp;quot;xmlns:wsse&amp;quot;&lt;/span&gt;, WsseNamespaceToken);&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;            writer.WriteAttributeString(&lt;span class="str"&gt;&amp;quot;xmlns:s&amp;quot;&lt;/span&gt;, &lt;span class="str"&gt;&amp;quot;http://schemas.xmlsoap.org/soap/envelope/&amp;quot;&lt;/span&gt;);&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;protected&lt;/span&gt; &lt;span class="kwrd"&gt;override&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; OnWriteHeaderContents(System.Xml.XmlDictionaryWriter writer, MessageVersion messageVersion)&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        {&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;            writer.WriteRaw(Properties.Resources.WseHeaderText.Replace(&lt;span class="str"&gt;&amp;quot;{USERNAME}&amp;quot;&lt;/span&gt;, &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;                &lt;span class="kwrd"&gt;this&lt;/span&gt;.UserName).Replace(&lt;span class="str"&gt;&amp;quot;{PASSWORD}&amp;quot;&lt;/span&gt;, &lt;span class="kwrd"&gt;this&lt;/span&gt;.Password));&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;            &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;override&lt;/span&gt; &lt;span class="kwrd"&gt;string&lt;/span&gt; Name&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        {&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;            get { &lt;span class="kwrd"&gt;return&lt;/span&gt; &lt;span class="str"&gt;&amp;quot;wsse:Security&amp;quot;&lt;/span&gt;; }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;override&lt;/span&gt; &lt;span class="kwrd"&gt;string&lt;/span&gt; Namespace&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        {&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;            get { &lt;span class="kwrd"&gt;return&lt;/span&gt; &lt;span class="str"&gt;&amp;quot;&amp;quot;&lt;/span&gt;; }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;override&lt;/span&gt; &lt;span class="kwrd"&gt;bool&lt;/span&gt; MustUnderstand&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        {&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;            get&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;            {&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;                &lt;span class="kwrd"&gt;return&lt;/span&gt; &lt;span class="kwrd"&gt;false&lt;/span&gt;;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;            }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;private&lt;/span&gt; &lt;span class="kwrd"&gt;const&lt;/span&gt; &lt;span class="kwrd"&gt;string&lt;/span&gt; WsseNamespaceToken = &lt;span class="str"&gt;&amp;quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&amp;quot;&lt;/span&gt;;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;        &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;    }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;&lt;/p&gt;
+
+&lt;p&gt;This class will create a header like this
+  &lt;br /&gt;
+
+  &lt;div class="csharpcode"&gt;
+    &lt;pre class="alt"&gt;&lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;wsse:Security&lt;/span&gt; &lt;span class="attr"&gt;s:mustUnderstand&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;0&amp;quot;&lt;/span&gt; &lt;span class="attr"&gt;xmlns:wsse&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&amp;quot;&lt;/span&gt; &lt;span class="attr"&gt;xmlns:s&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;http://schemas.xmlsoap.org/soap/envelope/&amp;quot;&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+    &lt;pre&gt;    &lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;wsse:UsernameToken&lt;/span&gt; &lt;span class="attr"&gt;wsu:Id&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;SecurityToken-3f7f983f-66ce-480d-bce6-170632d33f92&amp;quot;&lt;/span&gt; &lt;span class="attr"&gt;xmlns:wsu&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&amp;quot;&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+    &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;wsse:Username&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;bek@anchor&lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;wsse:Username&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+    &lt;pre&gt;        &lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;wsse:Password&lt;/span&gt; &lt;span class="attr"&gt;Type&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText&amp;quot;&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;dotnetrocks&lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;wsse:Password&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+    &lt;pre class="alt"&gt;    &lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;wsse:UsernameToken&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+    &lt;pre&gt;    &lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;wsse:Security&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+    &lt;pre class="alt"&gt; &lt;/pre&gt;
+  &lt;/div&gt;
+  &lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Please note I’m getting the body of the header from a project resource, here it is WseHeaderText&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;&amp;lt;wsse:UsernameToken wsu:Id=&lt;span class="str"&gt;&amp;quot;SecurityToken-3f7f983f-66ce-480d-bce6-170632d33f92&amp;quot;&lt;/span&gt; xmlns:wsu=&lt;span class="str"&gt;&amp;quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&amp;quot;&lt;/span&gt;&amp;gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;    &amp;lt;wsse:Username&amp;gt;{USERNAME}&amp;lt;/wsse:Username&amp;gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;    &amp;lt;wsse:Password Type=&lt;span class="str"&gt;&amp;quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText&amp;quot;&lt;/span&gt;&amp;gt;{PASSWORD}&amp;lt;/wsse:Password&amp;gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre&gt;&amp;lt;/wsse:UsernameToken&amp;gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt; &lt;/pre&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;
+
+
+
+&lt;p&gt;I just replace the username and password in code in the MessageHeader. I could probably do all this neater with the API but it’s good enough for my investigation tonight, I usually just add the WSE header directly into my configuration file and not bother with the behavior.&lt;/p&gt;
+
+&lt;p&gt;e.g.&lt;/p&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;&lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;client&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre&gt;          &lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;endpoint&lt;/span&gt; &lt;span class="attr"&gt;address&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;http://anchor:8083/gdm/TemplateActionsService/TemplateActionsService&amp;quot;&lt;/span&gt; &lt;span class="attr"&gt;binding&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;basicHttpBinding&amp;quot;&lt;/span&gt; &lt;span class="attr"&gt;bindingConfiguration&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;TemplateActionsServiceSoapBinding&amp;quot;&lt;/span&gt; &lt;span class="attr"&gt;contract&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;TemplateActionsProxy.TemplateActionsServiceType&amp;quot;&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;TemplateActionsServicePort&amp;quot;&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            &lt;span class="rem"&gt;&amp;lt;!-- this will work without behaviour by explicitly adding the header&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="rem"&gt;            &amp;lt;headers&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="rem"&gt;              &amp;lt;wsse:Security s:mustUnderstand=&amp;quot;0&amp;quot; xmlns:wsse=&amp;quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&amp;quot; xmlns:s=&amp;quot;http://schemas.xmlsoap.org/soap/envelope/&amp;quot;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="rem"&gt;                &amp;lt;wsse:UsernameToken wsu:Id=&amp;quot;SecurityToken-3f7f983f-66ce-480d-bce6-170632d33f92&amp;quot; xmlns:wsu=&amp;quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&amp;quot;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="rem"&gt;                  &amp;lt;wsse:Username&amp;gt;bek@anchor&amp;lt;/wsse:Username&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="rem"&gt;                  &amp;lt;wsse:Password Type=&amp;quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText&amp;quot;&amp;gt;dotnetrocks&amp;lt;/wsse:Password&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="rem"&gt;                &amp;lt;/wsse:UsernameToken&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="rem"&gt;              &amp;lt;/wsse:Security&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="rem"&gt;            &amp;lt;/headers&amp;gt;--&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre&gt;          &lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;endpoint&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;client&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;
+
+
+
+&lt;p&gt;So I hope this helps somebody else. &lt;img style="border-bottom-style: none; border-left-style: none; border-top-style: none; border-right-style: none" class="wlEmoticon wlEmoticon-ninja" alt="Ninja" src="./image.axd?picture=wlEmoticon-ninja_1.png" /&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-11-16 17:12:47</pubDate>
+  <lastModified>2015-07-09 11:08:23</lastModified>
+  <raters>5</raters>
+  <rating>5</rating>
+  <slug>Supporting-WSE-plain-text-password-with-WCF-BasicHttpBinding</slug>
+  <tags>
+    <tag>WSE Security</tag>
+  </tags>
+  <comments>
+    <comment id="68ec6baa-4d0a-48e4-8c7b-7a352f5c4246" parentid="00000000-0000-0000-0000-000000000000" approved="True" spam="False" deleted="False">
+      <date>2013-03-07 04:44:50</date>
+      <author>Mark Hemingway</author>
+      <email>mark.hemingway@siemens-enterprise.com</email>
+      <country>gb</country>
+      <ip>62.134.46.4</ip>
+      <avatar />
+      <content>Thanks a million for this.
+
+Might be worth pointing out: 
+
+1) XmlDictionaryWriter requires a project ref to System.Runtime.Serialization.
+
+2) Instead of            writer.WriteRaw(Properties.Resources.WseHeaderText.Replace(&amp;quot;{USERNAME}&amp;quot;,                 this.UserName).Replace(&amp;quot;{PASSWORD}&amp;quot;, this.Password));
+
+ I found it easier to do the following instead
+
+            string usernameToken = @&amp;quot;
+         &amp;lt;wsse:UsernameToken&amp;gt;
+            &amp;lt;wsse:Username&amp;gt;{USERNAME}&amp;lt;/wsse:Username&amp;gt;
+            &amp;lt;wsse:Password Type=&amp;quot;&amp;quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText&amp;quot;&amp;quot;&amp;gt;{PASSWORD}&amp;lt;/wsse:Password&amp;gt;
+         &amp;lt;/wsse:UsernameToken&amp;gt;&amp;quot;;
+
+            writer.WriteRaw(usernameToken.Replace(&amp;quot;{USERNAME}&amp;quot;, this.UserName).Replace(&amp;quot;{PASSWORD}&amp;quot;, this.Password));
+
+
+</content>
+    </comment>
+  </comments>
+  <categories />
+  <notifications />
+</post>

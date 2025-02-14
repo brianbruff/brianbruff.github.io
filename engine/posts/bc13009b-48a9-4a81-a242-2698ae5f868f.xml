@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>RIA Services</title>
+  <description />
+  <content>&lt;p&gt;&lt;span style="font-family: &amp;quot;Verdana&amp;quot;,&amp;quot;sans-serif&amp;quot;; color: black; font-size: 7pt;"&gt;Over the w/end I was helping a mate with his Data-driven Silverlight app.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-family: &amp;quot;Verdana&amp;quot;,&amp;quot;sans-serif&amp;quot;; color: black; font-size: 7pt;"&gt;I was gobsmacked that his developer spent days and weeks writing plumbing code, hand coding infrastructure code and even worse my friend had to pay for it.&lt;br /&gt;Being able to focus on the business needs is important so having a development platform that better enables that focus and increased productivity is an absolute must.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-family: &amp;quot;Verdana&amp;quot;,&amp;quot;sans-serif&amp;quot;; color: black; font-size: 7pt;"&gt;The solution to this problem is codenamed Alexandria i.e. .NET RIA Services, this technology provides a set of server components and ASP.NET extensions that ease the n-tier development process, making your applications almost as easy to develop as if they were running on a single tier, In addition, services such as authentication, roles and profile management are provided. The combination of client and server enhancements to Silverlight 3 and ASP.NET along with the addition of .NET RIA Services, streamline the end-to-end experience of developing data-driven Web applications also known as Rich Internet Applications, or RIAs.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-family: &amp;quot;Verdana&amp;quot;,&amp;quot;sans-serif&amp;quot;; color: black; font-size: 7pt;"&gt;I&amp;rsquo;m not going to show you how to do it as there are many-many training resources available but a good place to start is here: http://silverlight.net/getstarted/riaservices/&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-family: &amp;quot;Verdana&amp;quot;,&amp;quot;sans-serif&amp;quot;; color: black; font-size: 7pt;"&gt;So if you find yourself writing needless plumbing code for a DAL in Silverlight, then spend some time figuring RIA services out!&lt;br /&gt;(Spend some get some diesel for that digger and opposed to grabbing a shovel and diving in!!)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-family: &amp;quot;Verdana&amp;quot;,&amp;quot;sans-serif&amp;quot;; color: black; font-size: 7pt;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p class="MsoNormal" style="margin: 0cm 0cm 10pt;"&gt;&lt;span lang="EN-IE"&gt;&lt;span style="font-family: Calibri; font-size: small;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2010-03-15 11:15:00</pubDate>
+  <lastModified>2010-03-15 11:33:54</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>RIA-Services</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

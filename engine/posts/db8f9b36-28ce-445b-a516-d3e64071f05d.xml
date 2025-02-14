@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>SQL Server 2008 Calculation Variables</title>
+  <description />
+  <content>&lt;p&gt;SqlServer 2008 has a short hand/compact way of assigning calculation variables.&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;e.g&lt;/p&gt;  &lt;p&gt;&lt;u&gt;Sql2005&lt;/u&gt;&lt;/p&gt;  &lt;p&gt;DECLARE @val&amp;#160;&amp;#160;&amp;#160; INT   &lt;br /&gt;set @val = 1;    &lt;br /&gt;set @val = @val + 1;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&lt;u&gt;Sql2008&lt;/u&gt;&lt;/p&gt;  &lt;p&gt;DECLARE @val&amp;#160;&amp;#160;&amp;#160; INT   &lt;br /&gt;set @val = 1;    &lt;br /&gt;set @val += 1;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;Same applies to other operators,&amp;#160; *=, –=, /=&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-01-19 22:39:46</pubDate>
+  <lastModified>2014-01-27 02:10:51</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>SQL-Server-2008-Calculation-Variables</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

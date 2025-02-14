@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>XCode disabling ARC for a single file in a project</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;So I’ll put it out there, I’m a novice Objective-C man, in fact I’m still sitting on the fence on whether I should write my iOS apps in C# (MonoTouch) or Objective-c (xcode), I’m leaning a little more towards the Monotouch approach and to be honest I’m just persevering with objective-c for a few reasons&lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;It’s a different language, like a new toy I wanna play with it&lt;/li&gt;    &lt;li&gt;I need to use XCode for interface designer anyway&lt;/li&gt;    &lt;li&gt;It helps when reading sample code even if just to translate to c#.&lt;/li&gt; &lt;/ul&gt;  &lt;p&gt;So this morning I was trying to create an iPad app for a RestAPI I’m writing in MVC4 Web Api and I went with Objective-C.   &lt;br /&gt;I used AFNetworking to make my Rest calls but unfortunately this library was written before ARC (Automatic reference counting).     &lt;br /&gt;Now for some background: I came to iOS development after the fact and so far I have not had to write non-ARC code (that said I love c++ and deterministic destruction so it wouldn’t bother me that much).&lt;/p&gt;  &lt;p&gt;So I was a little stumped when I encountered the following problem:&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_206.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_206.png" width="709" height="382" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_207.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_207.png" width="607" height="29" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;Basically this is telling me that the ARC doesn’t allow this pre-ARC code!&lt;/p&gt;  &lt;h3&gt;So how to solve?&lt;/h3&gt;  &lt;p&gt;Well the solution is somewhat simple, you just need to bring up the project properties &lt;span style="text-align: left; widows: 2; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; letter-spacing: normal; display: inline !important; font: 14px/18px arial, &amp;#39;Liberation Sans&amp;#39;, &amp;#39;DejaVu Sans&amp;#39;, sans-serif; white-space: normal; orphans: 2; float: none; color: rgb(0,0,0); word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px"&gt;Targets -&amp;gt; Build Phases -&amp;gt; Compile Sources &lt;font color="#111111" size="2" face="Lucida Sans Unicode"&gt;and add the &lt;font style="background-color: #eeeeee" face="Consolas"&gt;-fno-objc-arc&lt;/font&gt;&lt;span style="text-align: left; widows: 2; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; letter-spacing: normal; display: inline !important; font: 14px/18px arial, &amp;#39;Liberation Sans&amp;#39;, &amp;#39;DejaVu Sans&amp;#39;, sans-serif; white-space: normal; orphans: 2; float: none; color: rgb(0,0,0); word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px"&gt;&lt;span class="Apple-converted-space"&gt;&amp;#160;&lt;/span&gt;compiler flag for those particular files.&lt;/span&gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_208.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_208.png" width="675" height="370" /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2012-08-08 03:32:24</pubDate>
+  <lastModified>2015-07-09 11:05:08</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>XCode-disabling-ARC-for-a-single-file-in-a-project</slug>
+  <tags>
+    <tag>IOS</tag>
+    <tag>ARC.XCODE</tag>
+    <tag>AFNetworking</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

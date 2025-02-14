@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Prevent angular event bubbling</title>
+  <description />
+  <content>&lt;p&gt;In this screencast I show you how to prevent a click event on a table cell content from propagating up to its parent.&lt;/p&gt; &lt;iframe height="315" src="//www.youtube.com/embed/81b8jzmC8cU" frameborder="0" width="560" allowfullscreen="allowfullscreen"&gt;&lt;/iframe&gt;  &lt;h2&gt;Screenshots&lt;/h2&gt;  &lt;table cellspacing="0" cellpadding="2" width="400" border="0"&gt;&lt;tbody&gt;     &lt;tr&gt;       &lt;td valign="top" width="400"&gt;&lt;a href="https://briankeating.net/image.axd?picture=image_358.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="https://briankeating.net/image.axd?picture=image_thumb_359.png" width="320" height="109" /&gt;&lt;/a&gt; &lt;/td&gt;     &lt;/tr&gt;   &lt;/tbody&gt;&lt;/table&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;table cellspacing="0" cellpadding="2" width="400" border="0"&gt;&lt;tbody&gt;     &lt;tr&gt;       &lt;td valign="top" width="400"&gt;&lt;a href="https://briankeating.net/image.axd?picture=image_359.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="https://briankeating.net/image.axd?picture=image_thumb_360.png" width="598" height="242" /&gt;&lt;/a&gt; &lt;/td&gt;     &lt;/tr&gt;   &lt;/tbody&gt;&lt;/table&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2014-10-27 11:08:13</pubDate>
+  <lastModified>2014-10-28 09:41:54</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Prevent-angular-event-bubbling</slug>
+  <tags>
+    <tag>prevent angular event bubbling</tag>
+  </tags>
+  <comments />
+  <categories>
+    <category>ca7a406c-e158-492d-936e-566c78622749</category>
+  </categories>
+  <notifications />
+</post>

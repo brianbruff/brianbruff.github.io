@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Eureka moment</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;After all these years, where I’ve modified connections strings etc in the web.config release folder.    &lt;br /&gt;I’ve finally realised I can preview the transformation that Visual Studio Does. To be really honest I’m not sure if this is a new feature of VS2012 or if it always existed, but it’s fantastic, give it a go if like me you’ve been living in the dark ages.&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_233.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; display: inline" border="0" alt="image" src="./image.axd?picture=image_thumb_233.png" width="242" height="321" /&gt;&lt;/a&gt; &lt;/p&gt;  &lt;p&gt;&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_234.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; display: inline" border="0" alt="image" src="./image.axd?picture=image_thumb_234.png" width="700" height="532" /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2013-01-28 14:35:43</pubDate>
+  <lastModified>2013-01-28 14:38:00</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Eureka-moment</slug>
+  <tags>
+    <tag>Visual Studio web.config transformations</tag>
+  </tags>
+  <comments />
+  <categories>
+    <category>97181dbe-f214-481c-90e7-ee3a61184911</category>
+    <category>9a5a7f96-54fa-4dfd-9176-9dcbce76cf63</category>
+  </categories>
+  <notifications />
+</post>

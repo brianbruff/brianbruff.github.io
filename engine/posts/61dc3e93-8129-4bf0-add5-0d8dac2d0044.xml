@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>A Custom Diagramming Library</title>
+  <description>Diagramming</description>
+  <content>&lt;p&gt;Recently I've been working with a 3rd party diagramming library written in windows forms. It's been great and it's pretty fast in building 80% of the application I'm working on.&lt;/p&gt;  &lt;h4&gt;&lt;/h4&gt;  &lt;p&gt;[Update August 2012: I never got around to doing much with the diagramming library. I opted instead to re-host the visual studio workflow designer for my needs, why I actually considered writing it is beyond me, I’m a campaigner for bolting existing solutions together rather than re-inventing the wheel ]&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2009-12-05 21:40:00</pubDate>
+  <lastModified>2015-07-09 11:13:01</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>A-Custom-Diagramming-Library</slug>
+  <tags>
+    <tag>diagramming</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

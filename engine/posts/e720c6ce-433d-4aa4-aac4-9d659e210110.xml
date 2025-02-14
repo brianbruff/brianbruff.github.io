@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>DRY out your MVC Views</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;For those of you that don’t know DRY : Don’t Repeat Yourself.&lt;/p&gt;  &lt;p&gt;Take the following two screens&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_10.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_10.png" width="407" height="204" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_11.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_11.png" width="410" height="180" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;They are nearly identical.&lt;/p&gt;  &lt;p&gt;MVC3/Razor provides two ways to make things DRYer.&lt;/p&gt;  &lt;p&gt;1) Layouts (same as asp.net master pages, not covered in this post)&lt;/p&gt;  &lt;p&gt;2) Partial views &lt;/p&gt;  &lt;p&gt;Here’s how.&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_12.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_12.png" width="550" height="298" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;h6&gt;Shows the create page, using the Html.Partial extension method&lt;/h6&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_13.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_13.png" width="551" height="361" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;h6&gt;Shows the edit page, using the Html.Partial extension method on the same partial view as well&lt;/h6&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_14.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_14.png" width="466" height="360" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;h6&gt;Shows the partial view that gets injected (for want of a better word) into the two views shown previously.&lt;/h6&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-02-09 22:22:13</pubDate>
+  <lastModified>2015-07-09 11:11:18</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>DRY-out-your-MVC-Views</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

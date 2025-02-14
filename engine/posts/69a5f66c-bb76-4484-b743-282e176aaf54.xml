@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Not accepted here</title>
+  <description />
+  <content>&lt;p&gt;&lt;em&gt;and it's not because I'm Irish ;-) &lt;/em&gt;&lt;/p&gt;  &lt;h2&gt;ODataController - 406&lt;/h2&gt;  &lt;p&gt;So I’m working on a project that returns some entities from an OData endpoint, I wanted to remove the unnecessary parts of my entities so I created some DTO’s (which in itself is a good idea btw). The screenshot below shows the changes, I’m now returning a TimeSheetDto list (previously just a TimeSheet list) and I’m just projecting &lt;em&gt;(using automapper)&lt;/em&gt; the Timesheets from my database into these DTO’s .&lt;/p&gt;  &lt;table cellspacing="0" cellpadding="2" width="400" border="0"&gt;&lt;tbody&gt;     &lt;tr&gt;       &lt;td valign="top" width="400"&gt;&lt;a href="https://briankeating.net/image.axd?picture=image_362.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="https://briankeating.net/image.axd?picture=image_thumb_363.png" width="402" height="141" /&gt;&lt;/a&gt; &lt;/td&gt;     &lt;/tr&gt;   &lt;/tbody&gt;&lt;/table&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;However when I test said entities I see nothing come back in my browser, nada,zilch,zippo… so what is happening?    &lt;br /&gt;Well I fired up fiddler and saw that I was getting a HTTP status code of 406, but why?     &lt;br /&gt;It worked before and I changed nothing…. oh wait!….&lt;/p&gt;  &lt;p&gt; Configure OData entities&lt;/p&gt;  &lt;p&gt;You know that message that gets scaffolded with new OData end points!? We’ll it explicitly tells us what entities are to be considered, so with a quick addition of my Dto Suffix in my OData config I’m back in action.&lt;/p&gt;  &lt;table cellspacing="0" cellpadding="2" width="400" border="0"&gt;&lt;tbody&gt;     &lt;tr&gt;       &lt;td valign="top" width="400"&gt;&lt;a href="https://briankeating.net/image.axd?picture=image_363.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="https://briankeating.net/image.axd?picture=image_thumb_364.png" width="394" height="62" /&gt;&lt;/a&gt; &lt;/td&gt;     &lt;/tr&gt;   &lt;/tbody&gt;&lt;/table&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2015-02-24 23:41:40</pubDate>
+  <lastModified>2015-02-24 23:41:40</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Not-accepted-here</slug>
+  <tags>
+    <tag>OData</tag>
+    <tag>HttpStatus 406</tag>
+    <tag>Not Accepted</tag>
+    <tag>ODataConventionModelBuilder.</tag>
+  </tags>
+  <comments />
+  <categories>
+    <category>36e0214d-901e-415d-b6e8-c13b80d5e620</category>
+    <category>67054983-5ca1-4bc7-a7b8-42b08c4ba45d</category>
+    <category>8ff8e20d-3e3b-4a53-bcf3-5c6f7787c326</category>
+  </categories>
+  <notifications />
+</post>

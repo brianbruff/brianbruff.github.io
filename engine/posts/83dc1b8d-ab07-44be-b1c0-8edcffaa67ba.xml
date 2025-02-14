@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>HTML 5 Audio</title>
+  <description />
+  <content>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;So does your browser support the html5 audio tag when it comes to MP3s?&lt;/p&gt;
+&lt;p&gt;Browsers in order of my preference&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3&gt;IE9 &amp;ndash; Nope&lt;/h3&gt;
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_79.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="/blog/image.axd?picture=image_thumb_79.png" border="0" alt="image" width="390" height="142" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3&gt;Firefox 5 &amp;ndash; Nope, Moreover doesn't gracefully degrade to my fallback text!&lt;/h3&gt;
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_80.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="/blog/image.axd?picture=image_thumb_80.png" border="0" alt="image" width="308" height="162" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3&gt;Chrome 13 &amp;ndash; Sure&lt;/h3&gt;
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_81.png"&gt;&lt;img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="/blog/image.axd?picture=image_thumb_81.png" border="0" alt="image" width="244" height="88" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3&gt;Safari 5 &amp;ndash; Arguably the best default experience&lt;/h3&gt;
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_82.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="/blog/image.axd?picture=image_thumb_82.png" border="0" alt="image" width="603" height="161" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/html5/Audio.html" target="_blank"&gt;Try for your self and let me know how you get on&lt;/a&gt; (excuse the lack of the DOCTYPE, encoding etc.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s quote a catchy song, you&amp;rsquo;ll miss out if your browser doesn&amp;rsquo;t support it (or you are not familiar with view source &lt;img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="/blog/image.axd?picture=wlEmoticon-smile_8.png" alt="Smile" /&gt; )&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-08-15 23:21:00</pubDate>
+  <lastModified>2015-07-09 11:09:37</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>HTML-5-Audio</slug>
+  <tags>
+    <tag>Audio Tag HTML5</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

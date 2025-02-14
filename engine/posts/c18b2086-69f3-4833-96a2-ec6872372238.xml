@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Cloud Computing (Azure) here I come</title>
+  <description />
+  <content>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_39.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="/blog/image.axd?picture=image_thumb_39.png" border="0" alt="image" width="788" height="220" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve been playing (seriously playing) with Visual Studio LightSwitch for the last few weeks and I have to say it&amp;rsquo;s knocking my socks off, not since I programmed in MS Access (am I allowed to say that? Should I even admit where it all started for me back in 1995&amp;hellip;.), anyway,,, not since I programmed in MSAccess have I really seen a real&amp;nbsp;a tool that really puts the R into RAD&amp;nbsp;when it comes to small system&amp;nbsp;data managment.&lt;/p&gt;
+&lt;p&gt;So now I want to publish my efforts as I&amp;rsquo;ve suckered a friend into some peer review, I could publish it to one of my webservers, manually set up a Sql Database etc (don&amp;rsquo;t have lightswitch deployment support on any of my servers just yet); but this Azure option was just too tempting.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_40.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="/blog/image.axd?picture=image_thumb_40.png" border="0" alt="image" width="710" height="697" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Ok.. it didn&amp;rsquo;t take 15 minutes (more like 10) but I&amp;rsquo;ve now got access, hopefully I&amp;rsquo;ll do a follow up after I publish the final version of my app&amp;hellip; stay tuned..&lt;/p&gt;
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_41.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="/blog/image.axd?picture=image_thumb_41.png" border="0" alt="image" width="716" height="659" /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-04-19 21:51:00</pubDate>
+  <lastModified>2011-04-19 21:54:15</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Azure-here-I-come</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

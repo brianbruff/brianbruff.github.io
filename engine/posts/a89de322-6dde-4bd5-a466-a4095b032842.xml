@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Different views in WPF/Silverlight</title>
+  <description />
+  <content>&lt;p&gt;In my early WPF days I noticed the magic that having two different controls bound to the Same ObservableCollection meant that when I selected an item in one control, the same item got selected in the other.... which i I didn't want.&lt;/p&gt;
+&lt;h2&gt;CollectionViewSource &lt;span style="font-size: xx-small;"&gt;To the rescue&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&amp;lt;Window.Resources&amp;gt;&lt;br /&gt;&amp;lt;local:MyData x:Key="MyData"/&amp;gt;&amp;nbsp;&amp;nbsp; &lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;CollectionViewSource x:Key="AllData" Source="{StaticResource MyData}"/&amp;gt;&amp;nbsp;&amp;nbsp; &lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;CollectionViewSource x:Key="SearchData" Source="{StaticResource MyData}" Filter="MySearch"/&amp;gt;&amp;nbsp;&amp;nbsp; &lt;br /&gt;&amp;lt;/Window.Resources&amp;gt;&amp;nbsp; &lt;br /&gt;&amp;nbsp; &lt;br /&gt;&amp;lt;ListBox ItemsSource="{Binding Source={StaticResource AllData}}"/&amp;gt;&amp;nbsp;&amp;nbsp; &lt;br /&gt;&amp;lt;ListBox ItemsSource="{Binding Source={StaticResource SearchData}}"/&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2010-02-25 22:01:00</pubDate>
+  <lastModified>2010-03-02 12:29:06</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Different-views-onto-the-Same-data-in-wpf</slug>
+  <tags>
+    <tag>wpf databinding</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

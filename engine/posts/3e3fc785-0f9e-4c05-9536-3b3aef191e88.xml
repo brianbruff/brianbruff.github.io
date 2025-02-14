@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Kotlin: A better Java</title>
+  <description />
+  <content>&lt;p&gt;I’ve been quite vocal in the past that the Java language syntax is low on my list of favourite languages. I believe this stems from the fact that I write lots of C# (and even Typescript) these days, and those languages are a lot nicer to work with. &lt;/p&gt;  &lt;p&gt;Lately I invested a little time in other languages, Go and Kotlin for the JVM. &lt;/p&gt;  &lt;p&gt;While I’m yet to formulate my view on GoLang&amp;#160; I absolutely fell in love with Kotlin from jetbrains; if you work on the JVM I encourage you to check it out, It is simply awesome!&lt;/p&gt; &lt;script height="200px" width="200px" src="https://gist.github.com/brianbruff/dacd473346ac38074b60354dc66af3f9.js"&gt;&lt;/script&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2017-11-23 14:07:50</pubDate>
+  <lastModified>2017-11-23 14:11:49</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>A-better-Java</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

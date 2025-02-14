@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Silverlight 4 Databinding and VS2010</title>
+  <description />
+  <content>&lt;p&gt;If you've got a data driven application, databinding is the infrastructure&amp;nbsp;of choice&amp;nbsp;that makes the link between data&amp;nbsp;and your UX&lt;/p&gt;
+&lt;p&gt;Silverlight 4 has a few improvments that brings it closer to WPF&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TargetNullValue&amp;nbsp; - lets you specify the what to display&amp;nbsp;in the target&amp;nbsp;when the source value is null&lt;br /&gt;e.g.&amp;nbsp; {Binding Path=Name, TargetNullValue=NoName}&lt;/li&gt;
+&lt;li&gt;StringFormat - specify how a strnig should be formatted&lt;br /&gt;e.g.&amp;nbsp; {Binding Path=Salary, StringFormat=C}&lt;/li&gt;
+&lt;li&gt;FallbackValue - I love this one, comes in pretty handy when dealing with polymorphic classes where a you know in advance what properties specialized classes have and want to display them... or display a fallback value if they don't exist.&lt;br /&gt;e.g.&amp;nbsp; {Binding Path=LastLoggedOn, FallbackValue=Never}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2010-03-03 15:32:00</pubDate>
+  <lastModified>2015-07-09 11:12:01</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Silverlight-4-Databinding-and-VS2010</slug>
+  <tags>
+    <tag>databinding</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

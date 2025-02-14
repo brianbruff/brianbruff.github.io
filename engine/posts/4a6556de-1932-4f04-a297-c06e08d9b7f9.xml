@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>ASP MVC4 Web API file upload: Unexpected end of MIME</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;So I’ve had a problem uploading a file using a HTML5 input of type file field.&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_252.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="./image.axd?picture=image_thumb_252.png" width="690" height="150" /&gt;&lt;/a&gt; &lt;/p&gt;  &lt;p&gt;For love nor money could I see a problem with the code above (in my defence I’m working on this project late in the evening and have my First dose of Man Flu this year, I’m a 2012 survivor see: &lt;a href="http://www.manfluanonymous.com"&gt;www.manfluanonymous.com&lt;/a&gt; )&lt;/p&gt;  &lt;p&gt;When i get into my server code an exception was getting thrown when i read the multipart post.&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_253.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="./image.axd?picture=image_thumb_253.png" width="666" height="92" /&gt;&lt;/a&gt; &lt;/p&gt;  &lt;p&gt;All the Googling in the world didn’t help me, I saw lots of people adding “\r\n” which I’m still scratching my head over to be honest, I saw others complain about the MVC4 beta..&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&lt;a href="/post/2012/04/04/Uploading-a-file-in-MVC4-C5-NET-45.aspx"&gt;But hang on: I’ve done this before&lt;/a&gt;: So what has changed? actually something really silly , &lt;/p&gt;  &lt;p&gt;I simply forgot to set the input name attribute!!!&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_254.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="./image.axd?picture=image_thumb_254.png" width="604" height="66" /&gt;&lt;/a&gt; &lt;/p&gt;  &lt;p&gt;Hope this helps somebody …&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2013-04-03 13:31:09</pubDate>
+  <lastModified>2015-07-09 11:03:29</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>ASP-MVC4-Web-API-file-upload-Unexpected-end-of-MIME</slug>
+  <tags>
+    <tag>Unexpected end of MIME MVC WebApi</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

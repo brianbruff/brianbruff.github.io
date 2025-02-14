@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>WPF ErrorList</title>
+  <description />
+  <content>&lt;p&gt;&lt;a href="http://errorlist.codeplex.com/"&gt;http://errorlist.codeplex.com/&lt;/a&gt;&lt;/p&gt;  &lt;h1&gt;ErrorList&lt;/h1&gt;  &lt;p&gt;I recently wrote a control that tries to replicate the error list seen in Visual studio.&lt;/p&gt;  &lt;p&gt;The control is dependant on .NET 3.5 SP1. because it uses the WPFToolkit.&lt;/p&gt;  &lt;p&gt;I'm hosting a sample here. [Update August 2012 My host has stopped xbap application types, sorry]&lt;/p&gt;  &lt;h2&gt;Screenshot&lt;/h2&gt;  &lt;p&gt;&lt;img alt="" src="/blog/image.axd?picture=2009%2f11%2fsampleerrorlist.jpeg" width="712" height="336" /&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2009-11-05 14:18:00</pubDate>
+  <lastModified>2015-07-09 11:13:19</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>WPF-ErrorList</slug>
+  <tags>
+    <tag>wpf</tag>
+    <tag>visual studio</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications>
+    <email>b@briankeat.com</email>
+  </notifications>
+</post>

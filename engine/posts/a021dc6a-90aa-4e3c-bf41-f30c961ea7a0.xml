@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Using MVC5 Owin Security with EF Code First</title>
+  <description />
+  <content>&lt;p&gt;Good evening, I’d like to share my solution for using MVC5 Owin security with VS2013 Update 1.    &lt;br /&gt;I wanted to have my own DBContext contain both my own DBSets and also the security tables.&lt;/p&gt;  &lt;p&gt;Now I could find zero documentation on this and I actually walked away from the bleeding edge last week and reverted to MVC4. Tonight I had some free time and like a dog with a bone I wanted to figure this out. I’m not saying I came up with the nicest or correct solution, but alas I came up with something that appears to be working for me.    &lt;br /&gt;Please feel free to give me any feedback I’d appreciate it.&lt;/p&gt;  &lt;h2&gt;The problem&lt;/h2&gt;  &lt;p&gt;I wanted one single database containing my own entities and also the security entities.    &lt;br /&gt;I wanted to use the latest MVC5 built on the &lt;a href="http://owin.org/" target="_blank"&gt;OWIN&lt;/a&gt; (open web interface for .net).     &lt;br /&gt;I wanted to use code first migrations to keep my database up to date.     &lt;br /&gt;I could find no documentation..&lt;/p&gt;  &lt;h2&gt;The Solution&lt;/h2&gt;  &lt;ul&gt;   &lt;li&gt;Create my own entity class      &lt;br /&gt;&lt;a href="./image.axd?picture=image_271.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="./image.axd?picture=image_thumb_271.png" width="244" height="112" /&gt;&lt;/a&gt; &lt;/li&gt; &lt;/ul&gt;  &lt;p&gt;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;Create my own DBContext and IdentityStoreContext (the secret sauce)&amp;#160; &lt;/li&gt; &lt;/ul&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_272.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; display: inline" border="0" alt="image" src="./image.axd?picture=image_thumb_272.png" width="666" height="277" /&gt;&lt;/a&gt; The SiteCertDbContext derives from the IdentityDbContext used by default in MVC5 Update1.&lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;Tell the account controller use this new DbContext&lt;/li&gt; &lt;/ul&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_273.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; display: inline" border="0" alt="image" src="./image.axd?picture=image_thumb_273.png" width="597" height="134" /&gt;&lt;/a&gt; &lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;&lt;/li&gt; &lt;/ul&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;That’s pretty much it,&amp;#160; hope it helps someone else out you can now open the Nuget package manager and Enable-Migrations.&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2013-08-16 14:18:48</pubDate>
+  <lastModified>2015-07-09 11:01:50</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Using-MVC5-Owin-Security-with-EF-Code-First</slug>
+  <tags>
+    <tag>Owin</tag>
+    <tag>Security</tag>
+    <tag>EF Code First</tag>
+    <tag>Identity</tag>
+    <tag>IdentityStoreManager</tag>
+    <tag>IdentityStoreContext</tag>
+    <tag>IdentityDbContext</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

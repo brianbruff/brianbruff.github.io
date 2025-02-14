@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>MVC Scaffolding and EF4CodeFirst–A data driven website in under a minute!</title>
+  <description />
+  <content>&lt;p&gt;.&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Here’s a run through on how to create a data driven web application in under a minute. I’m going to create a simple part tracking system as to manage the vast amount of helicopter parts lying about my garage. Some parts I’ll never use, some parts are missing little comprising bits, the idea is to deploy the application as part of the club website allowing members to quickly find a part in a hurry for the big upcoming competition&lt;/p&gt; &lt;p&gt;Lets get started: &lt;/p&gt; &lt;p&gt;1) Install MVC Scaffolding if you’ve not done so before, go to the package console and type Install-Package MvcScaffolding&lt;/p&gt; &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_54.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_54.png" width="592" height="310"&gt;&lt;/a&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Create a class for the part &lt;/li&gt;&lt;/ul&gt; &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_55.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_55.png" width="953" height="604"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_56.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_56.png" width="704" height="229"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Now type Scaffold Controller PartModel&lt;/p&gt; &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_57.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_57.png" width="763" height="292"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Here you see that all the views get created, hey and they are even &lt;a href="/blog/post/2011/02/09/DRY-out-your-MVC-Views.aspx" target="_blank"&gt;DRY&lt;/a&gt;&lt;/p&gt; &lt;p&gt;If you want to make unit testing easier or suport Ioc etc you can use the –&lt;strong&gt;Repository &lt;/strong&gt;flag.&lt;br&gt;If you need to rescaffold then use –Force.&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Ok so we’re 50 seconds into this at this stage, and we could just run the application now provided we’ve got sqlexpress installed. However if you won’t we can use SqlCompact version.&lt;/p&gt; &lt;p&gt;Drop back into the Package Manager Consoler and &lt;/p&gt;&lt;pre&gt;Install-Package EFCodeFirst.SqlServerCompact&lt;/pre&gt;&lt;pre&gt;&amp;nbsp;&lt;/pre&gt;&lt;pre&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_58.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_58.png" width="554" height="391"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;That’s it, Q.E.D.&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-06-15 11:03:01</pubDate>
+  <lastModified>2014-01-07 06:59:49</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>MVC-Scaffolding-and-EF4CodeFirst–A-data-driven-website-in-under-a-minute!</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

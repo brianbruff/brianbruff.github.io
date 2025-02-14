@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>SqlServer 2008 Prevent Saving changes</title>
+  <description />
+  <content>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;When you modify a table in SqlServer and this change requires the table to be dropped and recreated, it&amp;rsquo;s necessary that&amp;nbsp;SSMS is configured to allow this.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_28.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="/blog/image.axd?picture=image_thumb_28.png" border="0" alt="image" width="462" height="368" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Go to SSMS/Tools/Options designers and uncheck this option.&lt;/p&gt;
+&lt;p&gt;See below&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_29.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="/blog/image.axd?picture=image_thumb_29.png" border="0" alt="image" width="607" height="353" /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-02-27 22:56:00</pubDate>
+  <lastModified>2011-02-28 00:36:35</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>SqlServer-2008-Prevent-Saving-changes</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

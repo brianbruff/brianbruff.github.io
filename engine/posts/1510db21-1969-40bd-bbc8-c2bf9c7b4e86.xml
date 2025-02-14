@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Progressive Enhancement with Modernizr</title>
+  <description />
+  <content>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;ve been to a HTML5 session or lived in the html5 world for any length of time you&amp;rsquo;ll have come across the term &amp;ldquo;Progressive Enhancement&amp;rdquo;. It&amp;rsquo;s about taking a base application that works on downstream browsers and detecting features and increasing functionality if you have certain features.&lt;/p&gt;
+&lt;p&gt;Take example local or session storage, in older versions of browsers there was no local storage so there would be more round tripping.&lt;/p&gt;
+&lt;p&gt;So how do we detect these features? One method is a javascript file called Modernizr that detects feature availability (rather than using a database etc).&lt;/p&gt;
+&lt;p&gt;Syntax:&lt;/p&gt;
+&lt;div class="csharpcode"&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   1:  &lt;/span&gt;&lt;span class="kwrd"&gt;if&lt;/span&gt; (Modernizr.localstorage) &lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;   2:  &lt;/span&gt;{    &lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   3:  &lt;/span&gt;    &lt;span class="rem"&gt;// browser supports local storage&lt;/span&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;   4:  &lt;/span&gt;}&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   5:  &lt;/span&gt;&lt;span class="kwrd"&gt;else&lt;/span&gt; &lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;   6:  &lt;/span&gt;{    &lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   7:  &lt;/span&gt;    &lt;span class="rem"&gt;// browser doesn't support local storage&lt;/span&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;   8:  &lt;/span&gt;}&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   9:  &lt;/span&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- .csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } --&gt;
+&lt;p&gt;&amp;nbsp;Check out modernizer it's got many detection and abstracts you from detection techniques.&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;ll get this script added to your project for free in MVC3.&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-07-15 15:16:00</pubDate>
+  <lastModified>2015-07-09 11:09:53</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Progressive-Enhancement-with-Modernizer</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications>
+    <email>erectz@hotmail.com</email>
+  </notifications>
+</post>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Dynamically load html into a div using jQuery</title>
+  <description />
+  <content>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: x-small;"&gt;Mucking about more and more with jQuery now that&amp;rsquo;s it&amp;rsquo;s pretty much become the industry standard, so I needed a little project to work on. I&amp;rsquo;ve previously created my online c.v. in a Silverlight4 app (must dig that out and add it to the site); this time I decided to stay clear of any server side tech. and do everything client side.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: x-small;"&gt;So I decided to use jQueryUI&amp;nbsp; &lt;/span&gt;&lt;a title="http://jqueryui.com/" href="http://jqueryui.com/"&gt;&lt;span style="font-size: x-small;"&gt;http://jqueryui.com/&lt;/span&gt;&lt;/a&gt;&lt;span style="font-size: x-small;"&gt; for a few UX components; first step was to create some tabs.&lt;/span&gt;&lt;/p&gt;
+&lt;h4&gt;Creating tabs:&lt;/h4&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: x-small;"&gt;Now if you look at jQueryUI samples for tabs you&amp;rsquo;ll see something like this.&lt;/span&gt;&lt;/p&gt;
+&lt;div class="csharpcode"&gt;
+&lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;div&lt;/span&gt; &lt;span class="attr"&gt;id&lt;/span&gt;&lt;span class="kwrd"&gt;="tabs"&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;pre&gt;            &lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;ul&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;pre class="alt"&gt;                &lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;li&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;a&lt;/span&gt; &lt;span class="attr"&gt;href&lt;/span&gt;&lt;span class="kwrd"&gt;="#tabs-1"&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;First&lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;a&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;li&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;pre&gt;                &lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;li&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;a&lt;/span&gt; &lt;span class="attr"&gt;href&lt;/span&gt;&lt;span class="kwrd"&gt;="#tabs-2"&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;Second&lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;a&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;li&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;pre class="alt"&gt;                &lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;li&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;a&lt;/span&gt; &lt;span class="attr"&gt;href&lt;/span&gt;&lt;span class="kwrd"&gt;="#tabs-3"&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;Third&lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;a&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;li&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;pre&gt;            &lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;ul&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;pre class="alt"&gt;            &lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;div&lt;/span&gt; &lt;span class="attr"&gt;id&lt;/span&gt;&lt;span class="kwrd"&gt;="tabs-1"&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et .&lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;div&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;pre&gt;            &lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;div&lt;/span&gt; &lt;span class="attr"&gt;id&lt;/span&gt;&lt;span class="kwrd"&gt;="tabs-2"&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. .&lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;div&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;pre class="alt"&gt;            &lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;div&lt;/span&gt; &lt;span class="attr"&gt;id&lt;/span&gt;&lt;span class="kwrd"&gt;="tabs-3"&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget.&lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;div&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;pre&gt;        &lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;div&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- .csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } --&gt;
+&lt;p&gt;&lt;span style="background-color: #f4f4f4; font-family: Consolas; color: #000000; font-size: x-small;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: x-small;"&gt;Now this is all well and good, but I&amp;rsquo;ve never been one for dumping a load of html/c#/javascript etc onto my page, maybe it&amp;rsquo;s my c++ beginnings etc that causes me to look for a structured solution, but whatever it is, I decided to put the content of each tab into a separate web page.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: x-small;"&gt;Here&amp;rsquo;s how:&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style="font-size: x-small;"&gt;Create your webpages &lt;br /&gt;&lt;br /&gt;&lt;a href="/blog/image.axd?picture=image_33.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="/blog/image.axd?picture=image_thumb_33.png" border="0" alt="image" width="639" height="571" /&gt;&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Load your content into the tab divs (I&amp;rsquo;ve just done this after the DOM is loaded with jQuery, I may lazy load other pages&amp;hellip;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="csharpcode"&gt;
+&lt;pre class="alt"&gt;&amp;lt;script type=&lt;span class="str"&gt;"text/javascript"&lt;/span&gt;&amp;gt;&lt;/pre&gt;
+&lt;pre&gt;    $(&lt;span class="kwrd"&gt;function&lt;/span&gt;(){                        &lt;/pre&gt;
+&lt;pre class="alt"&gt;        &lt;span class="rem"&gt;// Init the tab control with jQuery &lt;/span&gt;&lt;/pre&gt;
+&lt;pre&gt;        $(&lt;span class="str"&gt;'#tabs'&lt;/span&gt;).tabs();&lt;/pre&gt;
+&lt;pre class="alt"&gt;        &lt;span class="rem"&gt;// Load the first page&lt;/span&gt;&lt;/pre&gt;
+&lt;pre&gt;        $(&lt;span class="str"&gt;'#tabs-1'&lt;/span&gt;).load(&lt;span class="str"&gt;'ResumeTabs/Personal.htm'&lt;/span&gt;);                    &lt;/pre&gt;
+&lt;pre class="alt"&gt;    });&lt;/pre&gt;
+&lt;pre&gt;&amp;lt;/script&amp;gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- .csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } --&gt;
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_34.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="/blog/image.axd?picture=image_thumb_34.png" border="0" alt="image" width="430" height="164" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_35.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="/blog/image.axd?picture=image_thumb_35.png" border="0" alt="image" width="566" height="433" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s it, pretty impressive ey&amp;hellip; (that or I&amp;rsquo;m just easily impressed)&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-03-05 02:01:00</pubDate>
+  <lastModified>2014-01-27 02:10:43</lastModified>
+  <raters>1</raters>
+  <rating>4</rating>
+  <slug>Dynamically-load-html-into-a-div-using-jQuery</slug>
+  <tags>
+    <tag>jQuery</tag>
+    <tag>vs2010</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

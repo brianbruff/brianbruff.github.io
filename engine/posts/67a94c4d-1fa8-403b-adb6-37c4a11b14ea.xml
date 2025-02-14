@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>.NET DateTime Webservices UTC</title>
+  <description>Differences between .NET versions in SOAP message deserialization</description>
+  <content>&lt;p&gt;With .NET 1.1 when we receive a UTC DateTime in a SOAP response from a Webservice it used to get converted to Local time.&lt;/p&gt;  &lt;p&gt;With .NET 2.0 when we receive a UTC DateTime in a SOAP response it stays in UTC.&lt;/p&gt;  &lt;p&gt;If you need it in local time make sure to call .ToLocalTime()&lt;/p&gt;  &lt;p&gt;** Edit: P.s. Have a look at this neat class in the framework &lt;a href="http://msdn.microsoft.com/en-us/library/system.xml.xmlconvert.aspx" target="_new"&gt;XmlConvert&lt;/a&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2009-12-02 23:18:00</pubDate>
+  <lastModified>2014-01-27 02:11:25</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>NET-DateTime-Webservices-UTC</slug>
+  <tags>
+    <tag>wcf</tag>
+    <tag>.net 1.1</tag>
+    <tag>.net 2.0</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Key modifiers</title>
+  <description />
+  <content>&lt;p&gt;Recently I used PInvoke to check if the SHIFT key was pressed while i was doing a drag operation......&lt;/p&gt;
+&lt;p&gt;what I should have done then and have done now is&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;[code:c#]&lt;/p&gt;
+&lt;p&gt;if((Keyboard.Modifiers &amp;amp; ModifierKeys.Shift) != ModifierKeys.None)&lt;br /&gt;&amp;nbsp; Trace.WriteLine("Shift is pressed");&lt;/p&gt;
+&lt;p&gt;[/code]&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2009-12-22 22:32:00</pubDate>
+  <lastModified>2009-12-22 22:41:50</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Key-modifiers</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

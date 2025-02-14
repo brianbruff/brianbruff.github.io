@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>VS2019 Docker ASP Core Environment Vars</title>
+  <description />
+  <content>&lt;h2&gt;Tip&lt;/h2&gt;  &lt;p&gt;If you are debugging with VS2017/9 and want to pass environment variables to your container then read this post, if you are looking for picture of cats then sorry but leave a comment how you got here&lt;/p&gt;  &lt;p&gt;&amp;nbsp;&lt;/p&gt;  &lt;h3&gt;Step 1&lt;/h3&gt;  &lt;p&gt;Create a new text file, the name doesn’t matter, but i called mine Dockerfile.env&lt;/p&gt;  &lt;table cellspacing="0" cellpadding="2" width="400" border="0"&gt;&lt;tbody&gt;     &lt;tr&gt;       &lt;td valign="top" width="400"&gt;&lt;a href="http://bknet.azurewebsites.net/image.axd?picture=image_440.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; margin: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://bknet.azurewebsites.net/image.axd?picture=image_thumb_441.png" width="218" height="67"&gt;&lt;/a&gt;&lt;/td&gt;     &lt;/tr&gt;      &lt;tr&gt;       &lt;td valign="top" width="400"&gt;&lt;a href="http://bknet.azurewebsites.net/image.axd?picture=image_441.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; margin: 0px 10px 0px 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://bknet.azurewebsites.net/image.axd?picture=image_thumb_442.png" width="396" height="64"&gt;&lt;/a&gt;&lt;/td&gt;     &lt;/tr&gt;   &lt;/tbody&gt;&lt;/table&gt;  &lt;p&gt;&amp;nbsp;&lt;/p&gt;  &lt;h3&gt;Step 2&lt;/h3&gt;  &lt;p&gt;Add this file to your .csproj file.&lt;/p&gt;  &lt;table cellspacing="0" cellpadding="2" width="400" border="0"&gt;&lt;tbody&gt;     &lt;tr&gt;       &lt;td valign="top" width="400"&gt;&lt;a href="http://bknet.azurewebsites.net/image.axd?picture=image_442.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; margin: 0px 10px 0px 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://bknet.azurewebsites.net/image.axd?picture=image_thumb_443.png" width="840" height="283"&gt;&lt;/a&gt;&lt;/td&gt;     &lt;/tr&gt;   &lt;/tbody&gt;&lt;/table&gt;      &lt;h3&gt;Step 3&lt;/h3&gt;  &lt;p&gt;Not really a step but you you can simply query your Environment variable in the usual fashion (&lt;em&gt;Environment.GetEnvironmentVariable()&lt;/em&gt;)&lt;/p&gt;  &lt;table cellspacing="0" cellpadding="2" width="400" border="0"&gt;&lt;tbody&gt;     &lt;tr&gt;       &lt;td valign="top" width="400"&gt;&lt;a href="http://bknet.azurewebsites.net/image.axd?picture=image_443.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; margin: 0px 10px 0px 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://bknet.azurewebsites.net/image.axd?picture=image_thumb_444.png" width="856" height="359"&gt;&lt;/a&gt;&lt;/td&gt;     &lt;/tr&gt;   &lt;/tbody&gt;&lt;/table&gt;  &lt;p&gt;&amp;nbsp;&lt;/p&gt;  &lt;h2&gt;Note:&lt;/h2&gt;  &lt;p&gt;Needless to say when you run in production you’ll need to pass the Environment variable according to Docker documentation which I don’t cover here&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2019-01-03 18:11:00</pubDate>
+  <lastModified>2019-01-03 20:01:10</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>VS2019-Docker-ASPnet-Core-Evnrionment-Variables</slug>
+  <tags>
+    <tag>vs2017</tag>
+    <tag>vs2019</tag>
+    <tag>docker</tag>
+  </tags>
+  <comments />
+  <categories>
+    <category>1f7d3ffa-be0f-4020-9ed1-50209beeb782</category>
+    <category>36de3eee-b8c6-433c-9694-edd60af17bb4</category>
+    <category>94d0f0fb-e95e-4076-82f7-5e0aff5e89fc</category>
+  </categories>
+  <notifications />
+</post>

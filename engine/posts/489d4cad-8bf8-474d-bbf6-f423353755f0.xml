@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Removing sensitive data from git</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;Ok, so in my case it was not so sensitive, I had generated a publish profile for one of my projects, that said I don’t want the world and their aunty to be able to publish their apps to my server so I needed to remove my sensitive data from git.&lt;/p&gt;  &lt;h2&gt;Here’s how&lt;/h2&gt;  &lt;pre class="command-line" style="overflow: hidden; font-size: 13px; border-top: rgb(221,221,221) 2px solid; font-family: monaco, &amp;#39;DejaVu Sans Mono&amp;#39;, &amp;#39;Courier New&amp;#39;, monospace; border-right: rgb(221,221,221) 2px solid; font-variant: normal; vertical-align: baseline; border-bottom: rgb(221,221,221) 2px solid; text-transform: none; word-spacing: 0px; font-weight: normal; color: rgb(255,255,255); padding-bottom: 10px; font-style: normal; padding-top: 10px; padding-left: 10px; margin: 10px 0px; border-left: rgb(221,221,221) 2px solid; orphans: 2; widows: 2; letter-spacing: normal; padding-right: 10px; background-color: rgb(51,51,51); text-indent: 0px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; -webkit-background-clip: padding-box; background-clip: padding-box; -webkit-font-smoothing: auto; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px"&gt;git filter-branch --index-filter 'git rm --cached --ignore-unmatch mySensitive.data' 
+  --prune-empty --tag-name-filter cat -- --all&lt;/pre&gt;
+
+&lt;pre class="command-line" style="overflow: hidden; font-size: 13px; border-top: rgb(221,221,221) 2px solid; font-family: monaco, &amp;#39;DejaVu Sans Mono&amp;#39;, &amp;#39;Courier New&amp;#39;, monospace; border-right: rgb(221,221,221) 2px solid; font-variant: normal; vertical-align: baseline; border-bottom: rgb(221,221,221) 2px solid; text-transform: none; word-spacing: 0px; font-weight: normal; color: rgb(255,255,255); padding-bottom: 10px; font-style: normal; padding-top: 10px; padding-left: 10px; margin: 10px 0px; border-left: rgb(221,221,221) 2px solid; orphans: 2; widows: 2; letter-spacing: normal; padding-right: 10px; background-color: rgb(51,51,51); text-indent: 0px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; -webkit-background-clip: padding-box; background-clip: padding-box; -webkit-font-smoothing: auto; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px"&gt;git commit -m &amp;quot;Add Rakefile to .gitignore&amp;quot;&lt;/pre&gt;
+
+&lt;pre class="command-line" style="overflow: hidden; font-size: 13px; border-top: rgb(221,221,221) 2px solid; font-family: monaco, &amp;#39;DejaVu Sans Mono&amp;#39;, &amp;#39;Courier New&amp;#39;, monospace; border-right: rgb(221,221,221) 2px solid; font-variant: normal; vertical-align: baseline; border-bottom: rgb(221,221,221) 2px solid; text-transform: none; word-spacing: 0px; font-weight: normal; color: rgb(255,255,255); padding-bottom: 10px; font-style: normal; padding-top: 10px; padding-left: 10px; margin: 10px 0px; border-left: rgb(221,221,221) 2px solid; orphans: 2; widows: 2; letter-spacing: normal; padding-right: 10px; background-color: rgb(51,51,51); text-indent: 0px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; -webkit-background-clip: padding-box; background-clip: padding-box; -webkit-font-smoothing: auto; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px"&gt;git push origin master –force&lt;/pre&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;p&gt;The above removes the file from history, you could add it to your .gitignore to ensure it’s not accidently added again.&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2013-01-28 13:24:34</pubDate>
+  <lastModified>2015-07-09 11:04:21</lastModified>
+  <raters>1</raters>
+  <rating>4</rating>
+  <slug>Removing-sensitive-data-from-git</slug>
+  <tags>
+    <tag>git filter-branch rm --cached --ignore-unmatch</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

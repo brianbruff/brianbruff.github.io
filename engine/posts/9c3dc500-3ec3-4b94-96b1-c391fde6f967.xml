@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Syncronization Context</title>
+  <description />
+  <content>&lt;p&gt;A sample of using SyncronizationContext to post a message back to the UX thread&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;[code:c#]&lt;/p&gt;
+&lt;p&gt;private void Window_Loaded(object sender, RoutedEventArgs e)&lt;br /&gt;{&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; SynchronizationContext ctx = SynchronizationContext.Current;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; ThreadPool.QueueUserWorkItem(_ =&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; WebClient client = new WebClient();&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; string html = client.DownloadString("https://www.briankeating.net");&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ctx.Post(state =&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tbDetails.Text = (string)state;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; }, html);&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; });&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;[/code]&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <iscommentsenabled>False</iscommentsenabled>
+  <pubDate>2010-09-08 21:17:00</pubDate>
+  <lastModified>2010-09-08 21:59:26</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Syncronization-Context</slug>
+  <tags />
+  <comments />
+  <categories>
+    <category>b57759b4-82ef-4c88-b3e7-6681c9975563</category>
+  </categories>
+  <notifications />
+</post>

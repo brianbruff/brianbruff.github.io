@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Tip: Auto Logon with Windows 7 User account.</title>
+  <description />
+  <content>&lt;p&gt;&lt;/form&gt;&amp;nbsp;&lt;/p&gt; &lt;form id="aspnetForm" method="post" name="aspnetForm" action="/blog/"&gt; &lt;div class="entry-content"&gt; &lt;p&gt;Ok, only you can decide if this is something you want to do, keeping in mind the security concerns.&lt;/p&gt; &lt;p&gt;&lt;strong&gt;&lt;span&gt;Here’s how:&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt; &lt;div&gt; &lt;ul&gt; &lt;li&gt;Press the Windows key + R on your keyboard to launch the “Run” dialog box. &lt;/li&gt; &lt;li&gt;Type in &lt;strong&gt;control userpasswords2&lt;/strong&gt; + ENTER&lt;/li&gt; &lt;li&gt;The User Accounts window will display. &lt;br&gt;&lt;/li&gt;&lt;a href="/blog/image.axd?picture=image_73.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_73.png" width="322" height="348"&gt;&lt;/a&gt;&lt;/ul&gt;&lt;/div&gt; &lt;ul&gt; &lt;li&gt;Uncheck “Users must enter a user name and password to use this computer”&lt;/li&gt; &lt;li&gt;Click OK&lt;/li&gt; &lt;li&gt;You will then be prompted to enter the current password and confirm it. &lt;/li&gt; &lt;li&gt;After doing so, you will no longer be prompted to enter your password upon login.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-08-04 11:03:11</pubDate>
+  <lastModified>2015-07-09 11:09:50</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Tip-Auto-Logon-with-Windows-7-User-account</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

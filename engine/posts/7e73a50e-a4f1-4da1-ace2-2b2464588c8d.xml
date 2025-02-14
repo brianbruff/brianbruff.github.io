@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Vs11 Xml</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;I’m working with an XML document all morning, and for the hell of it I decided to open in VS11.&lt;/p&gt;  &lt;p&gt;Guess what I found, some pretty cool xml/xsd/xslt support&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_180.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_180.png" width="678" height="251" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;but the biggest feature I found is the following…&lt;/p&gt;  &lt;p&gt;Paste XML as classes! BOOM!!&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_177.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_177.png" width="695" height="464" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_178.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_178.png" width="597" height="548" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;Loving VS11…&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2012-04-05 04:34:28</pubDate>
+  <lastModified>2015-07-09 11:06:03</lastModified>
+  <raters>1</raters>
+  <rating>5</rating>
+  <slug>Vs11-Xml</slug>
+  <tags>
+    <tag>Paste xml as classes</tag>
+    <tag>BOOM!</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

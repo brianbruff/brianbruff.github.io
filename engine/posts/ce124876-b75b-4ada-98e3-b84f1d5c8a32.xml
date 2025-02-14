@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Xamarin UIDeviceFamily</title>
+  <description>This bundle is invalid. The UIDeviceFamily key must be present when requiring a MinimumOSVersion of a t least 3.2.</description>
+  <content>&lt;p&gt;I was releasing an app to the the Apple App store tonight (actually two apps, I've done an Atley Hunter ;-) )&lt;/p&gt;  &lt;p&gt;One of my apps encountered a problem when I tried to upload my archive: &lt;/p&gt;  &lt;p&gt;&amp;quot;&lt;span style="font-size: 14px; font-family: &amp;#39;Helvetica Neue&amp;#39;, helvetica, arial, sans-serif; color: #777777; line-height: 21px"&gt;This bundle is invalid. The UIDeviceFamily key must be present when requiring a MinimumOSVersion of at least 3.2.&amp;quot;&lt;/span&gt;&lt;/p&gt;  &lt;p&gt;This did confuse me for a while, I did a bit of research and this information is supposed to be set automatically with XCode when I set the target platform. &lt;/p&gt;  &lt;p&gt;Given I was using Xamarin Studio I was a little unsure where I stood so i took a shot in the dark.    &lt;br /&gt;I changed the platform in Xamarin to Universal and then back to iPhone/iPod problem solved,&lt;/p&gt;  &lt;p&gt;hope this tip helps someone &lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2013-05-17 15:52:00</pubDate>
+  <lastModified>2015-07-09 11:02:29</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Xamarin-UIDeviceFamily</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

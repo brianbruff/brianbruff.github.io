@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Sample html5 canvas drawing</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;So how hard is it to draw on a html5 canvas? Well if you ever lived in a GDI+ world like I once did, then it’s pretty simple. In fact it’s somewhat familiar to silverlight/wpf people too, the parameters passed to draw a rectangle for example are , left, top, width, height. (GDI/Windows API people would me more familiar to using left,top,right,bottom (the RECT struct). Nonetheless, IMO drawing with the html5 canvas couldn’t be easier.&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_75.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_75.png" width="189" height="244" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;Here’s the code&lt;/p&gt;  &lt;div class="csharpcode"&gt;   &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   1:  &lt;/span&gt;@{&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;   2:  &lt;/span&gt;    ViewBag.Title = &amp;quot;Home Page&amp;quot;;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   3:  &lt;/span&gt;}&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;   4:  &lt;/span&gt;&lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;h2&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;@ViewBag.Message&lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;h2&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   5:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;   6:  &lt;/span&gt;&lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;canvas&lt;/span&gt; &lt;span class="attr"&gt;id&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;canvas&amp;quot;&lt;/span&gt; &lt;span class="attr"&gt;width&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;300&amp;quot;&lt;/span&gt; &lt;span class="attr"&gt;height&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;300&amp;quot;&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   7:  &lt;/span&gt;    Canvas not supported&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;   8:  &lt;/span&gt;&lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;canvas&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   9:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  10:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  11:  &lt;/span&gt;@section Scripts&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  12:  &lt;/span&gt;{&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  13:  &lt;/span&gt;    &lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  14:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  15:  &lt;/span&gt;    &amp;lt;script type=&lt;span class="str"&gt;&amp;quot;application/javascript&amp;quot;&lt;/span&gt;&amp;gt;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  16:  &lt;/span&gt;    &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  17:  &lt;/span&gt;        $(&lt;span class="kwrd"&gt;function&lt;/span&gt;() {&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  18:  &lt;/span&gt;            draw();&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  19:  &lt;/span&gt;        });&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  20:  &lt;/span&gt;    &lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;script&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  21:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  22:  &lt;/span&gt;    &amp;lt;script type=&lt;span class="str"&gt;&amp;quot;application/javascript&amp;quot;&lt;/span&gt;&amp;gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  23:  &lt;/span&gt;        &lt;span class="kwrd"&gt;function&lt;/span&gt; draw() {&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  24:  &lt;/span&gt;            &lt;span class="kwrd"&gt;if&lt;/span&gt; (Modernizr.canvas ) {&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  25:  &lt;/span&gt;                &lt;span class="kwrd"&gt;var&lt;/span&gt; canvas = document.getElementById(&lt;span class="str"&gt;&amp;quot;canvas&amp;quot;&lt;/span&gt;);&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  26:  &lt;/span&gt;                &lt;span class="kwrd"&gt;var&lt;/span&gt; ctx = canvas.getContext(&lt;span class="str"&gt;&amp;quot;2d&amp;quot;&lt;/span&gt;);&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  27:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  28:  &lt;/span&gt;                ctx.fillStyle = &lt;span class="str"&gt;&amp;quot;rgb(200,0,0)&amp;quot;&lt;/span&gt;;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  29:  &lt;/span&gt;                ctx.fillRect(10, 10, 100, 1000);&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  30:  &lt;/span&gt;            }            &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  31:  &lt;/span&gt;        }&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  32:  &lt;/span&gt;    &lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;script&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  33:  &lt;/span&gt;}&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s all you need to get started, there are some nice libraries starting to emerge that use html5 canvas (graphing etc)&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-08-07 23:16:46</pubDate>
+  <lastModified>2015-07-09 11:09:49</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Sample-html5-canvas-drawing</slug>
+  <tags>
+    <tag>html5</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

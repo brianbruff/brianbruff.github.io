@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Open Redirection Attack prevention</title>
+  <description />
+  <content>&lt;p&gt;If you've had a look at the MVC3 preview generated code you will notice the&amp;nbsp; Url.IsLocalUrl method getting called from the LogOn action.&lt;/p&gt;
+&lt;p&gt;[code:c#]&lt;/p&gt;
+&lt;p&gt;[HttpPost]&lt;br /&gt;public ActionResult LogOn(LogOnModel model, string returnUrl)&lt;br /&gt;{&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; if (ModelState.IsValid)&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; if (MembershipService.ValidateUser(model.UserName, model.Password))&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; FormsService.SignIn(model.UserName, model.RememberMe);&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; if (Url.IsLocalUrl(returnUrl))&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; return Redirect(returnUrl);&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; else&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; return RedirectToAction("Index", "Home");&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; else&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ModelState.AddModelError("", &lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; "The user name or password provided is incorrect.");&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;br /&gt;&amp;nbsp; &lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; // If we got this far, something failed, redisplay form&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; return View(model);&lt;br /&gt;}&lt;/p&gt;
+&lt;p&gt;[/code]&lt;/p&gt;
+&lt;p&gt;This prevents philishing attacks by ensuring that after a successful log on the user only gets directed to the local site and not another site.&lt;/p&gt;
+&lt;p&gt;Take for example I send you a email with a link to &lt;a href="/Account/LogOn?returnUrl=http://brainkeating.net/Account/LogOn"&gt;/Account/LogOn?returnUrl=http://brainkeating.net/Account/LogOn&lt;/a&gt;&lt;br /&gt;After you successfully enter your log on detail @ briankeating.net you would get redirected to &lt;a href="http://www.brAInkeating.net"&gt;www.brAInkeating.net&lt;/a&gt; if you are not quick enough to notice you could now be presented with an identical logon page at this different url, oh darn i typed my password wrong...., BrAIn Keating is a nasty piece of work, he will log your login details to his database and then use it to access briankeating.net with our credentials, not after you login @ brAInkeating.net you will get redirected back here to briankeating.net (where you've already authenticated and be none the wiser).&lt;/p&gt;
+&lt;p&gt;So what if you are still on MVC2 (most of my web apps these days are...) what can you do to avoid this attack...&lt;/p&gt;
+&lt;p&gt;That;s an easy one to answer, I've been a lazy bugger and lifted this code from &lt;a href="http://www.asp.net"&gt;www.asp.net&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[code:c#]&lt;/p&gt;
+&lt;p&gt;public bool IsLocalUrl(string url) {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; return System.Web.WebPages.RequestExtensions.IsUrlLocalToHost(&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; RequestContext.HttpContext.Request, url);&lt;br /&gt;}&lt;/p&gt;
+&lt;p&gt;[/code]&lt;/p&gt;
+&lt;p&gt;The IsUrlLocalToHost method contains the actual validation logic below&lt;/p&gt;
+&lt;p&gt;[code:c#]&lt;/p&gt;
+&lt;p&gt;public static bool IsUrlLocalToHost(this HttpRequestBase request, string url) {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; if (url.IsEmpty()) {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; return false;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;br /&gt;&amp;nbsp; &lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; Uri absoluteUri;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; if (Uri.TryCreate(url, UriKind.Absolute, out absoluteUri)) {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; return String.Equals(request.Url.Host, absoluteUri.Host, &lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; StringComparison.OrdinalIgnoreCase);&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; else {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; bool isLocal = !url.StartsWith("http:", StringComparison.OrdinalIgnoreCase)&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;amp;&amp;amp; !url.StartsWith("https:", StringComparison.OrdinalIgnoreCase)&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;amp;&amp;amp; Uri.IsWellFormedUriString(url, UriKind.Relative);&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; return isLocal;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;br /&gt;}&lt;/p&gt;
+&lt;p&gt;[/code]&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <iscommentsenabled>False</iscommentsenabled>
+  <pubDate>2011-01-04 18:57:00</pubDate>
+  <lastModified>2011-01-04 19:10:04</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Open-Redirection-Attack-prevention</slug>
+  <tags>
+    <tag>mvc</tag>
+    <tag>open redirection attack prevention</tag>
+  </tags>
+  <comments />
+  <categories>
+    <category>07032b18-8041-4040-af1c-f819e9d17919</category>
+  </categories>
+  <notifications />
+</post>

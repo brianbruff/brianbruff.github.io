@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Authenticate, Authorise WebApi with HttpClient</title>
+  <description />
+  <content>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Hi all, I said I&amp;rsquo;d post this because I didn&amp;rsquo;t manage to find a suitable blog post or documentation indicating how to do this with the HttpClient (beta).&amp;nbsp; (bleeding edge again ey).&lt;/p&gt;
+&lt;p&gt;This post outlines how to create a simple test server that has a Json Logon endpoint.   &lt;br /&gt;Then it shows how to login with the .net 4.5 HttpClient class. Lots of other post I saw were trying to set Channels on this HttpClient, I&amp;rsquo;ll have to assume this was from the developer preview or the Wcf predecessor. It appears now the solution comes in the form of a HttpClientHandler!&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s been a long day, up at 4am for a flight and then a long day at work, so lets cut to the chase&amp;hellip;&lt;/p&gt;
+&lt;h2&gt;Server&lt;/h2&gt;
+&lt;p&gt;For setup, create a new MVC4 internet application&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_185.png"&gt;&lt;img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_185.png" border="0" alt="image" width="244" height="220" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Why? because it gives me a AccountController with a JsonLogin action&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_186.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_186.png" border="0" alt="image" width="450" height="292" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Add a new ApiController&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_187.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_187.png" border="0" alt="image" width="387" height="183" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_188.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_188.png" border="0" alt="image" width="434" height="284" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Add the Authorize attribute&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_189.png"&gt;&lt;img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_189.png" border="0" alt="image" width="244" height="105" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Now we have a simple server setup for testing (no https etc, but lets not overcomplicate this just now).&lt;/p&gt;
+&lt;h2&gt;Client&lt;/h2&gt;
+&lt;p&gt;I just created a WPF client and called the following function on a button click.&lt;/p&gt;
+&lt;div class="csharpcode"&gt;
+&lt;pre class="alt"&gt;&lt;span class="kwrd"&gt;private&lt;/span&gt; async &lt;span class="kwrd"&gt;void&lt;/span&gt; Login()&lt;/pre&gt;
+&lt;pre&gt;{&lt;/pre&gt;
+&lt;pre class="alt"&gt;    var handler = &lt;span class="kwrd"&gt;new&lt;/span&gt; HttpClientHandler();&lt;/pre&gt;
+&lt;pre&gt;    CookieContainer cookieContainer = &lt;span class="kwrd"&gt;new&lt;/span&gt; CookieContainer();&lt;/pre&gt;
+&lt;pre class="alt"&gt;    handler.CookieContainer = cookieContainer;&lt;/pre&gt;
+&lt;pre&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;pre class="alt"&gt;    var client = &lt;span class="kwrd"&gt;new&lt;/span&gt; System.Net.Http.HttpClient(handler);&lt;/pre&gt;
+&lt;pre&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;pre class="alt"&gt;    var content = &lt;span class="kwrd"&gt;new&lt;/span&gt; FormUrlEncodedContent(&lt;span class="kwrd"&gt;new&lt;/span&gt; Dictionary&amp;lt;&lt;span class="kwrd"&gt;string&lt;/span&gt;, &lt;span class="kwrd"&gt;string&lt;/span&gt;&amp;gt;&lt;/pre&gt;
+&lt;pre&gt;    {&lt;/pre&gt;
+&lt;pre class="alt"&gt;        {&lt;span class="str"&gt;"UserName"&lt;/span&gt;, &lt;span class="str"&gt;"brianbruff1"&lt;/span&gt;},&lt;/pre&gt;
+&lt;pre&gt;        {&lt;span class="str"&gt;"Password"&lt;/span&gt;, &lt;span class="str"&gt;"password"&lt;/span&gt;}&lt;/pre&gt;
+&lt;pre class="alt"&gt;    });&lt;/pre&gt;
+&lt;pre&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;pre class="alt"&gt;    var response = await client.PostAsync(&lt;span class="str"&gt;"http://localhost:2122/account/jsonlogin"&lt;/span&gt;, content);&lt;/pre&gt;
+&lt;pre&gt;    response.EnsureSuccessStatusCode();&lt;/pre&gt;
+&lt;pre class="alt"&gt;    var msg = await response.Content.ReadAsStringAsync();&lt;/pre&gt;
+&lt;pre&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;pre class="alt"&gt;    &lt;span class="rem"&gt;// just get the default value from the starter project&lt;/span&gt;&lt;/pre&gt;
+&lt;pre&gt;    response = await client.GetAsync(&lt;span class="str"&gt;"http://localhost:2122/api/values"&lt;/span&gt;);&lt;/pre&gt;
+&lt;pre class="alt"&gt;    response.EnsureSuccessStatusCode();&lt;/pre&gt;
+&lt;pre&gt;    var list = await response.Content.ReadAsAsync&amp;lt;List&amp;lt;&lt;span class="kwrd"&gt;string&lt;/span&gt;&amp;gt;&amp;gt;();&lt;/pre&gt;
+&lt;pre class="alt"&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;pre&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;pre class="alt"&gt;}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- .csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } --&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s it, next steps to clean up this code are all yours,&amp;nbsp; but hopefully I&amp;rsquo;ve helped someone out.   &lt;br /&gt;Remember to register the user the first time your run your MVC app, or your msg variable will indicate you couldn&amp;rsquo;t be logged on.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;a href="/post/2012/04/11/Deserializing-Json.aspx" target="_blank"&gt;Remember to include Http.Formatters for the ReadAsAsync extension.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Brian.&lt;/p&gt;
+&lt;p&gt;Credit to&amp;nbsp;@&lt;span style="color: #777777; font-family: HelveticaNeue, 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 24px;"&gt;tomasmcguinness&lt;/span&gt;&amp;nbsp;for pointing me in the right direciton (my other approach was to use PKI).&lt;br /&gt;Credit to Microsoft for releasing the source so I could figure this out!&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2012-04-17 13:57:00</pubDate>
+  <lastModified>2015-07-09 11:05:41</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>HttpClient-Asp-membership-WebApi</slug>
+  <tags>
+    <tag>ASP WebApi login using HttpClient</tag>
+  </tags>
+  <comments>
+    <comment id="27edd071-406c-4c36-ae0a-75784102879a" parentid="00000000-0000-0000-0000-000000000000" approved="True" spam="False" deleted="False">
+      <date>2012-06-11 11:38:24</date>
+      <author>Robert</author>
+      <email>robert@csource.nl</email>
+      <country>nl</country>
+      <ip>188.142.18.136</ip>
+      <website>http://www.csource.nl/</website>
+      <moderatedby>brianbruff</moderatedby>
+      <avatar />
+      <content>Hi,
+
+Thanks for this article.
+
+I&amp;#39;m trying to find the template for &amp;#39;a new MVC4 internet application&amp;#39;. I mean I do have it, but it is the version without JsonLogin. Am I using an old template? Where can I find the new template with JsonLogin? 
+
+Would be great if you could help me out.
+
+Best wishes,
+Robert.
+
+</content>
+    </comment>
+    <comment id="6271c56b-823d-4053-8b09-a72a892d4773" parentid="00000000-0000-0000-0000-000000000000" approved="True" spam="False" deleted="False">
+      <date>2012-06-11 15:03:23</date>
+      <author>brianbruff</author>
+      <email>b@briankeating.net</email>
+      <country>us</country>
+      <ip>109.78.108.142</ip>
+      <website>https://www.briankeating.net/</website>
+      <moderatedby>brianbruff</moderatedby>
+      <avatar />
+      <content>I&amp;#39;ve just fired up VS2012 and sure enough JsonLogin no longer exists,
+but don&amp;#39;t worry.
+
+copy paste the existing login and just return Json like you can see in my post.
+
+Or I think if you put in an IF statement and just return JSon if the request is an ajax request should also work</content>
+    </comment>
+    <comment id="988a04e0-d9ed-432b-975d-4f25561a79f2" parentid="00000000-0000-0000-0000-000000000000" approved="True" spam="False" deleted="False">
+      <date>2013-06-18 08:00:57</date>
+      <author>movers los angeles</author>
+      <email>sabaattitute@gmail.com</email>
+      <country>us</country>
+      <ip>39.45.107.188</ip>
+      <avatar />
+      <content>Am I using an old template? Where can I find the new template with JsonLogin? </content>
+    </comment>
+  </comments>
+  <categories />
+  <notifications>
+    <email>robert@csource.nl</email>
+    <email>b@briankeating.net</email>
+    <email>alexander.charles84@yahoo.com</email>
+    <email>HennieBennink@yahoo.nl</email>
+    <email>sabaattitute@gmail.com</email>
+  </notifications>
+</post>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Azure, Sql User invalid from Azure Website</title>
+  <description />
+  <content>&lt;h2&gt;Problem&lt;/h2&gt;  &lt;p&gt;I was faced with a problem this morning that took me a good 30 minutes to figure out..&lt;/p&gt;  &lt;p&gt;I had created a website and associated SQL database. However I changed said database as part of some development work. The problem was that even though my publish profile was overriding the Release Connection String with my new database it was getting ignored!&lt;/p&gt;  &lt;table cellspacing="0" cellpadding="2" width="400" border="0"&gt;&lt;tbody&gt;     &lt;tr&gt;       &lt;td valign="top" width="400"&gt;&lt;a href="https://briankeating.net/image.axd?picture=image_360.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; display: inline" border="0" alt="image" src="https://briankeating.net/image.axd?picture=image_thumb_361.png" width="532" height="306" /&gt;&lt;/a&gt; &lt;/td&gt;     &lt;/tr&gt;   &lt;/tbody&gt;&lt;/table&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;I knew that the connection string I was supplying was correct as I could log in with Visual Studio and SSMS.&lt;/p&gt;  &lt;h2&gt;Cause:&lt;/h2&gt;  &lt;p&gt;The reason is that the website had already an connection string (under the Configure tab) and this was taking preference. The reason this is here is that one does not have to store the Azure connection string in the publish profile which is quite nice, same goes for a lot of other Azure features.&lt;/p&gt;  &lt;table cellspacing="0" cellpadding="2" width="400" border="0"&gt;&lt;tbody&gt;     &lt;tr&gt;       &lt;td valign="top" width="400"&gt;&lt;a href="https://briankeating.net/image.axd?picture=image_361.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; display: inline" border="0" alt="image" src="https://briankeating.net/image.axd?picture=image_thumb_362.png" width="776" height="472" /&gt;&lt;/a&gt; &lt;/td&gt;     &lt;/tr&gt;   &lt;/tbody&gt;&lt;/table&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;h2&gt;Solution&lt;/h2&gt;  &lt;p&gt;I removed same and then it works. (Fixing it is also another option but this code is in a private git repository so it’s not a concern for me just now).&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2015-01-18 13:20:59</pubDate>
+  <lastModified>2015-01-18 13:21:37</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Azure-Sql-User-cant-log-into-from-Azure-Website</slug>
+  <tags>
+    <tag>sqlserver</tag>
+    <tag>azure</tag>
+    <tag>ConnectionString</tag>
+    <tag>invalid login</tag>
+  </tags>
+  <comments />
+  <categories>
+    <category>05dd30fa-4cf5-4938-897f-33c8bd526a66</category>
+  </categories>
+  <notifications />
+</post>

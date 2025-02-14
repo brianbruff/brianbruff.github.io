@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Anonymous delegates and Lambdas</title>
+  <description>Sample lambda and anonymous methods</description>
+  <content>&lt;p&gt;Just a sample that may catch you eye as unusual..&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;[code:c#]&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;class WorkItem&lt;br /&gt;{&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; public WaitCallback Callback;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; public object State;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; public ExecutionContext Context;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; private static ContextCallback _contextCallback = s =&amp;gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; var item = s as WorkItem;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; item.Callback(item.State);&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; };&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; public void Execute()&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; if (Context != null)&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ExecutionContext.Run(Context, _contextCallback, this);&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; else&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Callback(State);&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;br /&gt;}&lt;/p&gt;
+&lt;p&gt;[/code]&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;but here's the same code using anon delegates&lt;/p&gt;
+&lt;p&gt;[code:c#]&lt;/p&gt;
+&lt;p&gt;class WorkItem&lt;br /&gt;{&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; public WaitCallback Callback;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; public object State;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; public ExecutionContext Context;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; private static ContextCallback _contextCallback = delegate(object s)&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; var item = s as WorkItem;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; item.Callback(item.State);&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; };&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; public void Execute()&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; if (Context != null)&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ExecutionContext.Run(Context, _contextCallback, this);&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; else&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Callback(State);&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;br /&gt;}&lt;/p&gt;
+&lt;p&gt;[/code]&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2010-02-22 23:47:00</pubDate>
+  <lastModified>2015-07-09 11:12:10</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Anonymous-delegates-and-Lambdas</slug>
+  <tags>
+    <tag>lambda anonymous</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Azure Tools</title>
+  <description />
+  <content>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;This evening I decided I&amp;rsquo;d install the new Azure tools after watching the latest vids that have appeared.&lt;/p&gt;
+&lt;p&gt;I right click on my MVC3 app and choose to: Add Windows Azure Deployment Project&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_126.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_126.png" border="0" alt="image" width="330" height="496" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Then I hit F5 to run the project and I get an error&lt;/p&gt;
+&lt;p&gt;&lt;span style="color: #ff0000;"&gt;Microsoft Visual Studio Unable to find file DFUI.exe&amp;nbsp; &lt;img class="wlEmoticon wlEmoticon-baringteethsmile" style="border-style: none;" src="./image.axd?picture=wlEmoticon-baringteethsmile.png" alt="Baring teeth smile" /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;Solution&lt;/h3&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;In the 1.5 SDK there used to be a registry key that pointed to the emulator, with 1.6 this no longer exists and Visual Studio is looking for the dfui.exe in a different location (use Process Monitor from Sysinternals.com to tell you where)&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_127.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_127.png" border="0" alt="image" width="548" height="530" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Once you find where Visual is looking for it, it&amp;rsquo;s a matter of copying the files in    &lt;br /&gt;C:\Program Files\Windows Azure Emulator\emulator\ to this location.&lt;/p&gt;
+&lt;p&gt;Try run you app now and it should work.&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_128.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_128.png" border="0" alt="image" width="537" height="277" /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-12-21 12:48:00</pubDate>
+  <lastModified>2015-07-09 11:07:49</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Azure-Tools</slug>
+  <tags>
+    <tag>Azures Emulator</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

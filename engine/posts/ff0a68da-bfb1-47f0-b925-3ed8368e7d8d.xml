@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Async Workflows in ASP.net</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;So tonight I’m going to show you one way on calling async workflows from ASP.net. I’ve decided to use web forms this time as I’m living in MVC land and it’ll help me keep the finger in.&lt;/p&gt;  &lt;p&gt;So lets take a look at the app we’re trying to build&lt;/p&gt;  &lt;p&gt;Client is a simple web form, the instruments are entered in the text box, fetch button is clicked and the result is output&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_83.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_83.png" width="363" height="184" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;Now the workflow, for the purpose of this test I won’t be connecting to any database webservice etc, I’ve just added a delay of 10 seconds and and assign the value of LastClose to &lt;/p&gt;  &lt;pre class="csharpcode"&gt;RIC &amp;amp; &lt;span class="str"&gt;&amp;quot; &amp;quot;&lt;/span&gt; &amp;amp; New Random().NextDouble()&lt;/pre&gt;
+&lt;style type="text/css"&gt;
+
+
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;
+
+&lt;p&gt;&lt;a href="./image.axd?picture=image_84.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_84.png" width="332" height="374" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;p&gt;Here’s the code behind for the &lt;strong&gt;non-async &lt;/strong&gt;button event handler&lt;/p&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;protected&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; Button1_Click(&lt;span class="kwrd"&gt;object&lt;/span&gt; sender, EventArgs e)&lt;/pre&gt;
+
+  &lt;pre&gt;        {&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            Contract.Requires&amp;lt;ArgumentException&amp;gt;(!&lt;span class="kwrd"&gt;string&lt;/span&gt;.IsNullOrWhiteSpace(tbInst1.Text) || !&lt;span class="kwrd"&gt;string&lt;/span&gt;.IsNullOrWhiteSpace(tbInst2.Text), &lt;span class="str"&gt;&amp;quot;Please enter values for instruments&amp;quot;&lt;/span&gt;);&lt;/pre&gt;
+
+  &lt;pre&gt;            &lt;span class="rem"&gt;// Make the call to the workflow to get the close for each instrument&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            &lt;span class="kwrd"&gt;try&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre&gt;            {&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                var args = &lt;span class="kwrd"&gt;new&lt;/span&gt; Dictionary&amp;lt;&lt;span class="kwrd"&gt;string&lt;/span&gt;, &lt;span class="kwrd"&gt;object&lt;/span&gt;&amp;gt;();&lt;/pre&gt;
+
+  &lt;pre&gt;                args.Add(&lt;span class="str"&gt;&amp;quot;RIC&amp;quot;&lt;/span&gt;, tbInst1.Text);                &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                var res = WorkflowInvoker.Invoke(_getPricesWFDefinition, args);&lt;/pre&gt;
+
+  &lt;pre&gt;                Label1.Text = res[&lt;span class="str"&gt;&amp;quot;LastClose&amp;quot;&lt;/span&gt;].ToString();&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre&gt;                args.Clear();&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                args.Add(&lt;span class="str"&gt;&amp;quot;RIC&amp;quot;&lt;/span&gt;, tbInst2.Text);&lt;/pre&gt;
+
+  &lt;pre&gt;                res = WorkflowInvoker.Invoke(_getPricesWFDefinition, args);&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                Label2.Text = res[&lt;span class="str"&gt;&amp;quot;LastClose&amp;quot;&lt;/span&gt;].ToString();&lt;/pre&gt;
+
+  &lt;pre&gt;            }&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            &lt;span class="kwrd"&gt;catch&lt;/span&gt; (Exception exp)&lt;/pre&gt;
+
+  &lt;pre&gt;            {&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                Trace.Warn(exp.Message);&lt;/pre&gt;
+
+  &lt;pre&gt;            }&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;style type="text/css"&gt;
+
+
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;&lt;/p&gt;
+
+&lt;p&gt;So as you can see, we’re waiting at least 20 seconds for our page to return, nasty. In theory we should be able to bring this down to 10 seconds as we can make the calls to the workflows async.&lt;/p&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;p&gt;Let me show you some options.&lt;/p&gt;
+
+&lt;h2&gt;Option 1&lt;/h2&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;private&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; Option1()&lt;/pre&gt;
+
+  &lt;pre&gt;        {&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre&gt;            var t1 = Option1TaskCreater(tbInst1, Label1);&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            var t2 = Option1TaskCreater(tbInst2, Label2);&lt;/pre&gt;
+
+  &lt;pre&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            Task.WaitAll(t1, t2);&lt;/pre&gt;
+
+  &lt;pre&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;        }&lt;/pre&gt;
+
+  &lt;pre&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;private&lt;/span&gt; Task Option1TaskCreater(TextBox tb, Label lb)&lt;/pre&gt;
+
+  &lt;pre&gt;        {&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            var t1 = Task.Factory.StartNew(() =&amp;gt;&lt;/pre&gt;
+
+  &lt;pre&gt;            {&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                var args = &lt;span class="kwrd"&gt;new&lt;/span&gt; Dictionary&amp;lt;&lt;span class="kwrd"&gt;string&lt;/span&gt;, &lt;span class="kwrd"&gt;object&lt;/span&gt;&amp;gt;();&lt;/pre&gt;
+
+  &lt;pre&gt;                args.Add(&lt;span class="str"&gt;&amp;quot;RIC&amp;quot;&lt;/span&gt;, tb.Text);&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                var res = WorkflowInvoker.Invoke(_getPricesWFDefinition, args);&lt;/pre&gt;
+
+  &lt;pre&gt;                lb.Text = res[&lt;span class="str"&gt;&amp;quot;LastClose&amp;quot;&lt;/span&gt;].ToString();&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            });&lt;/pre&gt;
+
+  &lt;pre&gt;            &lt;span class="kwrd"&gt;return&lt;/span&gt; t1;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;        } &lt;/pre&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;
+
+
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;p&gt;So we’re using the task library to make the two workflow requests async, and results look promising, down to about 10 seconds now… so any problems with doing this?&lt;/p&gt;
+
+&lt;p&gt;Well, tasks use threadpool threads to execute. So, the query will execute on a threadpool thread. To get true asynchronous execution(no worker threads blocked), we need to jump a little higher.&lt;/p&gt;
+
+&lt;p&gt;You may ask yourself when should you choose an asynchronous programming model (APM)?&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="./image.axd?picture=image_85.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_85.png" width="540" height="420" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So what is this telling us? Basically, if your app is I/O bound then you should use parallelism, if requests are computationally cheap to process, then parallelism is probably an unnecessary overhead. &lt;/p&gt;
+
+&lt;p&gt;If the incoming request rate is high, then adding more parallelism will likely yield few benefits and could actually decrease performance, since the incoming rate of work may be high enough to keep the CPUs busy. &lt;/p&gt;
+
+&lt;p&gt;If the incoming request rate is low, then the Web application could benefit from parallelism by using the idle CPU cycles to speed up the processing of an individual request. We can use either PLINQ or TPL (either Parallel loops or the Task class) to parallelize the computation over all the processors. Note that by default, however, the PLINQ implementation in .NET 4 will tie-up one ThreadPool worker per processor for the entire execution of the query. As such, it should only be used in Web applications that see few but expensive requests. &lt;/p&gt;</content>
+  <ispublished>False</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-08-24 16:02:28</pubDate>
+  <lastModified>2011-08-24 16:02:28</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Async-Workflows-in-ASPnet</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

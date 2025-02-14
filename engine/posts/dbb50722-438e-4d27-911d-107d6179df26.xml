@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>I’ve achieved my coding certification</title>
+  <description />
+  <content>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h5&gt;&lt;a href="http://www.codinghorror.com/blog/2007/03/the-works-on-my-machine-certification-program.html"&gt;The "Works on My Machine" Certification Program&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;Joseph Cooney had a brilliant idea for a new &lt;a href="http://jcooney.net/archive/2007/02/01/42999.aspx"&gt;application certification program&lt;/a&gt;. But Vista's bland white-on-gray badge, in my opinion, doesn't properly communicate the.. authoritative.. nature of said program. With the help of &lt;a href="http://weblogs.asp.net/jgalloway/"&gt;Jon Galloway&lt;/a&gt;, we zazzed things up a bit:&lt;/p&gt;
+&lt;p&gt;&lt;img src="/WOMM.png" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;You might think attaining such a prestigious, rigorous level of certification would be far too challenging. But fear not! Participating in this innovative new application certification program is as simple as pressing the F5 key on your keyboard. Just follow the &lt;a href="http://jcooney.net/archive/2007/02/01/42999.aspx"&gt;four easy steps Joseph outlined&lt;/a&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Compile your application code. Getting the latest version of any recent code changes from other developers is purely optional and not a requirement for certification. &lt;/li&gt;
+&lt;li&gt;Launch the application or website that has just been compiled. &lt;/li&gt;
+&lt;li&gt;Cause one code path in the code you're checking in to be executed. The preferred way to do this is with ad-hoc manual testing of the simplest possible case for the feature in question. Omit this step if the code change was less than five lines, or if, in the developer's professional opinion, the code change could not &lt;em&gt;possibly&lt;/em&gt; result in an error. &lt;/li&gt;
+&lt;li&gt;Check the code changes into your version control system.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Congratulations! You're fully certified. Brand your app with your shiny new &lt;strong&gt;Works on My Machine&lt;/strong&gt; badge. You'll certainly want to show it off to your fellow team members and key stakeholders. But please-- do try to keep your ego in check. Not everyone is capable of such an epic commitment to quality in software engineering.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;source: codinghorror.&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-02-22 22:44:00</pubDate>
+  <lastModified>2015-07-09 11:11:14</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>I’ve-passed-my-certification-exam-)</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

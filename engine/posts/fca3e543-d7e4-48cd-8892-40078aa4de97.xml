@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Inline XML Linq manipulation sample</title>
+  <description />
+  <content>&lt;h2&gt;A quick example of inline xml and Linq&lt;/h2&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;h1&gt;Code&lt;/h1&gt;  &lt;p&gt;[code:c#]&lt;/p&gt;  &lt;p&gt;void LinqToXmlSample()   &lt;br /&gt;{    &lt;br /&gt;&amp;#160; Console.WriteLine(&amp;quot;{0} : Start&amp;quot;, new StackTrace(0, true).GetFrame(0).GetMethod().Name);&lt;/p&gt;  &lt;p&gt;&amp;#160; XDocument xDocument = new XDocument(   &lt;br /&gt;&amp;#160;&amp;#160;&amp;#160; new XElement(&amp;quot;people&amp;quot;,    &lt;br /&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; new XElement(&amp;quot;person&amp;quot;,    &lt;br /&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; new XAttribute(&amp;quot;sex&amp;quot;, &amp;quot;male&amp;quot;),    &lt;br /&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; new XElement(&amp;quot;FirstName&amp;quot;, &amp;quot;Brian&amp;quot;),    &lt;br /&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; new XElement(&amp;quot;LastName&amp;quot;, &amp;quot;Keating&amp;quot;)),    &lt;br /&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; new XElement(&amp;quot;person&amp;quot;,    &lt;br /&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; new XAttribute(&amp;quot;type&amp;quot;, &amp;quot;female&amp;quot;),    &lt;br /&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; new XElement(&amp;quot;FirstName&amp;quot;, &amp;quot;Dustin&amp;quot;),    &lt;br /&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; new XElement(&amp;quot;LastName&amp;quot;, &amp;quot;Turkey&amp;quot;))));&lt;/p&gt;  &lt;p&gt;&amp;#160; IEnumerable&amp;lt;XElement&amp;gt; elements =   &lt;br /&gt;&amp;#160;&amp;#160;&amp;#160; xDocument.Element(&amp;quot;people&amp;quot;).Descendants(&amp;quot;FirstName&amp;quot;);&lt;/p&gt;  &lt;p&gt;&amp;#160; /*&amp;#160; First, I will display the source elements.*/   &lt;br /&gt;&amp;#160; foreach (XElement element in elements)    &lt;br /&gt;&amp;#160; {    &lt;br /&gt;&amp;#160;&amp;#160;&amp;#160; Console.WriteLine(&amp;quot;Source element: {0} : value = {1}&amp;quot;,    &lt;br /&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; element.Name, element.Value);    &lt;br /&gt;&amp;#160; }&lt;/p&gt;  &lt;p&gt;&amp;#160; /*&amp;#160; Now, I will display the ancestor elements for each source element.*/   &lt;br /&gt;&amp;#160; foreach (XElement element in elements.Ancestors())    &lt;br /&gt;&amp;#160; {    &lt;br /&gt;&amp;#160;&amp;#160;&amp;#160; Console.WriteLine(&amp;quot;Ancestor element: {0}&amp;quot;, element.Name);    &lt;br /&gt;&amp;#160; }&lt;/p&gt;  &lt;p&gt;&amp;#160; Console.WriteLine(&amp;quot;{0} : Finish&amp;quot;, new StackTrace(0, true).GetFrame(0).GetMethod().Name);   &lt;br /&gt;}&lt;/p&gt;  &lt;p&gt;[/code]&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;h1&gt;Output&lt;/h1&gt;  &lt;p&gt;LinqToXmlSample : Start   &lt;br /&gt;Source element: FirstName : value = Brian    &lt;br /&gt;Source element: FirstName : value = Dustin    &lt;br /&gt;Ancestor element: person    &lt;br /&gt;Ancestor element: people    &lt;br /&gt;Ancestor element: person    &lt;br /&gt;Ancestor element: people    &lt;br /&gt;LinqToXmlSample : Finish&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&lt;em&gt;[Update August 2012: Little did I know when i wrote this post just how much I would use Linq to xml, it saved me from a life of xslt &lt;img style="border-bottom-style: none; border-left-style: none; border-top-style: none; border-right-style: none" class="wlEmoticon wlEmoticon-smile" alt="Smile" src="./image.axd?picture=wlEmoticon-smile_17.png" /&gt; ]&lt;/em&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2009-11-04 11:37:00</pubDate>
+  <lastModified>2015-07-09 11:13:40</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Inline-XML-Linq-manipulation-sample</slug>
+  <tags>
+    <tag>linq</tag>
+    <tag>c# 3.0</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>scoped_ptr in C#</title>
+  <description />
+  <content>&lt;!-- .csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } --&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Is there a better way? Or at least a more generic way to leverage the dispose pattern? Well here&amp;rsquo;s one I thought of tonight&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;div class="csharpcode"&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   1:      &lt;/span&gt;&lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;class&lt;/span&gt; ScopeMngr : IDisposable&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;   2:  &lt;/span&gt;    {        &lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   3:  &lt;/span&gt;        &lt;span class="kwrd"&gt;private&lt;/span&gt; Action _dispose = &lt;span class="kwrd"&gt;null&lt;/span&gt;;&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;   4:  &lt;/span&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   5:  &lt;/span&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; ScopeMngr(Action init, Action dispose)&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;   6:  &lt;/span&gt;            : &lt;span class="kwrd"&gt;this&lt;/span&gt;(dispose)&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   7:  &lt;/span&gt;        {&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;   8:  &lt;/span&gt;            init();            &lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   9:  &lt;/span&gt;        }&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;  10:  &lt;/span&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  11:  &lt;/span&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; ScopeMngr(Action dispose)&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;  12:  &lt;/span&gt;        {&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  13:  &lt;/span&gt;            _dispose = dispose;&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;  14:  &lt;/span&gt;        }&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  15:  &lt;/span&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;  16:  &lt;/span&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; Dispose()&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  17:  &lt;/span&gt;        {&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;  18:  &lt;/span&gt;            &lt;span class="kwrd"&gt;if&lt;/span&gt; (_dispose != &lt;span class="kwrd"&gt;null&lt;/span&gt;)&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  19:  &lt;/span&gt;            {&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;  20:  &lt;/span&gt;                _dispose();&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  21:  &lt;/span&gt;                _dispose = &lt;span class="kwrd"&gt;null&lt;/span&gt;;&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;  22:  &lt;/span&gt;            }&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  23:  &lt;/span&gt;        }&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;  24:  &lt;/span&gt;    }&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- .csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } --&gt;
+&lt;p&gt;&lt;!-- .csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } --&gt;&lt;/p&gt;
+&lt;p&gt;Sample usage:&lt;/p&gt;
+&lt;div class="csharpcode"&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   1:  &lt;/span&gt;    &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;partial&lt;/span&gt; &lt;span class="kwrd"&gt;class&lt;/span&gt; Form1 : Form&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;   2:  &lt;/span&gt;    {&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   3:  &lt;/span&gt;        &lt;span class="kwrd"&gt;public&lt;/span&gt; Form1()&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;   4:  &lt;/span&gt;        {&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   5:  &lt;/span&gt;            InitializeComponent();&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;   6:  &lt;/span&gt;        }&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   7:  &lt;/span&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;   8:  &lt;/span&gt;        &lt;span class="kwrd"&gt;private&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; button1_Click(&lt;span class="kwrd"&gt;object&lt;/span&gt; sender, EventArgs e)&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   9:  &lt;/span&gt;        {&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;  10:  &lt;/span&gt;            &lt;span class="kwrd"&gt;using&lt;/span&gt; (var sm = &lt;span class="kwrd"&gt;new&lt;/span&gt; ScopeMngr(() =&amp;gt; Cursor = Cursors.WaitCursor, () =&amp;gt; Cursor = Cursors.Default))&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  11:  &lt;/span&gt;            {&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;  12:  &lt;/span&gt;                Thread.Sleep(TimeSpan.FromSeconds(10));&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  13:  &lt;/span&gt;            }&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;  14:  &lt;/span&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  15:  &lt;/span&gt;            &lt;span class="kwrd"&gt;bool&lt;/span&gt; updating = &lt;span class="kwrd"&gt;false&lt;/span&gt;;&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;  16:  &lt;/span&gt;            &lt;span class="kwrd"&gt;using&lt;/span&gt; (var sm = &lt;span class="kwrd"&gt;new&lt;/span&gt; ScopeMngr(() =&amp;gt; updating = &lt;span class="kwrd"&gt;true&lt;/span&gt;, () =&amp;gt; updating = &lt;span class="kwrd"&gt;false&lt;/span&gt;))&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  17:  &lt;/span&gt;            {&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;  18:  &lt;/span&gt;                &lt;span class="rem"&gt;// updating is true here&lt;/span&gt;&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  19:  &lt;/span&gt;                &lt;span class="rem"&gt;// update the UX etc.&lt;/span&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;  20:  &lt;/span&gt;            }&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  21:  &lt;/span&gt;            &lt;span class="rem"&gt;// updating is false here&lt;/span&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;  22:  &lt;/span&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  23:  &lt;/span&gt;        }&lt;/pre&gt;
+&lt;pre&gt;&lt;span class="lnum"&gt;  24:  &lt;/span&gt;    }&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- .csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } --&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;P.s. I know creating an object to reset a boolean is a bit of overkill, but see my comments and argument for same in my c++ &lt;a href="/blog/post/2011/08/04/C++-11%E2%80%93shared_ptr.aspx" target="_blank"&gt;post&lt;/a&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;Enjoy.&lt;/p&gt;
+&lt;p&gt;p.s. you could also just use a try {} finally {}&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-08-05 23:22:00</pubDate>
+  <lastModified>2011-08-06 18:26:54</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>scoped_ptr-in-C</slug>
+  <tags>
+    <tag>Disposing</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

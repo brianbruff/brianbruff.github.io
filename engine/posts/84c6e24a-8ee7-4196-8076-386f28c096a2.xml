@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>VS2010 Script chooser</title>
+  <description />
+  <content>  &lt;p&gt;In a visual studio 2010 asp page, start typing &lt;/p&gt;  &lt;p&gt;&amp;lt;script src=&lt;/p&gt;  &lt;p&gt;You’ll get presented with the following screen.&lt;/p&gt; &lt;a href="/blog/image.axd?picture=image.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb.png" width="213" height="133" /&gt;&lt;/a&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;Choose the Pick URL … option and you’ll be presented with the following screen&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_1.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_1.png" width="620" height="417" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;I think you’ll figure out the rest &lt;img style="border-bottom-style: none; border-right-style: none; border-top-style: none; border-left-style: none" class="wlEmoticon wlEmoticon-ninja" alt="Ninja" src="/blog/image.axd?picture=wlEmoticon-ninja.png" /&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-01-19 23:26:20</pubDate>
+  <lastModified>2015-07-09 11:11:29</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>VS2010-Script-chooser</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

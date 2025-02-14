@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Windows Workflow 4.0</title>
+  <description />
+  <content>&lt;p&gt;Ok, forget what you learned about workflow in 3.5.&lt;/p&gt;  &lt;h1&gt;Windows Workflow 4.0&lt;/h1&gt;  &lt;h4&gt;4.0 changes everything you thought you knew about workflow.&lt;/h4&gt;  &lt;p&gt;WF 4.0 represents a bottom-up rewrite with entirely new thinking. The gains are enormous: custom activities take centre stage, and authoring them is much simpler; workflows are entirely declarative; and there are three workflow flow styles that you can combine seamlessly. It's possible that you could see a 10-fold improvement in the time required to create and debug workflows, in addition to 10- to 100-fold runtime performance improvements. You'd also have better control over persistence. Additionally, there's support for partial trust, a completely rewritten designer, and a better debugging experience. One of the most important improvements is in the re-hosting experience. This allows you to create activities and to allow power users -- and others -- to build or modify workflows with the constrained set of activities you've created. Yes, this is possible in WF 3.0/3.5, but the necessary code is challenging, not to mention exceedingly difficult to debug.&lt;/p&gt;  &lt;p&gt;The improvements to WF 4.0 come at a cost. Microsoft developed two inter-op strategies to help you over this hurdle. WF 3.0/3.5 will remain part of the framework and will run side by side with WF 4.0. This lets you manage the transition at a time that fits your organization's broader goals. The other inter-op strategy is an inter-op activity that allows you to use WF 3.0/3.5 activities in a WF 4.0 workflow. Workflows are a specialization of activities, so you'll probably be able to run entire 3.0/3.5 workflows inside WF 4.0 workflows.&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;h1&gt;Screenshot VS2010 B2&lt;/h1&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&lt;img alt="" src="/Images/vs2010Wf.jpg" width="800" height="600" /&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2009-11-01 22:34:00</pubDate>
+  <lastModified>2015-07-09 11:13:58</lastModified>
+  <raters>1</raters>
+  <rating>1</rating>
+  <slug>Windows-Workflow-40</slug>
+  <tags>
+    <tag>.net 4.0</tag>
+    <tag>windows workflow</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

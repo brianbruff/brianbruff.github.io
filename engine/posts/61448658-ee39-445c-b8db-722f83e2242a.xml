@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>The happy life of a web developer</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;Spent some of the weekend mucking about with getting a website to go with an iPhone and WP7 app I’m developing with one mister Tomas McGuinness, the whole idea is a wonderful combination of the MS stack of love with a bit of xcode thrown in for good measure.&lt;/p&gt;  &lt;p&gt;What better way to experience new tech than to come up with a pet project and get stuck in, so far we’ve gotten down and dirty with&lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;&lt;font size="1"&gt;MS Sync Framework: the backbone of our interoperability using OData and WCF Services.&lt;/font&gt;&lt;/li&gt;    &lt;li&gt;&lt;font size="1"&gt;WP7 Silverlight : The windows phone app&lt;/font&gt;&lt;/li&gt;    &lt;li&gt;&lt;font size="1"&gt;Silverlight Ria services: The rich internet application that also runs OOB (out of the browser on the desktop)&lt;/font&gt;&lt;/li&gt;    &lt;li&gt;&lt;font size="1"&gt;MVC JQuery Ajax.&lt;/font&gt;&lt;/li&gt;    &lt;li&gt;&lt;font size="1"&gt;Html 5: (low level stuff just now but really excited about this)&lt;/font&gt;&lt;/li&gt;    &lt;li&gt;&lt;font size="1"&gt;XCode: iPhone app.&lt;/font&gt;&lt;/li&gt;    &lt;li&gt;&lt;font size="1"&gt;IE9 Jump lists: quick site navigation.&lt;/font&gt;&lt;/li&gt;    &lt;br /&gt;Dusted off the old Photoshop shortcut, to modify a template and apply it to our MVC application, and it’s been a hell of a lot of fun, jQuery is pretty impressive at the visual end too, animations etc. are trivial and a joy to play with.&lt;/ul&gt;  &lt;p&gt;Site coming to an internet near you soon (if we manage to get some free time).&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_52.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_52.png" width="519" height="646" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;Now the techie bit, a sample how to slide in a panel/div.&lt;/p&gt;  &lt;div class="csharpcode"&gt;   &lt;pre class="alt"&gt;@{&lt;/pre&gt;
+
+  &lt;pre&gt;    ViewBag.Title1 = &lt;span class="str"&gt;&amp;quot;Grass&amp;quot;&lt;/span&gt;;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;    ViewBag.Title2 = &lt;span class="str"&gt;&amp;quot;Manager&amp;quot;&lt;/span&gt;;   &lt;/pre&gt;
+
+  &lt;pre&gt;}&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="preproc"&gt;@section&lt;/span&gt; head {    &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;    &lt;font color="#9bbb59"&gt;@*BEK: Add some animation &lt;font color="#9bbb59"&gt;&lt;span class="kwrd"&gt;using&lt;/span&gt; &lt;/font&gt;jquery*@&lt;/font&gt;&lt;/pre&gt;
+
+  &lt;pre&gt;    &amp;lt;script&amp;gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;        $(&lt;span class="kwrd"&gt;function&lt;/span&gt; () {            &lt;/pre&gt;
+
+  &lt;pre&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            $(&lt;span class="str"&gt;&amp;quot;#wel_topd&amp;quot;&lt;/span&gt;).hide();            &lt;/pre&gt;
+
+  &lt;pre&gt;            $(&lt;span class="str"&gt;&amp;quot;#wel_topd&amp;quot;&lt;/span&gt;).slideDown(&lt;span class="str"&gt;'slow'&lt;/span&gt;, &lt;span class="kwrd"&gt;function&lt;/span&gt; () {&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                &lt;span class="rem"&gt;// Animation complete.&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre&gt;            });&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;        });&lt;/pre&gt;
+
+  &lt;pre&gt;    &amp;lt;/script&amp;gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;}&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;&lt;/p&gt;
+
+&lt;p&gt;@section is used to inject some scripts into the head of the html page.&lt;/p&gt;
+
+&lt;p&gt;Then you see a little bit of jQuery that hides the div “Welcome to iFarm” in the screenshot above and slide it in from top&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-05-09 00:21:46</pubDate>
+  <lastModified>2015-07-09 11:11:05</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>The-happy-life-of-a-web-developer</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

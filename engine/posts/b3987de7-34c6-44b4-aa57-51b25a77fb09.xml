@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Charts in MVC3</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;So you want to draw a chart in MVC and don’t know where to start?&lt;/p&gt;  &lt;p&gt;Step 1) Create a new MVC3 project&lt;/p&gt;  &lt;p&gt;Step 2) Open NuGet and add a library reference to “microsoft-web-helpers”&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_64.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_64.png" width="404" height="199" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_65.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_65.png" width="534" height="357" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;Step 3) Change your action method to create a new chart and write it to the response stream&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_66.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_66.png" width="525" height="269" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;Result)&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_67.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_67.png" width="344" height="248" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;Step Additional )&lt;/p&gt;  &lt;p&gt;You could return a partial view and even call it from Ajax if you wanted, you could just return Json and use a client side vector graphics library.    &lt;br /&gt;Or you would create your own html helpers / function to make life easier. (many ways to skin a cat). &lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-07-04 15:04:12</pubDate>
+  <lastModified>2015-07-09 11:09:56</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Charts-in-MVC3</slug>
+  <tags>
+    <tag>MVC Charting</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>VS2010 C++11 Variadic Templates</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;If you’ve been following the changes in the C++11 standard you may have heard of Variadic templates. In layman’s terms: var arg template parameters.&lt;/p&gt;  &lt;blockquote&gt;   &lt;p&gt;Lets take c# to explain what we’re talking about: Take the Action generic delegate, there’ 16 of them! One overload for each parameter.&lt;/p&gt;    &lt;p&gt;&lt;a href="./image.axd?picture=image_105.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_105.png" width="675" height="96" /&gt;&lt;/a&gt;&lt;/p&gt;    &lt;p&gt;However in c++11 we should (when the compiler supports it) be able to use &lt;font style="background-color: #ffff00"&gt;…&lt;/font&gt; to indicate that we can have a variable number of type parameters (&lt;font style="background-color: #ffff00"&gt;…&lt;/font&gt; I expect comes form java).&lt;/p&gt; &lt;/blockquote&gt;  &lt;p&gt;The long and the short of it is, they don’t work yet in vs2010 yet &lt;img style="border-bottom-style: none; border-left-style: none; border-top-style: none; border-right-style: none" class="wlEmoticon wlEmoticon-sadsmile" alt="Sad smile" src="./image.axd?picture=wlEmoticon-sadsmile.png" /&gt;&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_106.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_106.png" width="559" height="300" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;I wonder do they work in VS11? I’ll update this post once I get a chance to fire it up. I’ll also fire up my Linux machine and give the GNU compiler a whirl.&lt;/p&gt;  &lt;p&gt;Stay tuned…&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;** update: Doesn’t work in VS11 either.&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-10-10 16:44:00</pubDate>
+  <lastModified>2015-07-09 11:08:54</lastModified>
+  <raters>1</raters>
+  <rating>3</rating>
+  <slug>VS2010-Variadic-Templates</slug>
+  <tags>
+    <tag>Variadic templates</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

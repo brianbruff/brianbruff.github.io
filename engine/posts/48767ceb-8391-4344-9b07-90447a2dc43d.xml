@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>SqlDatasource Strict Concurrency Checking–Simplistic approach</title>
+  <description />
+  <content>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Lets say you have simple UPDATE command&lt;/p&gt;
+&lt;pre class="csharpcode"&gt;UpdateCommand=&lt;span class="str"&gt;"Update SEC_USERS SET FirstName=@FirstName, Department = @Department, Gender = @Gender&amp;rdquo;&lt;/span&gt;&lt;/pre&gt;
+&lt;pre class="csharpcode"&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;pre class="csharpcode"&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;pre class="csharpcode"&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;p&gt;Now, lets assume that two end users of your system have already requested information for SEC_USER Bill whose a male janitor.&lt;/p&gt;
+&lt;p&gt;End user 1 updates Bills Department as he&amp;rsquo;s been promoted to CEO (hey it not impossible!).&lt;br /&gt;End user 2 changes Bills Gender to female.&lt;/p&gt;
+&lt;p&gt;What actually ends up happening is the End user 2 overwrites the promotion and Bill (or maybe billie now ) ends up as a female janitor.&lt;/p&gt;
+&lt;p&gt;So how can we solve this problem assuming we are using a SqlDataSource.&lt;/p&gt;
+&lt;h4&gt;Here&amp;rsquo;s how:&lt;/h4&gt;
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_24.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="/blog/image.axd?picture=image_thumb_24.png" border="0" alt="image" width="346" height="473" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Set the ConflictDetection property to CompareAllValues &lt;/li&gt;
+&lt;li&gt;Set the OldValuesParameterFormatString to xxxx_{0}&lt;/li&gt;
+&lt;li&gt;Update your command with a WHERE restriction for XXXX_{0}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;div class="csharpcode"&gt;
+&lt;pre class="csharpcode"&gt;UpdateCommand= &lt;span class="str"&gt;"Update SEC_USERS SET FirstName=@FirstName, Department = @Department, Gender = @Gender FROM SEC_USERS WHERE &lt;a href="mailto:FirstName=@read_FirstName"&gt;FirstName=@read_FirstName&lt;/a&gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;pre class="csharpcode"&gt;&lt;span class="str"&gt; AND Department=@read_Department AND Gender=@read_Gender"&lt;/span&gt;&lt;/pre&gt;
+&lt;!-- .csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } --&gt;&lt;/div&gt;
+&lt;!-- .csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } --&gt; 
+&lt;/ul&gt;
+&lt;p&gt;That&amp;rsquo;s it, the SqlDataSource manages the read_xxx parameters so you don&amp;rsquo;t have to.&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-02-23 14:34:00</pubDate>
+  <lastModified>2015-07-09 11:11:14</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>SqlDatasource-Strict-Concurrency-Checking–Simplistic-approach</slug>
+  <tags>
+    <tag>SqlDataSource</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

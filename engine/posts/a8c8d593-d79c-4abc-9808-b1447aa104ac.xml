@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>WPF Textbox changing validation</title>
+  <description />
+  <content>&lt;p&gt;Here's how to ensure that databinding happens when the value of a textbox changes. (as apposed to loosing forcus for example)&lt;/p&gt;
+&lt;p&gt;[code:c#]&lt;br /&gt;&amp;lt;TextBox&amp;nbsp;Text="{Binding Interval, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"&amp;nbsp; /&amp;gt;&lt;br /&gt;[/code]&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2010-02-23 13:42:00</pubDate>
+  <lastModified>2015-07-09 11:12:09</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>WPF-Databinding-with-Textbox-text-changing</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

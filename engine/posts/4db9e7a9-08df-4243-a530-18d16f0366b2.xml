@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>ASP MVC4 WebApi Delete 404</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;h3&gt;runAllManagedModulesForAllRequests &lt;/h3&gt;  &lt;p&gt;To support DELETE verbs in MVC4 the webconfig should have runAllManagedModulesForAllRequests defined&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_214.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="./image.axd?picture=image_thumb_214.png" width="547" height="79" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;If you have an older project (like my project that I started in VS2012 RC) you may need to add this setting or else you’ll get 404 errors.&lt;/p&gt;  &lt;p&gt;Here is where I found this info:   &lt;br /&gt;&lt;a href="http://stackoverflow.com/questions/9692687/webapi-controller-is-not-being-reached-on-delete-command"&gt;http://stackoverflow.com/questions/9692687/webapi-controller-is-not-being-reached-on-delete-command&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;Note: Make sure to read:   &lt;br /&gt;&lt;a href="http://www.britishdeveloper.co.uk/2010/06/dont-use-modules-runallmanagedmodulesfo.html"&gt;&lt;font color="#0066cc"&gt;http://www.britishdeveloper.co.uk/2010/06/dont-use-modules-runallmanagedmodulesfo.html&lt;/font&gt;&lt;/a&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2012-08-30 04:25:45</pubDate>
+  <lastModified>2015-07-09 11:05:03</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>ASP-MVC4-WebApi-Delete-404</slug>
+  <tags>
+    <tag>ASP WebApi DELETE 404</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

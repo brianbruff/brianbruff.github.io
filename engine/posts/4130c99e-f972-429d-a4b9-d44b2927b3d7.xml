@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Azure Service Bus</title>
+  <description />
+  <content>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;When communicating between roles in an Azure application we&amp;rsquo;ve a few options; to name a few:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Http&lt;/li&gt;
+&lt;li&gt;Tcp&lt;/li&gt;
+&lt;li&gt;Queues&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;While Http and Tcp are tried and trusted they do come with some limitations that queues help overcome.&lt;/p&gt;
+&lt;p&gt;In the last few months Microsoft have released pub/sub service bus to the world. This is similar to a basic queue, in the basic queue, each message is consumed by an individual consumer, but with subscription topics, multiple clients can consume the same message, each subscription logically maintains its own queue of messages.&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_143.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; float: left; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_143.png" border="0" alt="image" width="545" height="96" align="left" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;The diagram above shows a typical communication between worker roles and web roles on the Azure platform.&lt;/p&gt;
+&lt;p&gt;As previously stated, this decoupling has several advantages over direct messaging.&lt;/p&gt;
+&lt;h3&gt;Load Leveling&lt;/h3&gt;
+&lt;p&gt;In the system the load can vary over time, where the amount of effort in processing the mid-tier business logic remains somewhat constant, with the queue in place it&amp;rsquo;s only necessary to have enough servers to handle the average load irrelevant of peak load. This can save money in terms of infrastructure required to handle peak load.&lt;/p&gt;
+&lt;h3&gt;Temporal Decoupling&lt;/h3&gt;
+&lt;p&gt;With queues decoupling the messaging effectively making the messaging async, publishers and subscriber need not be online at the same time, the service bus reliably stored the messages in the queue until the subscriber pulls them off and processes them. This allows different roles to be taken offline for maintenance etc.&lt;/p&gt;
+&lt;h3&gt;Load Balancing&lt;/h3&gt;
+&lt;p&gt;As load increases more worker roles can be added to service the queue (e.g. an online toy shop around the Christmas period). The system ensures that only one worker role will process the message, also in given that the worker roles are pulling the messages off the queue, they don&amp;rsquo;t have to be running on the same infrastructure, (Azure favours multiple low power roles in comparison the fewer higher powered roles).&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_144.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_144.png" border="0" alt="image" width="557" height="174" /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-12-28 13:22:00</pubDate>
+  <lastModified>2015-07-09 11:07:35</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Azure-Service-Bus</slug>
+  <tags>
+    <tag>Scalability on the Azure Platform</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

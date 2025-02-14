@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Using RavenDb with Mvc WebApi</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;I’m starting this post with a disclaimer. I’m not a RavenDb expect, actually far from it, in fact I’ve only started working with it this evening! &lt;/p&gt;  &lt;p&gt;I’m working on a pet project and getting the initial building blocks in place. I read about RavenDB in a recent edition of CODE magazine. The same magazine dealt with some other NoSql databases, e.g. Mongo Db, I’ve had a passing interest in NoSql in the last while so I wanted to get me a piece of the pie, and RavenDB jumped out at me for a few reasons.&lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;Written in .NET&lt;/li&gt;    &lt;li&gt;Scalability over RDBMS&lt;/li&gt;    &lt;li&gt;RestAPI (although i won’t be using it, my app will have its own REST API using RavenDb managed api underneath)&lt;/li&gt;    &lt;li&gt;.NET API with Linq querying &lt;/li&gt;    &lt;li&gt;Automatic indexing&lt;/li&gt;    &lt;li&gt;Scalability&lt;/li&gt; &lt;/ul&gt;  &lt;ul&gt;So lets get started, We want to follow what’s advised in this article: &lt;a title="http://ravendb.net/kb/3/using-ravendb-in-an-asp-net-mvc-website" href="http://ravendb.net/kb/3/using-ravendb-in-an-asp-net-mvc-website"&gt;http://ravendb.net/kb/3/using-ravendb-in-an-asp-net-mvc-website&lt;/a&gt; however we will be using an ApiController not your standard Controller so we have to modify the solution a little.&lt;/ul&gt;  &lt;ul&gt;&lt;/ul&gt;  &lt;h2&gt;Create project&lt;/h2&gt;  &lt;p&gt;Fire up visual studio and create an new MVC4 project&lt;/p&gt;  &lt;div id="scid:8747F07C-CDE8-481f-B0DF-C6CFD074BF67:cf3a6121-42dd-4e8f-8ff4-d7a14b33cb6f" class="wlWriterEditableSmartContent" style="float: none; padding-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px"&gt;&lt;a href="./image.axd?picture=1-8x6.png" title="VS11" rel="thumbnail"&gt;&lt;img border="0" src="./image.axd?picture=1.png" width="354" height="302" /&gt;&lt;/a&gt;&lt;/div&gt;  &lt;h2&gt;Add the RavenDb package,&lt;/h2&gt;  &lt;div id="scid:8747F07C-CDE8-481f-B0DF-C6CFD074BF67:77a5902c-dddc-4a81-8bd2-997a75e7643c" class="wlWriterEditableSmartContent" style="float: none; padding-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px"&gt;&lt;a href="./image.axd?picture=2-8x6.png" title="Nuget" rel="thumbnail"&gt;&lt;img border="0" src="./image.axd?picture=2.png" width="349" height="290" /&gt;&lt;/a&gt;&lt;/div&gt;  &lt;h2&gt;Global.asax.cs&lt;/h2&gt;  &lt;p&gt;Do the very same that is indicated on the Raven website, We need a single Document Store in our application.&lt;/p&gt;  &lt;pre class="code"&gt;&lt;span style="background: white; color: black"&gt; &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;protected void &lt;/span&gt;&lt;span style="background: white; color: black"&gt;Application_Start()
+        {
+            &lt;/span&gt;&lt;span style="background: white; color: #2b91af"&gt;AreaRegistration&lt;/span&gt;&lt;span style="background: white; color: black"&gt;.RegisterAllAreas();
+                        
+            RegisterGlobalFilters(&lt;/span&gt;&lt;span style="background: white; color: #2b91af"&gt;GlobalFilters&lt;/span&gt;&lt;span style="background: white; color: black"&gt;.Filters);
+            RegisterRoutes(&lt;/span&gt;&lt;span style="background: white; color: #2b91af"&gt;RouteTable&lt;/span&gt;&lt;span style="background: white; color: black"&gt;.Routes);
+
+            &lt;/span&gt;&lt;span style="background: white; color: #2b91af"&gt;BundleTable&lt;/span&gt;&lt;span style="background: white; color: black"&gt;.Bundles.RegisterTemplateBundles();
+
+            InitRaven();
+        }
+
+        &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;private void &lt;/span&gt;&lt;span style="background: white; color: black"&gt;InitRaven()
+        {
+            Store = &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;new &lt;/span&gt;&lt;span style="background: white; color: #2b91af"&gt;DocumentStore &lt;/span&gt;&lt;span style="background: white; color: black"&gt;{ ConnectionStringName = &lt;/span&gt;&lt;span style="background: white; color: maroon"&gt;&amp;quot;RavenDB&amp;quot; &lt;/span&gt;&lt;span style="background: white; color: black"&gt;};
+            Store.Initialize();
+
+            &lt;/span&gt;&lt;span style="background: white; color: #2b91af"&gt;IndexCreation&lt;/span&gt;&lt;span style="background: white; color: black"&gt;.CreateIndexes(&lt;/span&gt;&lt;span style="background: white; color: #2b91af"&gt;Assembly&lt;/span&gt;&lt;span style="background: white; color: black"&gt;.GetCallingAssembly(), Store);
+
+        }
+
+        &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;public static &lt;/span&gt;&lt;span style="background: white; color: #2b91af"&gt;DocumentStore &lt;/span&gt;&lt;span style="background: white; color: black"&gt;Store;&lt;/span&gt;&lt;/pre&gt;
+
+
+
+&lt;h2&gt;Create RavenController&lt;/h2&gt;
+
+&lt;pre class="code"&gt;&lt;span style="background: white; color: blue"&gt;&lt;/span&gt;&lt;/pre&gt;
+
+&lt;pre class="code"&gt;&lt;span style="background: white; color: blue"&gt;public abstract class &lt;/span&gt;&lt;span style="background: white; color: #2b91af"&gt;RavenController &lt;/span&gt;&lt;span style="background: white; color: black"&gt;: &lt;/span&gt;&lt;span style="background: white; color: #2b91af"&gt;ApiController
+    &lt;/span&gt;&lt;span style="background: white; color: black"&gt;{
+        &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;public &lt;/span&gt;&lt;span style="background: white; color: black"&gt;RavenController()
+        {
+            &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;this&lt;/span&gt;&lt;span style="background: white; color: black"&gt;.AutoSave = &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;true&lt;/span&gt;&lt;span style="background: white; color: black"&gt;;
+            RavenSession = TickTockBaby.Mvc.&lt;/span&gt;&lt;span style="background: white; color: #2b91af"&gt;WebApiApplication&lt;/span&gt;&lt;span style="background: white; color: black"&gt;.Store.OpenSession();
+        }
+
+        &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;public bool &lt;/span&gt;&lt;span style="background: white; color: black"&gt;AutoSave { &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;get&lt;/span&gt;&lt;span style="background: white; color: black"&gt;; &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;set&lt;/span&gt;&lt;span style="background: white; color: black"&gt;; }
+
+        &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;public &lt;/span&gt;&lt;span style="background: white; color: #2b91af"&gt;IDocumentSession &lt;/span&gt;&lt;span style="background: white; color: black"&gt;RavenSession { &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;get&lt;/span&gt;&lt;span style="background: white; color: black"&gt;; &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;protected set&lt;/span&gt;&lt;span style="background: white; color: black"&gt;; }
+
+        &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;protected override void &lt;/span&gt;&lt;span style="background: white; color: black"&gt;Dispose(&lt;/span&gt;&lt;span style="background: white; color: blue"&gt;bool &lt;/span&gt;&lt;span style="background: white; color: black"&gt;disposing)
+        {
+            &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;if &lt;/span&gt;&lt;span style="background: white; color: black"&gt;(disposing)
+            {
+                &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;if &lt;/span&gt;&lt;span style="background: white; color: black"&gt;(RavenSession != &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;null&lt;/span&gt;&lt;span style="background: white; color: black"&gt;)
+                {
+                    &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;using &lt;/span&gt;&lt;span style="background: white; color: black"&gt;(RavenSession)
+                    {
+                        &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;if &lt;/span&gt;&lt;span style="background: white; color: black"&gt;(&lt;/span&gt;&lt;span style="background: white; color: blue"&gt;this&lt;/span&gt;&lt;span style="background: white; color: black"&gt;.AutoSave)
+                            RavenSession.SaveChanges();
+                        RavenSession.Dispose();
+                        RavenSession = &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;null&lt;/span&gt;&lt;span style="background: white; color: black"&gt;;
+                    }
+                }
+            }
+
+            &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;base&lt;/span&gt;&lt;span style="background: white; color: black"&gt;.Dispose(disposing);
+        } 
+    }&lt;/span&gt;&lt;/pre&gt;
+
+
+&lt;pre class="code"&gt;&lt;span style="background: white; color: blue"&gt;&lt;/span&gt;&lt;/pre&gt;
+
+&lt;p&gt; Let me explain what I’ve done here…&lt;/p&gt;
+
+&lt;p&gt;I’ve initialized the session in the constructor, and cleaned it up in dispose, I also SaveChanges by default unless it gets switched off in a derived class.&lt;/p&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;h2&gt;Derive from RavenController
+  &lt;br /&gt;
+
+  &lt;br /&gt;&lt;/h2&gt;
+
+&lt;pre class="code"&gt;&lt;span style="background: white; color: blue"&gt;public class &lt;/span&gt;&lt;span style="background: white; color: #2b91af"&gt;UsersController &lt;/span&gt;&lt;span style="background: white; color: black"&gt;: &lt;/span&gt;&lt;span style="background: white; color: #2b91af"&gt;RavenController
+    &lt;/span&gt;&lt;span style="background: white; color: black"&gt;{       
+        &lt;/span&gt;&lt;span style="background: white; color: green"&gt;// GET /api/values
+        &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;public &lt;/span&gt;&lt;span style="background: white; color: #2b91af"&gt;IEnumerable&lt;/span&gt;&lt;span style="background: white; color: black"&gt;&amp;lt;&lt;/span&gt;&lt;span style="background: white; color: blue"&gt;string&lt;/span&gt;&lt;span style="background: white; color: black"&gt;&amp;gt; Get()
+        {
+            &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;this&lt;/span&gt;&lt;span style="background: white; color: black"&gt;.AutoSave = &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;false&lt;/span&gt;&lt;span style="background: white; color: black"&gt;;
+            &lt;/span&gt;&lt;span style="background: white; color: blue"&gt;return &lt;/span&gt;&lt;span style="background: white; color: black"&gt;RavenSession.Query&amp;lt;&lt;/span&gt;&lt;span style="background: white; color: #2b91af"&gt;User&lt;/span&gt;&lt;span style="background: white; color: black"&gt;&amp;gt;().Select(u =&amp;gt; u.Name);            
+        }        
+    }&lt;/span&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;That’s my initial attempt, hope it helps someone out a little.&lt;/p&gt;
+
+&lt;p&gt;I’ll post my final solution possibly using Ninject DI after I’ve used RavenDb for a while and get a better feel for it.&lt;/p&gt;
+
+&lt;h2&gt;Raven Studio&lt;/h2&gt;
+
+&lt;p&gt;
+  &lt;br /&gt;
+
+  &lt;div id="scid:8747F07C-CDE8-481f-B0DF-C6CFD074BF67:9c99132a-944d-4fdb-adfe-eab9e547d662" class="wlWriterEditableSmartContent" style="float: none; padding-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px"&gt;&lt;a href="./image.axd?picture=3-8x6.png" title="Create Some Records" rel="thumbnail"&gt;&lt;img border="0" src="./image.axd?picture=3.png" width="348" height="273" /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;h2&gt;Check results in browser&lt;/h2&gt;
+
+&lt;div id="scid:8747F07C-CDE8-481f-B0DF-C6CFD074BF67:0b275c5d-a8fd-4ec3-ba89-780bdeb05f44" class="wlWriterEditableSmartContent" style="float: none; padding-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px"&gt;&lt;a href="./image.axd?picture=4-8x6.png" title="Result" rel="thumbnail"&gt;&lt;img border="0" src="./image.axd?picture=4.png" width="335" height="278" /&gt;&lt;/a&gt;&lt;/div&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2012-04-07 17:58:14</pubDate>
+  <lastModified>2015-07-09 11:06:00</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Using-RavenDb-with-Mvc-WebApi</slug>
+  <tags>
+    <tag>Using RavenDb with Mvc WebApi</tag>
+  </tags>
+  <comments>
+    <comment id="8b37b571-5894-4ccb-afb3-0b5f5fcfb972" parentid="00000000-0000-0000-0000-000000000000" approved="True" spam="False" deleted="False">
+      <date>2012-05-01 04:00:09</date>
+      <author>Brian Keating</author>
+      <email>b@briankeating.net</email>
+      <country>ie</country>
+      <ip>91.183.5.236</ip>
+      <website>https://www.briankeating.net/</website>
+      <moderatedby>brianbruff</moderatedby>
+      <avatar />
+      <content>I guess it&amp;#39;s because of my disclaimer :-). I&amp;#39;m new to Raven :-)
+
+Where would you suggest I use it?
+Would I get a race condition in my Get (as it exists now).
+If the same thread is used in constructor and then the get then i guess not..
+But I&amp;#39;d have to check this out in the source, also I wonder about the ExecuteAsync on controllers, would i then again be worries about thread syncronization?
+
+So thanks, you&amp;#39;ve given me something to look into, if you have the answer already for me it would be appreciated save me digging about in the WebStack source tonight.
+
+cheers
+Brian.</content>
+    </comment>
+  </comments>
+  <categories />
+  <notifications />
+</post>

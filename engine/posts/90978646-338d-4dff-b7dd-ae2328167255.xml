@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Not just a new look for 2011</title>
+  <description />
+  <content>&lt;p&gt;Have updated a host of new features on my blog, (running Blog Engine 2.0 released on 1st January)&lt;/p&gt;  &lt;p&gt;I’m now writing my blogs offline with Wndows Live Writer, and click of the mouse posting them to &lt;a href="https://www.briankeating.net"&gt;www.briankeating.net&lt;/a&gt;, no more manually fighting with rich text markup formatting&amp;#160; and html.&lt;/p&gt;  &lt;p&gt;New features:&lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;Upgraded to .NET 3.5&lt;/li&gt;    &lt;li&gt;New Control Panel - complete makeover&lt;/li&gt;    &lt;li&gt;Recaptcha, captcha to reduce spam for Comments and Contact Form&lt;/li&gt;    &lt;li&gt;SimpleCaptcha, captcha to reduce spam&lt;/li&gt;    &lt;li&gt;TypePadFilter, anti-spam comment filter&lt;/li&gt;    &lt;li&gt;Disqus, optionally replace the normal comment system with Disqus&lt;/li&gt;    &lt;li&gt;&lt;a href="http://weblogs.asp.net/scottgu/archive/2010/06/30/new-embedded-database-support-with-asp-net.aspx" target="_blank"&gt;&lt;font color="#0066cc"&gt;SQL CE 4.0 support&lt;/font&gt;&lt;/a&gt; - standalone DB storage in the App_Data directory&lt;/li&gt;    &lt;li&gt;Recycle bin for Posts, Pages and Comments&lt;/li&gt;    &lt;li&gt;New Dashboard in control panel&lt;/li&gt;    &lt;li&gt;Posts list and Pages list - grid of all Posts and Pages in one easy to see area&lt;/li&gt;    &lt;li&gt;Added jQuery, automatically included and available in pages&lt;/li&gt;    &lt;li&gt;Security improvements - related to external content the blog may download&lt;/li&gt;    &lt;li&gt;New &lt;a href="http://mediaelementjs.com/" target="_blank"&gt;&lt;font color="#0066cc"&gt;Media Elements JS library&lt;/font&gt;&lt;/a&gt; extension for HTML5 video support&lt;/li&gt;    &lt;li&gt;Themeable Widget Containers &amp;amp; Newsletter widget Notification Emails&lt;/li&gt;    &lt;li&gt;New Syntax Highlighter extension - most popular syntax highlighting library&lt;/li&gt;    &lt;li&gt;Roles &amp;amp; Rights system - create Roles and assign Rights to each role&lt;/li&gt;    &lt;li&gt;Private blog feature - require users to be logged in to access the blog&lt;/li&gt;    &lt;li&gt;Option to allow self-registration for visitors&lt;/li&gt;    &lt;li&gt;Support for Unicode characters in the URL for Posts and Pages.&lt;/li&gt;    &lt;li&gt;Improved JS/CSS minification speed and size&lt;/li&gt;    &lt;li&gt;Latest version of tinyMCE WYSIWYG editor&lt;/li&gt; &lt;/ul&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-01-13 23:53:57</pubDate>
+  <lastModified>2011-01-13 23:53:57</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Not-just-a-new-look-for-2011</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

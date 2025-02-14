@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>MVC Binding restriction</title>
+  <description>mvc binding restrictions</description>
+  <content>&lt;p&gt;There are a few options when restricting what properties of a type get automatically bound by the framework.&lt;/p&gt;
+&lt;p&gt;Take the Loler type seen in my other MVC2 blog posts.&lt;/p&gt;
+&lt;p&gt;[code:c#]&lt;/p&gt;
+&lt;p&gt;[Bind(Include="ID,Name,Description")]&lt;br /&gt;public class Loler&lt;br /&gt;{&amp;nbsp;&amp;nbsp; &lt;br /&gt;//entity framework generated&lt;br /&gt;}&lt;/p&gt;
+&lt;p&gt;[/code]&lt;/p&gt;
+&lt;p&gt;Notice only the ID Name and Description properties will be bound by MVC Framework.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Per Usage restriction&lt;/p&gt;
+&lt;p&gt;[code:c#]&lt;/p&gt;
+&lt;p&gt;UpdateModel(loler, new[] { "ID", "Name", "Description" });&lt;/p&gt;
+&lt;p&gt;[/code]&lt;/p&gt;
+&lt;p&gt;Action method restrictions&lt;/p&gt;
+&lt;p&gt;[code:c#]&lt;/p&gt;
+&lt;p&gt;[HttpPost]&lt;br /&gt;ActionResult Create([Bind(Include="ID,Name,Description")] Loler loler)&lt;br /&gt;{&lt;br /&gt;// implementation&lt;br /&gt;}&lt;/p&gt;
+&lt;p&gt;[/code]&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <iscommentsenabled>False</iscommentsenabled>
+  <pubDate>2010-10-10 20:56:00</pubDate>
+  <lastModified>2010-10-10 21:10:29</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>MVC-Binding-restriction</slug>
+  <tags />
+  <comments />
+  <categories>
+    <category>77388107-f1bf-4a76-90b3-7563254ab432</category>
+  </categories>
+  <notifications />
+</post>

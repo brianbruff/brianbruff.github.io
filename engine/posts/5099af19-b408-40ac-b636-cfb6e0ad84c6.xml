@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>RIA Service in 5 minutes</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;Hi all,&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;I’ve previously blogged about how mind blowing WCF RIA Services are &lt;a href="/blog/post/2010/03/15/RIA-Services.aspx" target="_blank"&gt;here&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;This week i found myself working with RIA Services again and this time I’ve got to show you just how easy it is (is case you didn’t take my advise and go look it up &lt;img style="border-bottom-style: none; border-right-style: none; border-top-style: none; border-left-style: none" class="wlEmoticon wlEmoticon-punk" alt="Punk" src="/blog/image.axd?picture=wlEmoticon-punk.png" /&gt;&lt;/p&gt;  &lt;p&gt;So, fire up VS2010 and create a new Silverlight Business Application&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_49.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_49.png" width="492" height="342" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;Two projects will be created for you, the Web project is where your DataAccess and Business logic lies, the other project is your Silverlight application.&lt;/p&gt;  &lt;p&gt;Create an entity framework model ORM for your data (you know how to do this right?)&lt;/p&gt;  &lt;p&gt;Next create a new Domain Service Class in the Web/Services folder&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_50.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_50.png" width="493" height="234" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_51.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_51.png" width="256" height="305" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;Compile.. that’s your server ready to serve up your data.&lt;/p&gt;  &lt;p&gt;Now lets move into the Silverlight app, and add the following mark-up to your xaml&lt;/p&gt;  &lt;p&gt;First add the domain datasource, set it to auto load and set the Query name to the name of the query that has been injected into your client app, (let intellisense help you; it will be in the Web.Services namespace context object.&lt;/p&gt;  &lt;div class="csharpcode"&gt;   &lt;pre class="alt"&gt;        &amp;lt;domainControls:DomainDataSource x:Name=&lt;span class="str"&gt;&amp;quot;dataPads&amp;quot;&lt;/span&gt; LoadSize=&lt;span class="str"&gt;&amp;quot;20&amp;quot;&lt;/span&gt; AutoLoad=&lt;span class="str"&gt;&amp;quot;True&amp;quot;&lt;/span&gt; QueryName=&lt;span class="str"&gt;&amp;quot;GetPadocks&amp;quot;&lt;/span&gt;&amp;gt;&lt;/pre&gt;
+
+  &lt;pre&gt;            &amp;lt;domainControls:DomainDataSource.DomainContext&amp;gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                &amp;lt;data:FarmContext /&amp;gt;&lt;/pre&gt;
+
+  &lt;pre&gt;            &amp;lt;/domainControls:DomainDataSource.DomainContext&amp;gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;        &amp;lt;/domainControls:DomainDataSource&amp;gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;p&gt;Add a datagrid use ElementBinding to the domainDataSource above (i’ve also put it in a telerik busyindicator to provide feedback that the data is loading)&lt;/p&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;&lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;telerik:RadBusyIndicator&lt;/span&gt; &lt;span class="attr"&gt;IsBusy&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;{Binding ElementName=dataPads, Path=IsLoadingData}&amp;quot;&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre&gt;    &lt;span class="kwrd"&gt;&amp;lt;&lt;/span&gt;&lt;span class="html"&gt;dataControls:DataGrid&lt;/span&gt; &lt;span class="attr"&gt;x:Name&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;padocksGrid&amp;quot;&lt;/span&gt; &lt;span class="attr"&gt;MinHeight&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;100&amp;quot;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;         &lt;span class="attr"&gt;ItemsSource&lt;/span&gt;&lt;span class="kwrd"&gt;=&amp;quot;{Binding ElementName=dataPads, Path=Data}&amp;quot;&lt;/span&gt;  &lt;span class="kwrd"&gt;/&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="kwrd"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="html"&gt;telerik:RadBusyIndicator&lt;/span&gt;&lt;span class="kwrd"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;p&gt;Ok I’ve once again skimped on some of the detail but it’s a really nifty approach and i encourage you to give it a go.&lt;/p&gt;
+
+&lt;p&gt;(Also seeming your service is a DomainContext you can expose your data as OData a post for another day &lt;img style="border-bottom-style: none; border-right-style: none; border-top-style: none; border-left-style: none" class="wlEmoticon wlEmoticon-secrettellingsmile" alt="Secret telling smile" src="/blog/image.axd?picture=wlEmoticon-secrettellingsmile_1.png" /&gt; )&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-04-27 21:17:27</pubDate>
+  <lastModified>2011-04-27 21:20:57</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>RIA-Service-in-5-minutes</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

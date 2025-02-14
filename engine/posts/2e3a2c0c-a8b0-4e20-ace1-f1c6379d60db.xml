@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Xamarin a few weeks on</title>
+  <description />
+  <content>&lt;ul&gt;   &lt;li&gt;I’ve gotten my hands dirty, &lt;/li&gt;    &lt;li&gt;I’ve published v1.0 to the store &lt;/li&gt;    &lt;li&gt;I’ve gotten the best support I’ve ever seen from Xamarin &lt;/li&gt;    &lt;li&gt;I’ve gone back to Objective-C, BOOM! &lt;/li&gt; &lt;/ul&gt;  &lt;h2&gt;Bindings drove me daft&lt;/h2&gt;  &lt;p&gt;The reason I walked away was that I found some nice Objective-C widgets I wanted to use. In order to use these in Xamarin I needed to either &lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;Port the source to c# (estimated 1 day) &lt;/li&gt;    &lt;li&gt;Create a library in XCode and a component binding in Xamarin Studio &lt;/li&gt; &lt;/ul&gt;  &lt;p&gt;The first option seemed like an approach I could achieve but did I really want to do this every time I found a nice new control.&lt;/p&gt;  &lt;p&gt;The second option proved painful, there were some tools that didn’t work (beta tools of course), I wasn’t quite clear about the multi targeted library I was building etc. It was the straw that broke this camel’s back.&lt;/p&gt;  &lt;p&gt;Now I’ve previously indicated that I’m not a seasoned ObjectiveC developer, but I’ve written a few app and some of them even made it to the app store, so for me it didn’t seem daunting…    &lt;br /&gt;&lt;/p&gt;  &lt;p&gt;I had a few obstacles to overcome:&lt;/p&gt;  &lt;p&gt;Basic Auth: I’ve posted before when I started my Xamarin rants that it was a little painful to do Basic Auth, I wanted to use blocks as I like this approach and not the delegate approach, but this was a little painfully or at least it meant that I had to write my own classes, what I did in the end was revert to my old friend&amp;#160;&amp;#160; AFNetworking that supported exactly what I needed.   &lt;br /&gt;    &lt;br /&gt;KeyStore: The Obj-C code is bloated and verbose and not intuitive, the Xamarin approach is so much easier.&lt;/p&gt;  &lt;h2&gt;Lessons learnt&lt;/h2&gt;  &lt;p&gt;Too many options or being a polyglot can be a PIA (and i’m not talking primary interop assembly), If I didn’t know objectiveC then I would have just figured out the Bindings faster and been happy.&lt;/p&gt;  &lt;h2&gt;Recommendations&lt;/h2&gt;  &lt;p&gt;What would I recommend to my fellow C# programmers…. &lt;strong&gt;Use Xamarin!&lt;/strong&gt; I haven’t, but I’ve already invested many hours/days/weeks the language and 3rd party libraries,&amp;#160; the mono stack gives you a lot of     &lt;br /&gt;this for free and you will be familiar with it from your .net background.     &lt;br /&gt;    &lt;br /&gt;Also the app I’m currently working on is just collecting Json and displaying it, so it’s not very code intensive on the client. If when an Android version is done it will be in Java because I’ve programmed in Java for years too (hey I’m looking for an excuse (and the time) to try this new Android Studio).     &lt;br /&gt;Given a different use case I we may well have an even more compelling reason for using C# for both platforms with something like MVVM Cross and achieve a more DRY approach.&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2013-06-13 08:10:52</pubDate>
+  <lastModified>2015-07-09 11:02:23</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Xamarin-a-few-weeks-on</slug>
+  <tags>
+    <tag>Xamarin for .net people</tag>
+  </tags>
+  <comments>
+    <comment id="b0a9a27e-6dbb-441a-acfe-275fb35d97c3" parentid="00000000-0000-0000-0000-000000000000" approved="True" spam="False" deleted="False">
+      <date>2013-06-14 10:24:54</date>
+      <author>Zack Gramana</author>
+      <email>zack@xamarin.com</email>
+      <country>us</country>
+      <ip>50.78.252.54</ip>
+      <avatar />
+      <content>You missed one option above: request the Xamarin team to add the library to the Xamarin Component Store, which I&amp;#39;m in charge of. : )
+
+If you can send me a link to the repository, we can either help you out--or do it for you.</content>
+    </comment>
+    <comment id="38ebef05-5939-4327-8dba-cab83c873302" parentid="00000000-0000-0000-0000-000000000000" approved="True" spam="False" deleted="False">
+      <date>2013-08-01 07:36:21</date>
+      <author>brianbruff</author>
+      <email>b@briankeating.net</email>
+      <country>ie</country>
+      <ip>62.42.14.212</ip>
+      <avatar />
+      <content>Hi Zack,
+
+Tnx for the offer, I converted everything to objC for now.
+
+But I do love xamarin so I&amp;#39;ll send you any controls I come up with for sure.
+
+have a few other projects in the pipeline, just trying to find the time. cheers
+</content>
+    </comment>
+  </comments>
+  <categories />
+  <notifications>
+    <email>b@briankeating.net</email>
+  </notifications>
+</post>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Too easy to be simple</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;Was having a conversation this evening with an ex colleague of mine, he’s recently ventured into the world of Silverlight which he loves, for him; even though it didn’t start out that way; this has become a stepping stone to the the wonderful world of web development.&lt;/p&gt;  &lt;p&gt;Those of you that follow my blog know that I’m leaning more and more towards MVC where possible, so I ran through a demo of what’s involved dong a simple Master Details pattern with ASP MVC3 and razor and it didn’t go down all that well, sure it worked quite well but the tooling, or lack there of, was a big let down for him. Now lets recap here, back in the 90ies when I was plodding along with php/asp and iframes (*shiver*) ASP.net was being conceived; this technology was widely accepted for a number of reasons, most people may quote the postback but another one is most definitely the tooling. &lt;/p&gt;  &lt;p&gt;As some stage in our developer life, we’ve all watched a msdn how to video etc, and the demo objective is often remarkably and simplistically achieved, either through &lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;A few lines of code &lt;/li&gt;    &lt;li&gt;Tooling &lt;/li&gt;    &lt;li&gt;Some &lt;a href="http://en.wikipedia.org/wiki/Hocus_Pocus"&gt;hocus pocus&lt;/a&gt; of some sort &lt;img style="border-bottom-style: none; border-right-style: none; border-top-style: none; border-left-style: none" class="wlEmoticon wlEmoticon-smile" alt="Smile" src="/blog/image.axd?picture=wlEmoticon-smile.png" /&gt;. &lt;/li&gt; &lt;/ul&gt;  &lt;p&gt;The problem is only to know what combination of the above to apply, i.e it’s too easy to be simple. Below I outline the easy and simple way of creating a master/details page with no lines of code.&lt;/p&gt;  &lt;h1&gt;Demo&lt;/h1&gt;  &lt;h5&gt;1) Open Visual Studio and create a new ASP.NET web application (I’m using .NET 4.0)&lt;/h5&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_23.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_23.png" width="602" height="417" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;h5&gt;2) Drag a SqlDataSource onto the default.aspx webpage and configure it, I’ve chosen a database I’ve lying around, (note for membership please consider the the ASP.NET Membership API/Providers and associated schemas)&lt;/h5&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_18.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_18.png" width="557" height="449" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;h5&gt;3) Drag a DropDownList from the toolbox and set it’s DataSourceID to be the ID you provided in the step above.    &lt;br /&gt;also set the DataTextField and DataTextValue to something that makes sense for your application, Here’s my generated code&lt;/h5&gt;  &lt;pre class="csharpcode"&gt;&amp;lt;asp:DropDownList ID=&lt;span class="str"&gt;&amp;quot;lstUsers&amp;quot;&lt;/span&gt; runat=&lt;span class="str"&gt;&amp;quot;server&amp;quot;&lt;/span&gt; DataSourceID=&lt;span class="str"&gt;&amp;quot;SqlDataSourceUsers&amp;quot;&lt;/span&gt; DataTextField=&lt;span class="str"&gt;&amp;quot;NAME&amp;quot;&lt;/span&gt; DataValueField=&lt;span class="str"&gt;&amp;quot;ID&amp;quot;&lt;/span&gt; AutoPostBack=&lt;span class="str"&gt;&amp;quot;True&amp;quot;&lt;/span&gt; /&amp;gt;&lt;/pre&gt;
+&lt;style type="text/css"&gt;
+
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;
+
+&lt;p&gt;If you view your webpage now you’ll see the dropdown list populated with list of users. Now we want to populate the details part of the page,&amp;#160; Note: I set AutoPostBack to true, this ensures that the page is posted back each time the list selection gets changed.&lt;/p&gt;
+
+&lt;h5&gt;4) Create another datasource and set this to the details table you wish considered.&lt;/h5&gt;
+
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_19.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_19.png" width="558" height="450" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h5&gt;5) Add a where clause setting the restriction to the selected value of the DropDownList you just created.&lt;/h5&gt;
+
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_20.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_20.png" width="559" height="400" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_21.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_21.png" width="562" height="402" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h5&gt;6) Now drag a GrivdView onto your page and set its datasource to the Datasource in step 5.&lt;/h5&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;p&gt;And ceca! Open your webpage in a browser now and you’ll be able to view all the workgroup id’s associated with each user.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_22.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_22.png" width="334" height="260" /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-02-21 23:05:00</pubDate>
+  <lastModified>2015-07-09 11:11:16</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Too-easy-to-be-simple</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

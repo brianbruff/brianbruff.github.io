@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Retrieving stock quotes in C#</title>
+  <description />
+  <content>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve been playing with the idea of writing an currency converter for my new Windows Phone 7. Stumbled across a tweet by Scot Hanselman regarding &lt;a title="http://channel9.msdn.com/coding4fun" href="http://channel9.msdn.com/coding4fun"&gt;http://channel9.msdn.com/coding4fun&lt;/a&gt;. Turns out someone else beat me to it with the BING &amp;ldquo;api&amp;rdquo; (more of a url naming convention really).&lt;/p&gt;
+&lt;p&gt;So I got a little diverted and write a little app to get stock quotes from google.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s how enjoy&amp;hellip;(Using a default ticker of vodafone (.net 4.0)&lt;/p&gt;
+&lt;p&gt;&lt;a href="/blog/image.axd?picture=image_5.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="/blog/image.axd?picture=image_thumb_5.png" border="0" alt="image" width="519" height="513" /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-01-26 22:55:00</pubDate>
+  <lastModified>2015-07-09 11:11:24</lastModified>
+  <raters>1</raters>
+  <rating>5</rating>
+  <slug>Retrieving-stock-quotes-in-C</slug>
+  <tags>
+    <tag>scott hanselman</tag>
+    <tag>.net4</tag>
+    <tag>c#</tag>
+    <tag>google</tag>
+    <tag>XDocument</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

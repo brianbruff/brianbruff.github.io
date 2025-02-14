@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>CSS and custom jQuery filter selectors</title>
+  <description />
+  <content>&lt;p&gt;I’ve discovered a nice set of jQuery filter selectors.&lt;/p&gt;  &lt;p&gt;Take this example of selecting the checked radio button in a group&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_109.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_109.png" width="244" height="135" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;h3&gt;Markup&lt;/h3&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_110.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_110.png" width="564" height="156" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;h3&gt;Script&lt;/h3&gt;  &lt;blockquote&gt;   &lt;p&gt;&lt;a href="./image.axd?picture=image_111.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_111.png" width="570" height="120" /&gt;&lt;/a&gt;&lt;/p&gt; &lt;/blockquote&gt;  &lt;p&gt;There are many many others, e.g. @contains, :disabled, :not(selector), :parent, :password, etc etc, more info in jQuery docs.&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-11-02 15:12:11</pubDate>
+  <lastModified>2011-11-02 15:12:11</lastModified>
+  <raters>1</raters>
+  <rating>3</rating>
+  <slug>CSS-and-custom-jQuery-filter-selectors</slug>
+  <tags />
+  <comments />
+  <categories>
+    <category>86644305-fee7-4817-85f5-fdd91a910e09</category>
+    <category>b62eca5a-80ca-45bb-9945-9dcc6c75b004</category>
+    <category>e44e71a4-39f7-4a38-8afd-56f9681a7616</category>
+  </categories>
+  <notifications />
+</post>

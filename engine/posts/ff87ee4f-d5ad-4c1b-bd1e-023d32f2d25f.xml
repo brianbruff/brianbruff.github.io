@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>How to deploy apps to your windows phone 7</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;1) Download and install &lt;a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=04704acf-a63a-4f97-952c-8b51b34b00ce"&gt;Windows Phone Developer Tools&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;2) Select the registration in the start menu&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_3.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_3.png" width="250" height="315" /&gt;&lt;/a&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;3) Enter your live id (ensure you’re registered at the developer portal to create wp7/xbox apps &lt;a title="http://create.msdn.com/en-US/" href="http://create.msdn.com/en-US/"&gt;http://create.msdn.com/en-US/&lt;/a&gt; (remember have your phone connected)&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_4.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_4.png" width="417" height="305" /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-01-23 23:17:18</pubDate>
+  <lastModified>2011-01-23 23:22:02</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>How-to-deploy-apps-to-your-windows-phone-7</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Layout in Windows Phone 7</title>
+  <description />
+  <content>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;So my wife left me for a hen weekend and I needed something to do with my time.   &lt;br /&gt;Friday night I dedicated to my real work to clear my conscience and then I went to play.&lt;/p&gt;
+&lt;h2&gt;Windows 8&lt;/h2&gt;
+&lt;p&gt;I spent a few &lt;span style="text-decoration: underline;"&gt;frustrating&lt;/span&gt; hours on Saturday working on a Win8 application to compliment a certain website, frustrating&amp;hellip; in so far as the Xaml designer in VS11/Blend on Windows 8 hangs like a good one. Actually at serveral points in time I considered changing my app to html5/js, because, for at least for the search section of the app I could see no blockers. However I want to add some pretty nifty features going forward and I don&amp;rsquo;t feel like implementing them in javascript.     &lt;br /&gt;I guess I may the possibility of writing them in C++/C# as a library and using this from the UX application if it continues to slow me down. I&amp;rsquo;ll have to consider cutting my losses soon if it keeps hanging the development environment that&amp;rsquo;s for sure (the joys of working with not only a Beta application, but a beta OS! &lt;img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="./image.axd?picture=wlEmoticon-smile_13.png" alt="Smile" /&gt; )&lt;/p&gt;
+&lt;h2&gt;WP7&lt;/h2&gt;
+&lt;p&gt;So for a bit of fresh air I started writing the WP7 app, at least this is more familiar ground to me having written quite a few of them already, and I just took my resource dictionaries from the WinRT app. To start with I just used some sample data in expression blend, dropped on a list box and bound my sample data to it.&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_162.png"&gt;&lt;img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_162.png" border="0" alt="image" width="131" height="244" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;But the layout wasn&amp;rsquo;t really what I wanted. I&amp;rsquo;m hoping that that API for the real data may provide me with a list of categories, one wouldn&amp;rsquo;t really want to have to release a new app every time a new section was added would they.   &lt;br /&gt;So my approach would be just to bind the data to a list for now (it may well turn out to be an ordered list in the API). The problem as you can see above what that I was getting a single row for each item.. not what I wanted.&lt;/p&gt;
+&lt;p&gt;Would you believe this was the first time I&amp;rsquo;ve not wanted this default layout in a WP7 app, so I decided to use the WrapPanel container that I&amp;rsquo;ve previously used in a WPF app&amp;hellip; but alas it doesn&amp;rsquo;t exist out of the box!&lt;/p&gt;
+&lt;h3&gt;Silverlight WP7 Toolkit to the rescue.&lt;/h3&gt;
+&lt;p&gt;A quick Google indicated that the WP7 toolkit had the WrapPanel I was looking for, I fired up the Nuget package manager and added it to my project.&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_163.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_163.png" border="0" alt="image" width="501" height="284" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Items Panel&lt;/h3&gt;
+&lt;p&gt;One more change was needed in my xaml, I needed to specify where to use this wrap panel.    &lt;br /&gt;This I specified in the ItemsPanelTemplate of the listbox in question.&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_164.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" src="./image.axd?picture=image_thumb_164.png" border="0" alt="image" width="664" height="128" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The final result!&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_165.png"&gt;&lt;img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_165.png" border="0" alt="image" width="133" height="244" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hopefully this helps someone else out.&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2012-03-04 17:12:00</pubDate>
+  <lastModified>2015-07-09 11:06:45</lastModified>
+  <raters>1</raters>
+  <rating>5</rating>
+  <slug>Layout-in-Windows-Phone-7</slug>
+  <tags>
+    <tag>WINRT</tag>
+    <tag>WP7</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

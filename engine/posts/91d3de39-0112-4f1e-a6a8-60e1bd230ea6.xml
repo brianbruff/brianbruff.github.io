@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Using Telerik RadScheduler with MVC3</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;The cool hip thing these days is MVC, hang ur head in shame if you are still plodding along with plain old asp.net.&lt;/p&gt;  &lt;p&gt;Actually that’s not quite right, in fact it couldn’t be further from the truth, asp.net is alive and strong and will be for a long long time, don’t mind those people complaining about &lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;Not having direct (easy) control over what html gets rendered&lt;/li&gt;    &lt;li&gt;Testing lets a little to be desired &lt;/li&gt;    &lt;li&gt;You can’t get ur grubby little hands on the @razor (at least i’m not currently aware if it can be used outside MVC3); &lt;/li&gt; &lt;/ul&gt;  &lt;p&gt;ASP is alive and strong and Microsoft are actively working on it, what’s more you’ve most likely already have some pretty good controls that you slaved over or bought ready made…&lt;/p&gt;  &lt;p&gt;I’m a bit partial to Telerik controls and tonight I wanted to use the RadScheduler in a webportal i’m working on, and here it is in action&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_25.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_25.png" width="563" height="372" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_26.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_26.png" width="567" height="337" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;So how did I manage to do this?&lt;/p&gt;  &lt;p&gt;Well I started out with a HtmlHelper extension and then realized it was even easier.&lt;/p&gt;  &lt;p&gt;Telerik RadScheduler works directly with webservices (please read their documentation for full info (because my posts are more pointers then full working samples)&lt;/p&gt;  &lt;p&gt;The View contains the following (apologies in all my talk I didn’t use razor &lt;img style="border-bottom-style: none; border-right-style: none; border-top-style: none; border-left-style: none" class="wlEmoticon wlEmoticon-embarrassedsmile" alt="Embarrassed smile" src="/blog/image.axd?picture=wlEmoticon-embarrassedsmile_1.png" /&gt;)&lt;/p&gt;  &lt;div class="csharpcode"&gt;   &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   1:  &lt;/span&gt;&amp;lt;%@ Page Title=&lt;span class="str"&gt;&amp;quot;&amp;quot;&lt;/span&gt; Language=&lt;span class="str"&gt;&amp;quot;C#&amp;quot;&lt;/span&gt; MasterPageFile=&lt;span class="str"&gt;&amp;quot;~/Views/Shared/Site.Master&amp;quot;&lt;/span&gt; Inherits=&lt;span class="str"&gt;&amp;quot;System.Web.Mvc.ViewPage&amp;quot;&lt;/span&gt; %&amp;gt;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;   2:  &lt;/span&gt;&amp;lt;%@ Register Assembly=&lt;span class="str"&gt;&amp;quot;Telerik.Web.UI&amp;quot;&lt;/span&gt; Namespace=&lt;span class="str"&gt;&amp;quot;Telerik.Web.UI&amp;quot;&lt;/span&gt; TagPrefix=&lt;span class="str"&gt;&amp;quot;telerik&amp;quot;&lt;/span&gt; %&amp;gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   3:  &lt;/span&gt;&amp;lt;asp:Content ID=&lt;span class="str"&gt;&amp;quot;HeaderCnt&amp;quot;&lt;/span&gt; ContentPlaceHolderID=&lt;span class="str"&gt;&amp;quot;TitleContent&amp;quot;&lt;/span&gt; runat=&lt;span class="str"&gt;&amp;quot;server&amp;quot;&lt;/span&gt;&amp;gt;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;   4:  &lt;/span&gt;    &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   5:  &lt;/span&gt;&amp;lt;/asp:Content&amp;gt;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;   6:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   7:  &lt;/span&gt;&amp;lt;script runat=&lt;span class="str"&gt;&amp;quot;server&amp;quot;&lt;/span&gt;&amp;gt;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;   8:  &lt;/span&gt;    &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;override&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; VerifyRenderingInServerForm(Control control)&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   9:  &lt;/span&gt;    {&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  10:  &lt;/span&gt;    &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  11:  &lt;/span&gt;    }&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  12:  &lt;/span&gt;&amp;lt;/script&amp;gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  13:  &lt;/span&gt;&amp;lt;asp:Content ID=&lt;span class="str"&gt;&amp;quot;BdyCnt&amp;quot;&lt;/span&gt; ContentPlaceHolderID=&lt;span class="str"&gt;&amp;quot;MainContent&amp;quot;&lt;/span&gt; runat=&lt;span class="str"&gt;&amp;quot;server&amp;quot;&lt;/span&gt;&amp;gt;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  14:  &lt;/span&gt;    &amp;lt;h2&amp;gt;Index&amp;lt;/h2&amp;gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  15:  &lt;/span&gt;    &amp;lt;telerik:RadScheduler runat=&lt;span class="str"&gt;&amp;quot;server&amp;quot;&lt;/span&gt; ID=&lt;span class="str"&gt;&amp;quot;SampleRadScheduler&amp;quot;&lt;/span&gt; EnableAdvancedForm=&lt;span class="str"&gt;&amp;quot;false&amp;quot;&lt;/span&gt;&amp;gt;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  16:  &lt;/span&gt;        &amp;lt;WebServiceSettings Path=&lt;span class="str"&gt;&amp;quot;~/Models/FeedWebService.asmx&amp;quot;&lt;/span&gt; /&amp;gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  17:  &lt;/span&gt;        &amp;lt;AdvancedForm Modal=&lt;span class="str"&gt;&amp;quot;false&amp;quot;&lt;/span&gt; /&amp;gt;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  18:  &lt;/span&gt;    &amp;lt;/telerik:RadScheduler&amp;gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  19:  &lt;/span&gt;&amp;lt;/asp:Content&amp;gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;p&gt;That’s pretty muich it, I’m using a plain old .net 2.0 style Webservice as outlined in Telerik help samples but expect I can use WCF too (another post maybe).&lt;/p&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;p&gt;enjoy..&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-02-23 23:24:27</pubDate>
+  <lastModified>2015-07-09 11:11:13</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Using-Telerik-RadScheduler-with-MVC3</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

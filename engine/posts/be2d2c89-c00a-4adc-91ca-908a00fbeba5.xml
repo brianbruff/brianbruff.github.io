@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Efficiency Yield</title>
+  <description />
+  <content>&lt;p&gt;Talking to an ex colleague of mine this evening about some use cases for yield, it’s quite a handy little keyword, i often use it for splitting a large collection into smaller ones (Chunk).&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_285.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="./image.axd?picture=image_thumb_286.png" width="669" height="278" /&gt;&lt;/a&gt; &lt;/p&gt;  &lt;h2&gt;Efficiency&lt;/h2&gt;  &lt;p&gt;I was presented with another use for yield.&lt;/p&gt;  &lt;p&gt;Take a third party API that takes an IEnumerable of objects that are expensive to create, &lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_286.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="./image.axd?picture=image_thumb_287.png" width="222" height="104" /&gt;&lt;/a&gt; &lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;br /&gt;  &lt;p&gt;we can see that there is an early &lt;a href="./image.axd?picture=image_290.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; margin-left: 0px; display: inline; border-top-width: 0px; margin-right: 0px" border="0" alt="image" align="left" src="./image.axd?picture=image_thumb_291.png" width="522" height="187" /&gt;&lt;/a&gt;exit strategy so we may not need all items in the enumeration.&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;   &lt;br /&gt;Now lets say we have 3 implementations of this interface&lt;a href="./image.axd?picture=image_288.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="./image.axd?picture=image_thumb_289.png" width="544" height="241" /&gt;&lt;/a&gt; &lt;/p&gt;  &lt;p&gt;&lt;/p&gt;  &lt;p&gt;trivial i know, but assume we don’t know if they return null or not at compile time.&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;Now here’s a nice way of passing all of the above to a third party API and only incur the construction hit as and if when they get enumerated.&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_289.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="./image.axd?picture=image_thumb_290.png" width="336" height="373" /&gt;&lt;/a&gt; &lt;/p&gt;  &lt;p&gt;&lt;/p&gt;  &lt;p&gt;Using the trivial logic outlined here, &lt;strong&gt;ExpensiveFactoryC will never get constructed&lt;/strong&gt;.&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2014-01-31 13:20:41</pubDate>
+  <lastModified>2014-01-31 14:00:21</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Efficiency-Yield</slug>
+  <tags>
+    <tag>C#</tag>
+    <tag>Yield</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Anonymous delegates and event execution</title>
+  <description>Event initialization</description>
+  <content>&lt;p&gt;A nice little trick to save you always checking for null when firing custom events&lt;br /&gt;Initialize to anonymous delegate.&lt;br /&gt;Ok.. we've an extra call in the invocation list so use judiciously&lt;/p&gt;
+&lt;p&gt;[code:c#]&lt;/p&gt;
+&lt;p&gt;public event CompleteTaskExecutionHandler CompleteExecution = delegate { };&lt;/p&gt;
+&lt;p&gt;//or a sample using Lambdas&lt;/p&gt;
+&lt;p&gt;public event PropertyChangedEventHandler PropertyChanged = (s,p) =&amp;gt; { };&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;private void Fire()&lt;br /&gt;{&lt;br /&gt;&amp;nbsp;&amp;nbsp; this.CompleteExecution(...);&lt;br /&gt;}&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;[/code]&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2010-02-02 15:18:00</pubDate>
+  <lastModified>2010-02-23 16:23:10</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Anonymous-delegates-and-event-execution</slug>
+  <tags>
+    <tag>event anonymous delegates</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

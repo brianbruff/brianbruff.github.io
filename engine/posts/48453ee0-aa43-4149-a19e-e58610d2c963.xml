@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Output and Encoding in ASP.net 4.0</title>
+  <description>New code nugget</description>
+  <content>&lt;h2&gt;Pre .NET 4.O&lt;/h2&gt;
+&lt;p&gt;Prior to&amp;nbsp; ASP.NET 4.0 (and&amp;nbsp;especially with MVC)&amp;nbsp;when a user outputted information to a webpage they used &amp;lt;%= Server.HtmlEncode(modelViewStore.Content) %&amp;gt;&lt;/p&gt;
+&lt;p&gt;The reason for the Encoding is primiarily to prevent XSS (cross site script injection) whereby someone may try to inject some client side script or HTML Markup to vandalize a site or to steal valuable information.&lt;/p&gt;
+&lt;p&gt;This approach has a few shortcommings; like,&lt;/p&gt;
+&lt;p&gt;* Users may forget the encoding&lt;br /&gt;* bit verbose&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2&gt;&lt;br /&gt;.NET 4.0&lt;/h2&gt;
+&lt;p&gt;A new nugged has arrived:&lt;/p&gt;
+&lt;p&gt;&amp;lt;%: modelViewStore.Content %&amp;gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <iscommentsenabled>False</iscommentsenabled>
+  <pubDate>2010-06-29 23:07:00</pubDate>
+  <lastModified>2010-06-29 23:19:09</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Output-and-Encoding-in-ASPnet-40</slug>
+  <tags>
+    <tag>asp mvc</tag>
+  </tags>
+  <comments />
+  <categories>
+    <category>2e829a42-eba7-4a28-bc3f-ddb6315a6e0a</category>
+  </categories>
+  <notifications />
+</post>

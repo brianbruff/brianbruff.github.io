@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Pulling ECR images into AKS</title>
+  <description />
+  <content>&lt;p&gt;Hi everyone,&lt;/p&gt;  &lt;p&gt;Recently I found myself using Azure managed Kubernetes (AKS), however the images I wanted to pull were in AWS ECR. If my k8s cluster was in AWS it would be transparent to me provided the IAM user had permission but, in order to pull such an image from Azure; one can create a secret and to pull the image, sadly (or maybe thankfully) this secret expires after 12 hours so we need to keep refreshing.&lt;/p&gt;  &lt;p&gt;Below I present an approach which could be used, it creates a service account (note I apply the permissions to the default account also as some of my deployments dont reference this service account yet) for pulling the image with RBAC, permissions, there is a kubernetes job that will execute immediately and a cronjob that will execute every 8 hours thereafter&lt;/p&gt;  &lt;p&gt;Just use this secret in your deployments &lt;/p&gt;  &lt;div style="color: rgb(212, 212, 212); line-height: 19px; font-family: consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; font-weight: normal; white-space: pre; background-color: rgb(30, 30, 30);"&gt;    &lt;div&gt;&lt;span style="color: rgb(86, 156, 214);"&gt;spec&lt;/span&gt;&lt;span style="color: rgb(212, 212, 212);"&gt;:&lt;/span&gt;&lt;/div&gt;      &lt;div&gt;&lt;span style="color: rgb(212, 212, 212);"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/span&gt;&lt;span style="color: rgb(86, 156, 214);"&gt;imagePullSecrets&lt;/span&gt;&lt;span style="color: rgb(212, 212, 212);"&gt;:&lt;/span&gt;&lt;/div&gt;      &lt;div&gt;&lt;span style="color: rgb(212, 212, 212);"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; - &lt;/span&gt;&lt;span style="color: rgb(86, 156, 214);"&gt;name&lt;/span&gt;&lt;span style="color: rgb(212, 212, 212);"&gt;: &lt;/span&gt;&lt;span style="color: rgb(206, 145, 120);"&gt;dg-ecr-pull&lt;/span&gt;&lt;/div&gt; &lt;/div&gt;  &lt;br /&gt;  &lt;br /&gt;  &lt;table cellspacing="0" cellpadding="0" border="0"&gt;&lt;tbody&gt;     &lt;tr&gt;       &lt;td valign="top"&gt;&lt;script src="https://gist.github.com/brianbruff/5186e592113c5c9629cce381b8585d01.js"&gt;&lt;/script&gt;&lt;/td&gt;     &lt;/tr&gt;   &lt;/tbody&gt;&lt;/table&gt;  &lt;p&gt;Hope this is of benefit to others! remember to update those &amp;lt;TODO&amp;gt; sections!&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2018-07-25 16:22:33</pubDate>
+  <lastModified>2018-07-25 16:31:15</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Pulling-ECR-images-into-AKS</slug>
+  <tags>
+    <tag>imagePullSecrets</tag>
+    <tag>AKS</tag>
+    <tag>ECR</tag>
+    <tag>job</tag>
+    <tag>cronjob</tag>
+  </tags>
+  <comments />
+  <categories>
+    <category>3cbae011-8cf0-4174-bd7c-2f358636337c</category>
+  </categories>
+  <notifications />
+</post>

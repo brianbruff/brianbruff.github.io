@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>C# 4.0 Dynamic Keyword</title>
+  <description />
+  <content>&lt;p&gt;"object x" is a shorthand for "System.Object x". &lt;br /&gt;This declares the variable x to have the type System.Object, this is strongly typed.&lt;br /&gt; And since C# provides autoboxing, you can assign anything you want to this variable.&lt;/p&gt;
+&lt;p&gt;"var x = E" declares a variable x to be of the type of the expression E. &lt;br /&gt;The E is required, not optional. This is a strongly typed declaration, and you can only assign values whose type is typeof(E) to it.&lt;/p&gt;
+&lt;p&gt;"dynamic x" declares the variable x to have dynamic semantics. &lt;br /&gt;This means that the C# compiler will generate code that will allow dynamic invocations on x.&lt;br /&gt; The actual meaning of "x.M" is deferred until runtime and will depend on the semantics of the IDynamicObject implementation&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2010-02-24 23:39:00</pubDate>
+  <lastModified>2010-02-24 23:41:21</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>C-40-Dynamic-Keyword</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

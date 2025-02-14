@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Linq to SQL</title>
+  <description>Linq to sql sample.</description>
+  <content>&lt;h3&gt;Requirment:&lt;/h3&gt;
+&lt;p&gt;Nothwind Sql Database&lt;/p&gt;
+&lt;h2&gt;Advantages&amp;nbsp;of Linq to SQL&lt;/h2&gt;
+&lt;p&gt;While everything with Linq to&amp;nbsp;Sql ca be&amp;nbsp;done with Ado.Net, there are a few advantages&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Less code: you don't need to write ADO.NET code for querying the database. You can use a tool to generate the data classes you need.&lt;/li&gt;
+&lt;li&gt;Flexible querying capabilities: Rather than struggle with SQL, you can use the LINQ querying model. Ultimately, you'llbe able to use one consistent model (LINQ expressions) to access many different types of data, from databases to XML.&lt;/li&gt;
+&lt;li&gt;Change tracking and batch updates: This is the&amp;nbsp;most important one for me,&amp;nbsp;(because I already have ado.net tools and i don't mindwriting&amp;nbsp;sql) You can change multiple details about the data yo've queried and commit a batch update.&amp;nbsp;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Add a new linq to sql item to your project&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;img src="/blog/image.axd?picture=2010%2f2%2faddLinq.png" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2&gt;&amp;nbsp;Sample usage&lt;/h2&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;[code:c#]&lt;/p&gt;
+&lt;p&gt;class Program&lt;br /&gt;{&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; static void Main(string[] args)&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Program prog = new Program();&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; prog.ListAllOrderProducts();&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; prog.ListAllOrderProductsForCustomer();&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Console.ReadLine();&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; private void ListAllOrderProducts()&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; CustomerOrdersDataContext dc = new CustomerOrdersDataContext();&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Table&amp;lt;Order&amp;gt; table = dc.GetTable&amp;lt;Order&amp;gt;();&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; foreach (var order in table)&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Console.WriteLine(order.Order_Details[0].Product.ProductName);&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; private void ListAllOrderProductsForCustomer(string custId = "ALFKI")&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; CustomerOrdersDataContext dc = new CustomerOrdersDataContext();&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; var result =&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; from order in dc.GetTable&amp;lt;Order&amp;gt;()&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; where order.CustomerID == custId&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; select order;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; foreach (var x in result)&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Console.WriteLine(x.Order_Details[0].Product.ProductName);&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;br /&gt;}&lt;/p&gt;
+&lt;p&gt;[/code]&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2010-02-02 22:20:00</pubDate>
+  <lastModified>2010-02-03 08:25:58</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Linq-to-SQL</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

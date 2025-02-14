@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>var keyword comes to c++</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;blockquote&gt;   &lt;p&gt;Ok so it’s not the &lt;strong&gt;var&lt;/strong&gt; keyword in c++, but in C++11 it’s called &lt;strong&gt;auto.       &lt;br /&gt;&lt;/strong&gt;This is something I love in c#, life would be miserable without it &lt;img style="border-bottom-style: none; border-left-style: none; border-top-style: none; border-right-style: none" class="wlEmoticon wlEmoticon-smile" alt="Smile" src="/blog/image.axd?picture=wlEmoticon-smile_7.png" /&gt;, it’s magnificent especially in linq, infact linq could become quite painful without it (and also dynamic comes in handy in linq).&lt;/p&gt;    &lt;p&gt;So where’s the sample?&lt;/p&gt; &lt;/blockquote&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_76.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_76.png" width="602" height="490" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;The pDc has local scope and is of type CPaintDC*.&lt;/p&gt;  &lt;p&gt;Now don’t be confused with the other place you may have used auto, i.e. back in the early days when we used to be concerned about putting things in registers (before the compilers took over this code generation heavy lifting).   &lt;br /&gt;e.g. auto int i = 0;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-08-07 23:36:02</pubDate>
+  <lastModified>2011-08-07 23:36:02</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>var-keyword-comes-to-c++</slug>
+  <tags>
+    <tag>auto</tag>
+  </tags>
+  <comments />
+  <categories>
+    <category>2e39ad63-b7e5-48a6-ab71-8d6cd8954258</category>
+  </categories>
+  <notifications />
+</post>

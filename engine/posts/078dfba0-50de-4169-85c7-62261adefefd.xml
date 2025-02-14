@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>ASP MVC Display Templates</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;So I’m still working on the Live CV website I’m creating in my spare time. The idea is pretty simple the web application will let users create an online CV, I’ll not get into the details of it until I’ve something more interesting to show.&lt;/p&gt;  &lt;p&gt;Of course every resume needs a section on work experience and associated start and end dates. Now as a first step I’m just serving up my own CV before I get into all the exciting jQuery plugins etc. that' I’ve in mind.&lt;/p&gt;  &lt;p&gt;Here’s how to format a date using a data template.&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_112.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_112.png" width="531" height="333" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;Here we see that I’m passing a template to the Html.DisplayFor&amp;lt;&amp;gt; extension.&lt;/p&gt;  &lt;p&gt;Now I added a DisplayTemplates folder to my shared views (you could keep this folder local to your current view if you wish, but I wish to have it used throughout the project. Add a Partial view.&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_113.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_113.png" width="193" height="244" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;Here’s the content of my Partial view&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_114.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_114.png" width="232" height="59" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;Here’s the result.&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_115.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_115.png" width="408" height="53" /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-11-07 16:46:18</pubDate>
+  <lastModified>2015-07-09 11:08:27</lastModified>
+  <raters>1</raters>
+  <rating>4</rating>
+  <slug>ASP-MVC-Display-Templates</slug>
+  <tags>
+    <tag>MVC3 DataTemplates</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

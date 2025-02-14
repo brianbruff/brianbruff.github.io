@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>WebAPI OData DTO</title>
+  <description />
+  <content>&lt;p&gt;So I’ve started using OData in anger and pretty much immediately stumbled on a problem when using Data Transfer Objects (DTOs). This post explains that problem and the solution.&lt;/p&gt; &lt;iframe height="315" src="https://www.youtube.com/embed/pyXK1ejkDTc" frameborder="0" width="560" allowfullscreen="allowfullscreen"&gt;&lt;/iframe&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;h2&gt;Problem&lt;/h2&gt;  &lt;p&gt;The following error is encountered when trying to access the exposed entity by key:&lt;/p&gt;  &lt;pre style="word-wrap: break-word; font-variant: normal; white-space: pre-wrap; word-spacing: 0px; text-transform: none; font-weight: normal; color: rgb(0,0,0); font-style: normal; widows: 1; letter-spacing: normal; line-height: normal; text-indent: 0px; -webkit-text-stroke-width: 0px"&gt;No routing convention was found to select an action for the OData path with template '~/entityset/key'.&amp;quot;,&amp;quot;type&amp;quot;:&amp;quot;&amp;quot;&lt;/pre&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;table cellspacing="0" cellpadding="2" width="400" border="0"&gt;&lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td valign="top" width="400"&gt;&lt;a href="https://briankeating.net/image.axd?picture=image_370.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="https://briankeating.net/image.axd?picture=image_thumb_371.png" width="791" height="149" /&gt;&lt;/a&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;&lt;/table&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;h2&gt;Cause Code&lt;/h2&gt;
+
+&lt;h3&gt;OData configuration&lt;/h3&gt;
+
+&lt;p&gt;Here I show the simple entity I’m exposing&lt;/p&gt;
+
+&lt;table cellspacing="0" cellpadding="2" width="400" border="0"&gt;&lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td valign="top" width="400"&gt;&lt;a href="https://briankeating.net/image.axd?picture=image_371.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="https://briankeating.net/image.axd?picture=image_thumb_372.png" width="538" height="83" /&gt;&lt;/a&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;&lt;/table&gt;
+
+&lt;h2&gt;&amp;#160;&lt;/h2&gt;
+
+&lt;h3&gt;Timesheet Controller&lt;/h3&gt;
+
+&lt;p&gt;Here you can see that the underlying timesheets are just projected using Automapper to their DTO counterparts&lt;/p&gt;
+
+&lt;table cellspacing="0" cellpadding="2" width="400" border="0"&gt;&lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td valign="top" width="400"&gt;&lt;a href="https://briankeating.net/image.axd?picture=image_372.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="https://briankeating.net/image.axd?picture=image_thumb_373.png" width="585" height="276" /&gt;&lt;/a&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;&lt;/table&gt;
+
+&lt;h2&gt;&amp;#160;&lt;/h2&gt;
+
+&lt;h3&gt;Automapper config&lt;/h3&gt;
+
+&lt;p&gt;Here I show the automapper configuration (not that it’s makes any difference to the problem encountered)&lt;/p&gt;
+
+&lt;table cellspacing="0" cellpadding="2" width="400" border="0"&gt;&lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td valign="top" width="400"&gt;&lt;a href="https://briankeating.net/image.axd?picture=image_373.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="https://briankeating.net/image.axd?picture=image_thumb_374.png" width="376" height="74" /&gt;&lt;/a&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;&lt;/table&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;h2&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;To fix this problem I needed to set the EntityType.Name property on my OData entity type.&lt;/p&gt;
+
+&lt;table cellspacing="0" cellpadding="2" width="400" border="0"&gt;&lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td valign="top" width="400"&gt;&lt;a href="https://briankeating.net/image.axd?picture=image_374.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="https://briankeating.net/image.axd?picture=image_thumb_375.png" width="573" height="75" /&gt;&lt;/a&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;&lt;/table&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;p&gt;And thereafter, success!&lt;/p&gt;
+
+&lt;table cellspacing="0" cellpadding="2" width="400" border="0"&gt;&lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td valign="top" width="400"&gt;&lt;a href="https://briankeating.net/image.axd?picture=image_375.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="https://briankeating.net/image.axd?picture=image_thumb_376.png" width="656" height="104" /&gt;&lt;/a&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;&lt;/table&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2015-04-22 12:18:00</pubDate>
+  <lastModified>2015-04-22 12:18:00</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>WebAPI-OData-DTO</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

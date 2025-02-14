@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Converting APM operations to Tasks using the TPL</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;Those of you have have already used .net 4.5 developer preview will know that tasks are becoming more common in the API, especially with the advent of the async await keywords.&lt;/p&gt;  &lt;p&gt;But many of you (including me) can’t really advocate .net 4.5 in the enterprise so what are our options should we like to use the TaskParallelLibrary?&lt;/p&gt;  &lt;p&gt;As you may be aware APM (Asynchronous Programming Model) was the original .NET mechanism for handling Async operations, it will be familiar to you as the IAsyncResult pattern.&lt;/p&gt;  &lt;p&gt;So lets take a common operation of reading from a stream, in .net 4.5 we already have a Stream.ReadAsync, but again what if we don’t have .net 4.5 at our disposal?&lt;/p&gt;  &lt;p&gt;The task parallel library helps bridge the gap with Task.Factory.FromAsync, here I place it in an extension method for ease of use.&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_146.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_146.png" width="700" height="190" /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2012-01-01 12:47:15</pubDate>
+  <lastModified>2015-07-09 11:07:10</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Converting-APM-operations-to-Tasks-using-the-TPL</slug>
+  <tags>
+    <tag>APM and TPL</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

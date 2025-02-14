@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Popups in wpf</title>
+  <description />
+  <content>&lt;p&gt;Here is come code to show a popup in wpf, i've nothing in the popup at the moment, just a gradient background and border.&lt;/p&gt;
+&lt;p&gt;[code:c#]&lt;/p&gt;
+&lt;p&gt;&amp;lt;Popup Name="popup1"&amp;nbsp;&lt;br /&gt;&amp;nbsp;&amp;nbsp; Width="{Binding ElementName=bdrCalendar, Path=ActualWidth, Converter={StaticResource MarginValueConverter}}"&lt;br /&gt;&amp;nbsp;&amp;nbsp; Height="150" &lt;br /&gt;&amp;nbsp;&amp;nbsp; Placement="Center" &lt;br /&gt;&amp;nbsp;&amp;nbsp; PopupAnimation="Scroll"&lt;br /&gt;&amp;nbsp;&amp;nbsp; AllowsTransparency="True"&lt;br /&gt;&amp;nbsp;&amp;nbsp; PlacementTarget="{Binding ElementName=bdrCalendar}" &lt;br /&gt;&amp;nbsp;&amp;nbsp; MouseDown="popup1_MouseDown" &amp;gt;&lt;br /&gt;&amp;nbsp;&amp;lt;ctrls:PopupContent /&amp;gt;&lt;br /&gt;&amp;lt;/Popup&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;[/code]&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;img src="/blog/image.axd?picture=2010%2f3%2fpopdown.jpg" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;img src="/blog/image.axd?picture=2010%2f3%2fpopup.jpg" alt="" /&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2010-03-17 17:14:00</pubDate>
+  <lastModified>2015-07-09 11:11:53</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Popups-in-wpf</slug>
+  <tags />
+  <comments>
+    <comment id="62d75088-9dca-4847-8e57-34c45b45606d" parentid="00000000-0000-0000-0000-000000000000" approved="True" spam="False" deleted="False">
+      <date>2013-08-19 17:03:23</date>
+      <author>com-lab.biz</author>
+      <email>pingback</email>
+      <country />
+      <ip>119.18.58.84</ip>
+      <website>http://com-lab.biz/user71/2013/08/20/wpf-webapi-httpclient-await-ui-delay/</website>
+      <content>Pingback from com-lab.biz
+
+WPF &amp;gt; WEBAPI &amp;gt; HttpClient &amp;gt; AWAIT = UI Delay | user71</content>
+    </comment>
+  </comments>
+  <categories />
+  <notifications />
+</post>

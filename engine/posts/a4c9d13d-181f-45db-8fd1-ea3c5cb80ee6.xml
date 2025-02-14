@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>MVC Stories</title>
+  <description />
+  <content>&lt;p&gt;Hi All,&lt;/p&gt;
+&lt;p&gt;Been a while since I've writen some posts, been pretty hectic hours at work and weekends building a house so my chances to blog have been limited.&lt;/p&gt;
+&lt;p&gt;I intend over the coming few days to give a few tips and tricks on MCV2.&lt;/p&gt;
+&lt;p&gt;Here's on gottya..&lt;/p&gt;
+&lt;p&gt;Be carefull how you name your formal arguements in your controller functions.&lt;/p&gt;
+&lt;p&gt;You can see from the screenshot below that I created two args, "Name" and "name"&lt;/p&gt;
+&lt;p&gt;By default the first matching case insensitive value will be applied to both variables by MVC...&lt;/p&gt;
+&lt;p&gt;Usually this will be avoided by good naming conventions but be carefull nonetheless :-)&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;img src="/blog/image.axd?picture=2010%2f9%2fmvc1.png" alt="" width="800" height="600" /&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <iscommentsenabled>False</iscommentsenabled>
+  <pubDate>2010-09-08 20:53:00</pubDate>
+  <lastModified>2010-09-08 21:00:06</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>MVC-Stories</slug>
+  <tags>
+    <tag>asp mvc2 controller</tag>
+  </tags>
+  <comments />
+  <categories>
+    <category>2e829a42-eba7-4a28-bc3f-ddb6315a6e0a</category>
+  </categories>
+  <notifications />
+</post>

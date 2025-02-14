@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Why I love the Task library</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;Ok, forget about mvvm, that’s not the point of this quick post…&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_78.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_78.png" width="522" height="272" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;Have a look at that, ain’t it a thing of beauty!?&lt;/p&gt;  &lt;p&gt;No more having to get back onto the gui thread, even webforms people have to do it with Control.Invoke    &lt;br /&gt;(or sync context).&lt;/p&gt;  &lt;p&gt;Parallel task library rocks.&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-08-10 19:03:56</pubDate>
+  <lastModified>2015-07-09 11:09:48</lastModified>
+  <raters>1</raters>
+  <rating>5</rating>
+  <slug>Why-I-love-the-Task-library</slug>
+  <tags>
+    <tag>Multithreading WPF</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

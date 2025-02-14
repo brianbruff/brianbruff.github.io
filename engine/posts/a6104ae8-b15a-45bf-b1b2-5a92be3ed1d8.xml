@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>admin</author>
+  <title>test</title>
+  <description />
+  <content>&lt;p&gt;testing&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>True</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2021-01-05 17:41:37</pubDate>
+  <lastModified>2021-01-05 17:41:37</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>test</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

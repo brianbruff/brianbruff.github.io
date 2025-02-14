@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Silverlight Fluid Motion</title>
+  <description />
+  <content>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;You know what? &lt;br /&gt;I love Silverlight!&lt;/p&gt;
+&lt;p&gt;The only reason I don&amp;rsquo;t spend more time in it is the ASP is more suited to non enterprise applications. &lt;br /&gt;However tonight for you dear reader I&amp;rsquo;ve got an enterprise application (below)&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_90.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_90.png" border="0" alt="image" width="295" height="287" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;(because every enterprise had an application that shows pictures &lt;img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="./image.axd?picture=wlEmoticon-smile_9.png" alt="Smile" /&gt;; yes really this was a requirement honest &lt;img class="wlEmoticon wlEmoticon-berightback" style="border-style: none;" src="./image.axd?picture=wlEmoticon-berightback.png" alt="Be right back" /&gt;)&lt;/p&gt;
+&lt;h1&gt;Blend&lt;/h1&gt;
+&lt;p&gt;So you are writing a sliverlight app, or course you could code it all by hand.&lt;/p&gt;
+&lt;p&gt;In the last year, I&amp;rsquo;ve even met Silverlight/WPF programmers, lets call them Xamlers, that turn their nose up at using a designer, hey I&amp;rsquo;m sure it&amp;rsquo;s got it&amp;rsquo;s advantages and these people know XAML better than me, but IMO life is too short and programmers are too expensive to be living in notepad. Would you code your designer code in a windows forms app? not use scaffolding in MVC? etc etc..&lt;/p&gt;
+&lt;p&gt;For me Blend is blessing in disguise, I&amp;rsquo;m not sure the mythical devigner that is both an amazing designer AND an amazing coder (term coined by Scott Hanselman I think)&amp;nbsp; exists, but Blend does really help.&lt;/p&gt;
+&lt;h1&gt;Overview&lt;/h1&gt;
+&lt;p&gt;The application is simple, It selects some pictures in a folder and displays them in a list. When an item is selected in the list the picture should zoom out from the listbox item and scale to it&amp;rsquo;s full size.&lt;/p&gt;
+&lt;p&gt;Simple ey&amp;hellip; yes of course (when you know how).&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h1&gt;Steps&lt;/h1&gt;
+&lt;h3&gt;1. Create a new expression blend silverlight project&lt;/h3&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_91.png"&gt;&lt;img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_91.png" border="0" alt="image" width="244" height="209" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;2. Add a sample datasource, some text and a picture&lt;/h3&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_92.png"&gt;&lt;img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_92.png" border="0" alt="image" width="244" height="98" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_93.png"&gt;&lt;img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_93.png" border="0" alt="image" width="244" height="83" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_94.png"&gt;&lt;img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_94.png" border="0" alt="image" width="218" height="244" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;3. Drag the collection onto the page&lt;/h3&gt;
+&lt;h3&gt;&lt;a href="./image.axd?picture=image_95.png"&gt;&lt;img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_95.png" border="0" alt="image" width="116" height="244" /&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;4) Select details mode in the properties pane, and drag out property 2&lt;/h3&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_96.png"&gt;&lt;img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_96.png" border="0" alt="image" width="244" height="100" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_97.png"&gt;&lt;img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_97.png" border="0" alt="image" width="244" height="186" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you were now to run your application you&amp;rsquo;d see that when you select a picture it appears in the main picture also. But our requirements were to slide out the picture from the list itself.&lt;/p&gt;
+&lt;h3&gt;5) Select the big picture and drag fluid move behaviour onto it&lt;/h3&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_98.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_98.png" border="0" alt="image" width="273" height="444" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;6) Change the tag property to datacontext&lt;/h3&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_99.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_99.png" border="0" alt="image" width="601" height="424" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Now do the same for the Itemtemplate&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_100.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_100.png" border="0" alt="image" width="596" height="379" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;7) Drop a FluidMotionSetTagBehaviour onto the image part,setting the datacontext&lt;/h3&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_101.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_101.png" border="0" alt="image" width="674" height="476" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s all that&amp;rsquo;s needed, you app should now run, animations and all.&lt;/p&gt;
+&lt;p&gt;&lt;a href="./image.axd?picture=image_102.png"&gt;&lt;img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="./image.axd?picture=image_thumb_102.png" border="0" alt="image" width="552" height="515" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I would provide the sample but I&amp;rsquo;ve used 11megs of pictures so it&amp;rsquo;s a little too big to expect you to wait for &lt;img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="./image.axd?picture=wlEmoticon-smile_9.png" alt="Smile" /&gt;&lt;/p&gt;
+&lt;p&gt;I might get some time to reproduce this app in html5, android, c++, java would be nice to compare and contrast.&lt;/p&gt;
+&lt;p&gt;Start blending xamlers!&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-09-19 13:05:00</pubDate>
+  <lastModified>2015-07-09 11:08:55</lastModified>
+  <raters>1</raters>
+  <rating>5</rating>
+  <slug>Silverlight-Fluid-Motion</slug>
+  <tags>
+    <tag>expression blend silverlight animation</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications>
+    <email>tomas@chewedpencil.net</email>
+  </notifications>
+</post>

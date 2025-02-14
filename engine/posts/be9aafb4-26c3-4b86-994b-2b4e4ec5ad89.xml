@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Watch that error stream with Java process executions</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;I’m executing a windows process from java and I was bitten by a nasty oversight in one of my project today.   &lt;br /&gt;Everything’s been working fine for some time, but today the application I’m calling started spitting out errors to the error stream.&lt;/p&gt;  &lt;p&gt;However I’d not been reading the errorstream in my code and it appears to be the culprit for hanging the process execution.&lt;/p&gt;  &lt;p&gt;I don’t really care about the error stream or even the inputsteam myself as the thirdparty application does its own logging.&lt;/p&gt;  &lt;p&gt;The solution was a follows: I used a SteamGobbler class to purge the input and error streams. Hope this helps someone.&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_107.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_107.png" width="686" height="356" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_108.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="./image.axd?picture=image_thumb_108.png" width="509" height="467" /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-10-19 00:55:51</pubDate>
+  <lastModified>2011-10-19 00:55:51</lastModified>
+  <raters>1</raters>
+  <rating>2</rating>
+  <slug>Watch-that-error-stream-with-Java-process-executions</slug>
+  <tags>
+    <tag>SreamGobbler java process execution</tag>
+  </tags>
+  <comments />
+  <categories>
+    <category>d4e84379-5a80-46ba-a313-6333ae362ecc</category>
+  </categories>
+  <notifications />
+</post>

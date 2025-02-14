@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Test syntax highlight</title>
+  <description />
+  <content>&lt;p&gt;Testing the syntax highlighting option with the blog engine.&lt;/p&gt;
+&lt;p&gt;[code:c#]&lt;br /&gt;int test = 0;&lt;br /&gt;[/code]&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2009-11-01 15:33:00</pubDate>
+  <lastModified>2015-07-09 11:14:10</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Test-syntax-highlight</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

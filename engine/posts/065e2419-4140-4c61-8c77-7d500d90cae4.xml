@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Ajax with jQuery</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;Hi all,&lt;/p&gt;  &lt;p&gt;I’m sitting here waiting for a 50meg upload to finish,,, god my internet is slow.&lt;/p&gt;  &lt;p&gt;May as well add a post ey &lt;img style="border-bottom-style: none; border-right-style: none; border-top-style: none; border-left-style: none" class="wlEmoticon wlEmoticon-smile" alt="Smile" src="/blog/image.axd?picture=wlEmoticon-smile_1.png" /&gt;&lt;/p&gt;  &lt;p&gt;So I’ll show you how you can request some JSON data from a MVC action using jQuery, You are probably familiar with AJAX.BeginForm extension from Microsoft, but lets do this the jQuery way.&lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;Set up your action method to return some JSON&lt;/li&gt; &lt;/ul&gt;  &lt;div class="csharpcode"&gt;   &lt;pre class="alt"&gt;&lt;span class="kwrd"&gt;public&lt;/span&gt; ActionResult GetJson()&lt;/pre&gt;
+
+  &lt;pre&gt;{&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;     &lt;span class="kwrd"&gt;return&lt;/span&gt; Json(&lt;span class="kwrd"&gt;new&lt;/span&gt; { Id = 1, &lt;span class="kwrd"&gt;value&lt;/span&gt; = &lt;span class="str"&gt;&amp;quot;First&amp;quot;&lt;/span&gt; }, JsonRequestBehavior.AllowGet);&lt;/pre&gt;
+
+  &lt;pre&gt;}&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&amp;#160;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Set up a div to hold the json data and some jQuery to request it on document load,
+    &lt;br /&gt;the getJSON takes the action url and when it returns it places the formatted JSON into the DIV.
+
+    &lt;br /&gt;pretty simple ey..&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   1:  &lt;/span&gt;@{&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;   2:  &lt;/span&gt;    ViewBag.Title = &lt;span class="str"&gt;&amp;quot;Home Page&amp;quot;&lt;/span&gt;;    &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   3:  &lt;/span&gt;}&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;   4:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   5:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;   6:  &lt;/span&gt;@section head {&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   7:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;   8:  &lt;/span&gt;}&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;   9:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  10:  &lt;/span&gt;&amp;lt;h2&amp;gt;@ViewBag.Message&amp;lt;/h2&amp;gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  11:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  12:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  13:  &lt;/span&gt;&amp;lt;DIV id=json&amp;gt;&amp;lt;/DIV&amp;gt;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  14:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  15:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  16:  &lt;/span&gt;@section footer {&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  17:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  18:  &lt;/span&gt;&amp;lt;script type=&lt;span class="str"&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&amp;gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  19:  &lt;/span&gt;    $(function () {&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  20:  &lt;/span&gt;        &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  21:  &lt;/span&gt;        $.getJSON(&lt;span class="str"&gt;'@Url.Action(&amp;quot;GetJson&amp;quot;)'&lt;/span&gt;, function (obj) {&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  22:  &lt;/span&gt;            $(&lt;span class="str"&gt;'#json'&lt;/span&gt;).html(obj.Id.toString() + &lt;span class="str"&gt;&amp;quot; : &amp;quot;&lt;/span&gt; + obj.&lt;span class="kwrd"&gt;value&lt;/span&gt;.toString());&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  23:  &lt;/span&gt;        });&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  24:  &lt;/span&gt;       &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  25:  &lt;/span&gt;    });&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  26:  &lt;/span&gt;&amp;lt;/script&amp;gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="lnum"&gt;  27:  &lt;/span&gt;&amp;#160;&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="lnum"&gt;  28:  &lt;/span&gt;}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-05-17 23:43:22</pubDate>
+  <lastModified>2011-05-17 23:44:41</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Ajax-with-jQuery</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>vs2010 parallelism</title>
+  <description />
+  <content>&lt;p&gt;Take some time to explore the new vs2010 debugger.&lt;/p&gt;
+&lt;p&gt;Those of you to have experience with multithreading know that it can be a right old PIA (and i'm not talking Primary interop assembly here!).&lt;/p&gt;
+&lt;p&gt;Try the parallel tasks/stacks in vs2010 and see just how valuable a friend they become :-)&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;In recent times, CPU clock speeds have stagnated and manufacturers have shifted their focus to increasing core counts. &lt;br /&gt;This is problematic for us as programmers because our standard single-threaded code will not automatically run faster as a result of those extra cores.&lt;br /&gt;&lt;br /&gt;Spend some time investigating the new Tasks in .net 4.0&lt;/p&gt;
+&lt;p&gt;&lt;img src="/blog/image.axd?picture=2010%2f10%2fParallel.png" alt="" width="800" height="600" /&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <iscommentsenabled>False</iscommentsenabled>
+  <pubDate>2010-10-03 19:19:00</pubDate>
+  <lastModified>2010-10-03 19:31:28</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>vs2010-parallelism</slug>
+  <tags />
+  <comments />
+  <categories>
+    <category>970b7eb1-cbba-4287-bcbf-f02200dae9e0</category>
+  </categories>
+  <notifications />
+</post>

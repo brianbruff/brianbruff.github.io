@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Async MVC Controllers</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;I previously wrote a &lt;a href="/post/2011/01/17/Thread-starvation-in-MVC.aspx" target="_blank"&gt;post on MVC async controllers&lt;/a&gt;. Now I want to follow up on something that’s more cutting edge, unfortunately I’m one of those people that like nosing about with what new, how it will affect me and how I could leverage it in future etc., Often, I’ll readily admit it’s more bleeding edge than cutting edge (xaml support in Blend5 for example &lt;img style="border-bottom-style: none; border-left-style: none; border-top-style: none; border-right-style: none" class="wlEmoticon wlEmoticon-thumbsdown" alt="Thumbs down" src="./image.axd?picture=wlEmoticon-thumbsdown.png" /&gt;).&lt;/p&gt;  &lt;p&gt;However in this post I want to show you something that you might agree is pretty nice.&lt;/p&gt;  &lt;h3&gt;A historical example &lt;/h3&gt;  &lt;p&gt;So lets take a look at the app we’re trying to build.&lt;/p&gt;  &lt;p&gt;Client is a simple web form (yes it’s webforms but I’m trying to catch the non MVC microsofties too), the instruments are entered in the text box, fetch button is clicked and the result is output &lt;/p&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_thumb1.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image_thumb1" border="0" alt="image_thumb1" src="./image.axd?picture=image_thumb1_thumb.png" width="363" height="184" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;Now the workflow, for the purpose of this test I won’t be connecting to any database webservice etc, I’ve just added a delay of 10 seconds and and assign LastClose to &lt;font face="Courier New"&gt;RIC &amp;amp; &lt;span class="str"&gt;&amp;quot; &amp;quot;&lt;/span&gt; &amp;amp; New Random().NextDouble()&lt;/font&gt;&lt;/p&gt; &lt;style type="text/css"&gt;
+
+
+
+
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;  &lt;p&gt;&lt;a href="./image.axd?picture=image_thumb4.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image_thumb4" border="0" alt="image_thumb4" src="./image.axd?picture=image_thumb4_thumb.png" width="332" height="374" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;Here’s the code behind for the &lt;strong&gt;non-async &lt;/strong&gt;button event handler&lt;/p&gt;  &lt;div class="csharpcode"&gt;   &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;protected&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; Button1_Click(&lt;span class="kwrd"&gt;object&lt;/span&gt; sender, EventArgs e)&lt;/pre&gt;
+
+  &lt;pre&gt;        {&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            Contract.Requires&amp;lt;ArgumentException&amp;gt;(!&lt;span class="kwrd"&gt;string&lt;/span&gt;.IsNullOrWhiteSpace(tbInst1.Text) || !&lt;span class="kwrd"&gt;string&lt;/span&gt;.IsNullOrWhiteSpace(tbInst2.Text), &lt;span class="str"&gt;&amp;quot;Please enter values for instruments&amp;quot;&lt;/span&gt;);&lt;/pre&gt;
+
+  &lt;pre&gt;            &lt;span class="rem"&gt;// Make the call to the workflow to get the close for each instrument&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            &lt;span class="kwrd"&gt;try&lt;/span&gt;&lt;/pre&gt;
+
+  &lt;pre&gt;            {&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                var args = &lt;span class="kwrd"&gt;new&lt;/span&gt; Dictionary&amp;lt;&lt;span class="kwrd"&gt;string&lt;/span&gt;, &lt;span class="kwrd"&gt;object&lt;/span&gt;&amp;gt;();&lt;/pre&gt;
+
+  &lt;pre&gt;                args.Add(&lt;span class="str"&gt;&amp;quot;RIC&amp;quot;&lt;/span&gt;, tbInst1.Text);                &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                var res = WorkflowInvoker.Invoke(_getPricesWFDefinition, args);&lt;/pre&gt;
+
+  &lt;pre&gt;                Label1.Text = res[&lt;span class="str"&gt;&amp;quot;LastClose&amp;quot;&lt;/span&gt;].ToString();&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt; &lt;/pre&gt;
+
+  &lt;pre&gt;                args.Clear();&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                args.Add(&lt;span class="str"&gt;&amp;quot;RIC&amp;quot;&lt;/span&gt;, tbInst2.Text);&lt;/pre&gt;
+
+  &lt;pre&gt;                res = WorkflowInvoker.Invoke(_getPricesWFDefinition, args);&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                Label2.Text = res[&lt;span class="str"&gt;&amp;quot;LastClose&amp;quot;&lt;/span&gt;].ToString();&lt;/pre&gt;
+
+  &lt;pre&gt;            }&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            &lt;span class="kwrd"&gt;catch&lt;/span&gt; (Exception exp)&lt;/pre&gt;
+
+  &lt;pre&gt;            {&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                Trace.Warn(exp.Message);&lt;/pre&gt;
+
+  &lt;pre&gt;            }&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt; &lt;/pre&gt;
+
+  &lt;pre&gt;        }&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;style type="text/css"&gt;
+
+
+
+
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;&lt;/p&gt;
+
+&lt;p&gt;So as you can see, we’re waiting at least 20 seconds for our page to return, &lt;strong&gt;nasty&lt;/strong&gt;. 
+
+  &lt;br /&gt;In theory we should be able to bring this down to 10 seconds as we can make the calls to the workflows in parallel.&lt;/p&gt;
+
+&lt;p&gt;Let me show you one way to “incorrectly” achieve this&lt;/p&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;private&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; Option1()&lt;/pre&gt;
+
+  &lt;pre&gt;        {&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt; &lt;/pre&gt;
+
+  &lt;pre&gt;            var t1 = Option1TaskCreater(tbInst1, Label1);&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            var t2 = Option1TaskCreater(tbInst2, Label2);&lt;/pre&gt;
+
+  &lt;pre&gt; &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            Task.WaitAll(t1, t2);&lt;/pre&gt;
+
+  &lt;pre&gt; &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;        }&lt;/pre&gt;
+
+  &lt;pre&gt; &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;        &lt;span class="kwrd"&gt;private&lt;/span&gt; Task Option1TaskCreater(TextBox tb, Label lb)&lt;/pre&gt;
+
+  &lt;pre&gt;        {&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            var t1 = Task.Factory.StartNew(() =&amp;gt;&lt;/pre&gt;
+
+  &lt;pre&gt;            {&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                var args = &lt;span class="kwrd"&gt;new&lt;/span&gt; Dictionary&amp;lt;&lt;span class="kwrd"&gt;string&lt;/span&gt;, &lt;span class="kwrd"&gt;object&lt;/span&gt;&amp;gt;();&lt;/pre&gt;
+
+  &lt;pre&gt;                args.Add(&lt;span class="str"&gt;&amp;quot;RIC&amp;quot;&lt;/span&gt;, tb.Text);&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                var res = WorkflowInvoker.Invoke(_getPricesWFDefinition, args);&lt;/pre&gt;
+
+  &lt;pre&gt;                lb.Text = res[&lt;span class="str"&gt;&amp;quot;LastClose&amp;quot;&lt;/span&gt;].ToString();&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            });&lt;/pre&gt;
+
+  &lt;pre&gt;            &lt;span class="kwrd"&gt;return&lt;/span&gt; t1;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;        } &lt;/pre&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;
+
+
+
+
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;
+
+&lt;p&gt;So we’re using the task library to make the two workflow requests async, and results look promising, down to about 10 seconds now… so any problems with doing this?&lt;/p&gt;
+
+&lt;p&gt;Well, tasks use threadpool threads to execute. So, the query will execute on a threadpool thread. To get true asynchronous execution(no worker threads blocked), we need to jump through a few more hoops. For webform people, there’s a very &lt;a href="http://msdn.microsoft.com/en-us/magazine/cc163725.aspx" target="_blank"&gt;good explanation here&lt;/a&gt;. MVC people read on!&lt;/p&gt;
+
+&lt;h2&gt;But Why/When use async?&lt;/h2&gt;
+
+&lt;p&gt;The response to this question has been discussed many times in both books and magazines. ASP.NET uses threads from a common language runtime (CLR) thread pool to process requests. As long as there are threads available in the thread pool, ASP.NET has no trouble dispatching incoming requests. But once the thread pool becomes saturated-that is, all the threads inside it are busy processing requests and no free threads remain-new requests have to wait for threads to become free. If the jam becomes severe enough and the queue fills to capacity, ASP.NET throws up its hands and responds with a &amp;quot;Server Unavailable&amp;quot; to new requests.&lt;/p&gt;
+
+&lt;p&gt;Often to solve the problem of horizontal scalability more servers are added to the webfarm, however this only provided temporary relief to what in fact is an underlying design problem, it’s not a case of adding more processors(threads) but a case of using the threads more efficiently, as you can see from the diagram below, if you are CPU bound, there is little more you can do but add some more servers.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="./image.axd?picture=image_thumb2.png"&gt;&lt;img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image_thumb2" border="0" alt="image_thumb2" src="./image.axd?picture=image_thumb2_thumb.png" width="540" height="420" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So what is this telling us? Basically, if your app is I/O bound then you should use parallelism, if requests are computationally cheap to process, then parallelism is probably an unnecessary overhead. &lt;/p&gt;
+
+&lt;p&gt;If the incoming request rate is high, then adding more parallelism will likely yield few benefits and could actually decrease performance, since the incoming rate of work may be high enough to keep the CPUs busy. &lt;/p&gt;
+
+&lt;p&gt;If the incoming request rate is low, then the Web application could benefit from parallelism by using the idle CPU cycles to speed up the processing of an individual request. We can use either PLINQ or TPL (either Parallel loops or the Task class) to parallelize the computation over all the processors. Note that by default, however, the PLINQ implementation in .NET 4 will tie-up one ThreadPool worker per processor for the entire execution of the query. As such, it should only be used in Web applications that see few but expensive requests. &lt;/p&gt;
+
+&lt;h2&gt;MVC4&lt;/h2&gt;
+
+&lt;p&gt;In MVC4 it becomes even easier that my previous post on AsyncControllers, actually to me it looks quite like the WinRT async calls in .net 4.5 and C#5&lt;/p&gt;
+
+&lt;h3&gt;Sample using task support for asynchronous controllers&lt;/h3&gt;
+
+&lt;p&gt;You can now write asynchronous action methods as single methods that return an object of type &lt;em&gt;Task &lt;/em&gt;or &lt;em&gt;Task&amp;lt;ActionResult&amp;gt;&lt;/em&gt;. &lt;/p&gt;
+
+&lt;p&gt;e.g. &lt;/p&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;&lt;span class="kwrd"&gt;public&lt;/span&gt; async Task&amp;lt;ActionResult&amp;gt; Index(&lt;span class="kwrd"&gt;string&lt;/span&gt; city)&lt;/pre&gt;
+
+  &lt;pre&gt;{    &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;    var newsService = &lt;span class="kwrd"&gt;new&lt;/span&gt; NewsService();    &lt;/pre&gt;
+
+  &lt;pre&gt;    var sportsService = &lt;span class="kwrd"&gt;new&lt;/span&gt; SportsService();        &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;    &lt;span class="kwrd"&gt;return&lt;/span&gt; View(&lt;span class="str"&gt;&amp;quot;Common&amp;quot;&lt;/span&gt;,        &lt;/pre&gt;
+
+  &lt;pre&gt;                &lt;span class="kwrd"&gt;new&lt;/span&gt; PortalViewModel &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                {       &lt;/pre&gt;
+
+  &lt;pre&gt;                    NewsHeadlines = await newsService.GetHeadlinesAsync(),        &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;                    SportsScores = await sportsService.GetScoresAsync()    &lt;/pre&gt;
+
+  &lt;pre&gt;                });&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;
+
+&lt;p&gt;In the previous action method, the calls to &lt;em&gt;newsService.GetHeadlinesAsync&lt;/em&gt; and&lt;em&gt;sportsService.GetScoresAsync&lt;/em&gt; are called asynchronously and do not block a thread from the thread pool. &lt;/p&gt;
+
+&lt;p&gt;Asynchronous action methods that return &lt;em&gt;Task&lt;/em&gt; instances can also support timeouts. To make your action method cancellable, add a parameter of type &lt;em&gt;CancellationToken&lt;/em&gt; to the action method signature. The following example shows an asynchronous action method that has a timeout of 2500 milliseconds and that displays a &lt;em&gt;TimedOut&lt;/em&gt; view to the client if a timeout occurs. &lt;/p&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;[AsyncTimeout(2500)] &lt;/pre&gt;
+
+  &lt;pre&gt;[HandleError(ExceptionType = &lt;span class="kwrd"&gt;typeof&lt;/span&gt;(TaskCanceledException), View = &lt;span class="str"&gt;&amp;quot;TimedOut&amp;quot;&lt;/span&gt;)]&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&lt;span class="kwrd"&gt;public&lt;/span&gt; async Task&amp;lt;ActionResult&amp;gt; Index(&lt;span class="kwrd"&gt;string&lt;/span&gt; city, CancellationToken cancellationToken) &lt;/pre&gt;
+
+  &lt;pre&gt;{    &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;    var newsService = &lt;span class="kwrd"&gt;new&lt;/span&gt; NewsService();    &lt;/pre&gt;
+
+  &lt;pre&gt;    var sportsService = &lt;span class="kwrd"&gt;new&lt;/span&gt; SportsService();       &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;    &lt;span class="kwrd"&gt;return&lt;/span&gt; View(&lt;span class="str"&gt;&amp;quot;Common&amp;quot;&lt;/span&gt;,        &lt;/pre&gt;
+
+  &lt;pre&gt;        &lt;span class="kwrd"&gt;new&lt;/span&gt; PortalViewModel &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;        {        &lt;/pre&gt;
+
+  &lt;pre&gt;            NewsHeadlines = await newsService.GetHeadlinesAsync(cancellationToken),        &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;            SportsScores = await sportsService.GetScoresAsync(cancellationToken)    &lt;/pre&gt;
+
+  &lt;pre&gt;        });&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;
+
+&lt;pre&gt;&amp;#160;&lt;/pre&gt;
+
+&lt;pre&gt;&amp;#160;&lt;/pre&gt;
+
+&lt;pre&gt;&amp;#160;&lt;/pre&gt;
+
+&lt;h2&gt;Conculsion&lt;/h2&gt;
+
+&lt;p&gt;MVC4 Makes programming of async controllers even easier.&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2012-03-14 01:26:29</pubDate>
+  <lastModified>2015-07-09 11:06:27</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Async-MVC-Controllers</slug>
+  <tags>
+    <tag>MVC4 AsyncControllers</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

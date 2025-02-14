@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>MVC Action Filters</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;So what are MVC Filters? To quote Professional ASP.NET MVC2 ISBN 978-0-470-64318-1    &lt;br /&gt;    &lt;br /&gt;”Filters are a declarative attribute-based means of providing cross-cutting behavior to an action method.”&lt;/p&gt;  &lt;p&gt;So what are MVC Filters? &lt;img style="border-bottom-style: none; border-left-style: none; border-top-style: none; border-right-style: none" class="wlEmoticon wlEmoticon-sarcasticsmile" alt="Sarcastic smile" src="/blog/image.axd?picture=wlEmoticon-sarcasticsmile.png" /&gt; Well lets discuss the M the V and the C, The model is the data we wish to display in, the View, which is how we present the data, the responsibility of the controller is to coordinate the view with the model. But what about orthogonal functionalities, e.g logging, error handling, authentication etc.&lt;/p&gt;  &lt;p&gt;In MVC the responsibility for these activities is undertaken by Filters. Out of the box MVC provides the following Filters&lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;Authorize &lt;/li&gt;    &lt;li&gt;HandleError &lt;/li&gt;    &lt;li&gt;OutputCache &lt;/li&gt;    &lt;li&gt;RequireHttps&lt;/li&gt;    &lt;li&gt;ValidateAntiForgeryToken&lt;/li&gt;    &lt;li&gt;ChildOnlyAction&lt;/li&gt;    &lt;li&gt;ValidateInput&lt;/li&gt; &lt;/ul&gt;  &lt;div class="csharpcode"&gt;   &lt;pre class="alt"&gt;[HandleError[ExceptionType = &lt;span class="kwrd"&gt;typeof&lt;/span&gt;(RuntimeException), View=&lt;span class="str"&gt;'RuntimeError'&lt;/span&gt;]&lt;/pre&gt;
+
+  &lt;pre&gt;&lt;span class="kwrd"&gt;public&lt;/span&gt; ActionResult Test()&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;{&lt;/pre&gt;
+
+  &lt;pre&gt;    &lt;span class="kwrd"&gt;throw&lt;/span&gt; &lt;span class="kwrd"&gt;new&lt;/span&gt; RuntimeException(&lt;span class="str"&gt;&amp;quot;oops&amp;quot;&lt;/span&gt;);&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;
+
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;
+
+&lt;p&gt;What happens here is the we get directed towards the RuntimeError view,&lt;/p&gt;
+
+&lt;p&gt;The attributes can be added to the Controller or Action.&lt;/p&gt;
+
+&lt;p&gt;In MCV3 we get the possibility to add these filters Globally. The advantage of this is you no longer need to decorate every controller or action with an attribute that you wanted executed whenever it ran, now you can register is one place and have it executed across multiple controllers and action. &lt;/p&gt;
+
+&lt;p&gt;You add these global filters in your Global.asax as follows&lt;/p&gt;
+
+&lt;div class="csharpcode"&gt;
+  &lt;pre class="alt"&gt;&lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;static&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; RegisterGlobalFilters(GlobalFilterCollection filters) &lt;/pre&gt;
+
+  &lt;pre&gt;{ &lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;    filters.Add(&lt;span class="kwrd"&gt;new&lt;/span&gt; HandleErrorAttribute());         &lt;/pre&gt;
+
+  &lt;pre&gt;}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-08-03 22:27:01</pubDate>
+  <lastModified>2015-07-09 11:09:52</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>MVC-Action-Filters</slug>
+  <tags>
+    <tag>MVC Action Filters</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

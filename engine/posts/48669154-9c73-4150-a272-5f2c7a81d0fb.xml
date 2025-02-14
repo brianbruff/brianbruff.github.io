@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>jQuery and WinRT</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;As part of this WinRT comparison I’m doing, I next need to recreate my apps in html+js. &lt;/p&gt;  &lt;p&gt;This is my first WinRT app I’ve written in html+js and right off the mark I hit a problem with the WinRT sandbox. These days I won’t write a web app without jQuery it’s just awesome. so I wanted it in my app.&lt;/p&gt;  &lt;p&gt;My first instinct was to use Nuget to bring down jQuery for me, but alas no Nuget extension that I could find for vs11, so next easiest step was to use the CDN. &lt;img class="wlEmoticon wlEmoticon-sadsmile" style="border-top-style: none; border-bottom-style: none; border-right-style: none; border-left-style: none" alt="Sad smile" src="./image.axd?picture=wlEmoticon-sadsmile_2.png" /&gt; doesn’t work.&lt;/p&gt;  &lt;p&gt;So I go to jQuery.com, download it, and then use add the local script, now it all works.&lt;/p&gt;    &lt;p&gt;&lt;a href="./image.axd?picture=image_158.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="./image.axd?picture=image_thumb_158.png" width="723" height="292" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;hopefully this post might save someone a few minutes of head scratching.&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2012-02-24 14:30:21</pubDate>
+  <lastModified>2015-07-09 11:06:52</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>jQuery-and-WinRT</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>Configuring IIS to host WCF services</title>
+  <description>Configuring IIS to host WCF services.</description>
+  <content>&lt;p&gt;It's true what they say, to learn new technologies it's simple a matter of ABC (Always be coding), I've watched many the video, read many the book but it's only when I went to try to do something the it sinks in.   &lt;br /&gt;Like tonight while trying to host a WCF service on my Windows 7 machine I came across a problem that you'd only find by ABC.&lt;/p&gt;  &lt;p&gt;&lt;strong&gt;HTTP Error 404.3 - Not Found&lt;/strong&gt;&lt;/p&gt;  &lt;h5&gt;&lt;strong&gt;The page you are requesting cannot be served because of the extension configuration. If the page is a script, add a handler. If the file should be downloaded, add a MIME map.&lt;/strong&gt;&lt;/h5&gt;  &lt;h1&gt;The solution.&lt;/h1&gt;  &lt;p&gt;Control Panel/Programs and Features/Add or Remove components/Microsoft .NET Framework 3.5.1 section. &lt;/p&gt;  &lt;p&gt;I checked the two Windows Communication Foundation checkboxes shown below (the second box enables Windows Activation Service - WAS so that IIS can host WCF services that can be called using non-HTTP bindings such as TCP) (nice!)&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;img alt="" src="/blog/image.axd?picture=2009%2f11%2fiisWcf.png" /&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2009-11-05 21:28:00</pubDate>
+  <lastModified>2015-07-09 11:13:10</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Configuring-IIS-to-host-WCF-services</slug>
+  <tags>
+    <tag>iis7</tag>
+    <tag>wcf</tag>
+  </tags>
+  <comments />
+  <categories />
+  <notifications />
+</post>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>brianbruff</author>
+  <title>jQuery Template Example</title>
+  <description />
+  <content>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;Straight to screenshot&lt;/p&gt;  &lt;p&gt;&lt;a href="/blog/image.axd?picture=image_53.png"&gt;&lt;img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/blog/image.axd?picture=image_thumb_53.png" width="587" height="521" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;Ok so I’m here in a hotel in Germany, been stuck in java all day so I needed .net like a drug this evening.&lt;/p&gt;  &lt;p&gt;Let me describe what you see above.&lt;/p&gt;  &lt;p&gt;The screenshot is from WebMatrix it shows the default webpage where I’m presenting some JSON data to the user. The data itself is just a list of model helicopter types and ratings out of 10 for each (subjective of course). The JSON in this case is hardcoded client side but could of course come from aywhere e.g. a server side MVC action called with jQuery.ajax etc.&lt;/p&gt;  &lt;p&gt;The real good stuff comes from the following lines&lt;/p&gt;  &lt;div class="csharpcode"&gt;   &lt;pre class="alt"&gt;&amp;lt;script id=&lt;span class="str"&gt;&amp;quot;modelHeliCoptersTemplate&amp;quot;&lt;/span&gt; type=&lt;span class="str"&gt;&amp;quot;text/x-jquery-tmpl&amp;quot;&lt;/span&gt;&amp;gt;&lt;/pre&gt;
+
+  &lt;pre&gt;    &amp;lt;li&amp;gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;        &amp;lt;b&amp;gt;${Name}&amp;lt;/b&amp;gt; (${OutOfTen})&lt;/pre&gt;
+
+  &lt;pre&gt;    &amp;lt;/li&amp;gt;&lt;/pre&gt;
+
+  &lt;pre class="alt"&gt;&amp;lt;/script&amp;gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }&lt;/style&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;p&gt;Here we define the template that is basically some html littered with prop Names e.g. $(Name}, note the script type that is used for jQuery templates.
+  &lt;br /&gt;
+
+  &lt;br /&gt;The load function is quite simple, it basically says: select the helicopter jQuery template and apply the helis JSON to it and put the result into the “results” unordered list.&lt;/p&gt;
+
+&lt;p&gt;Have a look at the jQuery template documentation for some more samples and have fun &lt;img style="border-bottom-style: none; border-left-style: none; border-top-style: none; border-right-style: none" class="wlEmoticon wlEmoticon-smile" alt="Smile" src="/blog/image.axd?picture=wlEmoticon-smile_2.png" /&gt;&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2011-06-07 23:41:48</pubDate>
+  <lastModified>2015-07-09 11:10:11</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>jQuery-Template-Example</slug>
+  <tags />
+  <comments />
+  <categories />
+  <notifications />
+</post>
