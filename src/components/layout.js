@@ -9,7 +9,7 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
+import * as styles from "./layout.module.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -24,32 +24,20 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <div className={styles.container}>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
-        }}
-      >
+      <div className={styles.content}>
         <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-            textAlign: 'center',
-            borderTop: '1px solid #ddd',
-            paddingTop: 'var(--space-3)',
-          }}
-        >
+        <footer className={styles.footer}>
           © {new Date().getFullYear()} Brian Keating. All rights reserved.
-          <br />
-          <a href="https://briankeating.net">briankeating.net</a> · {' '}
-          <a href="https://github.com/brianbruff">GitHub</a>
+          <div className={styles.footerLinks}>
+            <a href="https://briankeating.net">briankeating.net</a>
+            <span className={styles.divider}>·</span>
+            <a href="https://github.com/brianbruff">GitHub</a>
+          </div>
         </footer>
       </div>
-    </>
+    </div>
   )
 }
 
