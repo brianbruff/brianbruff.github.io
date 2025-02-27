@@ -1,6 +1,6 @@
 ---
 title: "Ensuring S3 Files Update with Terraform: The Power of etags"
-date: "2023-06-15"
+date: "2025-02-27"
 tags: ["AWS", "Terraform", "S3", "Infrastructure as Code"]
 ---
 
