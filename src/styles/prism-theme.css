@@ -1,11 +1,12 @@
 /* Custom styles for Prism.js syntax highlighting */
 
 .gatsby-highlight {
-  background-color: #2d2d2d;
+  background-color: #f5f5f5;
   border-radius: 0.3em;
   margin: 0.5em 0;
   padding: 1em;
   overflow: auto;
+  border: 1px solid #e0e0e0;
 }
 
 .gatsby-highlight pre[class*="language-"] {
@@ -15,6 +16,11 @@
   overflow: initial;
   float: left;
   min-width: 100%;
+  color: #000;
+}
+
+.gatsby-highlight pre[class*="language-"] code {
+  background: none;
 }
 
 .gatsby-highlight pre[class*="language-"].line-numbers {
@@ -23,13 +29,18 @@
 
 /* Line highlighting */
 .gatsby-highlight-code-line {
-  background-color: #464646;
+  background-color: rgba(0, 0, 0, 0.05);
   display: block;
   margin-right: -1em;
   margin-left: -1em;
   padding-right: 1em;
   padding-left: 0.75em;
-  border-left: 0.25em solid #f8f8f2;
+  border-left: 0.25em solid #007acc;
+}
+
+/* Token colors */
+.token {
+  background: none !important;
 }
 
 /* Language badges */
