@@ -26,24 +26,5 @@ I'll be covering topics including:
 - Engineering Solutions to Real-world Problems
 - Technology Stack Deep Dives
 
-## Code Examples
-
-Here's a simple example of clean code structure in TypeScript:
-
-```typescript
-interface Logger {
-  log(message: string): void;
-}
-
-class ConsoleLogger implements Logger {
-  log(message: string): void {
-    console.log(`[${new Date().toISOString()}] ${message}`);
-  }
-}
-
-// Usage
-const logger = new ConsoleLogger();
-logger.log("Application started");
-```
 
 Stay tuned for more technical content!
