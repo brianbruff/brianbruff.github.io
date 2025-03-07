@@ -1,6 +1,6 @@
 ---
 title: "Understanding AWS Lambda Concurrent Execution Quota"
-date: "2023-10-10"
+date: "2025-03-07"
 description: "A comprehensive guide on AWS Lambda concurrent execution quota, how to increase it, and best practices for managing reserved capacity."
 ---
 
