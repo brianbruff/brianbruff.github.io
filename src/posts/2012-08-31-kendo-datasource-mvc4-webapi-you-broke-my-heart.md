@@ -23,7 +23,7 @@ So here is my current solution.
 
 ## Server
 
-#### 
+####
 
 ### Return:
 
@@ -49,8 +49,8 @@ Now for the Kendo javascript side:
 
 ![](/images/./image.axd?picture=image_thumb_218.png)
 
-The first important part I had was I had to map the parameters, the reason is that I’m updating the datasource via ajax and I call it like this:   
-  
+The first important part I had was I had to map the parameters, the reason is that I’m updating the datasource via ajax and I call it like this:
+
 ds.read(s0); I.e. I’m passing some parameters to the query ( i know there is mention of a query object in the kendo api but I failed to get this working), in the javascript above I’m just setting these parameters again when the paging happens. Note this was where I could set e.g. $top = options.take; if odata was supported…. ![Sad smile](./image.axd?picture=wlEmoticon-sadsmile_3.png)
 
 The next important part is that, I’m getting the result from the .Data field and I’m getting the total form the result.Total field (i also do a bit of mapping for some missing values but that’s application specific).

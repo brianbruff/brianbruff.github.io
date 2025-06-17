@@ -12,10 +12,11 @@ Here’s how you can specify html attributes with your html helpers.
 
 ![](/images//blog/image.axd?picture=image_thumb_71.png)
 
-### 
+###
 
-### _Form sample:  
-_
+### \_Form sample:
+
+\_
 
 ![](/images//blog/image.axd?picture=image_thumb_70.png)
 

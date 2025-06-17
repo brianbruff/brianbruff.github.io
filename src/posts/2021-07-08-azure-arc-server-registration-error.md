@@ -4,8 +4,6 @@ date: "2021-07-08"
 tags: ["Azure Arc"]
 ---
 
-  
-
 Today while adding a new server to an Azure subscription I encountered the following error:
 
 The subscription is not registered to use namespace 'Microsoft.HybridCompute'

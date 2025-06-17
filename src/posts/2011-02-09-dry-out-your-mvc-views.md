@@ -16,9 +16,9 @@ They are nearly identical.
 
 MVC3/Razor provides two ways to make things DRYer.
 
-1) Layouts (same as asp.net master pages, not covered in this post)
+1. Layouts (same as asp.net master pages, not covered in this post)
 
-2) Partial views 
+2. Partial views
 
 Here’s how.
 

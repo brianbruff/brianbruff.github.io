@@ -10,10 +10,10 @@ Anyone that reads this blog regularly or knows me, will know that I’m a C#/Jav
 
 ## Client options
 
-  * Html5 Desktop Client 
-  * iOS native client 
-  * Droid native client (I’ve never strictly speaking done one, unless you include my hello world post two years back) 
-  * PhoneGap/KendoUi iPad/Droid apps (I’m doing the phone apps for my Expenses service with these technologies). 
+- Html5 Desktop Client
+- iOS native client
+- Droid native client (I’ve never strictly speaking done one, unless you include my hello world post two years back)
+- PhoneGap/KendoUi iPad/Droid apps (I’m doing the phone apps for my Expenses service with these technologies).
 
 ## Decisions tree
 
@@ -53,8 +53,8 @@ So how will I proceed? I’m going to ditch the objective-C approach for sure:
 
 Reasons:
 
-  * It’s so much faster! I love C++ but can’t get myself to use it for app dev these days simply because C# kicks it to touch for rapid application development, same goes for Objective-C
-  * Because I don’t expect to continue this POC myself and will have to hand it over to someone, and I don’t know anyone else on the team that knows objective-C. 
+- It’s so much faster! I love C++ but can’t get myself to use it for app dev these days simply because C# kicks it to touch for rapid application development, same goes for Objective-C
+- Because I don’t expect to continue this POC myself and will have to hand it over to someone, and I don’t know anyone else on the team that knows objective-C.
 
 I’m actually still leaning towards the PhoneGap/KendoUI option, I just need to get my grubby hands on the server so i can add the CORS headers (again because I don’t want to do the bulk of my debugging with Phone gap but rather IE/Chrome and I quite like my browser stack (jQuery/Knockout/Breeze etc) but the main advantage is that the the same source can then be used for the Android platform. Sure Facebook/LinkedIn etc have all been moving away from html5 because of the tooling, but I feels it’s the best solution for getting to both markets quickly.
 

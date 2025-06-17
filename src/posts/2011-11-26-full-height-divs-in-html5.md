@@ -4,7 +4,7 @@ date: "2011-11-26"
 tags: ["height:100% html5"]
 ---
 
-Hi all, 
+Hi all,
 
 This has probably been beaten to death elsewhere, but somehow it’s the first time I’ve ever come across it.
 
@@ -28,33 +28,33 @@ So lets look at the simplified sample I’ve put together.
 
     BODY {
 
-         BACKGROUND:#ff0000; height:100%; 
+         BACKGROUND:#ff0000; height:100%;
 
-    }    
+    }
 
     #one {
 
-         BACKGROUND:#00ff00; height:100%; 
+         BACKGROUND:#00ff00; height:100%;
 
     }
 
     #two {
 
-         BACKGROUND:#0000ff; height:100%; 
+         BACKGROUND:#0000ff; height:100%;
 
     }
 
     style>
 
-    <body>    
+    <body>
 
-        <div id="one">    
+        <div id="one">
 
             <div id="two">
 
                 gdxg
 
-            div>      
+            div>
 
         div>
 

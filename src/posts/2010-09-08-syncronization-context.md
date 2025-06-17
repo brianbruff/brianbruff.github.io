@@ -12,7 +12,7 @@ private void Window_Loaded(object sender, RoutedEventArgs e)
 {  
 SynchronizationContext ctx = SynchronizationContext.Current;
 
-ThreadPool.QueueUserWorkItem(_ =>  
+ThreadPool.QueueUserWorkItem(\_ =>  
 {
 
 WebClient client = new WebClient();

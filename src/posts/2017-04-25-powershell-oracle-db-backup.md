@@ -10,7 +10,7 @@ I thought I would share with you this quick Powershell script I created to Expor
 
 ## Export.ps1
 
-param([String]$dumpname=(get-date -format dd-MM-yyyy)) Set-Alias sz "$env:ProgramFiles\7-Zip\7z.exe" expdp / DIRECTORY=dmpdir DUMPFILE=$dumpname.dmp LOGFILE=$dumpname.log sz a -mx "$dumpname.7z" "$dumpname.*" Write-S3Object -bucket "company-ps" -profilename brian.keating  -file "$dumpname.7z" -key "customer/dbdumps/$dumpname.7z" remove-item "$dumpname.dmp" remove-item "$dumpname.log"   
+param([String]$dumpname=(get-date -format dd-MM-yyyy)) Set-Alias sz "$env:ProgramFiles\7-Zip\7z.exe" expdp / DIRECTORY=dmpdir DUMPFILE=$dumpname.dmp LOGFILE=$dumpname.log sz a -mx "$dumpname.7z" "$dumpname.\*" Write-S3Object -bucket "company-ps" -profilename brian.keating -file "$dumpname.7z" -key "customer/dbdumps/$dumpname.7z" remove-item "$dumpname.dmp" remove-item "$dumpname.log"
 
 ## How it works:
 
@@ -26,7 +26,7 @@ Finally it removes the dump and log files.
 
 ASW Powershell is installed on this server and I have already set a profile “brian.keating” with the following command.
 
-set-awscredentials –AccessKey  –SecretKey  -storeAs brian.keating
+set-awscredentials –AccessKey –SecretKey -storeAs brian.keating
 
 ## Trivia
 

@@ -14,32 +14,33 @@ What i set out to achieve was to demonstrate how to read and write some text to 
 
 Adding the SDKs was a seamless process, for .NET Nuget was used and for Java Maven was used
 
-**.Net** | **Java**  
----|---  
-| ![](/images/./image.axd?picture=image_thumb_424.png)  
+| **.Net** | **Java** |
+| -------- | -------- |
+
+| ![](/images/./image.axd?picture=image_thumb_424.png)
 
 ![](/images/./image.axd?picture=image_thumb_425.png)  
-![](/images/./image.axd?picture=image_thumb_426.png)  
-  
+![](/images/./image.axd?picture=image_thumb_426.png)
+
 ### Write
 
 #### Azure
 
-![](/images/./image.axd?picture=image_thumb_420.png)  
+![](/images/./image.axd?picture=image_thumb_420.png)
 
 #### AWS
 
-![](/images/./image.axd?picture=image_thumb_421.png)  
+![](/images/./image.axd?picture=image_thumb_421.png)
 
 ### Read
 
 #### Azure
 
-![](/images/./image.axd?picture=image_thumb_422.png)  
+![](/images/./image.axd?picture=image_thumb_422.png)
 
 #### AWS
 
-![](/images/./image.axd?picture=image_thumb_423.png)  
+![](/images/./image.axd?picture=image_thumb_423.png)
 
 ## Conclusions
 

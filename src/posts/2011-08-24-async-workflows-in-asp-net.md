@@ -12,7 +12,7 @@ Client is a simple web form, the instruments are entered in the text box, fetch 
 
 ![](/images/./image.axd?picture=image_thumb_83.png)
 
-Now the workflow, for the purpose of this test I won’t be connecting to any database webservice etc, I’ve just added a delay of 10 seconds and and assign the value of LastClose to 
+Now the workflow, for the purpose of this test I won’t be connecting to any database webservice etc, I’ve just added a delay of 10 seconds and and assign the value of LastClose to
 
     RIC & " " & New Random().NextDouble()
 
@@ -34,7 +34,7 @@ Here’s the code behind for the **non-async** button event handler
 
                     var args = new Dictionary<string, object>();
 
-                    args.Add("RIC", tbInst1.Text);                
+                    args.Add("RIC", tbInst1.Text);
 
                     var res = WorkflowInvoker.Invoke(_getPricesWFDefinition, args);
 
@@ -98,7 +98,7 @@ Let me show you some options.
 
                 return t1;
 
-            } 
+            }
 
 So we’re using the task library to make the two workflow requests async, and results look promising, down to about 10 seconds now… so any problems with doing this?
 
@@ -108,8 +108,8 @@ You may ask yourself when should you choose an asynchronous programming model (A
 
 ![](/images/./image.axd?picture=image_thumb_85.png)
 
-So what is this telling us? Basically, if your app is I/O bound then you should use parallelism, if requests are computationally cheap to process, then parallelism is probably an unnecessary overhead. 
+So what is this telling us? Basically, if your app is I/O bound then you should use parallelism, if requests are computationally cheap to process, then parallelism is probably an unnecessary overhead.
 
-If the incoming request rate is high, then adding more parallelism will likely yield few benefits and could actually decrease performance, since the incoming rate of work may be high enough to keep the CPUs busy. 
+If the incoming request rate is high, then adding more parallelism will likely yield few benefits and could actually decrease performance, since the incoming rate of work may be high enough to keep the CPUs busy.
 
-If the incoming request rate is low, then the Web application could benefit from parallelism by using the idle CPU cycles to speed up the processing of an individual request. We can use either PLINQ or TPL (either Parallel loops or the Task class) to parallelize the computation over all the processors. Note that by default, however, the PLINQ implementation in .NET 4 will tie-up one ThreadPool worker per processor for the entire execution of the query. As such, it should only be used in Web applications that see few but expensive requests. 
+If the incoming request rate is low, then the Web application could benefit from parallelism by using the idle CPU cycles to speed up the processing of an individual request. We can use either PLINQ or TPL (either Parallel loops or the Task class) to parallelize the computation over all the processors. Note that by default, however, the PLINQ implementation in .NET 4 will tie-up one ThreadPool worker per processor for the entire execution of the query. As such, it should only be used in Web applications that see few but expensive requests.

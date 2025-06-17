@@ -36,11 +36,11 @@ Now this is all well and good, but I’ve never been one for dumping a load of h
 
 Here’s how:
 
-  * Create your webpages   
-  
+- Create your webpages
+
 ![](/images//blog/image.axd?picture=image_thumb_33.png)
 
-  * Load your content into the tab divs (I’ve just done this after the DOM is loaded with jQuery, I may lazy load other pages…)
+- Load your content into the tab divs (I’ve just done this after the DOM is loaded with jQuery, I may lazy load other pages…)
 
 ![](/images//blog/image.axd?picture=image_thumb_34.png)
 

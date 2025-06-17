@@ -12,7 +12,7 @@ The sample app I will show actually connects to a work related webservice, but y
 
 ### Create a MVC3 application
 
-### Add jQuery UI (use nuget) 
+### Add jQuery UI (use nuget)
 
 ![](/images/./image.axd?picture=image_thumb_166.png)
 

@@ -79,4 +79,3 @@ For .net people this will be very familiar to IDisposable and the using(var x = 
 We’re guaranteed that the
 
     is.close(); gets called automatically for us. Have to say I'm a bit jealous that the c# team didn't think of the try() syntax over using.
-

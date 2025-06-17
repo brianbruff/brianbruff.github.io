@@ -4,11 +4,9 @@ date: "2021-01-06"
 tags: ["Design Patterns"]
 ---
 
-  
-
 In computing, a **materialized view** is a database object that contains the results of a query. For example, it may be a local copy of data located remotely, or may be a subset of the rows and/or columns of a table or join result, or may be a summary using an aggregate function.
 
-However when dealing with microservices that have well defined domain boundaries and own their own datasets the 
+However when dealing with microservices that have well defined domain boundaries and own their own datasets the
 
 ## Why?
 

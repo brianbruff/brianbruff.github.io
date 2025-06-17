@@ -8,13 +8,13 @@ tags: []
 
 Here’s a run through on how to create a data driven web application in under a minute. I’m going to create a simple part tracking system as to manage the vast amount of helicopter parts lying about my garage. Some parts I’ll never use, some parts are missing little comprising bits, the idea is to deploy the application as part of the club website allowing members to quickly find a part in a hurry for the big upcoming competition
 
-Lets get started: 
+Lets get started:
 
-1) Install MVC Scaffolding if you’ve not done so before, go to the package console and type Install-Package MvcScaffolding
+1. Install MVC Scaffolding if you’ve not done so before, go to the package console and type Install-Package MvcScaffolding
 
 ![](/images//blog/image.axd?picture=image_thumb_54.png)
 
-  * Create a class for the part 
+- Create a class for the part
 
 ![](/images//blog/image.axd?picture=image_thumb_55.png)
 
@@ -31,7 +31,7 @@ If you need to rescaffold then use –Force.
 
 Ok so we’re 50 seconds into this at this stage, and we could just run the application now provided we’ve got sqlexpress installed. However if you won’t we can use SqlCompact version.
 
-Drop back into the Package Manager Consoler and 
+Drop back into the Package Manager Consoler and
 
     Install-Package EFCodeFirst.SqlServerCompact
 

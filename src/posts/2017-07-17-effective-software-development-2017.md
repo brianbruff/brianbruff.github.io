@@ -4,9 +4,9 @@ date: "2017-07-17"
 tags: []
 ---
 
-I’ve been thinking a lot about the state of software development recently and moreover taking a step back trying to identify and articulate where I stand on past, present, future trends or concepts and define how to employ these ideas and approaches to become more effective in delivering successful production software. 
+I’ve been thinking a lot about the state of software development recently and moreover taking a step back trying to identify and articulate where I stand on past, present, future trends or concepts and define how to employ these ideas and approaches to become more effective in delivering successful production software.
 
-Now I’m as guilty as the next person of **Resume Driven Development** , for years I’ve chased that shiny new technology; why? well it was current, it was bleeding edge or at least cutting edge, I gorged on technical articles and videos and spend many a long night trying things out, in fact, I still do and I can’t see that ever changing. 
+Now I’m as guilty as the next person of **Resume Driven Development** , for years I’ve chased that shiny new technology; why? well it was current, it was bleeding edge or at least cutting edge, I gorged on technical articles and videos and spend many a long night trying things out, in fact, I still do and I can’t see that ever changing.
 
 ## Experience vs. Skill vs. Attitude
 
@@ -14,10 +14,10 @@ However this can lead to having a lot of experience, but _experience is cheap_ (
 
 For these type of people:
 
-  * Learning becomes easier – The more one learns the easier new information takes root, it’s simple, you’re training your brain, you’ll find that you will develop an insatiable appetite for yet even more information, for tips, tricks, patterns, practises, anti patterns, frameworks… you name it…
-  * Value identification – Because Netflix, Amazon, Microsoft [insert big name brand here] says it is shiny is no longer good enough! We’ve all been through this technology **hype cycle** where, something new comes out, everyone is really excited then one starts using it only to fall into the trough of disillusionment.  ![](/images//images/image_thumb_439.png)  
+- Learning becomes easier – The more one learns the easier new information takes root, it’s simple, you’re training your brain, you’ll find that you will develop an insatiable appetite for yet even more information, for tips, tricks, patterns, practises, anti patterns, frameworks… you name it…
+- Value identification – Because Netflix, Amazon, Microsoft [insert big name brand here] says it is shiny is no longer good enough! We’ve all been through this technology **hype cycle** where, something new comes out, everyone is really excited then one starts using it only to fall into the trough of disillusionment. ![](/images//images/image_thumb_439.png)
 
-Once you’ve been through this cycle a few times you know what to expect and you will better qualify where you lie on this trend line when evaluating for example a new technology stack.  
+Once you’ve been through this cycle a few times you know what to expect and you will better qualify where you lie on this trend line when evaluating for example a new technology stack.
 
 ## My Views
 
@@ -25,7 +25,7 @@ Once you’ve been through this cycle a few times you know what to expect and yo
 
 I grew up in Microsoft Land, if you take away my tools you’ll take away my productivity. Tooling in my view is critical to being productive. But tooling can be bad, tooling if not understood can abstract you so far away from the underlying technology you may not understand how it works, this could make a really trivial problem very hard to resolve.
 
-The CTO of _Expensify_ once wrote an article something along the lines of “Why I will never hire a .NET developer”. From what I recall he faced some serious backlash on that post, but I understood the point he was trying to get across. I have watched many Asp.NET webforms developers struggle when that community started embracing ASP MVC. For those that don’t know ASP Web Forms to some degree abstracted away web applications so much with the likes of ViewState and Postbacks, that a junior dev would be forgiven for thinking he/she was writing a VB6 application. 
+The CTO of _Expensify_ once wrote an article something along the lines of “Why I will never hire a .NET developer”. From what I recall he faced some serious backlash on that post, but I understood the point he was trying to get across. I have watched many Asp.NET webforms developers struggle when that community started embracing ASP MVC. For those that don’t know ASP Web Forms to some degree abstracted away web applications so much with the likes of ViewState and Postbacks, that a junior dev would be forgiven for thinking he/she was writing a VB6 application.
 
 The point I’m getting to is that, if you understand how the underlying technology works, then you are in a much better position to leverage any tooling that increases productivity.
 
@@ -61,9 +61,9 @@ A client of mine once told me how back in the .COM boom he was paying 100k $ a m
 
 But sadly cloud can be used in all the wrong ways and the costs can quickly ramp up. I would suggest the following guidelines when looking at the cloud
 
-  * If you are lifting and shifting, then you are probably doing it wrong 
-  * If you stay in IaaS you are missing out on the advantages of PaaS 
-  * If you use serverless, then use it correctly, don’t turn your application into one giant RPC call just to be sexy.
+- If you are lifting and shifting, then you are probably doing it wrong
+- If you stay in IaaS you are missing out on the advantages of PaaS
+- If you use serverless, then use it correctly, don’t turn your application into one giant RPC call just to be sexy.
 
 ### Understand your Business
 
@@ -73,41 +73,41 @@ Be aware of the innovators dilemma and don’t stagnate,.
 
 ### Microservices
 
-How many times have you heard people moving to microservice architecture to escape the problems they have with their current monolithic approach? 
+How many times have you heard people moving to microservice architecture to escape the problems they have with their current monolithic approach?
 
 Yes microservices can help one avoid some of the pitfalls of monolits however I would argue that if someone can’t write a good monolit then they won’t write a good set of microservices. Some backgrounds like the Microsoft stack naturally fit well into Microservices while other like J2EE are in stark contrast.
 
 #### The Promise
 
-Microservices are certainly one of the areas where people encounter the hype cycle in early attempts. They break up big application in the hope of: 
+Microservices are certainly one of the areas where people encounter the hype cycle in early attempts. They break up big application in the hope of:
 
-  * having greater flexibility and scalability 
-  * having to ability to deploy services independently with different teams 
-  * have more agility 
+- having greater flexibility and scalability
+- having to ability to deploy services independently with different teams
+- have more agility
 
 #### The Result
 
-  * It is more brittle than ever before 
-  * Performance is terrible 
-  * Services needed to be deployed together and in specific order 
-  * It was impossible to follow the flow of messages through the system. 
-  * Distributed systems are HARD 
-  * Eventual consistency is a paradigm shift 
-  * Legacy habits created a distributed “big ball of mud” 
+- It is more brittle than ever before
+- Performance is terrible
+- Services needed to be deployed together and in specific order
+- It was impossible to follow the flow of messages through the system.
+- Distributed systems are HARD
+- Eventual consistency is a paradigm shift
+- Legacy habits created a distributed “big ball of mud”
 
 I’m not looking to frighten anyone, I’m pro microservice but one needs to understand what they are buying into and what approaches exist to overcome these limitations.
 
-### Architecture 
+### Architecture
 
 Architecture is never just about the technology, it’s about the team, are they agile, do they “do agile” or neither, is there a DevOps culture, what are the underlying business decisions driving the change?
 
 Keep the follow in mind when architecting a solution:
 
-  * Keep it simple 
-  * Don't build what you don’t need 
-  * Don’t build what you might need 
-  * TCO and ROI are important 
-  * Research new approaches,   
-e.g. I’d rather drink battery acid than do 2 phase commit, there are other approaches…. research them!
+- Keep it simple
+- Don't build what you don’t need
+- Don’t build what you might need
+- TCO and ROI are important
+- Research new approaches,  
+  e.g. I’d rather drink battery acid than do 2 phase commit, there are other approaches…. research them!
 
-Always be learning! 
+Always be learning!

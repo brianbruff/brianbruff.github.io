@@ -10,17 +10,17 @@ At lunch today I created a little fun website and it only took about 15 minutes 
 
 ## The technologies involved were
 
-  * ### Azure (website)
+- ### Azure (website)
 
-  * ### SignalR
+- ### SignalR
 
-  * ### Asp MVC 4
+- ### Asp MVC 4
 
-  * ### .NET 4 (because at the time of writing Azure doesn’t support .net 4.5 not that I need it).
+- ### .NET 4 (because at the time of writing Azure doesn’t support .net 4.5 not that I need it).
 
-Let me explain how I did it, the reason I did it was simple, I was sick to death of seeing all these posts on **SignalR** without actually having used it. **Asp MVC** is my choice of web tech these days so that was a foregone conclusion, and **Azure** has provided 10 free **Azure websites** for these sort of sites.Here we see the main page with an eductational video   
-![](/images/./image.axd?picture=image_thumb_219.png)   
-  
+Let me explain how I did it, the reason I did it was simple, I was sick to death of seeing all these posts on **SignalR** without actually having used it. **Asp MVC** is my choice of web tech these days so that was a foregone conclusion, and **Azure** has provided 10 free **Azure websites** for these sort of sites.Here we see the main page with an eductational video  
+![](/images/./image.axd?picture=image_thumb_219.png)
+
 Here we see a test with two local browsers
 ![](/images/./image.axd?picture=image_thumb_220.png)Step 1.Create a ASP MVC4 Web internet web application, add a Chat controller. Add a view for the Index method.
 ![](/images/./image.axd?picture=image_thumb_221.png)

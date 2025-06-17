@@ -8,7 +8,6 @@ In this screencast I show you how to prevent a click event on a table cell conte
 
 ## Screenshots
 
-![](/images//images/image_thumb_359.png)  
+![](/images//images/image_thumb_359.png)
 
-![](/images//images/image_thumb_360.png)  
-
+![](/images//images/image_thumb_360.png)

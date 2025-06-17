@@ -16,39 +16,39 @@ Now .Net 4.0 supports Design by Contract approach to software design .NET 4 code
 
        3:  public class Calculator
 
-       4:  {   
+       4:  {
 
        5:      public Int32 Sum(Int32 x, Int32 y)
 
-       6:      {        
+       6:      {
 
-       7:          Contract.Requires(x >= 0 && y >= 0); 
+       7:          Contract.Requires(x >= 0 && y >= 0);
 
-       8:          Contract.Ensures(Contract.Result() >= 0);         
+       8:          Contract.Ensures(Contract.Result() >= 0);
 
-       9:          
+       9:
 
-      10:          if (x == y)            
+      10:          if (x == y)
 
-      11:          return 2 * x;         
+      11:          return 2 * x;
 
-      12:          return x + y;    
+      12:          return x + y;
 
-      13:      }  
+      13:      }
 
-      14:      
+      14:
 
-      15:      public Int32 Divide(Int32 x, Int32 y)    
+      15:      public Int32 Divide(Int32 x, Int32 y)
 
       16:      {
 
-      17:          Contract.Requires(x >= 0 && y >= 0);       
+      17:          Contract.Requires(x >= 0 && y >= 0);
 
       18:          Contract.Requires(y > 0);
 
-      19:          Contract.Ensures(Contract.Result() >= 0);      
+      19:          Contract.Ensures(Contract.Result() >= 0);
 
-      20:          return x / y;    
+      20:          return x / y;
 
       21:      }
 

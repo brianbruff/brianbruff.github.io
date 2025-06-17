@@ -8,7 +8,7 @@ What’s wrong with this?
 
        1:  public class UsersController : RavenController
 
-       2:  {  
+       2:  {
 
        3:      public User Get(int userId)
 
@@ -36,21 +36,21 @@ What’s wrong with this?
 
       15:          this.AutoSave = false;
 
-      16:          return RavenSession.Query();            
+      16:          return RavenSession.Query();
 
-      17:      }        
+      17:      }
 
       18:  }
 
 The problem is the variable name used for getting a single user the function would never be called.
 
-E.g. if we put <http://localhost:65487/api/users/1> into our browser what will happen is the GetAll gets called! 
+E.g. if we put <http://localhost:65487/api/users/1> into our browser what will happen is the GetAll gets called!
 
 What we need to call is
 
        1:  public class UsersController : RavenController
 
-       2:  {  
+       2:  {
 
        3:      public User Get(int id)
 
@@ -78,9 +78,9 @@ What we need to call is
 
       15:          this.AutoSave = false;
 
-      16:          return RavenSession.Query();            
+      16:          return RavenSession.Query();
 
-      17:      }        
+      17:      }
 
       18:  }
 
@@ -88,19 +88,19 @@ Now you see that the Get takes** _a variable name of “id” this is key to get
 
 Note: I’m using IQuerable as this allows me to add some query parameters to my request, e.g.
 
-**$filter**   
+**$filter**  
 A Boolean expression for whether a particular entry should be included in the feed, e.g. Categories?$filter=CategoryName eq 'Produce'. The Query Expression section describes OData expressions.
 
-**$orderby**   
+**$orderby**  
 One or more comma-separated expressions with an optional “asc” (the default) or “desc” depending on the order you’d like the values sorted, e.g. Categories?$orderby=CategoryName desc.
 
-**$select**   
+**$select**  
 Limit the properties on each entry to just those requested, e.g. Categories?$select=CategoryName,Description.
 
-**$skip**   
+**$skip**  
 How many entries you’d like to skip, e.g. Categories?$skip=4.
 
-**$top** \-   
+**$top** \-  
 Return entries from the top of the feed, e.g. Categories?$top=4
 
 See MSDN for more options.

@@ -27,11 +27,11 @@ return RedirectToAction("Index", "Home");
 }  
 else  
 {  
-ModelState.AddModelError("",   
+ModelState.AddModelError("",  
 "The user name or password provided is incorrect.");  
 }  
-}  
-  
+}
+
 // If we got this far, something failed, redisplay form  
 return View(model);  
 }
@@ -63,11 +63,11 @@ The IsUrlLocalToHost method contains the actual validation logic below
 public static bool IsUrlLocalToHost(this HttpRequestBase request, string url) {  
 if (url.IsEmpty()) {  
 return false;  
-}  
-  
+}
+
 Uri absoluteUri;  
 if (Uri.TryCreate(url, UriKind.Absolute, out absoluteUri)) {  
-return String.Equals(request.Url.Host, absoluteUri.Host,   
+return String.Equals(request.Url.Host, absoluteUri.Host,  
 StringComparison.OrdinalIgnoreCase);  
 }  
 else {  

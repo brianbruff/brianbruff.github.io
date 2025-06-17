@@ -18,10 +18,10 @@ Visual Studio you rock!
 
 I’ve used quite a few IDE’s lately
 
-  * Netbeans
-  * Eclipse
-  * IntelliJ (pretty good)
-  * XCode 4.0
+- Netbeans
+- Eclipse
+- IntelliJ (pretty good)
+- XCode 4.0
 
 One thing is for certain, only IntelliJ comes close (but then the Refactor developers are pretty familiar with VStudio ![Nyah-Nyah](./image.axd?picture=wlEmoticon-nyahnyah_1.png)
 

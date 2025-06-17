@@ -10,8 +10,8 @@ Given I’m pretty much a noob with iOS dev still compared to most other languag
 
 I did consider a few options before proceeding down this route:
 
-  * Subclassing UIImageView and handling the touches once I’d enabled interaction, 
-  * Subclassing UIImageView and using a gesture recogniser
+- Subclassing UIImageView and handling the touches once I’d enabled interaction,
+- Subclassing UIImageView and using a gesture recogniser
 
 However I found the following method really simple.
 

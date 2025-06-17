@@ -6,11 +6,11 @@ tags: []
 
 The cool hip thing these days is MVC, hang ur head in shame if you are still plodding along with plain old asp.net.
 
-Actually that’s not quite right, in fact it couldn’t be further from the truth, asp.net is alive and strong and will be for a long long time, don’t mind those people complaining about 
+Actually that’s not quite right, in fact it couldn’t be further from the truth, asp.net is alive and strong and will be for a long long time, don’t mind those people complaining about
 
-  * Not having direct (easy) control over what html gets rendered
-  * Testing lets a little to be desired 
-  * You can’t get ur grubby little hands on the @razor (at least i’m not currently aware if it can be used outside MVC3); 
+- Not having direct (easy) control over what html gets rendered
+- Testing lets a little to be desired
+- You can’t get ur grubby little hands on the @razor (at least i’m not currently aware if it can be used outside MVC3);
 
 ASP is alive and strong and Microsoft are actively working on it, what’s more you’ve most likely already have some pretty good controls that you slaved over or bought ready made…
 
@@ -34,18 +34,18 @@ The View contains the following (apologies in all my talk I didn’t use razor !
 
        3:  "HeaderCnt" ContentPlaceHolderID="TitleContent" runat="server">
 
-       4:      
+       4:
 
-       5:  
+       5:
 
        6:   
 
-       7:  
+       7:
 
       13:  "BdyCnt" ContentPlaceHolderID="MainContent" runat="server">
 
-      14:      
-    
+      14:
+
     ## Index
 
       15:      "server" ID="SampleRadScheduler" EnableAdvancedForm="false">
@@ -54,9 +54,9 @@ The View contains the following (apologies in all my talk I didn’t use razor !
 
       17:          "false" />
 
-      18:      
+      18:
 
-      19:  
+      19:
 
 That’s pretty muich it, I’m using a plain old .net 2.0 style Webservice as outlined in Telerik help samples but expect I can use WCF too (another post maybe).
 
