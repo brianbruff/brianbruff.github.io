@@ -4,23 +4,23 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
  */
 
-const path = require(`path`);
-const { createFilePath } = require(`gatsby-source-filesystem`);
+const path = require(`path`)
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
+  const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `src/posts` });
+    const slug = createFilePath({ node, getNode, basePath: `src/posts` })
     createNodeField({
       node,
       name: `slug`,
       value: `/blog${slug}`,
-    });
+    })
   }
-};
+}
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
   const result = await graphql(`
     query {
       allMarkdownRemark {
@@ -31,15 +31,15 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `);
+  `)
 
-  result.data.allMarkdownRemark.nodes.forEach((node) => {
+  result.data.allMarkdownRemark.nodes.forEach(node => {
     createPage({
       path: node.fields.slug,
       component: path.resolve(`./src/templates/blog-post.js`),
       context: {
         slug: node.fields.slug,
       },
-    });
-  });
-};
+    })
+  })
+}

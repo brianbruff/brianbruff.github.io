@@ -11,20 +11,20 @@ This is a pretty straight method using exceptions (if you're from the camp that 
 [code:c#]
 
 public string Name  
-{   
-get   
 {  
-return _name;   
-}   
-set   
-{   
+get  
+{  
+return \_name;  
+}  
+set  
+{  
 if ( value.Length >= 10 )  
-throw new ArgumentException( "Name is too long" );   
-_name = value;  
+throw new ArgumentException( "Name is too long" );  
+\_name = value;  
 }  
 }
 
-NotifyOnValidationError="True"   
-ValidatesOnExceptions="True" />   
+NotifyOnValidationError="True"  
+ValidatesOnExceptions="True" />
 
 [/code]

@@ -6,14 +6,14 @@ tags: ["entity framework", "data annotations"]
 
 ![](/images//blog/image.axd?picture=image_thumb_30.png)
 
-When you create a MVC view for data entry it already has the scaffolding in place to handle client side validation (and server)   
+When you create a MVC view for data entry it already has the scaffolding in place to handle client side validation (and server)  
 However you need to specify the data annotations you need.
 
 You’ve two options.
 
-1) Modify the T4 code generation templates
+1. Modify the T4 code generation templates
 
-2) Use meta data classes (this post)
+2. Use meta data classes (this post)
 
 The generated EF classes are partial classes, this allows us to do the following
 

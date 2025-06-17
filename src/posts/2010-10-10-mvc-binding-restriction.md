@@ -12,7 +12,7 @@ Take the Loler type seen in my other MVC2 blog posts.
 
 [Bind(Include="ID,Name,Description")]  
 public class Loler  
-{   
+{  
 //entity framework generated  
 }
 

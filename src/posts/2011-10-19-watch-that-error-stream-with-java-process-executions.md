@@ -4,7 +4,7 @@ date: "2011-10-19"
 tags: ["SreamGobbler java process execution"]
 ---
 
-I’m executing a windows process from java and I was bitten by a nasty oversight in one of my project today.   
+I’m executing a windows process from java and I was bitten by a nasty oversight in one of my project today.  
 Everything’s been working fine for some time, but today the application I’m calling started spitting out errors to the error stream.
 
 However I’d not been reading the errorstream in my code and it appears to be the culprit for hanging the process execution.

@@ -12,209 +12,210 @@ So this post is an attempt to make those people a little happier.
 
 The solutions is as follows(, It’s a bit rough around the edges at the moment as I have just got it working and have not yet cleaned up the code).
 
-  * Firstly, I created a binding to manage the header
+- Firstly, I created a binding to manage the header
 
-    public class MyBehavior : BehaviorExtensionElement, IEndpointBehavior
+  public class MyBehavior : BehaviorExtensionElement, IEndpointBehavior
 
-        {      
+      {
 
-            public MyBehavior(string userName, string password)
+          public MyBehavior(string userName, string password)
 
-            {
+          {
 
-                this.UserName = userName;
+              this.UserName = userName;
 
-                this.Password = password;
+              this.Password = password;
 
-            }
+          }
 
-            #region IEndpointBehavior Members
+          #region IEndpointBehavior Members
 
-            public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
+          public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
 
-            {
+          {
 
-            }
+          }
 
-            public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
+          public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
 
-            {
+          {
 
-                clientRuntime.MessageInspectors.Add(new MyMessageInspector(this.UserName, this.Password));
+              clientRuntime.MessageInspectors.Add(new MyMessageInspector(this.UserName, this.Password));
 
-            }
+          }
 
-            public void ApplyDispatchBehavior(ServiceEndpoint endpoint, EndpointDispatcher endpointDispatcher) 
+          public void ApplyDispatchBehavior(ServiceEndpoint endpoint, EndpointDispatcher endpointDispatcher)
 
-            {
+          {
 
-            }
+          }
 
-            public void Validate(ServiceEndpoint endpoint) 
+          public void Validate(ServiceEndpoint endpoint)
 
-            { 
+          {
 
-            }
+          }
 
-            #endregion
+          #endregion
 
-            public override Type BehaviorType
+          public override Type BehaviorType
 
-            {
+          {
 
-                get 
+              get
 
-                { 
+              {
 
-                    return typeof(MyBehavior); 
+                  return typeof(MyBehavior);
 
-                } 
+              }
 
-            }
+          }
 
-            protected override object CreateBehavior() 
+          protected override object CreateBehavior()
 
-            { 
+          {
 
-                return new MyBehavior(this.UserName, this.Password); 
+              return new MyBehavior(this.UserName, this.Password);
 
-            }
+          }
 
-            public string UserName { get; set; }
+          public string UserName { get; set; }
 
-            public string Password { get; set; }
+          public string Password { get; set; }
 
-        }
+      }
 
 Ok so now we can see this behavior adds a MessageInspector to every message. lets take a look at what the message inspector does.
 
-  * MessageInspector
+- MessageInspector
 
-    class MyMessageInspector : IClientMessageInspector
-    {
-        public MyMessageInspector(string username, string password)
-        {
-            _username = username;
-            _password = password;
-        }
-    
-        public void AfterReceiveReply(ref System.ServiceModel.Channels.Message reply, object correlationState)
-        {
-                
-        }
-    
-        public object BeforeSendRequest(ref System.ServiceModel.Channels.Message request, System.ServiceModel.IClientChannel channel)
-        {
-            var header = new WseHeader(_username, _password);            
-                    
-            request.Headers.Add(header); 
-                
-            return null;
-        }
+  class MyMessageInspector : IClientMessageInspector
+  {
+  public MyMessageInspector(string username, string password)
+  {
+  \_username = username;
+  \_password = password;
+  }
 
-        private string _username;
-        private string _password;
-    }
+      public void AfterReceiveReply(ref System.ServiceModel.Channels.Message reply, object correlationState)
+      {
+
+      }
+
+      public object BeforeSendRequest(ref System.ServiceModel.Channels.Message request, System.ServiceModel.IClientChannel channel)
+      {
+          var header = new WseHeader(_username, _password);
+
+          request.Headers.Add(header);
+
+          return null;
+      }
+
+      private string _username;
+      private string _password;
+
+  }
 
 So here in my message inspector I add a new header.
 
 In fact it’s this header that was making life hard for most people.
 
-  * WseHeader
+- WseHeader
 
-    class WseHeader : MessageHeader
+  class WseHeader : MessageHeader
 
-        {        
+      {
 
-            public WseHeader(string userName, string password)
+          public WseHeader(string userName, string password)
 
-            {
+          {
 
-                this.UserName = userName;
+              this.UserName = userName;
 
-                this.Password = password;
+              this.Password = password;
 
-            }
+          }
 
-            public string UserName
+          public string UserName
 
-            {
+          {
 
-                get;
+              get;
 
-                private set;
+              private set;
 
-            }
+          }
 
-            private string Password
+          private string Password
 
-            {
+          {
 
-                get;
+              get;
 
-                set;
+              set;
 
-            }
+          }
 
-            protected override void OnWriteStartHeader(System.Xml.XmlDictionaryWriter writer, MessageVersion messageVersion)
+          protected override void OnWriteStartHeader(System.Xml.XmlDictionaryWriter writer, MessageVersion messageVersion)
 
-            {
+          {
 
-                base.OnWriteStartHeader(writer, messageVersion);
+              base.OnWriteStartHeader(writer, messageVersion);
 
-                writer.WriteAttributeString("s:mustUnderstand", "0");
+              writer.WriteAttributeString("s:mustUnderstand", "0");
 
-                writer.WriteAttributeString("xmlns:wsse", WsseNamespaceToken);
+              writer.WriteAttributeString("xmlns:wsse", WsseNamespaceToken);
 
-                writer.WriteAttributeString("xmlns:s", "http://schemas.xmlsoap.org/soap/envelope/");
+              writer.WriteAttributeString("xmlns:s", "http://schemas.xmlsoap.org/soap/envelope/");
 
-            }
+          }
 
-            protected override void OnWriteHeaderContents(System.Xml.XmlDictionaryWriter writer, MessageVersion messageVersion)
+          protected override void OnWriteHeaderContents(System.Xml.XmlDictionaryWriter writer, MessageVersion messageVersion)
 
-            {
+          {
 
-                writer.WriteRaw(Properties.Resources.WseHeaderText.Replace("{USERNAME}", 
+              writer.WriteRaw(Properties.Resources.WseHeaderText.Replace("{USERNAME}",
 
-                    this.UserName).Replace("{PASSWORD}", this.Password));
+                  this.UserName).Replace("{PASSWORD}", this.Password));
 
-            }
+          }
 
-            public override string Name
+          public override string Name
 
-            {
+          {
 
-                get { return "wsse:Security"; }
+              get { return "wsse:Security"; }
 
-            }
+          }
 
-            public override string Namespace
+          public override string Namespace
 
-            {
+          {
 
-                get { return ""; }
+              get { return ""; }
 
-            }
+          }
 
-            public override bool MustUnderstand
+          public override bool MustUnderstand
 
-            {
+          {
 
-                get
+              get
 
-                {
+              {
 
-                    return false;
+                  return false;
 
-                }
+              }
 
-            }
+          }
 
-            private const string WsseNamespaceToken = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd";
+          private const string WsseNamespaceToken = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd";
 
-        }
+      }
 
-This class will create a header like this   
+This class will create a header like this
 
     <wsse:Security s:mustUnderstand="0" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
 
@@ -228,13 +229,13 @@ This class will create a header like this
 
         wsse:Security>
 
-  * Please note I’m getting the body of the header from a project resource, here it is WseHeaderText
+- Please note I’m getting the body of the header from a project resource, here it is WseHeaderText
 
-    "SecurityToken-3f7f983f-66ce-480d-bce6-170632d33f92" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+  "SecurityToken-3f7f983f-66ce-480d-bce6-170632d33f92" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
 
-        {USERNAME}
+      {USERNAME}
 
-        "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">{PASSWORD}
+      "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">{PASSWORD}
 
 I just replace the username and password in code in the MessageHeader. I could probably do all this neater with the API but it’s good enough for my investigation tonight, I usually just add the WSE header directly into my configuration file and not bother with the behavior.
 

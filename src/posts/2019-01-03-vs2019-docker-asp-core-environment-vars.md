@@ -12,21 +12,21 @@ If you are debugging with VS2017/9 and want to pass environment variables to you
 
 Create a new text file, the name doesn’t matter, but i called mine Dockerfile.env
 
-![](/images//images/image_thumb_441.png)  
+![](/images//images/image_thumb_441.png)
 
-![](/images//images/image_thumb_442.png)  
-  
+![](/images//images/image_thumb_442.png)
+
 ### Step 2
 
 Add this file to your .csproj file.
 
-![](/images//images/image_thumb_443.png)  
+![](/images//images/image_thumb_443.png)
 
 ### Step 3
 
 Not really a step but you you can simply query your Environment variable in the usual fashion (_Environment.GetEnvironmentVariable()_)
 
-![](/images//images/image_thumb_444.png)  
+![](/images//images/image_thumb_444.png)
 
 ## Note:
 

@@ -14,7 +14,7 @@ Seasoned .NET developers may attempt to begin invoke on a delegate (using lambda
 
 Another naïve approach would be to serve up your own thread, think about this for a second, your website is there to handle multiple requests…! Needless to say it could promptly run out of resources as a new thread would be created for each request.
 
-The asp.NET solution is to use async pages , <%@ Page Async=”true” …> / Page.AddOnPreRenderCompleteAsync 
+The asp.NET solution is to use async pages , <%@ Page Async=”true” …> / Page.AddOnPreRenderCompleteAsync
 
 So what about mvc?
 
@@ -22,48 +22,47 @@ So what about mvc?
 
 ![](/images//blog/image.axd?picture=clip_image001_thumb.png)
 
-  1. The Web server gets a thread from the thread pool (the worker thread) and schedules it to handle an incoming request. This worker thread initiates an asynchronous operation. 
+1. The Web server gets a thread from the thread pool (the worker thread) and schedules it to handle an incoming request. This worker thread initiates an asynchronous operation.
 
-  1. The worker thread is returned to the thread pool to service another Web request. 
+1. The worker thread is returned to the thread pool to service another Web request.
 
-  1. When the asynchronous operation is complete, it notifies ASP.NET. 
-  2. The Web server gets a worker thread from the thread pool (which might be a different thread from the thread that started the asynchronous operation) to process the remainder of the request, including rendering the response. 
+1. When the asynchronous operation is complete, it notifies ASP.NET.
+1. The Web server gets a worker thread from the thread pool (which might be a different thread from the thread that started the asynchronous operation) to process the remainder of the request, including rendering the response.
 
 SYNC
 
-public class PortalController: Controller {   
-public ActionResult News(string city) {   
-NewsService newsService = new NewsService();   
-ViewStringModel headlines = newsService.GetHeadlines(city);   
-return View(headlines);   
-}   
+public class PortalController: Controller {  
+public ActionResult News(string city) {  
+NewsService newsService = new NewsService();  
+ViewStringModel headlines = newsService.GetHeadlines(city);  
+return View(headlines);  
+}  
 }
 
 ASYNC
 
-public class PortalController : AsyncController {   
+public class PortalController : AsyncController {  
 public void NewsAsync(string city) {
 
-AsyncManager.OutstandingOperations.Increment();   
-NewsService newsService = new NewsService();   
-newsService.GetHeadlinesCompleted += (sender, e) =>   
-{   
-AsyncManager.Parameters["headlines"] = e.Value;   
-AsyncManager.OutstandingOperations.Decrement();   
-};   
-newsService.GetHeadlinesAsync(city);   
+AsyncManager.OutstandingOperations.Increment();  
+NewsService newsService = new NewsService();  
+newsService.GetHeadlinesCompleted += (sender, e) =>  
+{  
+AsyncManager.Parameters["headlines"] = e.Value;  
+AsyncManager.OutstandingOperations.Decrement();  
+};  
+newsService.GetHeadlinesAsync(city);  
 }
 
-public ActionResult NewsCompleted(string[] headlines) {   
-return View("News", new ViewStringModel   
-{   
-NewsHeadlines = headlines   
-});   
-}   
+public ActionResult NewsCompleted(string[] headlines) {  
+return View("News", new ViewStringModel  
+{  
+NewsHeadlines = headlines  
+});  
+}  
 }
 
 Note:
 
-  1. New derivation 
-  2. Matching Async/Completed calls 
-
+1. New derivation
+2. Matching Async/Completed calls

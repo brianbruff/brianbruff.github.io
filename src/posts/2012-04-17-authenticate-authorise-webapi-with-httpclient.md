@@ -6,7 +6,7 @@ tags: ["ASP WebApi login using HttpClient"]
 
 Hi all, I said I’d post this because I didn’t manage to find a suitable blog post or documentation indicating how to do this with the HttpClient (beta). (bleeding edge again ey).
 
-This post outlines how to create a simple test server that has a Json Logon endpoint.   
+This post outlines how to create a simple test server that has a Json Logon endpoint.  
 Then it shows how to login with the .net 4.5 HttpClient class. Lots of other post I saw were trying to set Channels on this HttpClient, I’ll have to assume this was from the developer preview or the Wcf predecessor. It appears now the solution comes in the form of a HttpClientHandler!
 
 It’s been a long day, up at 4am for a flight and then a long day at work, so lets cut to the chase…
@@ -75,7 +75,7 @@ I just created a WPF client and called the following function on a button click.
 
     }
 
-That’s it, next steps to clean up this code are all yours, but hopefully I’ve helped someone out.   
+That’s it, next steps to clean up this code are all yours, but hopefully I’ve helped someone out.  
 Remember to register the user the first time your run your MVC app, or your msg variable will indicate you couldn’t be logged on.
 
 [Remember to include Http.Formatters for the ReadAsAsync extension.](/post/2012/04/11/Deserializing-Json.aspx)

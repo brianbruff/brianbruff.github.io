@@ -12,33 +12,33 @@ Take the following
 
 [code:c#]
 
-internal interface ITryCatchReport   
-{   
-void Try(Action action);   
+internal interface ITryCatchReport  
+{  
+void Try(Action action);  
 }
 
-internal class TryCatchReport : ITryCatchReport   
-{   
-public TryCatchReport(IServer server)   
-{   
-_server = server;   
+internal class TryCatchReport : ITryCatchReport  
+{  
+public TryCatchReport(IServer server)  
+{  
+\_server = server;  
 }
 
-public void Try(Action action)   
-{   
-try   
-{   
-action(_server);   
-}   
-catch (Exception e)   
-{   
-Trace.WriteLine(e.Message);   
-// Clean up resources   
-// Report errors   
-}   
+public void Try(Action action)  
+{  
+try  
+{  
+action(\_server);  
+}  
+catch (Exception e)  
+{  
+Trace.WriteLine(e.Message);  
+// Clean up resources  
+// Report errors  
+}  
 }
 
-private IServer _server;   
+private IServer \_server;  
 }
 
 [/code]
@@ -47,11 +47,11 @@ private IServer _server;
 
 [code:c#]
 
-TryCatchReport safeInvoker = new TryCatchReport(_data.Server);   
-safeInvoker.Try(x =>   
-{   
-x.MakeInterfaceCall();   
-}); 
+TryCatchReport safeInvoker = new TryCatchReport(\_data.Server);  
+safeInvoker.Try(x =>  
+{  
+x.MakeInterfaceCall();  
+});
 
 [/code]
 
@@ -63,19 +63,19 @@ If you wish to execute many statements in the action look at this sample.
 
 [code:c#]
 
-private List GetActionDefinitions()   
-{   
-if (_actionDefinitions == null)   
-{   
-safeInvoker.Try(x =>   
-{   
-x.Do1();   
-x.DoSomething();   
-OtherFunc();   
-});   
+private List GetActionDefinitions()  
+{  
+if (\_actionDefinitions == null)  
+{  
+safeInvoker.Try(x =>  
+{  
+x.Do1();  
+x.DoSomething();  
+OtherFunc();  
+});  
 }
 
-return _actionDefinitions;   
+return \_actionDefinitions;  
 }
 
 [/code]

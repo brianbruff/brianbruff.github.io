@@ -26,5 +26,4 @@ I'll be covering topics including:
 - Engineering Solutions to Real-world Problems
 - Technology Stack Deep Dives
 
-
 Stay tuned for more technical content!

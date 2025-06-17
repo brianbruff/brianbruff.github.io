@@ -8,7 +8,7 @@ Is there a better way? Or at least a more generic way to leverage the dispose pa
 
        1:      public class ScopeMngr : IDisposable
 
-       2:      {        
+       2:      {
 
        3:          private Action _dispose = null;
 
@@ -20,7 +20,7 @@ Is there a better way? Or at least a more generic way to leverage the dispose pa
 
        7:          {
 
-       8:              init();            
+       8:              init();
 
        9:          }
 

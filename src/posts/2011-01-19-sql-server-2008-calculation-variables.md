@@ -10,14 +10,14 @@ e.g
 
 _Sql2005_
 
-DECLARE @val INT   
-set @val = 1;   
+DECLARE @val INT  
+set @val = 1;  
 set @val = @val + 1;
 
 _Sql2008_
 
-DECLARE @val INT   
-set @val = 1;   
+DECLARE @val INT  
+set @val = 1;  
 set @val += 1;
 
-Same applies to other operators, *=, –=, /=
+Same applies to other operators, \*=, –=, /=

@@ -6,7 +6,7 @@ tags: []
 
 Nothing, really ground breaking, but don’t it look neat! (if i say so myself). (that facebook link will be going up alongside flicker/twitter when i get around to it.).
 
-Site written in asp mvc3/ jQuery / razor / graphics in photoshop and content owned by the thecamerafly.   
+Site written in asp mvc3/ jQuery / razor / graphics in photoshop and content owned by the thecamerafly.  
 Another few hours will have the initial prototype ready to go live, hopefully this w/end as I’m in the land of Java workwise for the next two days at least and that will probably eat into my evenings.
 
 ![](/images//blog/image.axd?picture=image_thumb_68.png)

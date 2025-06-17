@@ -12,7 +12,7 @@ Talking to an ex colleague of mine this evening about some use cases for yield, 
 
 I was presented with another use for yield.
 
-Take a third party API that takes an IEnumerable of objects that are expensive to create, 
+Take a third party API that takes an IEnumerable of objects that are expensive to create,
 
 ![](/images/./image.axd?picture=image_thumb_287.png)
 

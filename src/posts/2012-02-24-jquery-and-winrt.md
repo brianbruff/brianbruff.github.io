@@ -4,7 +4,7 @@ date: "2012-02-24"
 tags: []
 ---
 
-As part of this WinRT comparison I’m doing, I next need to recreate my apps in html+js. 
+As part of this WinRT comparison I’m doing, I next need to recreate my apps in html+js.
 
 This is my first WinRT app I’ve written in html+js and right off the mark I hit a problem with the WinRT sandbox. These days I won’t write a web app without jQuery it’s just awesome. so I wanted it in my app.
 

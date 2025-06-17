@@ -10,6 +10,6 @@ Here's a bit of code that i'm using in an application to give this result (Check
 
 [code:c#]
 
-Validity  
+Validity
 
 [/code]

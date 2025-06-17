@@ -10,7 +10,7 @@ Ok, forget about mvvm, that’s not the point of this quick post…
 
 Have a look at that, ain’t it a thing of beauty!?
 
-No more having to get back onto the gui thread, even webforms people have to do it with Control.Invoke   
+No more having to get back onto the gui thread, even webforms people have to do it with Control.Invoke  
 (or sync context).
 
 Parallel task library rocks.

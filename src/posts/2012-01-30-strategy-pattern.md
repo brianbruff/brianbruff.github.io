@@ -4,16 +4,17 @@ date: "2012-01-30"
 tags: ["Strategy pattern in .net"]
 ---
 
-So what is the strategy pattern? It’s one of the simplest object orientated design patterns, I find that it helps clean up day to day object orientated design. It’s purpose is to 
+So what is the strategy pattern? It’s one of the simplest object orientated design patterns, I find that it helps clean up day to day object orientated design. It’s purpose is to
 
-  * Encapsulate a family of related algorithms such that they are callable through a common interface. 
-  * Independent evolution, algorithms can vary and evolve separately from classes using them. 
-  * Allow a class to serve a single purpose 
-  * Separates the calculation from the the delivery of it’s results. (separation of concerns) 
+- Encapsulate a family of related algorithms such that they are callable through a common interface.
+- Independent evolution, algorithms can vary and evolve separately from classes using them.
+- Allow a class to serve a single purpose
+- Separates the calculation from the the delivery of it’s results. (separation of concerns)
 
-How do we know when we should consider the strategy pattern? 
-  * Look for switch statements with possible common interface 
-  * Adding a new calculation to a class could break existing calculations (breaking the Open-Close principle, i.e. a class should be open for extension, but closed for modification. 
+How do we know when we should consider the strategy pattern?
+
+- Look for switch statements with possible common interface
+- Adding a new calculation to a class could break existing calculations (breaking the Open-Close principle, i.e. a class should be open for extension, but closed for modification.
 
 ## UML – Strategy model
 
@@ -21,17 +22,17 @@ How do we know when we should consider the strategy pattern?
 
 ## Consequences:
 
-  * Strategies may not use class members from context 
-  * Tests may now be written for individual concrete strategies 
-  * Strategies may be mocked when testing the Context class 
-  * Adding a new Strategy does not modify the Context class 
+- Strategies may not use class members from context
+- Tests may now be written for individual concrete strategies
+- Strategies may be mocked when testing the Context class
+- Adding a new Strategy does not modify the Context class
 
 ## How to implement:
 
-  * Class based 
-  * Functional programming approach with anonymous methods (Delegates and Funcs as opposed to new classes), I like this when the calculations are trivial 
-  * Property injection 
-  * Method strategy (passed to a method and not to the context class constructor) 
+- Class based
+- Functional programming approach with anonymous methods (Delegates and Funcs as opposed to new classes), I like this when the calculations are trivial
+- Property injection
+- Method strategy (passed to a method and not to the context class constructor)
 
 ## Show me the code:
 
@@ -39,9 +40,9 @@ How do we know when we should consider the strategy pattern?
 
 ![](/images/./image.axd?picture=image_thumb_148.png)
 
-Here we see the strategy is getting passed to the context in the constructor, this class should be closed to modification, Trip is just an empty class for my demo and it’s not actually used in the calculation sample. 
+Here we see the strategy is getting passed to the context in the constructor, this class should be closed to modification, Trip is just an empty class for my demo and it’s not actually used in the calculation sample.
 
-###  Strategy interface ![](/images/./image.axd?picture=image_thumb_149.png)
+### Strategy interface ![](/images/./image.axd?picture=image_thumb_149.png)
 
 ### Sample Strategy
 
@@ -51,6 +52,5 @@ So, what is the strategy pattern again? It’s something you possibly do on a da
 
 e.g. If you write ASP.MVC code, you quite likely are passing interfaces to you controllers for dependency injection and testability ---> Strategy pattern.
 
-Regds,   
+Regds,  
 Brian.
-

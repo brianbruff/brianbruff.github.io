@@ -8,7 +8,7 @@ In my [previous post](/post/2012/09/18/IPhone-remove-the-IOS-Keyboard-on-Return.
 
 **A little tip:** is that you don’t need to set the delegate in code like my previous post, you can use the connections pane and Crtl drag from the textbox delegate to the view controller in the Outlets section.
 
-![](/images/./image.axd?picture=Screen%20Shot%202012-10-18%20at%2012.30.27_thumb.png)   
+![](/images/./image.axd?picture=Screen%20Shot%202012-10-18%20at%2012.30.27_thumb.png)
 
 ## Still not good enough
 

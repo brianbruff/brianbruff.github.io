@@ -10,7 +10,7 @@ I thought it worth sharing how to configure Azure Active Directory to work with 
 
 ## AD Versions
 
-As you may or may not be aware, Azure AD has two implementations of security protocols, v1 is the common one but v2 is becoming more popular. From an Angular point of view you will pull in either the ADAL library for v1 or the MSAL library for v2, I’m not going to dwell on what the differences are or why to use either, in a recent project I was working on we found that there was no Java springboot support for v2 at the time, so went with the v1 endpoints to get our POC up and running quickly. 
+As you may or may not be aware, Azure AD has two implementations of security protocols, v1 is the common one but v2 is becoming more popular. From an Angular point of view you will pull in either the ADAL library for v1 or the MSAL library for v2, I’m not going to dwell on what the differences are or why to use either, in a recent project I was working on we found that there was no Java springboot support for v2 at the time, so went with the v1 endpoints to get our POC up and running quickly.
 
 ## Asp Web Api
 

@@ -12,17 +12,17 @@ So how do we detect these features? One method is a javascript file called Moder
 
 Syntax:
 
-       1:  if (Modernizr.localstorage) 
+       1:  if (Modernizr.localstorage)
 
-       2:  {    
+       2:  {
 
        3:      // browser supports local storage
 
        4:  }
 
-       5:  else 
+       5:  else
 
-       6:  {    
+       6:  {
 
        7:      // browser doesn't support local storage
 

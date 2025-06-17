@@ -21,12 +21,12 @@ So how can we solve this problem assuming we are using a SqlDataSource.
 
 ![](/images//blog/image.axd?picture=image_thumb_24.png)
 
-  * Set the ConflictDetection property to CompareAllValues 
-  * Set the OldValuesParameterFormatString to xxxx_{0}
-  * Update your command with a WHERE restriction for XXXX_{0}
+- Set the ConflictDetection property to CompareAllValues
+- Set the OldValuesParameterFormatString to xxxx\_{0}
+- Update your command with a WHERE restriction for XXXX\_{0}
 
-        UpdateCommand= "Update SEC_USERS SET FirstName=@FirstName, Department = @Department, Gender = @Gender FROM SEC_USERS WHERE [FirstName=@read_FirstName](mailto:FirstName=@read_FirstName)
-    
-         AND Department=@read_Department AND Gender=@read_Gender"
+      UpdateCommand= "Update SEC_USERS SET FirstName=@FirstName, Department = @Department, Gender = @Gender FROM SEC_USERS WHERE [FirstName=@read_FirstName](mailto:FirstName=@read_FirstName)
+
+       AND Department=@read_Department AND Gender=@read_Gender"
 
 That’s it, the SqlDataSource manages the read_xxx parameters so you don’t have to.

@@ -20,17 +20,17 @@ The CTP release includes server components that make it easy for you to build a 
 
 We have 3 clients, (well 4 actually but our Silverlight version has lagged behind and in not yet publically available).
 
-  1. WP7 – Local data stored in Isolated Storage, DataVisualizationToolkit for charting, SL3
-  2. iPhone – Connecting directly to the server via OData/Json
-  3. ASP.MVC Ajax – A powerful web interface written using MVC3 and jQuery
-  4. Silverlight – Initially used RIA Services to access the server but synchronization model is nearly identical to the WP7 SL3 approach with isolated storage now.   
+1. WP7 – Local data stored in Isolated Storage, DataVisualizationToolkit for charting, SL3
+2. iPhone – Connecting directly to the server via OData/Json
+3. ASP.MVC Ajax – A powerful web interface written using MVC3 and jQuery
+4. Silverlight – Initially used RIA Services to access the server but synchronization model is nearly identical to the WP7 SL3 approach with isolated storage now.
 
 **_How to create the server._**
 
-  1. Create you database schema in SSMS (SqlServer managment studio)
-  2. Now that your database has been created you’ll need to provision it, think of this much in the same way that you would provision an existing sql server database for asp membership tables and stored procedures. The syncronization framework will provide you with a tool called **SyncSvcUtilHelper.exe** this basically is a GUI for the command line version.
+1. Create you database schema in SSMS (SqlServer managment studio)
+2. Now that your database has been created you’ll need to provision it, think of this much in the same way that you would provision an existing sql server database for asp membership tables and stored procedures. The syncronization framework will provide you with a tool called **SyncSvcUtilHelper.exe** this basically is a GUI for the command line version.
 
-![](/images//blog/image.axd?picture=image_thumb_59.png)   
+![](/images//blog/image.axd?picture=image_thumb_59.png)
 
 before provisioning you’ll need to create a Sync configuration, so choose option on, select a filename in step 1 and select your database in step2
 
@@ -42,7 +42,7 @@ Select the list of tables that you are interested in syncing
 
 ![](/images//blog/image.axd?picture=image_thumb_62.png)
 
-That’s pretty much it. Now you’ll need to choose option2 to provision the database.   
+That’s pretty much it. Now you’ll need to choose option2 to provision the database.  
 Select the configuration file you created as part of step 1 and choose the provisioning option.
 
 ![](/images//blog/image.axd?picture=image_thumb_63.png)

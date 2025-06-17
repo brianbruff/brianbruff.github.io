@@ -12,10 +12,11 @@ The reason for the Encoding is primiarily to prevent XSS (cross site script inje
 
 This approach has a few shortcommings; like,
 
-* Users may forget the encoding  
-* bit verbose
+- Users may forget the encoding
+- bit verbose
 
-##   
+##
+
 .NET 4.0
 
 A new nugged has arrived:

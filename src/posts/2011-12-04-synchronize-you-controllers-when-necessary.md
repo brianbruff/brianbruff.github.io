@@ -10,34 +10,33 @@ Here’s the scenario; my friend was calling two web services using methods like
 
 She called method to increment the outstanding operations by 2, then proceeded to call
 
-> 
 >     service1.BeginGetValuations(v, ar => {
->     
->     
+>
+>
 >         AsyncManager.Parameters["valuations"] = service1.EndGetValuations();
->     
->     
+>
+>
 >         AsyncManager.OutstandingOperations.Decrement();
->     
->     
+>
+>
 >     }, null);
->     
->     
->         
->     
->     
+>
+>
+>
+>
+>
 >     service2.BeginGetValuations(v, ar => {
->     
->     
+>
+>
 >         AsyncManager.Parameters["valuationsActual"] = service2.EndGetValuations();
->     
->     
+>
+>
 >         AsyncManager.OutstandingOperations.Decrement();
->     
->     
+>
+>
 >     },null);
 
-Looked pretty much ok, except once in a while when load tested the valuationsActual parameter was null.   
+Looked pretty much ok, except once in a while when load tested the valuationsActual parameter was null.  
 So what could be the cause… Well basically it turned out that there was a race condition accessing the dictionary from two threads.
 
 ### The solution:

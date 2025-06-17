@@ -10,4 +10,4 @@ With .NET 2.0 when we receive a UTC DateTime in a SOAP response it stays in UTC.
 
 If you need it in local time make sure to call .ToLocalTime()
 
-** Edit: P.s. Have a look at this neat class in the framework [XmlConvert](http://msdn.microsoft.com/en-us/library/system.xml.xmlconvert.aspx)
+\*\* Edit: P.s. Have a look at this neat class in the framework [XmlConvert](http://msdn.microsoft.com/en-us/library/system.xml.xmlconvert.aspx)
