@@ -10,9 +10,9 @@ So I was lying in bed last night my wife was hogging the windows machine watchin
 
 I recently interviewed a guy that had moved from Apache Axis to JAX-WS, the way he described it sounded a lot like WCF (windows communication foundation) so I wanted to see for myself.
 
-- Install Jboss 7.1.1 for an application server
-- Install Eclipse juno IDE for Java
-- Install Mono Develop (not necessary but i had this already for iPhone dev so thought what the heck I’ll use it for the client)
+  * Install Jboss 7.1.1 for an application server 
+  * Install Eclipse juno IDE for Java 
+  * Install Mono Develop (not necessary but i had this already for iPhone dev so thought what the heck I’ll use it for the client)
 
 So what is JAX-WS? The Java API for XML Web Services (JAX-WS) is a Java programming language API for creating web services. It is part of the Java EE platform from Sun Microsystems. Like the other Java EE APIs, JAX-WS uses annotations. Here’s how I created a sample one.
 
@@ -26,7 +26,7 @@ Start the standalone shell script and check you can see <http://localhost:8080> 
 
 ![](/images/./image.axd?picture=clip_image002.png)
 
-**Create a new project in Eclipse\*\***(dynamic web)\*\*
+**Create a new project in Eclipse****(dynamic web)**
 
 ![](/images/./image.axd?picture=clip_image003.png)
 
@@ -52,7 +52,7 @@ Right click on the server you added and choose Add/Remove
 
 ![](/images/./image.axd?picture=clip_image007.png)
 
-Add your current deployment  
+Add your current deployment   
 ![](/images/./image.axd?picture=clip_image008.png)
 
 **Start Application Server**

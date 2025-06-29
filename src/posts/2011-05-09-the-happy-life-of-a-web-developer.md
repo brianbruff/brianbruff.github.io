@@ -8,14 +8,14 @@ Spent some of the weekend mucking about with getting a website to go with an iPh
 
 What better way to experience new tech than to come up with a pet project and get stuck in, so far we’ve gotten down and dirty with
 
-- MS Sync Framework: the backbone of our interoperability using OData and WCF Services.
-- WP7 Silverlight : The windows phone app
-- Silverlight Ria services: The rich internet application that also runs OOB (out of the browser on the desktop)
-- MVC JQuery Ajax.
-- Html 5: (low level stuff just now but really excited about this)
-- XCode: iPhone app.
-- IE9 Jump lists: quick site navigation.
-
+  * MS Sync Framework: the backbone of our interoperability using OData and WCF Services.
+  * WP7 Silverlight : The windows phone app
+  * Silverlight Ria services: The rich internet application that also runs OOB (out of the browser on the desktop)
+  * MVC JQuery Ajax.
+  * Html 5: (low level stuff just now but really excited about this)
+  * XCode: iPhone app.
+  * IE9 Jump lists: quick site navigation.
+  
 Dusted off the old Photoshop shortcut, to modify a template and apply it to our MVC application, and it’s been a hell of a lot of fun, jQuery is pretty impressive at the visual end too, animations etc. are trivial and a joy to play with.
 
 Site coming to an internet near you soon (if we manage to get some free time).
@@ -28,11 +28,11 @@ Now the techie bit, a sample how to slide in a panel/div.
 
         ViewBag.Title1 = "Grass";
 
-        ViewBag.Title2 = "Manager";
+        ViewBag.Title2 = "Manager";   
 
     }
 
-    @section head {
+    @section head {    
 
         @*BEK: Add some animation using jquery*@
 

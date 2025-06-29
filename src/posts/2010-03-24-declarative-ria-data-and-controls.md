@@ -11,21 +11,20 @@ I found it on the Telerik samples.... If you've not looked at these guys control
 
 [code:c#]
 
-x:Class="SiteDocs.Loler"  
-xmlns="<http://schemas.microsoft.com/winfx/2006/xaml/presentation>"  
-xmlns:x="<http://schemas.microsoft.com/winfx/2006/xaml>"  
-xmlns:d="<http://schemas.microsoft.com/expression/blend/2008>"  
+x:Class="SiteDocs.Loler"   
+xmlns="<http://schemas.microsoft.com/winfx/2006/xaml/presentation>"   
+xmlns:x="<http://schemas.microsoft.com/winfx/2006/xaml>"   
+xmlns:d="<http://schemas.microsoft.com/expression/blend/2008>"   
 xmlns:mc="<http://schemas.openxmlformats.org/markup-compatibility/2006>"  
 xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"  
 xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"  
 xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Ria"  
 xmlns:e="clr-namespace:SiteDocs.Web.Services"  
 xmlns:riaData="clr-namespace:System.Windows.Data;assembly=System.Windows.Controls.Ria"  
-mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480"  
-Style="{StaticResource PageStyle}"
-
+mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480"   
+Style="{StaticResource PageStyle}"  
 >
 
-Filtering="RadGridView1_Filtering" IsBusy="{Binding IsBusy, ElementName=DomainDataSource1}" />
+Filtering="RadGridView1_Filtering" IsBusy="{Binding IsBusy, ElementName=DomainDataSource1}" />  
 
 [/code]

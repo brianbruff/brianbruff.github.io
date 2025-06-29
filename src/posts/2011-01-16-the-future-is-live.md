@@ -6,7 +6,7 @@ tags: []
 
 Probably like a lot of other computer people I find myself working with more than one computer. There in lies the problem, is it worth the overhead of manually having to synchronize all these pcs?
 
-Sure source code is and always has been handled by a source control repository, tfs/svn etc.
+Sure source code is and always has been handled by a source control repository, tfs/svn etc. 
 
 But what about documents; during the week I started setting up a new desktop machine, tonight while working on a java project (i know i know) i found that i needed to copy a few strings into the clipboard as I was developing, now I usually do this from within vs2010 but I’m not sure how to do this from the Java Netbeans IDE so i though I’d use MS Onenote.. there in lied the problem. I wanted to access the notebook I had on my laptop but I didn’t want to start an import/export process (so 90ies ![Rolling on the floor laughing](/blog/image.axd?picture=wlEmoticon-rollingonthefloorlaughing.png)).
 

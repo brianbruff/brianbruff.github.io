@@ -4,7 +4,7 @@ date: "2013-11-07"
 tags: ["GarbageCollection", "java", "jvm"]
 ---
 
-Hi guys,
+Hi guys, 
 
 I’ve found myself discussing garbage collecting in the JVM a few times this week and though I’d share this information with everyone that ever wondered how all this works.
 
@@ -12,13 +12,13 @@ I’ve found myself discussing garbage collecting in the JVM a few times this we
 
 Automatic garbage collection is the process of looking at heap memory, identifying which objects are in use and deleting the unused objects. An in-use object, means that some part of your program still maintains a pointer to that object. An unused object, or unreferenced object, is no longer referenced by any part of your program. So the memory used by an unreferenced object can be reclaimed.
 
-In a programming language like C++, allocating and deallocating memory is a manual process. In other languages e.g. .net and Java, the process of deallocating memory is handled automatically by the garbage collector.
+In a programming language like C++, allocating and deallocating memory is a manual process. In other languages e.g. .net and Java, the process of deallocating memory is handled automatically by the garbage collector. 
 
 ### Basic Process
 
 #### Marking
 
-The first step in the process is called marking. This is the activity of marking what parts of memory have references and which have not.
+The first step in the process is called marking. This is the activity of marking what parts of memory have references and which have not. 
 
 #### Deletion
 
@@ -26,19 +26,19 @@ The second part is removing unreferenced objects, The deletion can be normal or 
 
 ### Stop the world
 
-When a gc happens all the threads in the application are stopped in what is referenced to as a “Stop the world” event.
+When a gc happens all the threads in the application are stopped in what is referenced to as a “Stop the world” event. 
 
 ## JVM Generations
 
-Having to mark and compact all objects in the JVM is inefficient, as more and more objects are allocated the list of objects grows and grows leading to a longer GC time. Empirical analysis of applications has shown that most objects are short lived.
+Having to mark and compact all objects in the JVM is inefficient, as more and more objects are allocated the list of objects grows and grows leading to a longer GC time. Empirical analysis of applications has shown that most objects are short lived. 
 
 ### Generations
 
 The Hotspot JDK is broken into the following generations.
 
-- Young
-- Old
-- Permanent
+  * Young 
+  * Old 
+  * Permanent 
 
 ![](/images/./image.axd?picture=image_thumb_284.png)
 
@@ -60,9 +60,9 @@ Classes may get collected (unloaded) if the JVM finds they are no longer needed 
 
 In the simplest of terms:
 
-- New objects are allocated into the eden section of the heap. after the first GC if they are still referenced they are aged and moved to the S0.
-- On the next GC, any referenced objects in eden are moved into S1, also the objects in S0 if still referenced are aged and also moved to S1.
-- The process repeats alternating between S0 and S1 until the objects are aged enough to become eligible for the old age pension and are promoted into the tentured generation.
+  * New objects are allocated into the eden section of the heap. after the first GC if they are still referenced they are aged and moved to the S0. 
+  * On the next GC, any referenced objects in eden are moved into S1, also the objects in S0 if still referenced are aged and also moved to S1. 
+  * The process repeats alternating between S0 and S1 until the objects are aged enough to become eligible for the old age pension and are promoted into the tentured generation. 
 
 ## Show me the memory!
 
@@ -86,7 +86,7 @@ S![](/images/./image.axd?picture=image_thumb_278.png)hows the minor GC’s and t
 
 Shows aged survivors getting their old age pension![](/images/./image.axd?picture=image_thumb_283.png)
 
-You can look at the monitor tab to get some more diagnostics,  
+You can look at the monitor tab to get some more diagnostics,   
 Number of threads / Classes etc
 
 ![](/images/./image.axd?picture=image_thumb_280.png) You can see what types of objects are holding memory![](/images/./image.axd?picture=image_thumb_281.png)

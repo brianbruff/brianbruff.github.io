@@ -74,10 +74,10 @@ return result;
 
 }
 
-Most of the code above should be self explanatory.  
+Most of the code above should be self explanatory.   
 If you've not seen the "Func" syntax before it's basically just a delegate defined like this (in .NET 4)
 
-public delegate TResult Func<in T, out TResult>(T arg); (Note the .NET 4 in modifier to indicate contravariance)
+public delegate TResult Func<in T, out TResult>(T arg); (Note the .NET 4 in modifier to indicate contravariance)  
 
 I've used lambdas to point to delegate towards the RetrieveCurveDetails function, it's this function that gets executed on the background thread.
 

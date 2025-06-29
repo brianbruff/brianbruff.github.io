@@ -14,11 +14,11 @@ Fast forward another two years and I found myself while heavily swallowing the P
 
 This did open my eye that there might be a bit more to AWS than an ugly console, an opportunity presented itself to become AWS certified and I jumped at it, now as I write this article I can put this lovely logo ![](/images/./image.axd?picture=Solutions-Architect-Associate_thumb.png)on my business card.
 
-##
+## 
 
 ## Learning’s
 
-So what have I learned about AWS in in my quest for certification? Well the console is not nearly as offending as I once believed it to be, in fact I think it’s more practical than that sexy looking new Azure portal, it’s faster to get things done in than constantly sliding those Azure portal blades around the place that’s for sure. As for feature parity, for the most part both platforms tend to support the same features in the general sense but once you drill down differences do start to emerge.
+So what have I learned about AWS in in my quest for certification? Well the console is not nearly as offending as I once believed it to be, in fact I think it’s more practical than that sexy looking new Azure portal, it’s faster to get things done in than constantly sliding those Azure portal blades around the place that’s for sure. As for feature parity, for the most part both platforms tend to support the same features in the general sense but once you drill down differences do start to emerge. 
 
 I’ve also decided it about high time that I also get certified in Azure, (underway), this should give me the street cred I need for what I’m going to try achieve and hopefully my findings be as impartial as possible.
 

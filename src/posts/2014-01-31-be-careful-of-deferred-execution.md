@@ -14,10 +14,10 @@ One solution is to Enumerate one and immediately after the select by calling .To
 
 It’s not just C# that you need to be careful with, take the google java library Guava
 
-![](/images/./image.axd?picture=image_thumb_294.png) We don’t get the same nice warning in IntelliJ\* yet the solution in this case is much the same.
+![](/images/./image.axd?picture=image_thumb_294.png) We don’t get the same nice warning in IntelliJ* yet the solution in this case is much the same.
 
 ![](/images/./image.axd?picture=image_thumb_295.png)
 
-#### \*IntelliJ
+#### *IntelliJ
 
 If you’re from a MS background like me and doing any Java, then do yourself a favour and use IntelliJ, it’s much easier to use.

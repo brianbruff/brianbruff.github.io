@@ -6,7 +6,7 @@ tags: ["JUnit Parameterized Tests"]
 
 I’ve been shown a lovely little utility for testing with JUnit 4.11 whereby one can have a list of items performed as part of the single unit test.
 
-First set add the annotations you see below and set your inputs and expected outputs. (Arrange and Assert)  
+First set add the annotations you see below and set your inputs and expected outputs. (Arrange and Assert)   
 ![](/images/./image.axd?picture=image_thumb_265.png)
 
 Then create a constructor and some static variables to store each Tuple
@@ -27,8 +27,8 @@ you could use NUnit and use the TestCaseAttribute
 
 ![](/images/./image.axd?picture=image_thumb_269.png)
 
-Of if like me you prefer MSTest then you can opt for a data driven unit test.  
-See this vs2013 page (has worked at least since vs2010) :  
-[_http://msdn.microsoft.com/en-US/library/ms182527(v=vs.120)_](<http://msdn.microsoft.com/en-US/library/ms182527(v=vs.120)>)
-
+Of if like me you prefer MSTest then you can opt for a data driven unit test.   
+See this vs2013 page (has worked at least since vs2010) :   
+[_http://msdn.microsoft.com/en-US/library/ms182527(v=vs.120)_](http://msdn.microsoft.com/en-US/library/ms182527\(v=vs.120\))   
+  
 ![](/images/./image.axd?picture=image_thumb_270.png)

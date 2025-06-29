@@ -6,9 +6,9 @@ tags: ["Scalability on the Azure Platform"]
 
 When communicating between roles in an Azure application we’ve a few options; to name a few:
 
-- Http
-- Tcp
-- Queues
+  * Http
+  * Tcp
+  * Queues
 
 While Http and Tcp are tried and trusted they do come with some limitations that queues help overcome.
 

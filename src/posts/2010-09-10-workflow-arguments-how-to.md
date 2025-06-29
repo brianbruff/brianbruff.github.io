@@ -5,7 +5,7 @@ tags: []
 ---
 
 So you've started up your very first 4.0 Workflow application.  
-You've added some arguments and want to know how to pass some information..  
+You've added some arguments and want to know how to pass some information..   
 You can either use the Dictionary approach that exists since 3.0 or you can use the properites you've just created.
 
 Thes scrren shots show a simple workflow with an input string UserName and an output string Greeting.

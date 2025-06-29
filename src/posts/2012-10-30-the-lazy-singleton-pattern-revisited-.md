@@ -14,8 +14,8 @@ However: If you just want the easiest lazy evaluation solution in .net4+, then y
 
 Lazy guarantees thread-safe lazy construction.
 
-# UPDATE:
+# UPDATE: 
 
 If I’d followed Jon’s notice, at the top of the page I linked to, I would have seen the post is now located [here](http://csharpindepth.com/Articles/General/Singleton.aspx) and moreover, he covers the Lazy approach there.
 
-##
+## 

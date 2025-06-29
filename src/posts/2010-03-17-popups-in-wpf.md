@@ -9,12 +9,12 @@ Here is come code to show a popup in wpf, i've nothing in the popup at the momen
 [code:c#]
 
 Width="{Binding ElementName=bdrCalendar, Path=ActualWidth, Converter={StaticResource MarginValueConverter}}"  
-Height="150"  
-Placement="Center"  
+Height="150"   
+Placement="Center"   
 PopupAnimation="Scroll"  
 AllowsTransparency="True"  
-PlacementTarget="{Binding ElementName=bdrCalendar}"  
-MouseDown="popup1_MouseDown" >
+PlacementTarget="{Binding ElementName=bdrCalendar}"   
+MouseDown="popup1_MouseDown" >  
 
 [/code]
 

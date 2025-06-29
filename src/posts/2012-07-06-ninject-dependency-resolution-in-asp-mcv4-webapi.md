@@ -10,7 +10,7 @@ I was surprised to find it wouldn’t work out of the box! Ok I’m using the �
 
 ![](/images/./image.axd?picture=image_thumb_191.png)
 
-###
+### 
 
 ### A little extra effort
 

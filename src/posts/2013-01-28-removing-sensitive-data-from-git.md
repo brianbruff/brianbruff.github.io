@@ -8,7 +8,7 @@ Ok, so in my case it was not so sensitive, I had generated a publish profile for
 
 ## Here’s how
 
-    git filter-branch --index-filter 'git rm --cached --ignore-unmatch mySensitive.data'
+    git filter-branch --index-filter 'git rm --cached --ignore-unmatch mySensitive.data' 
       --prune-empty --tag-name-filter cat -- --all
 
     git commit -m "Add Rakefile to .gitignore"

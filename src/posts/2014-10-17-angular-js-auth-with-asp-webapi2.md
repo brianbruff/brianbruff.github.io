@@ -18,14 +18,14 @@ Now lets ignore the CORS part for starters (have banged my head against the wall
 
 The author posts the following code
 
-![](/images//images/image_thumb_353.png)
+![](/images//images/image_thumb_353.png)  
 
 You’ll need to change the baseUrl to an empty string, if you leave it this way (even when correcting the port) you’ll end up in a CORS situation and you’ll see the browser send an OPTIONS request which you don’t want. (in fairness the author was showing CORS working so there is nothing wrong with his/her post).
 
 ### 2) Token Payload
 
-![](/images//images/image_thumb_354.png)
+![](/images//images/image_thumb_354.png)  
 
-The important part is that i create a new object ‘data’ and this contains the querystring for the POST body, in the $http call, I then pass data rather than userData like the codeproject article shows.
+The important part is that i create a new object ‘data’ and this contains the querystring for the POST body, in the $http call, I then pass data rather than userData like the codeproject article shows. 
 
 That’s it, you should now be up and running.

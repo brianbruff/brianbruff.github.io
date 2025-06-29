@@ -44,11 +44,11 @@ I then added a controller called FileUploadController.cs
 
       14:              // Check we're uploading a file
 
-      15:              if (!Request.Content.IsMimeMultipartContent("form-data"))
+      15:              if (!Request.Content.IsMimeMultipartContent("form-data"))            
 
       16:                  throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
 
-      17:
+      17:                 
 
       18:              // Create the stream provider, and tell it sort files in my c:\temp\uploads folder
 
@@ -58,19 +58,19 @@ I then added a controller called FileUploadController.cs
 
       21:              // Read using the stream
 
-      22:              var bodyparts = await Request.Content.ReadAsMultipartAsync(provider);
+      22:              var bodyparts = await Request.Content.ReadAsMultipartAsync(provider);            
 
-      23:
+      23:          
 
       24:              // Create response.
 
-      25:              return provider.BodyPartFileNames.Select(kv => kv.Value);
+      25:              return provider.BodyPartFileNames.Select(kv => kv.Value);            
 
       26:          }
 
       27:      }
 
-      28:
+      28:      
 
       29:  }
 
@@ -102,13 +102,13 @@ The client couldn’t have been easier, fist a look at it in the browser
 
       10:      @using (Html.BeginForm("FileUpload", "api", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
-      11:      {
+      11:      { 
 
       12:          <div>Please select some filesdiv>
 
       13:          <input name="data" type="file" multiple>
 
-      14:          <input type="submit" />
+      14:          <input type="submit" />            
 
       15:      }
 
@@ -132,6 +132,7 @@ and we’re done! Of course in the real world we’ll use ajax with a few trick 
 
 I’ll hopefully follow up with the samples for the client list below when I get to the respective development machines.
 
-- WinRT (c#/xaml)
-- iPhone (objective c)
-- Android (java)
+  * WinRT (c#/xaml) 
+  * iPhone (objective c) 
+  * Android (java)
+

@@ -30,15 +30,15 @@ Here’s the xaml
 
        5:                  Title="MainWindow" Height="350" Width="525">
 
-       6:
+       6:      
 
        7:          "/Datagenic-%20Monitor;component/Images/background.png" />
 
-       8:
+       8:      
 
-       9:
+       9:      
 
-      10:
+      10:          
 
       11:              "radialScale" Min="0" Max="{Binding Path=MaxScale}" MajorTicks="10"
 
@@ -46,74 +46,74 @@ Here’s the xaml
 
       13:   
 
-      14:
+      14:                  
 
-      15:
+      15:                      
 
-      16:
+      16:                  
 
-      17:
+      17:                  
 
       18:                      "0.07" />
 
-      19:
+      19:                  
 
-      20:
+      20:                  
 
       21:                      "0.05" />
 
-      22:
+      22:                  
 
       23:   
 
-      24:
+      24:                  
 
       25:                      "10" />
 
-      26:
+      26:                  
 
       27:   
 
-      28:
+      28:                  
 
-      29:                      "gauge1_radialBar" IsAnimated="True"
+      29:                      "gauge1_radialBar" IsAnimated="True"  
                                    Value="{Binding Path=TotalLogCount}" />
 
       30:   
 
-      31:                      "gauge1_needle" IsAnimated="true"
+      31:                      "gauge1_needle" IsAnimated="true"  
                                     Value="{Binding Path=WFExecutions[0].LogCount}" />
 
-      32:
+      32:                  
 
-      33:
+      33:              
 
-      34:
+      34:          
 
-      35:
+      35:          
 
-      36:
+      36:              
 
       37:                  "0.60*" />
 
       38:                  "0.40*" />
 
-      39:
+      39:              
 
       40:   
 
       41:              "1" VerticalAlignment="Top" HorizontalAlignment="Center"
 
-      42:                              Foreground="GhostWhite" FontFamily="CourierNew"
+      42:                              Foreground="GhostWhite" FontFamily="CourierNew"  
                                        Text="{Binding Path=WFExecutions[0].FolderName}" />
 
-      43:
+      43:          
 
       44:   
 
-      45:
+      45:      
 
-      46:
+      46:  
 
 Here’s the code
 
@@ -155,11 +155,11 @@ Here’s the code
 
       19:  {
 
-      20:      ///
+      20:      /// 
 
       21:      /// Interaction logic for MainWindow.xaml
 
-      22:      ///
+      22:      /// 
 
       23:      public partial class MainWindow : Window
 
@@ -209,7 +209,7 @@ Here’s the code
 
       46:                      {
 
-      47:                          var we = new WorkflowExecutions(f);
+      47:                          var we = new WorkflowExecutions(f);                        
 
       48:                          we.PropertyChanged += ItemPropChanged;
 
@@ -283,7 +283,7 @@ Here’s the code
 
       83:          public List WFExecutions { get; set; }
 
-      84:
+      84:          
 
       85:   
 
@@ -317,19 +317,19 @@ Here’s the code
 
      100:              _watcher.Created += (s, e) => Update();
 
-     101:              _watcher.EnableRaisingEvents = true;
+     101:              _watcher.EnableRaisingEvents = true;            
 
      102:              Update();
 
      103:          }
 
-     104:
+     104:          
 
      105:   
 
      106:          public string FolderName { get; set; }
 
-     107:
+     107:                    
 
      108:   
 

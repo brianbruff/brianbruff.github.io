@@ -24,5 +24,5 @@ Result)
 
 Step Additional )
 
-You could return a partial view and even call it from Ajax if you wanted, you could just return Json and use a client side vector graphics library.  
-Or you would create your own html helpers / function to make life easier. (many ways to skin a cat).
+You could return a partial view and even call it from Ajax if you wanted, you could just return Json and use a client side vector graphics library.   
+Or you would create your own html helpers / function to make life easier. (many ways to skin a cat). 

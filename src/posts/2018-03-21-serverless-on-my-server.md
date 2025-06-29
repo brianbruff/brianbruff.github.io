@@ -12,10 +12,10 @@ _It might save some of you guys the effort, I must reiterate that this is still 
 
 **I have decided against Azure Function On Prem in March 2017 because** :
 
-- It needs Sql Server, I can’t rely on having this at least not for some brown field projects I want to use serverless for.
-- It needs IIS, I have to run on Linux (might be a solved problem… especially as it’s using the new .net core runtime )
-- It only has Javascript and C# language support in preview, I need Java, and Go and Python would be nice to haves
-- The packaging was a windows installer, I was hoping for some docker images, I expect this is a solved solution and for now the MSI is a quick win for the developers.
+  * It needs Sql Server, I can’t rely on having this at least not for some brown field projects I want to use serverless for. 
+  * It needs IIS, I have to run on Linux (might be a solved problem… especially as it’s using the new .net core runtime ) 
+  * It only has Javascript and C# language support in preview, I need Java, and Go and Python would be nice to haves 
+  * The packaging was a windows installer, I was hoping for some docker images, I expect this is a solved solution and for now the MSI is a quick win for the developers. 
 
 Next it’s down the rabbits burrow with OpenFaas on Kubernetes, cross your fingers for me!
 

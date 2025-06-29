@@ -10,6 +10,6 @@ Addin splitters to the WPF grid couldn't be easier.
 
 ### Horizontal
 
-ResizeDirection="Rows" Background="Transparent"  
-HorizontalAlignment="Stretch"  
+ResizeDirection="Rows" Background="Transparent"   
+HorizontalAlignment="Stretch"   
 VerticalAlignment="Stretch" Grid.Row="1" />

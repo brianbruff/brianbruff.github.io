@@ -4,6 +4,8 @@ date: "2023-03-29"
 tags: ["GLUE", "ETL", "DATAFACTORY"]
 ---
 
+  
+
 ## Introduction
 
 AWS Glue is a fully managed, serverless data integration service offered by Amazon Web Services (AWS) that simplifies the process of extracting, transforming, and loading (ETL) data for analytics purposes. With its scalable, pay-as-you-go model, and a wide range of built-in features, AWS Glue has become a popular choice for data engineers and analysts to streamline their data workflows. In this blog post, we'll walk you through the process of getting started with AWS Glue, from setting up the necessary components to running your first ETL job.
@@ -86,7 +88,7 @@ b. Enable Amazon CloudWatch metrics and alarms for monitoring job performance an
 
 c. Access the underlying Apache Spark logs and UI for a more in-depth analysis of your ETL job execution.
 
-##
+##   
 
 ## Conclusion
 

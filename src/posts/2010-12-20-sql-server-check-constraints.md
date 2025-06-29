@@ -26,7 +26,7 @@ you'll find that is_not_trusted is 1, indicating that the constraint is not trus
 
 here's how
 
-ALTER TABLE BANDWIDTH  
+ALTER TABLE BANDWIDTH   
 WITH CHECK  
 CHECK CONSTRAINT FKUserLimits;
 

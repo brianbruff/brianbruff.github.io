@@ -16,7 +16,7 @@ Links:
 
 Azure:  
 <https://azure.microsoft.com/en-us/services/web-pubsub/>  
-<https://azure.microsoft.com/en-us/services/signalr-service/>
+<https://azure.microsoft.com/en-us/services/signalr-service/>  
 
 AWS:  
 <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html>

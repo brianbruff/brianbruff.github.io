@@ -10,9 +10,9 @@ Those of you to have experience with multithreading know that it can be a right 
 
 Try the parallel tasks/stacks in vs2010 and see just how valuable a friend they become :-)
 
-In recent times, CPU clock speeds have stagnated and manufacturers have shifted their focus to increasing core counts.  
-This is problematic for us as programmers because our standard single-threaded code will not automatically run faster as a result of those extra cores.
-
+In recent times, CPU clock speeds have stagnated and manufacturers have shifted their focus to increasing core counts.   
+This is problematic for us as programmers because our standard single-threaded code will not automatically run faster as a result of those extra cores.  
+  
 Spend some time investigating the new Tasks in .net 4.0
 
 ![](/blog/image.axd?picture=2010%2f10%2fParallel.png)

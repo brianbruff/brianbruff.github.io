@@ -6,26 +6,26 @@ tags: []
 
 To the uninitiated **this** can be really confusing in JavaScript. Consider the following:
 
-![](/images/./image.axd?picture=image_thumb_319.png)
+![](/images/./image.axd?picture=image_thumb_319.png)  
 
 The code above logs **this** three times, but what is _this?_
 
-The main source of confusion is a quirk of the language where depending on the invocation pattern this can be set to the global variable (e.g. window in a browser). But there are come other gotchas.
+The main source of confusion is a quirk of the language where depending on the invocation pattern this can be set to the global variable (e.g. window in a browser). But there are come other gotchas. 
 
 In the example above **this** is 3 different objects.
 
-- Window
-- ATest
-- Object
+  * Window
+  * ATest
+  * Object
 
 ## Function Invocation Patterns
 
 In order to explain this we need to know what function invocation patterns are in JavaScript, of which there are 4.
 
-- method
-- function
-- constructor
-- apply/call
+  * method
+  * function
+  * constructor
+  * apply/call
 
 I’ve covered the first 3 above in my example
 
@@ -35,7 +35,7 @@ I’ve covered the first 3 above in my example
 
 ### Constructor
 
-![image](./image.axd?picture=image_thumb_321.png)In this constructor invocation pattern (i.e. new) this is assigned to the object getting created, ATest
+![image](./image.axd?picture=image_thumb_321.png)In this constructor invocation pattern (i.e. new) this is assigned to the object getting created, ATest 
 
 ### Function
 
@@ -45,13 +45,14 @@ I’ve covered the first 3 above in my example
 
 I’m not covering this here but the Apply (and the call) invocation patterns basically let you set the value of **this.**
 
----
+****
 
-**Note** : Object Literal can be avoided in this example above as follows.  
+**Note** : Object Literal can be avoided in this example above as follows.   
 What we do is set the methods on **this** explicitly.
 
 ![](/images/./image.axd?picture=image_thumb_323.png)
 
----
+****
 
--
+  * 
+

@@ -10,17 +10,17 @@ Pretty easy solution, just databind the cursor on the window itself.
 
 ## Here's how:
 
-- Add an IsBusy property on the DataContext (and implement INotifyPropertyChanged on it)
-- Add the following to your window xaml
+  * Add an IsBusy property on the DataContext (and implement INotifyPropertyChanged on it)
+  * Add the following to your window xaml
 
 [code:c#]
 
 xmlns:valueConverters="clr-namespace:XXX.ValueConverters"  
-Cursor="{Binding IsBusy, Converter={valueConverters:CursorExtensionConverter}}"
+Cursor="{Binding IsBusy, Converter={valueConverters:CursorExtensionConverter}}" 
 
 [/code]
 
-- Create the following ValueConverter
+  * Create the following ValueConverter
 
 [code:c#]
 
@@ -29,7 +29,7 @@ public class CursorExtensionConverter : MarkupExtension, IValueConverter
 public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)  
 {  
 if (value != null && ((bool)value))  
-return Cursors.Wait;  
+return Cursors.Wait;   
 else  
 return Cursors.Arrow;  
 }

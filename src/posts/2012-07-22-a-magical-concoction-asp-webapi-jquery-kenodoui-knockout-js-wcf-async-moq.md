@@ -6,7 +6,7 @@ tags: ["asp webapi", "jquery", "kenodUI", "Knockout.js", "Wcf", "Async", "Moq"]
 
 So the heading for this post is a little bit of a mouthful, but I want to tell you a story of how some of these technologies play together, so often in blog posts we are presented with a trivial example (I’m holding my hands up here too) and what we really want to see is that next step, i.e is the tech in question just a nice concept or can it be utilized practically?
 
-Let me tell you what I’ve come up with, the application in question could be written with any web tech and just render some static html and we’re done. But we’re moving into web 3.0 (don’t google that I’ve just coined it!), where our ajax-ey applications are going to the new level.  
+Let me tell you what I’ve come up with, the application in question could be written with any web tech and just render some static html and we’re done. But we’re moving into web 3.0 (don’t google that I’ve just coined it!), where our ajax-ey applications are going to the new level.   
 We’ve all heard the stories of these 2.0 web applications that are many hundred thousand lines of code and hard to maintain, so can it be made easier? Of Course!
 
 There are many new frameworks out these days, and to be hones it’s impossible to keep up with them all, the main thing to know is what they are for so you can investigate their effectiveness if needed; after your investigation you can decide if you want to continue the relationship a little further, in the post I will present some of the technologies I’ve encountered/like/love want to know better. I’ll explain where I used them and how, hopefully you’ll see that they play quit well together.
@@ -35,24 +35,23 @@ Confused? Look at this diagram
 
 ![](/images/./image.axd?picture=image_thumb_198.png)
 
-- Here the browser makes a request, it gets routed to the MVC controller, this controller generates the html with with ever context is needed,
-- Once the browser loads the page we make a ajax request to the web api, the web api in turn makes an Async request to the java webservice thereby freeing up the ASP thread pool to service other requests and providing better scalability.  
-  How? : .net 4.5 **async await**
-
+  * Here the browser makes a request, it gets routed to the MVC controller, this controller generates the html with with ever context is needed, 
+  * Once the browser loads the page we make a ajax request to the web api, the web api in turn makes an Async request to the java webservice thereby freeing up the ASP thread pool to service other requests and providing better scalability.   
+How? : .net 4.5 **async await**   
+  
 ![](/images/./image.axd?picture=image_thumb_199.png)
-
-- When the response arrives back to the await the state machine restores the context and a (possibly) new thread picks up from where the first thread left off and returns the data to the browser.
+  * When the response arrives back to the await the state machine restores the context and a (possibly) new thread picks up from where the first thread left off and returns the data to the browser. 
 
 To sum up, the advantages of the above approach are:
 
-1. A hugely more responsive experience for the end user, as compared with full page refreshes or even partial page refreshes (as in traditional Ajax).
-2. The server-side UI code is extremely simple, as it needs only to transmit an initial block of markup referencing the necessary JavaScript libraries. It doesn’t need to render data.
-3. Using WebAPI services as the basic data endpoint creates the opportunity to use multiple client technologies. For example, you could create a native smartphone application that connects to the same data endpoints without needing any additional server-side code.
+  1. A hugely more responsive experience for the end user, as compared with full page refreshes or even partial page refreshes (as in traditional Ajax).
+  2. The server-side UI code is extremely simple, as it needs only to transmit an initial block of markup referencing the necessary JavaScript libraries. It doesn’t need to render data.
+  3. Using WebAPI services as the basic data endpoint creates the opportunity to use multiple client technologies. For example, you could create a native smartphone application that connects to the same data endpoints without needing any additional server-side code.
 
 ## jQuery
 
-The data returned in in JSON format as we queries data via jQuery $.getJson() that sets the appropriate header (content negotiation is handled via Asp MVC4 for us).
-
+The data returned in in JSON format as we queries data via jQuery $.getJson() that sets the appropriate header (content negotiation is handled via Asp MVC4 for us).   
+  
 ![](/images/./image.axd?picture=image_thumb_200.png)
 
 ## Knockout.js
@@ -81,8 +80,8 @@ I’ve used telerik many times, silverlight/wpf/asp ajax etc, I also listen to l
 
 ![](/images/./image.axd?picture=image_thumb_204.png)
 
-I’m using the revealing module pattern above to initialize my grid, you can see it’s using a kendoDataSource object to talk to the WebApi, the url parameter would be the url of my api,  
-/DataFeedApi for all records  
+I’m using the revealing module pattern above to initialize my grid, you can see it’s using a kendoDataSource object to talk to the WebApi, the url parameter would be the url of my api,   
+/DataFeedApi for all records   
 /DataFeedApi?contentId=XXX for getting a subset of records from the WebApi
 
 ## Moq
@@ -95,8 +94,8 @@ The beauty of this is that in my Unit tests I can mock this interface so I don�
 
 Above you can see I’m mocking the interface DataContentActionsServiceType so that when I call the (It’s java hence the non standard .net naming convention IXxx)
 
-- getAllDataSupplierInfos method that I return ECB and APX.
-- getDataSupplierForCode(“APX”) returns the Netherland Stuff record.
+  * getAllDataSupplierInfos method that I return ECB and APX. 
+  * getDataSupplierForCode(“APX”) returns the Netherland Stuff record. 
 
 That about sums up what I wanted to show, hope it encourages someone to start playing with any of the above technologies and see if you can leverage them in your own applications.
 

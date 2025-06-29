@@ -14,10 +14,10 @@ We'll be using the latest version of Rider (2023.1.2) for this guide.
 
 To follow this guide, you will need:
 
-1. JetBrains Rider installed on your machine. If you don't have it installed, you can download it from the [JetBrains official website](https://www.jetbrains.com/rider/download/).
-2. The AWS Toolkit for Rider, which is a plugin that integrates AWS resources into your Rider development workflow.
-3. The .NET Core SDK.
-4. AWS Lambda Test Tool.
+  1. JetBrains Rider installed on your machine. If you don't have it installed, you can download it from the [JetBrains official website](https://www.jetbrains.com/rider/download/).
+  2. The AWS Toolkit for Rider, which is a plugin that integrates AWS resources into your Rider development workflow.
+  3. The .NET Core SDK.
+  4. AWS Lambda Test Tool.
 
 ## Steps to Configure
 
@@ -46,7 +46,7 @@ Open the `launchSettings.json` file in Rider, and replace the existing content w
       }
     }
 
-Please replace ``with the actual path to the`Amazon.Lambda.TestTool.BlazorTester.dll` on your system. Save your changes and close the file.
+Please replace `` with the actual path to the `Amazon.Lambda.TestTool.BlazorTester.dll` on your system. Save your changes and close the file.
 
 ### Step 3: Test Your Setup
 
@@ -60,9 +60,9 @@ As previously mentioned, Rider has built-in support for Docker, which can be lev
 
 This approach offers several benefits, such as:
 
-1. Running your function in an environment that closely mimics the live AWS Lambda environment.
-2. Simulating event sources like Amazon S3, Amazon DynamoDB, and others.
-3. Easier management of dependencies and environment variables.
+  1. Running your function in an environment that closely mimics the live AWS Lambda environment.
+  2. Simulating event sources like Amazon S3, Amazon DynamoDB, and others.
+  3. Easier management of dependencies and environment variables.
 
 To use this approach, you'll need Docker installed
 

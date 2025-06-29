@@ -8,9 +8,10 @@ If you've got a data driven application, databinding is the infrastructure of ch
 
 Silverlight 4 has a few improvments that brings it closer to WPF
 
-- TargetNullValue - lets you specify the what to display in the target when the source value is null  
-  e.g. {Binding Path=Name, TargetNullValue=NoName}
-- StringFormat - specify how a strnig should be formatted  
-  e.g. {Binding Path=Salary, StringFormat=C}
-- FallbackValue - I love this one, comes in pretty handy when dealing with polymorphic classes where a you know in advance what properties specialized classes have and want to display them... or display a fallback value if they don't exist.  
-  e.g. {Binding Path=LastLoggedOn, FallbackValue=Never}
+  * TargetNullValue - lets you specify the what to display in the target when the source value is null  
+e.g. {Binding Path=Name, TargetNullValue=NoName}
+  * StringFormat - specify how a strnig should be formatted  
+e.g. {Binding Path=Salary, StringFormat=C}
+  * FallbackValue - I love this one, comes in pretty handy when dealing with polymorphic classes where a you know in advance what properties specialized classes have and want to display them... or display a fallback value if they don't exist.  
+e.g. {Binding Path=LastLoggedOn, FallbackValue=Never}
+

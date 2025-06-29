@@ -16,8 +16,8 @@ The screenshot is from WebMatrix it shows the default webpage where I’m presen
 
 The real good stuff comes from the following lines
 
-Here we define the template that is basically some html littered with prop Names e.g. $(Name}, note the script type that is used for jQuery templates.
-
+Here we define the template that is basically some html littered with prop Names e.g. $(Name}, note the script type that is used for jQuery templates.   
+  
 The load function is quite simple, it basically says: select the helicopter jQuery template and apply the helis JSON to it and put the result into the “results” unordered list.
 
 Have a look at the jQuery template documentation for some more samples and have fun ![Smile](/blog/image.axd?picture=wlEmoticon-smile_2.png)

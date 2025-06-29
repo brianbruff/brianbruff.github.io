@@ -20,7 +20,7 @@ In the 1.5 SDK there used to be a registry key that pointed to the emulator, wit
 
 ![](/images/./image.axd?picture=image_thumb_127.png)
 
-Once you find where Visual is looking for it, it’s a matter of copying the files in  
+Once you find where Visual is looking for it, it’s a matter of copying the files in   
 C:\Program Files\Windows Azure Emulator\emulator\ to this location.
 
 Try run you app now and it should work.

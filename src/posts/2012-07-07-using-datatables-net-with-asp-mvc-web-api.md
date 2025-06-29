@@ -14,7 +14,7 @@ If you are familiar with the various .net Json serializers you’ll get some Jso
 
 e.g. {[“Name” : “Brian”, “Age” : “35”], [“Name” : “Brian1”, “Age” : “36”]}
 
-This causes a major problem for DataTables in that it expects (_by default_)
+This causes a major problem for DataTables in that it expects (_by default_) 
 
 e.g. {“Brian”, “35”], [“Brian1”,“36”]}
 
@@ -26,7 +26,7 @@ Here’s how I’ve implemented it.
 
 ![](/images/./image.axd?picture=image_thumb_194.png)
 
-I’m not saying it’s the best solution! May even have a few bugs, but it appears to do the trick for me for now.
+I’m not saying it’s the best solution! May even have a few bugs, but it appears to do the trick for me for now. 
 
 ## Update:
 

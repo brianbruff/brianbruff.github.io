@@ -8,7 +8,7 @@ If you're interested to see how to attach commands to listview items for use wit
 
 [code:c#]
 
-TargetType="{x:Type ListViewItem}">  
-Value="MouseDoubleClick" />  
-Value="{Binding ElementName=uiEntityListDisplay, Path=DataContext.OpenEntityCommand}" />  
-Value="{Binding}" />
+TargetType="{x:Type ListViewItem}">   
+Value="MouseDoubleClick" />   
+Value="{Binding ElementName=uiEntityListDisplay, Path=DataContext.OpenEntityCommand}" />   
+Value="{Binding}" />   

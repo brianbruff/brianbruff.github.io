@@ -121,8 +121,8 @@ Console.WriteLine();
 Console.WriteLine("Customer Orders by Status");
 
 //LINQ Query for summarizing customer order information by status.  
-//There are two LINQ queries.  
-//Internal query is used to group orders together by status and  
+//There are two LINQ queries.   
+//Internal query is used to group orders together by status and   
 //calculates the total order amount and number of orders.  
 //External query is used to join Customer information.  
 var sumoforders =  
@@ -160,9 +160,9 @@ Console.Read();
 }  
 }
 
-///  
+///   
 /// Used to store customer information for analysis.  
-///  
+///   
 public class Customer  
 {  
 //Properties.  
@@ -170,10 +170,10 @@ public string Name { get; set; }
 public string City { get; set; }  
 public string State { get; set; }
 
-///  
-/// Helper method for creating a list of customers  
+///   
+/// Helper method for creating a list of customers   
 /// from an Excel worksheet.  
-///  
+///   
 public static List LoadCustomers(Worksheet worksheet,  
 SharedStringTable sharedString)  
 {  
@@ -192,8 +192,8 @@ foreach (Row row in dataRows)
 //Where clause filters out any cells that do not contain a value.  
 //Select returns the value of a cell unless the cell contains  
 // a Shared String.  
-//If the cell contains a Shared String, its value will be a  
-// reference id which will be used to look up the value in the  
+//If the cell contains a Shared String, its value will be a   
+// reference id which will be used to look up the value in the   
 // Shared String table.  
 IEnumerable textValues =  
 from cell in row.Descendants()  
@@ -202,7 +202,7 @@ select
 (cell.DataType != null  
 && cell.DataType.HasValue  
 && cell.DataType == CellValues.SharedString  
-? sharedString.ChildElements[
+? sharedString.ChildElements[  
 int.Parse(cell.CellValue.InnerText)].InnerText  
 : cell.CellValue.InnerText)  
 ;
@@ -230,9 +230,9 @@ return result;
 }  
 }
 
-///  
+///   
 /// Used to store order information for analysis.  
-///  
+///   
 public class Order  
 {  
 //Properties.  
@@ -242,10 +242,10 @@ public string Customer { get; set; }
 public Double Amount { get; set; }  
 public string Status { get; set; }
 
-///  
-/// Helper method for creating a list of orders  
+///   
+/// Helper method for creating a list of orders   
 /// from an Excel worksheet.  
-///  
+///   
 public static List LoadOrders(Worksheet worksheet,  
 SharedStringTable sharedString)  
 {  
@@ -264,8 +264,8 @@ foreach (Row row in dataRows)
 //Where clause filters out any cells that do not contain a value.  
 //Select returns cell's value unless the cell contains  
 // a shared string.  
-//If the cell contains a shared string its value will be a  
-// reference id which will be used to look up the value in the  
+//If the cell contains a shared string its value will be a   
+// reference id which will be used to look up the value in the   
 // shared string table.  
 IEnumerable textValues =  
 from cell in row.Descendants()  
@@ -274,7 +274,7 @@ select
 (cell.DataType != null  
 && cell.DataType.HasValue  
 && cell.DataType == CellValues.SharedString  
-? sharedString.ChildElements[
+? sharedString.ChildElements[  
 int.Parse(cell.CellValue.InnerText)].InnerText  
 : cell.CellValue.InnerText)  
 ;

@@ -4,10 +4,10 @@ date: "2011-09-19"
 tags: ["expression blend silverlight animation"]
 ---
 
-You know what?  
+You know what?   
 I love Silverlight!
 
-The only reason I don’t spend more time in it is the ASP is more suited to non enterprise applications.  
+The only reason I don’t spend more time in it is the ASP is more suited to non enterprise applications.   
 However tonight for you dear reader I’ve got an enterprise application (below)
 
 ![](/images/./image.axd?picture=image_thumb_90.png)

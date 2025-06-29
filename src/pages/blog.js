@@ -12,17 +12,14 @@ const BlogPage = ({ data }) => {
       <div>
         <h1>Latest Blog Posts</h1>
         <p>
-          Sharing thoughts and experiences about software architecture,
-          development practices, and engineering solutions.
+          Sharing thoughts and experiences about software architecture, development practices, 
+          and engineering solutions.
         </p>
         <div className={styles.list}>
           {posts.map(post => (
             <article key={post.id} className={styles.listItem}>
               <h2>
-                <Link
-                  to={post.fields?.slug || "#"}
-                  className={styles.listItemLink}
-                >
+                <Link to={post.fields?.slug || '#'} className={styles.listItemLink}>
                   {post.frontmatter.title}
                 </Link>
               </h2>

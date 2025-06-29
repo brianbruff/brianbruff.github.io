@@ -8,11 +8,11 @@ I previously wrote a [post on MVC async controllers](/post/2011/01/17/Thread-sta
 
 However in this post I want to show you something that you might agree is pretty nice.
 
-### A historical example
+### A historical example 
 
 So lets take a look at the app we’re trying to build.
 
-Client is a simple web form (yes it’s webforms but I’m trying to catch the non MVC microsofties too), the instruments are entered in the text box, fetch button is clicked and the result is output
+Client is a simple web form (yes it’s webforms but I’m trying to catch the non MVC microsofties too), the instruments are entered in the text box, fetch button is clicked and the result is output 
 
 ![](/images/./image.axd?picture=image_thumb1_thumb.png)
 
@@ -36,7 +36,7 @@ Here’s the code behind for the **non-async** button event handler
 
                     var args = new Dictionary<string, object>();
 
-                    args.Add("RIC", tbInst1.Text);
+                    args.Add("RIC", tbInst1.Text);                
 
                     var res = WorkflowInvoker.Invoke(_getPricesWFDefinition, args);
 
@@ -62,7 +62,7 @@ Here’s the code behind for the **non-async** button event handler
 
             }
 
-So as you can see, we’re waiting at least 20 seconds for our page to return, **nasty**.  
+So as you can see, we’re waiting at least 20 seconds for our page to return, **nasty**.   
 In theory we should be able to bring this down to 10 seconds as we can make the calls to the workflows in parallel.
 
 Let me show you one way to “incorrectly” achieve this
@@ -99,7 +99,7 @@ Let me show you one way to “incorrectly” achieve this
 
                 return t1;
 
-            }
+            } 
 
 So we’re using the task library to make the two workflow requests async, and results look promising, down to about 10 seconds now… so any problems with doing this?
 
@@ -113,11 +113,11 @@ Often to solve the problem of horizontal scalability more servers are added to t
 
 ![](/images/./image.axd?picture=image_thumb2_thumb.png)
 
-So what is this telling us? Basically, if your app is I/O bound then you should use parallelism, if requests are computationally cheap to process, then parallelism is probably an unnecessary overhead.
+So what is this telling us? Basically, if your app is I/O bound then you should use parallelism, if requests are computationally cheap to process, then parallelism is probably an unnecessary overhead. 
 
-If the incoming request rate is high, then adding more parallelism will likely yield few benefits and could actually decrease performance, since the incoming rate of work may be high enough to keep the CPUs busy.
+If the incoming request rate is high, then adding more parallelism will likely yield few benefits and could actually decrease performance, since the incoming rate of work may be high enough to keep the CPUs busy. 
 
-If the incoming request rate is low, then the Web application could benefit from parallelism by using the idle CPU cycles to speed up the processing of an individual request. We can use either PLINQ or TPL (either Parallel loops or the Task class) to parallelize the computation over all the processors. Note that by default, however, the PLINQ implementation in .NET 4 will tie-up one ThreadPool worker per processor for the entire execution of the query. As such, it should only be used in Web applications that see few but expensive requests.
+If the incoming request rate is low, then the Web application could benefit from parallelism by using the idle CPU cycles to speed up the processing of an individual request. We can use either PLINQ or TPL (either Parallel loops or the Task class) to parallelize the computation over all the processors. Note that by default, however, the PLINQ implementation in .NET 4 will tie-up one ThreadPool worker per processor for the entire execution of the query. As such, it should only be used in Web applications that see few but expensive requests. 
 
 ## MVC4
 
@@ -125,57 +125,57 @@ In MVC4 it becomes even easier that my previous post on AsyncControllers, actual
 
 ### Sample using task support for asynchronous controllers
 
-You can now write asynchronous action methods as single methods that return an object of type _Task_ or _Task_.
+You can now write asynchronous action methods as single methods that return an object of type _Task_ or _Task_. 
 
-e.g.
+e.g. 
 
     public async Task Index(string city)
 
-    {
+    {    
 
-        var newsService = new NewsService();
+        var newsService = new NewsService();    
 
-        var sportsService = new SportsService();
+        var sportsService = new SportsService();        
 
-        return View("Common",
+        return View("Common",        
 
-                    new PortalViewModel
+                    new PortalViewModel 
 
-                    {
+                    {       
 
-                        NewsHeadlines = await newsService.GetHeadlinesAsync(),
+                        NewsHeadlines = await newsService.GetHeadlinesAsync(),        
 
-                        SportsScores = await sportsService.GetScoresAsync()
+                        SportsScores = await sportsService.GetScoresAsync()    
 
                     });
 
     }
 
-In the previous action method, the calls to _newsService.GetHeadlinesAsync_ and _sportsService.GetScoresAsync_ are called asynchronously and do not block a thread from the thread pool.
+In the previous action method, the calls to _newsService.GetHeadlinesAsync_ and _sportsService.GetScoresAsync_ are called asynchronously and do not block a thread from the thread pool. 
 
-Asynchronous action methods that return _Task_ instances can also support timeouts. To make your action method cancellable, add a parameter of type _CancellationToken_ to the action method signature. The following example shows an asynchronous action method that has a timeout of 2500 milliseconds and that displays a _TimedOut_ view to the client if a timeout occurs.
+Asynchronous action methods that return _Task_ instances can also support timeouts. To make your action method cancellable, add a parameter of type _CancellationToken_ to the action method signature. The following example shows an asynchronous action method that has a timeout of 2500 milliseconds and that displays a _TimedOut_ view to the client if a timeout occurs. 
 
-    [AsyncTimeout(2500)]
+    [AsyncTimeout(2500)] 
 
     [HandleError(ExceptionType = typeof(TaskCanceledException), View = "TimedOut")]
 
-    public async Task Index(string city, CancellationToken cancellationToken)
+    public async Task Index(string city, CancellationToken cancellationToken) 
 
-    {
+    {    
 
-        var newsService = new NewsService();
+        var newsService = new NewsService();    
 
-        var sportsService = new SportsService();
+        var sportsService = new SportsService();       
 
-        return View("Common",
+        return View("Common",        
 
-            new PortalViewModel
+            new PortalViewModel 
 
-            {
+            {        
 
-                NewsHeadlines = await newsService.GetHeadlinesAsync(cancellationToken),
+                NewsHeadlines = await newsService.GetHeadlinesAsync(cancellationToken),        
 
-                SportsScores = await sportsService.GetScoresAsync(cancellationToken)
+                SportsScores = await sportsService.GetScoresAsync(cancellationToken)    
 
             });
 
