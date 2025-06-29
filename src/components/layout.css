@@ -1,9 +1,9 @@
 :root {
   --border-radius: 4px;
-  --color-text: #333;
-  --color-primary: #7026b9;
-  --color-code-bg: #fff4db;
-  --color-code: #8a6534;
+  --color-text: #f8f9fa;
+  --color-primary: #dc2626;
+  --color-code-bg: #374151;
+  --color-code: #fbbf24;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
@@ -42,6 +42,7 @@ body {
   font-weight: normal;
   margin: 0;
   word-wrap: break-word;
+  background-color: #1a1a1a;
 }
 a {
   background-color: transparent;
@@ -76,6 +77,8 @@ h1 {
   padding: 0;
   line-height: var(--line-height-dense);
   letter-spacing: -0.01em;
+  font-size: 3.5rem;
+  font-weight: 700;
 }
 h1 > b {
   color: var(--color-primary);
