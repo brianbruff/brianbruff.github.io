@@ -1,6 +1,6 @@
 ---
 title: "Using AI to Develop Applications End-to-End – A PileupBuster Showcase"
-date: "2024-01-15"
+date: "2025-06-15"
 tags: ["AI", "Development", "PileupBuster", "GitHub Copilot", "Sora"]
 ---
 
