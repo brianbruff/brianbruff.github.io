@@ -130,13 +130,3 @@ By using SSH keys and the `~/.ssh/config` file, you can streamline your SSH work
 - 🍎 Seamlessly integrates with macOS Keychain
 
 ---
-
-## 🙋‍♂️ Extras
-
-Let me know if you'd like to:
-
-- Alias a working directory when connecting
-- Automatically run commands on login
-- Manage multiple remote hosts with different credentials
-
-Happy SSH'ing! 🧑‍💻
