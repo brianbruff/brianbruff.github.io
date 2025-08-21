@@ -49,6 +49,52 @@
   animation: fadeInUp 0.8s ease-out;
 }
 
+.profile-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  animation: fadeInScale 0.8s ease-out;
+}
+
+.profile-image:hover {
+  transform: scale(1.05) rotate(5deg);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 15px 40px rgba(59, 130, 246, 0.2);
+}
+
+.profile-content {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .profile-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-content {
+    text-align: center;
+  }
+  
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+}
+
 .resume-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
@@ -532,6 +578,7 @@
 .achievement-card:nth-child(4) { animation-delay: 0.4s; }
 .achievement-card:nth-child(5) { animation-delay: 0.5s; }
 .achievement-card:nth-child(6) { animation-delay: 0.6s; }
+.achievement-card:nth-child(7) { animation-delay: 0.7s; }
 
 /* Staggered animations for strength items */
 .strength-item {
@@ -555,6 +602,7 @@
 .product-item:nth-child(2) { animation-delay: 0.15s; }
 .product-item:nth-child(3) { animation-delay: 0.2s; }
 .product-item:nth-child(4) { animation-delay: 0.25s; }
+.product-item:nth-child(5) { animation-delay: 0.3s; }
 
 /* Responsive Design */
 @media (max-width: 768px) {

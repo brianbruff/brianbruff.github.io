@@ -6,7 +6,7 @@ tags: ["AI", "Development", "PileupBuster", "GitHub Copilot", "Sora"]
 
 ## Introduction
 
-In this post, I want to share some reflections on how artificial intelligence can accelerate and enhance the full lifecycle of app development, using my recent project, [PileupBuster](https://github.com/brianbruff/pileupbuster), as a showcase.
+In this post, I want to share some reflections on how artificial intelligence can accelerate and enhance the full lifecycle of app development, using my recent project, [PileupBuster](https://github.com/brianbruff/pileupbuster), as a showcase. PileupBuster is a ticketing system that was built entirely using AI tools and features AI-powered summarization capabilities for intelligent ticket processing.
 
 ## Designing the Initial Screens with Sora
 
@@ -30,10 +30,39 @@ Most of the coding was handled by GitHub code agents, with some features impleme
 
 Amazingly, the whole project took just three evenings to complete. My main role was to coordinate the AIs, acting as a conductor rather than a solo performer. Instead of solving every problem myself, I let the AI tools do the heavy lifting and concentrated my effort on direction and quality control.
 
+## Technical Implementation Details
+
+The technical stack of PileupBuster showcases modern AI-first development:
+
+- **Python & FastAPI**: The backend was built entirely in Python using FastAPI for high-performance async operations
+- **LangGraph Integration**: Implemented AI summarization using LangGraph for intelligent ticket processing and summary generation
+- **Real-Time Interaction**: Server-sent events (SSE) enable real-time updates to connected clients for live ticket status updates
+- **Direct Logging Integration**: Seamless integration with logging software for automatic tracking and record keeping
+- **AI-Powered Summarization**: Leverages AI to automatically summarize ticket content and extract key information
+
+## Empowering Developers Through AI
+
+One of the most rewarding outcomes of this project was helping transition it to a new developer who had been away from coding for 30 years. Through mentoring on modern AI coding agents and tools like GitHub Copilot, this developer was able to:
+
+- Quickly grasp modern development practices
+- Return to the market as a productive developer
+- Successfully build and maintain small systems for clients
+- Leverage AI tools to bridge the 30-year technology gap
+
+This transformation demonstrates how AI isn't just accelerating development for experienced engineers – it's also democratizing programming and helping developers re-enter the field after extended breaks.
+
 ## Results and Reflections
 
-The end result was an application that was not only built faster but was also better tested, better documented, and more robust than what I could have achieved solo. I like to think this process puts me at the cutting edge (sometimes even the bleeding edge!) of modern development practices – though I say this with humility and a sense of excitement for what's possible, not self-importance.
+The end result was an application that was not only built faster but was also better tested, better documented, and more robust than what I could have achieved solo. The combination of Python, FastAPI, LangGraph, and real-time SSE created a sophisticated ticketing system with intelligent AI summarization capabilities that streamlines ticket management and processing.
+
+I like to think this process puts me at the cutting edge (sometimes even the bleeding edge!) of modern development practices – though I say this with humility and a sense of excitement for what's possible, not self-importance.
+
+## PileupBuster in Action
+
+Below is a view of PileupBuster's ticketing system interface, showcasing the real-time ticket management and AI-powered summarization features in action:
+
+![PileupBuster Ticketing System - Real-time ticket management with AI summarization](/pileupbuster-map.png)
 
 ## Conclusion
 
-This experience reinforced to me that AI isn't just automating code, it's empowering developers to build better software, faster – and making the process a lot more fun along the way.
+This experience reinforced to me that AI isn't just automating code, it's empowering developers to build better software, faster – and making the process a lot more fun along the way. Whether you're an experienced developer looking to accelerate your workflow or someone returning to coding after years away, AI tools can be your bridge to modern, productive development.

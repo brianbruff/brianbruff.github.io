@@ -9,8 +9,13 @@ const ResumePage = () => {
     <Layout>
       <div className="resume-container">
         <div className="resume-hero glass-morphism">
-          <h1 className="resume-title">Brian Keating</h1>
-          <p className="resume-subtitle">Cloud Solutions Architect</p>
+          <div className="profile-section">
+            <img src="/brian-profile.jpg" alt="Brian Keating" className="profile-image" />
+            <div className="profile-content">
+              <h1 className="resume-title">Brian Keating</h1>
+              <p className="resume-subtitle">Cloud Solutions Architect</p>
+            </div>
+          </div>
           <p className="resume-intro">
             Cloud Solutions Architect certified in Azure and AWS, specializing in AI-first architectures 
             and complex software solutions. Proven experience as Product Owner, Engineering Lead, and 
@@ -123,6 +128,10 @@ const ResumePage = () => {
               <span className="achievement-icon">🏆</span>
               <p>GenAI rollout using RAG for intelligent data discovery & promoting AI-first development with coding agents</p>
             </div>
+            <div className="achievement-card">
+              <span className="achievement-icon">🚀</span>
+              <p>PileupBuster.com - Ham radio pileup training platform built entirely with AI assistance</p>
+            </div>
           </div>
         </section>
 
@@ -144,6 +153,10 @@ const ResumePage = () => {
             <div className="product-item">
               <span className="product-bullet">🔸</span>
               <p>Ticket management systems</p>
+            </div>
+            <div className="product-item">
+              <span className="product-bullet">🔸</span>
+              <p>PileupBuster.com - AI-built ham radio training platform</p>
             </div>
           </div>
         </section>
