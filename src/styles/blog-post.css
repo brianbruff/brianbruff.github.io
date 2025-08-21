@@ -111,21 +111,84 @@
 }
 
 .blog-post-content pre {
-  background: #1f2937;
-  color: #e5e7eb;
+  background: #1e293b !important;
+  color: #f1f5f9 !important;
   padding: 1.5rem;
   border-radius: 8px;
   overflow-x: auto;
   margin-bottom: 1.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #334155;
 }
 
 .blog-post-content pre code {
-  background: transparent;
+  background: transparent !important;
   padding: 0;
-  color: #e5e7eb;
+  color: #f1f5f9 !important;
   font-size: 0.875rem;
   line-height: 1.6;
+}
+
+/* Override PrismJS theme colors for better contrast */
+.blog-post-content pre[class*="language-"],
+.blog-post-content code[class*="language-"] {
+  background: #1e293b !important;
+  color: #f1f5f9 !important;
+}
+
+.blog-post-content .token.comment,
+.blog-post-content .token.prolog,
+.blog-post-content .token.doctype,
+.blog-post-content .token.cdata {
+  color: #94a3b8 !important;
+}
+
+.blog-post-content .token.punctuation {
+  color: #cbd5e1 !important;
+}
+
+.blog-post-content .token.property,
+.blog-post-content .token.tag,
+.blog-post-content .token.boolean,
+.blog-post-content .token.number,
+.blog-post-content .token.constant,
+.blog-post-content .token.symbol,
+.blog-post-content .token.deleted {
+  color: #f87171 !important;
+}
+
+.blog-post-content .token.selector,
+.blog-post-content .token.attr-name,
+.blog-post-content .token.string,
+.blog-post-content .token.char,
+.blog-post-content .token.builtin,
+.blog-post-content .token.inserted {
+  color: #86efac !important;
+}
+
+.blog-post-content .token.operator,
+.blog-post-content .token.entity,
+.blog-post-content .token.url,
+.blog-post-content .language-css .token.string,
+.blog-post-content .style .token.string {
+  color: #fbbf24 !important;
+}
+
+.blog-post-content .token.atrule,
+.blog-post-content .token.attr-value,
+.blog-post-content .token.keyword {
+  color: #a78bfa !important;
+}
+
+.blog-post-content .token.function,
+.blog-post-content .token.class-name {
+  color: #60a5fa !important;
+}
+
+.blog-post-content .token.regex,
+.blog-post-content .token.important,
+.blog-post-content .token.variable {
+  color: #fbbf24 !important;
 }
 
 .blog-post-content img {
