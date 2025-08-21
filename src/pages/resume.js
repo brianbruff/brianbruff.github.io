@@ -119,6 +119,10 @@ const ResumePage = () => {
               <span className="achievement-icon">🏆</span>
               <p>Angular & real-time data platform implementation at scale</p>
             </div>
+            <div className="achievement-card">
+              <span className="achievement-icon">🏆</span>
+              <p>GenAI rollout using RAG for intelligent data discovery & promoting AI-first development with coding agents</p>
+            </div>
           </div>
         </section>
 
