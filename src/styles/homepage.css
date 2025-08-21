@@ -139,9 +139,10 @@
 
 /* Services Section */
 .services {
-  padding: 5rem 0;
+  padding: 3rem 0 5rem;
   position: relative;
   background: #f9fafb;
+  min-height: 100vh;
 }
 
 .container {

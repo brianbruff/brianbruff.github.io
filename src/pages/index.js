@@ -51,31 +51,8 @@ const services = [
 
 const IndexPage = () => (
   <Layout>
-    <section className="hero" id="home">
-      <div className="hero-bg"></div>
-      <div className="hero-content">
-        <h1 className="hero-title">
-          <span className="text-gradient">Brian Keating</span>
-          <span className="text-emphasis">Technical Blog</span>
-        </h1>
-        <p className="hero-subtitle">Cloud Solutions Architect • AI Engineer • Full-Stack Developer</p>
-        <p className="hero-description">
-          Sharing insights and experiences from the world of software development, 
-          cloud architecture, and AI-first solutions.
-        </p>
-      </div>
-      <div className="hero-scroll">
-        <span>Scroll to explore</span>
-        <div className="scroll-indicator"></div>
-      </div>
-    </section>
-
     <section className="services" id="services">
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Explore My Work</h2>
-          <p className="section-subtitle">Technical insights, professional experience, and thought leadership</p>
-        </div>
         <div className="services-grid">
           {services.map((service, index) => (
             <div key={service.title} className="service-card glass-card" style={{animationDelay: `${index * 0.1}s`}}>

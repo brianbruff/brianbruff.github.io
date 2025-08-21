@@ -2,32 +2,24 @@
 
 .resume-container {
   min-height: 100vh;
-  padding: 2rem 1rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  padding: 3rem 1rem;
+  background: #f9fafb;
 }
 
 .glass-morphism {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-morphism:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .resume-hero {
@@ -41,12 +33,11 @@
 .resume-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 0.5rem;
-  animation: titleGlow 3s ease-in-out infinite;
 }
 
 @keyframes titleGlow {
@@ -116,16 +107,17 @@
 
 .skill-item {
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
   transition: all 0.3s ease;
   cursor: default;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .skill-item:hover {
-  background: rgba(255, 255, 255, 0.7);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .skill-icon {
@@ -157,14 +149,16 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .strength-item:hover {
-  background: rgba(255, 255, 255, 0.5);
-  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .strength-bullet {
@@ -188,17 +182,18 @@
 
 .achievement-card {
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
   text-align: center;
   transition: all 0.3s ease;
   cursor: default;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .achievement-card:hover {
-  background: rgba(255, 255, 255, 0.6);
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .achievement-icon {
@@ -233,14 +228,16 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .product-item:hover {
-  background: rgba(255, 255, 255, 0.5);
-  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .product-bullet {

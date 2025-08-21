@@ -17,14 +17,14 @@ const BlogPage = ({ data }) => {
         </p>
         <div className={styles.list}>
           {posts.map((post, index) => (
-            <article key={post.id} className={`${styles.listItem} content-card animate-fadeInUp`} style={{animationDelay: `${index * 0.05}s`}}>
+            <article key={post.id} className={`blog-card glass-card animate-fadeInUp`} style={{animationDelay: `${index * 0.05}s`}}>
               <h2>
-                <Link to={post.fields?.slug || '#'} className={styles.listItemLink}>
+                <Link to={post.fields?.slug || '#'} className="blog-link">
                   {post.frontmatter.title}
                 </Link>
               </h2>
-              <small style={{color: 'var(--color-primary)'}}>{post.frontmatter.date}</small>
-              <p>{post.frontmatter.description || post.excerpt}</p>
+              <small className="blog-date">{post.frontmatter.date}</small>
+              <p className="blog-excerpt">{post.frontmatter.description || post.excerpt}</p>
             </article>
           ))}
         </div>
