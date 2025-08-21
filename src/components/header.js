@@ -12,6 +12,9 @@ const Header = ({ siteTitle }) => (
         <Link to="/blog" className={styles.navLink}>
           Blog
         </Link>
+        <Link to="/resume" className={styles.navLink}>
+          Resume
+        </Link>
         <a
           href="https://github.com/brianbruff"
           target="_blank"
