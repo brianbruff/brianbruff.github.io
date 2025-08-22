@@ -156,4 +156,4 @@ RotatorControlWeb represents a modern approach to an age-old ham radio challenge
 The project is actively maintained and welcomes contributions from the community. Feel free to open issues, submit pull requests, or fork the project for your own experiments. After all, experimentation and innovation are at the heart of amateur radio.
 
 73,
-Brian EI7GTB
+Brian EI6LF
