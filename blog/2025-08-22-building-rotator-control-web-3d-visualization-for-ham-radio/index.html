@@ -14,9 +14,9 @@
 <p>The application follows a modern web architecture designed for reliability and ease of deployment:</p>
 <h3>Backend Stack</h3>
 <ul>
-<li><strong>Node.js with Express</strong>: Provides a lightweight, efficient server for handling WebSocket connections and API requests</li>
+<li><strong>Node.js with Express</strong>: Provides a lightweight, efficient server for handling SSE connections and API requests</li>
 <li><strong>rotctld Integration</strong>: Communicates with the Hamlib rotctld daemon for hardware abstraction</li>
-<li><strong>WebSocket Support</strong>: Enables real-time bidirectional communication for instant position updates</li>
+<li><strong>Server-Sent Events (SSE)</strong>: Enables real-time server-to-client communication for instant position updates</li>
 <li><strong>Authentication Layer</strong>: Protects your rotor control from unauthorized access</li>
 </ul>
 <h3>Frontend Technologies</h3>
@@ -67,7 +67,7 @@
 <h3>Click-to-Point Control</h3>
 <p>Simply click anywhere on the globe, and the rotor will automatically turn to that heading. No more mental math converting between geographic locations and azimuth degrees – the system handles it all automatically.</p>
 <h3>Real-Time Position Updates</h3>
-<p>The WebSocket connection ensures that multiple operators can view the same rotor simultaneously, with all clients updating in real-time as the antenna moves. This is particularly useful for:</p>
+<p>The SSE connection ensures that multiple operators can view the same rotor simultaneously, with all clients updating in real-time as the antenna moves. This is particularly useful for:</p>
 <ul>
 <li>Club stations with multiple operators</li>
 <li>Remote operation scenarios</li>
@@ -84,7 +84,7 @@
 <p>Network disruptions are handled gracefully with automatic reconnection to the rotctld daemon. This ensures reliable operation even in less-than-ideal network conditions.</p>
 <h2>Implementation Challenges and Solutions</h2>
 <h3>Challenge 1: Real-Time Synchronization</h3>
-<p>Keeping multiple clients synchronized with actual rotor position required careful WebSocket state management. The solution involved:</p>
+<p>Keeping multiple clients synchronized with actual rotor position required careful SSE state management. The solution involved:</p>
 <ul>
 <li>Server-side position caching to handle new client connections</li>
 <li>Debounced updates to prevent flooding</li>
