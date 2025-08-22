@@ -26,9 +26,9 @@ RotatorControlWeb transforms antenna rotor control into an interactive 3D experi
 The application follows a modern web architecture designed for reliability and ease of deployment:
 
 ### Backend Stack
-- **Node.js with Express**: Provides a lightweight, efficient server for handling WebSocket connections and API requests
+- **Node.js with Express**: Provides a lightweight, efficient server for handling SSE connections and API requests
 - **rotctld Integration**: Communicates with the Hamlib rotctld daemon for hardware abstraction
-- **WebSocket Support**: Enables real-time bidirectional communication for instant position updates
+- **Server-Sent Events (SSE)**: Enables real-time server-to-client communication for instant position updates
 - **Authentication Layer**: Protects your rotor control from unauthorized access
 
 ### Frontend Technologies
@@ -71,7 +71,7 @@ The centerpiece of RotatorControlWeb is its interactive globe. The current anten
 Simply click anywhere on the globe, and the rotor will automatically turn to that heading. No more mental math converting between geographic locations and azimuth degrees – the system handles it all automatically.
 
 ### Real-Time Position Updates
-The WebSocket connection ensures that multiple operators can view the same rotor simultaneously, with all clients updating in real-time as the antenna moves. This is particularly useful for:
+The SSE connection ensures that multiple operators can view the same rotor simultaneously, with all clients updating in real-time as the antenna moves. This is particularly useful for:
 - Club stations with multiple operators
 - Remote operation scenarios
 - Training new operators
@@ -88,7 +88,7 @@ Network disruptions are handled gracefully with automatic reconnection to the ro
 ## Implementation Challenges and Solutions
 
 ### Challenge 1: Real-Time Synchronization
-Keeping multiple clients synchronized with actual rotor position required careful WebSocket state management. The solution involved:
+Keeping multiple clients synchronized with actual rotor position required careful SSE state management. The solution involved:
 - Server-side position caching to handle new client connections
 - Debounced updates to prevent flooding
 - Heartbeat mechanism to detect disconnected clients
