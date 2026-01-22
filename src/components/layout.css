@@ -19,12 +19,10 @@
   --gradient-1: linear-gradient(135deg, #f97316, #fb923c, #fbbf24);
   --gradient-2: linear-gradient(135deg, #ea580c, #dc2626);
   --gradient-3: linear-gradient(135deg, #f59e0b, #f97316);
-  --font-sans:
-    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  --font-mono:
-    SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-    monospace;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
   --font-lg: 18px;
   --font-md: 16px;
   --font-sm: 14px;
@@ -459,6 +457,63 @@ a:hover {
 }
 
 .blog-date {
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.blog-card:hover .blog-date {
+  color: var(--color-primary);
+}
+
+.blog-excerpt {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.blog-card:hover .blog-excerpt {
+  color: #ffffff;
+}
+
+.blog-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.2);
+  border-color: rgba(249, 115, 22, 0.3);
+}
+
+.blog-card h2 {
+  margin-bottom: 0.5rem;
+}
+
+.blog-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--transition);
+  position: relative;
+}
+
+.blog-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.blog-link:hover {
+  color: var(--color-primary);
+}
+
+.blog-link:hover::after {
+  width: 100%;
+}
+
+.blog-date {
   color: var(--text-secondary);
   font-size: 0.875rem;
   display: block;
@@ -474,8 +529,7 @@ a:hover {
 .blog-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(249, 115, 22, 0.3);
 }
 
 .blog-card h2 {
@@ -519,4 +573,8 @@ a:hover {
   color: #6b7280;
   line-height: 1.6;
   margin-bottom: 0;
+}
+
+.blog-card:hover .blog-excerpt {
+  color: #ffffff;
 }

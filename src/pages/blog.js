@@ -9,22 +9,28 @@ const BlogPage = ({ data }) => {
 
   return (
     <Layout>
-      <div className="animate-fadeInUp">
+      <div className="animate-fadeInUp" style={{ paddingTop: "100px" }}>
         <h1>Latest Blog Posts</h1>
         <p>
-          Sharing thoughts and experiences about software architecture, development practices, 
-          and engineering solutions.
+          Sharing thoughts and experiences about software architecture,
+          development practices, and engineering solutions.
         </p>
         <div className={styles.list}>
           {posts.map((post, index) => (
-            <article key={post.id} className={`blog-card glass-card animate-fadeInUp`} style={{animationDelay: `${index * 0.05}s`}}>
+            <article
+              key={post.id}
+              className={`blog-card glass-card animate-fadeInUp`}
+              style={{ animationDelay: `${index * 0.05}s` }}
+            >
               <h2>
-                <Link to={post.fields?.slug || '#'} className="blog-link">
+                <Link to={post.fields?.slug || "#"} className="blog-link">
                   {post.frontmatter.title}
                 </Link>
               </h2>
               <small className="blog-date">{post.frontmatter.date}</small>
-              <p className="blog-excerpt">{post.frontmatter.description || post.excerpt}</p>
+              <p className="blog-excerpt">
+                {post.frontmatter.description || post.excerpt}
+              </p>
             </article>
           ))}
         </div>
