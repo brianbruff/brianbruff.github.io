@@ -26,6 +26,12 @@ const Layout = ({ children }) => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.noise}></div>
+      <div className={styles.gradientOrbs}>
+        <div className={`${styles.orb} ${styles.orb1}`}></div>
+        <div className={`${styles.orb} ${styles.orb2}`}></div>
+        <div className={`${styles.orb} ${styles.orb3}`}></div>
+      </div>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div className={styles.content}>
         <main>{children}</main>
