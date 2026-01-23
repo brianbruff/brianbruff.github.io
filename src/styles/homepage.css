@@ -87,53 +87,6 @@
   animation: fadeInUp 1.4s ease-out;
 }
 
-.scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  color: #a0a0b0;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  animation: fadeInUp 1.6s ease-out;
-}
-
-.scroll-mouse {
-  width: 24px;
-  height: 40px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  position: relative;
-}
-
-.scroll-mouse::before {
-  content: "";
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 8px;
-  background: #f97316;
-  border-radius: 2px;
-  animation: scroll 2s ease-in-out infinite;
-}
-
-@keyframes scroll {
-  0% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(12px);
-  }
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;

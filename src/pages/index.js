@@ -95,10 +95,6 @@ const IndexPage = () => (
           </Link>
         </div>
       </div>
-      <div className="scroll-indicator">
-        <div className="scroll-mouse"></div>
-        <span>Scroll</span>
-      </div>
     </section>
 
     <section className="section" id="services">
