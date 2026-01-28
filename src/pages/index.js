@@ -109,16 +109,19 @@ const IndexPage = () => (
 
       <div className="bento-grid">
         {services.map((service, index) => (
-          <div
+          <Link
             key={service.title}
-            className={`bento-card ${service.span === 2 ? "span-2" : ""}`}
+            to={service.link}
+            className={`bento-card ${
+              service.span === 2 ? "span-2" : ""
+            } bento-card-link`}
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <div className="bento-card-content">
               <div className="card-icon">{service.icon}</div>
               <h3 className="card-title">{service.title}</h3>
               <p className="card-description">{service.description}</p>
-              <Link to={service.link} className="card-link">
+              <span className="card-link">
                 {service.linkText}
                 <svg
                   width="16"
@@ -130,9 +133,9 @@ const IndexPage = () => (
                 >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
-              </Link>
+              </span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
