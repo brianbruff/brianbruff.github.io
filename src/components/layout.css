@@ -483,3 +483,104 @@ a:hover {
     padding-top: 130px;
   }
 }
+
+/* Tag Wall Styles */
+.tag-wall {
+  margin: 2rem 0;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tag-btn {
+  background: rgba(249, 115, 22, 0.15);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  color: #e5e7eb;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tag-btn:hover {
+  background: rgba(249, 115, 22, 0.25);
+  border-color: rgba(249, 115, 22, 0.5);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.tag-btn.active {
+  background: linear-gradient(135deg, #f97316, #fb923c, #fbbf24);
+  border-color: #f97316;
+  color: white;
+  box-shadow: 0 2px 12px rgba(249, 115, 22, 0.5);
+}
+
+.show-all-tags-btn {
+  background: transparent;
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  color: #a0a0b0;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.show-all-tags-btn:hover {
+  border-color: #f97316;
+  color: #e5e7eb;
+  background: rgba(249, 115, 22, 0.1);
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin: 0.5rem 0;
+}
+
+.post-tag {
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  color: #a0a0b0;
+  padding: 0.25rem 0.625rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.post-tag:hover {
+  background: rgba(249, 115, 22, 0.2);
+  color: #e5e7eb;
+  border-color: rgba(249, 115, 22, 0.4);
+}
+
+.no-posts {
+  text-align: center;
+  color: #a0a0b0;
+  font-size: 1.125rem;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
