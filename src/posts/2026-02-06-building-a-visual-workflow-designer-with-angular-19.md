@@ -5,7 +5,7 @@ tags:
   ["Angular", "TypeScript", "Software Architecture", "Frontend", "Open Source"]
 ---
 
-I recently built a visual workflow designer — a node-based canvas where you wire together processing steps to compose data pipelines. It's the kind of tool you see in platforms like Node-RED, Apache NiFi, or n8n, but built from scratch with Angular 19 and a handful of well-chosen libraries. You can [try it live here](https://briankeating.net/flow-design-canvas/).
+I recently built a visual workflow designer — a node-based canvas where you wire together processing steps to compose data pipelines. It's the kind of tool you see in platforms like Node-RED, Apache NiFi, or n8n, but built from scratch with Angular 19 and a handful of well-chosen libraries. You can <a href="https://briankeating.net/flow-design-canvas/" target="_blank">try it live here</a>.
 
 In this post I'll walk through the architectural decisions, the Angular 19 features that made it enjoyable to build, and the patterns I'd use again.
 
@@ -19,7 +19,7 @@ Workflow designers need to solve several interrelated problems at once: renderin
 
 ### ngx-vflow for the Canvas
 
-The biggest decision was how to handle the canvas. Building a custom pan-zoom-drag-connect canvas from scratch is weeks of work and a maintenance burden. I chose [ngx-vflow](https://www.ngx-vflow.com/), a purpose-built Angular library for flow diagrams. It handles:
+The biggest decision was how to handle the canvas. Building a custom pan-zoom-drag-connect canvas from scratch is weeks of work and a maintenance burden. I chose <a href="https://www.ngx-vflow.com/" target="_blank">ngx-vflow</a>, a purpose-built Angular library for flow diagrams. It handles:
 
 - Node rendering with custom HTML templates
 - Edge drawing with bezier curves
@@ -41,19 +41,7 @@ This was the most deliberate choice. Traditional Angular state management with N
 
 The application follows a three-column layout — node palette on the left, canvas in the centre, and a properties panel on the right that appears when a node is selected.
 
-```mermaid
-graph LR
-    A[Node Palette] --> B[Canvas]
-    B --> C[Properties Panel]
-    B --> D[Toolbar]
-
-    E[WorkflowService] --> B
-    E --> C
-    F[NodeRegistryService] --> A
-    F --> E
-    G[CanvasInteractionService] --> B
-    G --> D
-```
+![Architecture diagram showing how services feed into components](/images/flow-design-canvas-architecture.png)
 
 Three services manage the state:
 
@@ -191,7 +179,7 @@ Each node renders a coloured stripe on the left edge using its accent colour. It
 
 The app is deployed to GitHub Pages and the source is on GitHub:
 
-- **Live demo:** [briankeating.net/flow-design-canvas](https://briankeating.net/flow-design-canvas/)
-- **Source:** [github.com/brianbruff/flow-design-canvas](https://github.com/brianbruff/flow-design-canvas)
+- **Live demo:** <a href="https://briankeating.net/flow-design-canvas/" target="_blank">briankeating.net/flow-design-canvas</a>
+- **Source:** <a href="https://github.com/brianbruff/flow-design-canvas" target="_blank">github.com/brianbruff/flow-design-canvas</a>
 
 It's a single `ng build` with no server requirements. If you're exploring Angular 19's signal-based patterns or looking for a starting point for a visual editor, take a look.
