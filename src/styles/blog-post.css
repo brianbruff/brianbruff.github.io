@@ -3,6 +3,7 @@
 .blog-post-container {
   min-height: 100vh;
   padding: 2rem 1rem;
+  padding-top: 100px;
 }
 
 .blog-post-card {
@@ -258,6 +259,7 @@
 @media (max-width: 768px) {
   .blog-post-container {
     padding: 1rem 0.5rem;
+    padding-top: 130px;
   }
 
   .blog-post-card {
