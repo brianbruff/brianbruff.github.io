@@ -70,7 +70,7 @@ const ResumePage = () => {
             <div className="skill-item">
               <span className="skill-icon">💼</span>
               <h3>Business Domains</h3>
-              <p>Workforce management, Real-Time data platforms, HR time tracking, Trading &amp; Risk, Power &amp; Renewables</p>
+              <p>Workforce management, Real-Time data platforms, Trading &amp; Risk, Power &amp; Renewables</p>
             </div>
           </div>
         </section>
@@ -131,6 +131,10 @@ const ResumePage = () => {
             <div className="achievement-card">
               <span className="achievement-icon">🚀</span>
               <p>PileupBuster.com - Ham radio pileup training platform built entirely with AI assistance</p>
+            </div>
+            <div className="achievement-card">
+              <span className="achievement-icon">🏆</span>
+              <p>Founded and grew OpenHPSDR Zeus into a massively successful multiplatform SDR solution</p>
             </div>
           </div>
         </section>
