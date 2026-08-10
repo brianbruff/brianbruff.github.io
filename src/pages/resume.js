@@ -49,8 +49,8 @@ const ResumePage = () => {
             </div>
             <div className="skill-item">
               <span className="skill-icon">🤖</span>
-              <h3>AI & ML</h3>
-              <p>Azure AI, LangGraph, Generative AI-first solutions, OpenAI, Anthropic</p>
+              <h3>AI</h3>
+              <p>Agentic coding, AI agent development, Claude Agent SDK, agent harnesses, AWS Strands, Amazon Bedrock, Amazon Bedrock AgentCore, LangGraph</p>
             </div>
             <div className="skill-item">
               <span className="skill-icon">🔧</span>
@@ -70,7 +70,7 @@ const ResumePage = () => {
             <div className="skill-item">
               <span className="skill-icon">💼</span>
               <h3>Business Domains</h3>
-              <p>Workforce management, Real-Time data platforms, HR time tracking</p>
+              <p>Workforce management, Real-Time data platforms, HR time tracking, Trading &amp; Risk, Power &amp; Renewables</p>
             </div>
           </div>
         </section>
