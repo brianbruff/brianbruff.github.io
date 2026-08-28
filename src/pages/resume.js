@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import OutboundLink from "../components/outbound-link"
 import { links } from "../site/links"
+import { mountPortraitGreeting } from "../site/portrait-greeting"
 import "../styles/resume.css"
 
 const skills = [
@@ -79,100 +80,124 @@ const Section = ({ title, count, children }) => (
   </section>
 )
 
-const ResumePage = () => (
-  <Layout>
-    <div className="page">
-      <div className="page__inner">
-        <header className="masthead resume__masthead">
-          <img
-            className="masthead__plate"
-            src="/images/resume-hero.jpg"
-            alt=""
-            loading="eager"
-            decoding="async"
-          />
-          <div className="resume__identity">
+const ResumePage = () => {
+  React.useEffect(() => mountPortraitGreeting(), [])
+
+  return (
+    <Layout>
+      <div className="page">
+        <div className="page__inner">
+          <header className="masthead resume__masthead">
             <img
-              className="resume__portrait"
-              src="/images/brian-portrait.jpg"
-              alt="Brian Keating"
+              className="masthead__plate"
+              src="/images/resume-hero.jpg"
+              alt=""
               loading="eager"
+              decoding="async"
             />
-            <div>
-              <p className="eyebrow">Résumé / Practice</p>
-              <h1 className="masthead__title">Brian Keating</h1>
-              <p className="resume__role">AI Systems Architect</p>
+            <div className="resume__identity">
+              {/* The still is the clip's final frame, so the plate reads the
+                same whether the greeting plays, is refused, or never runs. */}
+              <div className="resume__portrait">
+                <img
+                  className="resume__portrait-still"
+                  src="/images/brian-portrait.jpg"
+                  alt="Brian Keating"
+                  width="620"
+                  height="846"
+                  loading="eager"
+                  decoding="async"
+                />
+                <video
+                  className="resume__portrait-clip"
+                  data-portrait-clip=""
+                  data-src="/assets/video/greeting.mp4"
+                  data-src-mobile="/assets/video/greeting.mobile.mp4"
+                  poster="/images/brian-portrait.jpg"
+                  playsInline
+                  muted
+                  preload="none"
+                  disablePictureInPicture
+                  aria-hidden="true"
+                  tabIndex={-1}
+                />
+              </div>
+              <div>
+                <p className="eyebrow">Résumé / Practice</p>
+                <h1 className="masthead__title">Brian Keating</h1>
+                <p className="resume__role">AI Systems Architect</p>
+              </div>
             </div>
-          </div>
-          <p className="masthead__intro">
-            Cloud Solutions Architect certified in Azure and AWS, specialising in
-            AI-first architectures and complex software solutions. Proven
-            experience as Product Owner, Engineering Lead, and Consultant across
-            global teams and domains. Passionate technologist with hands-on
-            expertise spanning full-stack development, microservices, and
-            distributed systems.
-          </p>
-        </header>
+            <p className="masthead__intro">
+              Cloud Solutions Architect certified in Azure and AWS, specialising
+              in AI-first architectures and complex software solutions. Proven
+              experience as Product Owner, Engineering Lead, and Consultant
+              across global teams and domains. Passionate technologist with
+              hands-on expertise spanning full-stack development, microservices,
+              and distributed systems.
+            </p>
+          </header>
 
-        <Section title="Technical skills" count={`${skills.length} areas`}>
-          <div className="skills">
-            {skills.map((skill, i) => (
-              <article className="panel skills__item" key={skill.title}>
-                <span className="skills__index">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="skills__title">{skill.title}</h3>
-                <p className="skills__body">{skill.body}</p>
-              </article>
-            ))}
-          </div>
-        </Section>
+          <Section title="Technical skills" count={`${skills.length} areas`}>
+            <div className="skills">
+              {skills.map((skill, i) => (
+                <article className="panel skills__item" key={skill.title}>
+                  <span className="skills__index">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="skills__title">{skill.title}</h3>
+                  <p className="skills__body">{skill.body}</p>
+                </article>
+              ))}
+            </div>
+          </Section>
 
-        <Section title="Professional strengths">
-          <ul className="marks">
-            {strengths.map(item => (
-              <li className="marks__item" key={item}>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </Section>
+          <Section title="Professional strengths">
+            <ul className="marks">
+              {strengths.map(item => (
+                <li className="marks__item" key={item}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Section>
 
-        <Section title="Achievements" count={`${achievements.length} logged`}>
-          <ul className="marks marks--two">
-            {achievements.map(item => (
-              <li className="marks__item" key={item}>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </Section>
+          <Section title="Achievements" count={`${achievements.length} logged`}>
+            <ul className="marks marks--two">
+              {achievements.map(item => (
+                <li className="marks__item" key={item}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Section>
 
-        <Section title="Product ownership">
-          <ul className="marks">
-            {ownership.map(item => (
-              <li className="marks__item" key={item}>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </Section>
+          <Section title="Product ownership">
+            <ul className="marks">
+              {ownership.map(item => (
+                <li className="marks__item" key={item}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Section>
 
-        <section className="resume__cta">
-          <h2 className="resume__ctaHeading">Want the long version?</h2>
-          <div className="actions">
-            <OutboundLink className="btn" href={links.email}>
-              Start a conversation&nbsp;↗
-            </OutboundLink>
-            <Link className="link" to="/blog/">
-              Read the writing&nbsp;→
-            </Link>
-          </div>
-        </section>
+          <section className="resume__cta">
+            <h2 className="resume__ctaHeading">Want the long version?</h2>
+            <div className="actions">
+              <OutboundLink className="btn" href={links.email}>
+                Start a conversation&nbsp;↗
+              </OutboundLink>
+              <Link className="link" to="/blog/">
+                Read the writing&nbsp;→
+              </Link>
+            </div>
+          </section>
+        </div>
       </div>
-    </div>
-  </Layout>
-)
+    </Layout>
+  )
+}
 
 export const Head = () => (
   <Seo
