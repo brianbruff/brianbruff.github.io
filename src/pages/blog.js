@@ -101,34 +101,55 @@ const BlogPage = ({ data, location }) => {
     [posts]
   )
 
-  /* Category counts are archive-wide on purpose. Recomputing them against the
-     current search would reorder the row on every keystroke, and a chip row
-     that reshuffles under the cursor is unusable — the honest count for the
-     current view is the one in the section head. */
-  const categories = React.useMemo(() => {
-    const counts = new Map(CATEGORY_ORDER.map(label => [label, 0]))
+  const needle = filters.q.trim().toLowerCase()
+
+  /* The order of the category row is fixed by how big each category is across
+     the whole archive, and never moves. Only the numbers on the chips answer
+     to the other filters. Keeping those two things apart is what lets the
+     counts stay true without the row reshuffling under the cursor. */
+  const categoryOrder = React.useMemo(() => {
+    const totals = new Map(CATEGORY_ORDER.map(label => [label, 0]))
     entries.forEach(entry => {
-      if (counts.has(entry.category))
-        counts.set(entry.category, counts.get(entry.category) + 1)
+      if (totals.has(entry.category))
+        totals.set(entry.category, totals.get(entry.category) + 1)
     })
     return CATEGORY_ORDER.map(label => ({
       label,
       slug: slugifyCategory(label),
-      count: counts.get(label),
+      total: totals.get(label),
     }))
-      .filter(category => category.count > 0)
-      .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label))
+      .filter(category => category.total > 0)
+      .sort((a, b) => b.total - a.total || a.label.localeCompare(b.label))
   }, [entries])
 
-  const eraCounts = React.useMemo(() => {
-    const counts = new Map(ERAS.map(era => [era.id, 0]))
-    entries.forEach(entry => {
-      if (counts.has(entry.era)) counts.set(entry.era, counts.get(entry.era) + 1)
-    })
-    return counts
-  }, [entries])
+  const bySearch = entry => !needle || entry.haystack.includes(needle)
+  const byCategory = entry =>
+    !filters.category || entry.categorySlug === filters.category
+  const byEra = entry => !filters.era || entry.era === filters.era
+  const byTag = entry =>
+    !filters.tag || entry.tags.some(tag => tag.toLowerCase() === filters.tag)
 
-  const needle = filters.q.trim().toLowerCase()
+  /* Every facet counts against all the filters except the one it belongs to.
+     A chip is a promise about what you get by clicking it, so it has to be
+     counted over the state that click actually produces — count a category
+     against the category already picked and every chip but one reads zero.
+
+     Category skips the tag facet too, because picking a category clears the
+     tag with it (see the chip's own handler); counting with a tag still
+     applied would promise a number the click never lands on. Search applies
+     everywhere: it is the one filter no chip clears. */
+  const categoryBase = React.useMemo(
+    () => entries.filter(entry => bySearch(entry) && byEra(entry)),
+    [entries, needle, filters.era]
+  )
+
+  const eraBase = React.useMemo(
+    () =>
+      entries.filter(
+        entry => bySearch(entry) && byCategory(entry) && byTag(entry)
+      ),
+    [entries, needle, filters.category, filters.tag]
+  )
 
   /* Everything except the tag facet. The refinement row is built from this so
      that picking a tag does not collapse the row to the one tag you picked —
@@ -136,23 +157,34 @@ const BlogPage = ({ data, location }) => {
   const narrowed = React.useMemo(
     () =>
       entries.filter(
-        entry =>
-          (!filters.category || entry.categorySlug === filters.category) &&
-          (!filters.era || entry.era === filters.era) &&
-          (!needle || entry.haystack.includes(needle))
+        entry => bySearch(entry) && byCategory(entry) && byEra(entry)
       ),
     [entries, filters.category, filters.era, needle]
   )
 
   const visible = React.useMemo(
-    () =>
-      filters.tag
-        ? narrowed.filter(entry =>
-            entry.tags.some(tag => tag.toLowerCase() === filters.tag)
-          )
-        : narrowed,
+    () => (filters.tag ? narrowed.filter(byTag) : narrowed),
     [narrowed, filters.tag]
   )
+
+  const categories = React.useMemo(() => {
+    const counts = new Map()
+    categoryBase.forEach(entry =>
+      counts.set(entry.categorySlug, (counts.get(entry.categorySlug) || 0) + 1)
+    )
+    return categoryOrder.map(category => ({
+      ...category,
+      count: counts.get(category.slug) || 0,
+    }))
+  }, [categoryOrder, categoryBase])
+
+  const eraCounts = React.useMemo(() => {
+    const counts = new Map(ERAS.map(era => [era.id, 0]))
+    eraBase.forEach(entry => {
+      if (counts.has(entry.era)) counts.set(entry.era, counts.get(entry.era) + 1)
+    })
+    return counts
+  }, [eraBase])
 
   /* Only tags that are actually present in what is on screen, commonest
      first. The old index offered all 268 of them at once, which is a wall,
@@ -253,15 +285,22 @@ const BlogPage = ({ data, location }) => {
                 aria-pressed={!filters.category}
               >
                 All
-                <span className="tag__count">{entries.length}</span>
+                <span className="tag__count">{categoryBase.length}</span>
               </button>
               {categories.map(category => (
                 <button
                   type="button"
                   key={category.slug}
+                  /* A chip counting zero is a dead end — the search has
+                     already emptied it. Say so and refuse the click rather
+                     than letting someone land on a blank list and wonder
+                     which of the two filters broke. */
+                  disabled={
+                    category.count === 0 && filters.category !== category.slug
+                  }
                   className={`tag${
                     filters.category === category.slug ? " is-active" : ""
-                  }`}
+                  }${category.count === 0 ? " is-empty" : ""}`}
                   /* Switching category drops the tag with it: a tag borrowed
                      from the category you just left almost always lands on
                      nothing, and an empty result reads as a broken filter. */
@@ -288,7 +327,12 @@ const BlogPage = ({ data, location }) => {
                 <button
                   type="button"
                   key={era.id}
-                  className={`chip${filters.era === era.id ? " is-active" : ""}`}
+                  disabled={
+                    eraCounts.get(era.id) === 0 && filters.era !== era.id
+                  }
+                  className={`chip${filters.era === era.id ? " is-active" : ""}${
+                    eraCounts.get(era.id) === 0 ? " is-empty" : ""
+                  }`}
                   onClick={() =>
                     update({ era: filters.era === era.id ? "" : era.id })
                   }

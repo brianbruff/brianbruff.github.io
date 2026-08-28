@@ -114,6 +114,23 @@
 }
 .tag__count { font-size: 0.62rem; opacity: 0.66; }
 
+/* A chip the current search has emptied. It stays in the row — the row's
+   order is fixed, and a chip vanishing mid-keystroke is worse than one
+   greying out — but it reads as spent and does not answer to the cursor. */
+.tag.is-empty,
+.chip.is-empty {
+  color: var(--ivory-44);
+  border-color: var(--hairline-soft);
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.tag.is-empty:hover,
+.chip.is-empty:hover {
+  color: var(--ivory-44);
+  border-color: var(--hairline-soft);
+  background: transparent;
+}
+
 /* --- Era and tag chips: the subordinate rows ------------------------------
    Deliberately unboxed. A bottom hairline is enough to read as a control, and
    losing the box is what keeps these rows visually beneath the categories. */

@@ -53,6 +53,60 @@ test.describe("Writing index", () => {
       .toBeLessThan(total)
   })
 
+  /* The number on a chip is a promise about what clicking it gives you. The
+     first cut of this page counted every chip against the whole archive, so
+     searching "mvc" left Mobile advertising fourteen posts and delivering
+     none — the count has to answer to the search as well. */
+  test("every chip count is what clicking it actually returns", async ({
+    page,
+  }) => {
+    await page.locator(".search__input").fill("mvc")
+    await expect
+      .poll(() => page.locator(".post-row").count())
+      .toBeGreaterThan(0)
+
+    const live = page.locator(".tags .tag:not([disabled])")
+    const n = await live.count()
+    expect(n).toBeGreaterThan(2)
+
+    for (let i = 1; i < n; i++) {
+      const chip = live.nth(i)
+      const promised = Number((await chip.innerText()).split("\n").pop())
+      await chip.click()
+      await expect.poll(() => page.locator(".post-row").count()).toBe(promised)
+      await page.locator(".tags .tag").first().click()
+    }
+  })
+
+  /* The counts have to add up as well as match: everything the twelve chips
+     claim between them is exactly what "All" claims, or some post is being
+     counted twice or not at all. */
+  test("the category counts partition the search results", async ({ page }) => {
+    await page.locator(".search__input").fill("azure")
+    await expect
+      .poll(() => page.locator(".post-row").count())
+      .toBeGreaterThan(0)
+
+    const counts = await page
+      .locator(".tags .tag")
+      .evaluateAll(chips =>
+        chips.map(c => Number(c.innerText.split("\n").pop()))
+      )
+    const [all, ...categories] = counts
+    expect(categories.reduce((a, b) => a + b, 0)).toBe(all)
+    expect(all).toBe(await page.locator(".post-row").count())
+  })
+
+  /* A chip the search has emptied must not invite the click at all. Landing
+     on a blank list leaves you unsure which of the two filters did it. */
+  test("a category the search has emptied is switched off", async ({ page }) => {
+    await page.locator(".search__input").fill("silverlight")
+    const spent = page.locator(".tags .tag[disabled]").first()
+    await expect(spent).toBeVisible()
+    await expect(spent).toHaveClass(/is-empty/)
+    await expect(spent).toContainText("0")
+  })
+
   /* Search is the widest net on the page and the only handle on the years of
      posts that carry no tags at all. Typing has to cut the list down, and
      letting go of the query has to hand back the whole archive — a filter you
@@ -147,6 +201,17 @@ test.describe("Writing index", () => {
       )
     expect(years.length).toBeGreaterThan(0)
     expect(Math.min(...years)).toBeGreaterThanOrEqual(2020)
+  })
+
+  /* The contact section only exists on the homepage, so the header's call to
+     action has to name the page as well as the fragment. Pointing at a bare
+     "#contact" from here resolved to nothing and the click did nothing. */
+  test("the header call to action reaches contact from the archive", async ({
+    page,
+  }) => {
+    await page.locator(".header__cta").click()
+    await expect(page).toHaveURL(/\/#contact$/)
+    await expect(page.locator("#contact")).toBeVisible()
   })
 
   test.describe("mobile", () => {
