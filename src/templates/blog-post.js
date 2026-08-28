@@ -56,15 +56,19 @@ export const query = graphql`
         title
         date(formatString: "DD MMMM YYYY")
         tags
+        image
       }
     }
   }
 `
 
+/* A post with its own hero image uses it as the social card; the rest fall
+   back to the site card. */
 export const Head = ({ data }) => (
   <Seo
     title={data.markdownRemark.frontmatter.title}
     description={data.markdownRemark.excerpt}
+    image={data.markdownRemark.frontmatter.image}
   />
 )
 
