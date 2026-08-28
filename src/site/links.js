@@ -24,16 +24,34 @@ export const chapters = [
   { key: "commodity", label: "Commodity" },
 ]
 
-/** Header navigation. The story uses in-page anchors; other pages don't. */
-export const storyNav = [
-  { label: "Journey", to: "/#journey" },
-  { label: "Work", to: "/#work" },
-  { label: "Open source", to: "/#open-source" },
-  { label: "Writing", to: "/blog/" },
-]
-
+/**
+ * Header navigation.
+ *
+ * These three come first, in this order, on every page. The header used to
+ * carry a different set on the homepage than everywhere else — no Home and no
+ * Résumé while you were on the story, no chapters once you left it — so the
+ * menu rearranged itself underneath you as you moved around the site. The
+ * core is now fixed: wherever you are, the same three links are in the same
+ * places.
+ *
+ * `partiallyActive` marks Writing as current on a post as well as on the
+ * index. Home is deliberately without it, or every page would claim to be
+ * home.
+ */
 export const siteNav = [
   { label: "Home", to: "/" },
-  { label: "Writing", to: "/blog/" },
-  { label: "Résumé", to: "/resume/" },
+  { label: "Writing", to: "/blog/", partiallyActive: true },
+  { label: "Résumé", to: "/resume/", partiallyActive: true },
+]
+
+/**
+ * The homepage appends its chapters to that core rather than replacing it.
+ * They are in-page anchors and only mean anything while you are on the story,
+ * which is why they do not travel to the other pages.
+ */
+export const storyNav = [
+  ...siteNav,
+  { label: "Journey", to: "/#journey", chapter: true },
+  { label: "Work", to: "/#work", chapter: true },
+  { label: "Open source", to: "/#open-source", chapter: true },
 ]

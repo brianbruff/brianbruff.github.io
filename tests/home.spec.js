@@ -244,3 +244,62 @@ test.describe("Homepage scroll story", () => {
     })
   })
 })
+
+/**
+ * The header used to carry one set of links on the homepage and a different
+ * set everywhere else: no Home and no Résumé while you were on the story, no
+ * chapters once you left it. Moving between pages rearranged the menu under
+ * you. The core three are now fixed in place; the homepage appends its
+ * chapters to them rather than replacing them.
+ */
+test.describe("Site navigation", () => {
+  const CORE = ["Home", "Writing", "Résumé"]
+  const A_POST = "/blog/2011-03-05-dynamically-load-html-into-a-div-using-jquery/"
+
+  /* Wait for the header to exist before reading it: these navigations land on
+     a fresh document each time, and an empty list is hydration, not a menu. */
+  const links = async page => {
+    await page.locator(".header__link").first().waitFor()
+    return page
+      .locator(".header__link")
+      .evaluateAll(as => as.map(a => a.textContent.trim()))
+  }
+
+  for (const path of ["/", "/blog/", "/resume/", A_POST]) {
+    test(`the same three links lead the header on ${path}`, async ({ page }) => {
+      await page.goto(path)
+      expect((await links(page)).slice(0, 3)).toEqual(CORE)
+    })
+  }
+
+  /* Chapters are in-page anchors: they mean something on the story and
+     nothing anywhere else, which is why they do not travel. */
+  test("the homepage adds its chapters after the core, and only there", async ({
+    page,
+  }) => {
+    await page.goto("/")
+    expect(await links(page)).toEqual([
+      ...CORE,
+      "Journey",
+      "Work",
+      "Open source",
+    ])
+
+    await page.goto("/blog/")
+    expect(await links(page)).toEqual(CORE)
+  })
+
+  /* Whichever page you are on should be the one lit in the menu — including
+     a post, which lives under Writing rather than at it. */
+  test("the menu says which page you are on", async ({ page }) => {
+    for (const [path, current] of [
+      ["/", "Home"],
+      ["/blog/", "Writing"],
+      ["/resume/", "Résumé"],
+      [A_POST, "Writing"],
+    ]) {
+      await page.goto(path)
+      await expect(page.locator(".header__link.is-current")).toHaveText(current)
+    }
+  })
+})
