@@ -102,6 +102,68 @@ test.describe("Homepage scroll story", () => {
       )
     })
 
+    /* The subject of the work clip stands in the right third of his frame,
+       and the topology panel grows with the column it sits in. Left uncapped
+       that column reaches ~1500px on a 34" panel and the panel covered 94%
+       of him. Overlap is the assertion — the panel is meant to sit beside
+       the man, not on him. */
+    for (const [w, h] of [
+      [3440, 1440],
+      [3440, 1206],
+      [3840, 1080],
+    ]) {
+      test(`the topology panel keeps clear of the subject at ${w}x${h}`, async ({
+        page,
+      }) => {
+        await page.setViewportSize({ width: w, height: h })
+        await page.goto("/")
+        await page.locator("#work").waitFor()
+
+        const top = await page.evaluate(
+          () => document.querySelector("#work").offsetTop
+        )
+        for (let y = 0; y < top + 400; y += 500) {
+          await page.evaluate(v => scrollTo(0, v), y)
+        }
+        await page.evaluate(v => scrollTo(0, v), top + 400)
+
+        const { panelRight, subjectLeft } = await page.evaluate(() => {
+          const img = document.querySelector("#work .stage__poster")
+          const scale = img.getBoundingClientRect().width / img.naturalWidth
+          return {
+            panelRight: document.querySelector(".topology").getBoundingClientRect()
+              .right,
+            /* Where he starts in the 1600px-wide source frame. */
+            subjectLeft: 1050 * scale,
+          }
+        })
+
+        expect(panelRight).toBeLessThanOrEqual(subjectLeft)
+      })
+    }
+
+    /* The cap is only meant to bite once there is width to spare. At 1920 the
+       overlay already spans the viewport, so it must still do so — that is
+       what says the screens that were fine did not move. */
+    test("the work overlay is uncapped at 1920, and capped beyond it", async ({
+      page,
+    }) => {
+      const width = async () => {
+        await page.locator(".work__overlay").waitFor()
+        return page
+          .locator(".work__overlay")
+          .evaluate(el => el.getBoundingClientRect().width)
+      }
+
+      await page.setViewportSize({ width: 1920, height: 1080 })
+      await page.goto("/")
+      expect(await width()).toBe(1920)
+
+      await page.setViewportSize({ width: 3440, height: 1206 })
+      await page.goto("/")
+      expect(await width()).toBeLessThan(3440)
+    })
+
     /* The bias is a share of the surplus, so at 16:9 — where the clip and the
        stage are the same shape and there is no surplus — it must come to
        nothing. Asserted as the crop rather than the CSS value on purpose: the

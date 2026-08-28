@@ -443,6 +443,23 @@
 }
 .topology__svg { width: 100%; height: auto; overflow: visible; }
 
+/* The overlay is a block of content, not a canvas that takes whatever width
+   is going. Left to stretch, on a 34" panel the two columns reach ~1500px
+   each and the panel renders the 480×274 diagram at over three times natural
+   size — 1650px wide and tall enough to fill the stage top to bottom. The
+   subject of this clip stands in the right third of the frame, so the panel
+   grows straight over him: measured at 3440x1206, 94% of him was behind it.
+   At 16:9 the same panel lands near 40% of the stage height and he reads
+   clearly beside it, which is the proportion worth holding on to.
+
+   So cap the block. 120rem is the width it already has on a 1920 screen —
+   and the cap is on the border box, which carries 216px of padding — so
+   nothing at or below 1920 moves. Past it the block stops growing and the
+   surplus falls to the right, where the subject is. */
+@media (min-aspect-ratio: 16 / 9) {
+  .work__overlay { max-width: 120rem; }
+}
+
 .topology__path {
   fill: none;
   stroke: var(--copper-dim);
