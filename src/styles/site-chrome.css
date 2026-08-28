@@ -40,7 +40,24 @@
 .header__nav { justify-self: center; }
 .header__list {
   display: flex;
+  align-items: baseline;
   gap: clamp(1.25rem, 3vw, 2.75rem);
+}
+
+/* The homepage carries its chapters after the three links every page has.
+   A hairline diamond marks where the site ends and the story begins, so the
+   longer row still reads as two groups rather than six equal destinations.
+   Selected off the first chapter that follows a non-chapter, which is the
+   join wherever it falls. */
+li:not(.header__item--chapter) + .header__item--chapter::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  margin-right: clamp(1.25rem, 3vw, 2.75rem);
+  background: var(--copper-dim);
+  transform: rotate(45deg);
+  vertical-align: middle;
 }
 .header__link {
   position: relative;

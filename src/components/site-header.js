@@ -28,7 +28,10 @@ const SiteHeader = ({ variant = "site" }) => {
       <nav className="header__nav" aria-label="Sections">
         <ul className="header__list">
           {nav.map(item => (
-            <li key={item.label}>
+            <li
+              key={item.label}
+              className={item.chapter ? "header__item--chapter" : undefined}
+            >
               {item.to.startsWith("/#") ? (
                 <a className="header__link" href={item.to.slice(1)}>
                   {item.label}
@@ -38,6 +41,7 @@ const SiteHeader = ({ variant = "site" }) => {
                   className="header__link"
                   to={item.to}
                   activeClassName="is-current"
+                  partiallyActive={item.partiallyActive}
                 >
                   {item.label}
                 </Link>
