@@ -243,6 +243,44 @@ test.describe("Homepage scroll story", () => {
       expect(clipped).toBe(false)
     })
   })
+
+  /* The multi-agent chapter ran off the right edge of every phone. Its copy
+     column collapses to a single `1fr` track below 980px, and `1fr` carries an
+     automatic minimum, so the track could not shrink below the widest thing in
+     it: the callout, which asks for `width: max-content` (~422px) and leans on
+     `max-width: 100%` to rein itself in. Percentage max-widths are ignored
+     while a track is being sized from its contents, so the track took the full
+     422px, the heading and lead stretched to match, and `.stage`'s overflow
+     clip cut the ends off. Nothing scrolled — the text was simply gone, which
+     is why the page-level scroll check above never saw it.
+
+     So the assertion is on the content box, not on document scrollWidth. */
+  test.describe("the multi-agent chapter fits a phone", () => {
+    for (const [w, h, label] of [
+      [390, 844, "iPhone 14"],
+      [412, 915, "Galaxy S24 Ultra"],
+      [360, 780, "narrowest in common use"],
+    ]) {
+      test(`keeps its copy inside the viewport at ${w}x${h} (${label})`, async ({
+        page,
+      }) => {
+        await page.setViewportSize({ width: w, height: h })
+        await page.goto("/")
+        await page.locator(".work__overlay").waitFor()
+
+        const spills = await page.evaluate(() => {
+          const overlay = document.querySelector(".work__overlay")
+          const style = getComputedStyle(overlay)
+          const limit =
+            overlay.getBoundingClientRect().right - parseFloat(style.paddingRight)
+          return [...overlay.querySelectorAll("*")]
+            .filter(el => el.getBoundingClientRect().right > limit + 1)
+            .map(el => `${el.className.baseVal ?? el.className}`)
+        })
+        expect(spills).toEqual([])
+      })
+    }
+  })
 })
 
 /**

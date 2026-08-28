@@ -500,8 +500,13 @@
   fill: rgb(240 231 218 / 0.38);
 }
 
+/* One column below 980px. `minmax(0, 1fr)` rather than a bare `1fr`: the
+   bare form carries an automatic minimum of min-content, and the callout
+   below asks for `width: max-content`, so the track refused to shrink under
+   ~422px and drove the whole chapter off the right of every phone. The
+   two-column rule above uses `minmax(0, …)` for the same reason. */
 @media (max-width: 980px) {
-  .work__overlay { grid-template-columns: 1fr; align-content: center; gap: 1.75rem; }
+  .work__overlay { grid-template-columns: minmax(0, 1fr); align-content: center; gap: 1.75rem; }
   .work__copy { max-width: 100%; }
   .topology__label { font-size: 10px; }
   .topology__sub { font-size: 7.5px; }
