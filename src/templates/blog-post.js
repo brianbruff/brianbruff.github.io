@@ -6,26 +6,42 @@ import "../styles/blog-post.css"
 
 const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark
+  const { title, date, tags } = post.frontmatter
 
   return (
     <Layout>
-      <article className="blog-post-container">
-        <div className="blog-post-card glass-card">
-          <header className="blog-post-header">
-            <h1 className="blog-post-title">{post.frontmatter.title}</h1>
-            <p className="blog-post-date">{post.frontmatter.date}</p>
+      <div className="page">
+        <article className="post">
+          <header className="post__header">
+            <p className="eyebrow">Writing</p>
+            <h1 className="post__title">{title}</h1>
+            <div className="post__meta">
+              <time className="meta">{date}</time>
+              {post.timeToRead && (
+                <span className="meta">{post.timeToRead} min read</span>
+              )}
+            </div>
+            {tags?.length > 0 && (
+              <ul className="post__tags">
+                {tags.map(tag => (
+                  <li key={tag}>{tag}</li>
+                ))}
+              </ul>
+            )}
           </header>
-          <section
+
+          <div
+            className="post__body"
             dangerouslySetInnerHTML={{ __html: post.html }}
-            className="blog-post-content"
           />
-        </div>
-        <footer className="blog-post-footer">
-          <Link to="/blog" className="btn btn-secondary">
-            ← Back to Blog
-          </Link>
-        </footer>
-      </article>
+
+          <footer className="post__footer">
+            <Link className="link" to="/blog/">
+              ← All writing
+            </Link>
+          </footer>
+        </article>
+      </div>
     </Layout>
   )
 }
@@ -34,16 +50,22 @@ export const query = graphql`
   query ($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      timeToRead
+      excerpt(pruneLength: 200)
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD MMMM YYYY")
+        tags
       }
     }
   }
 `
 
 export const Head = ({ data }) => (
-  <Seo title={data.markdownRemark.frontmatter.title} />
+  <Seo
+    title={data.markdownRemark.frontmatter.title}
+    description={data.markdownRemark.excerpt}
+  />
 )
 
 export default BlogPostTemplate

@@ -2,178 +2,183 @@ import * as React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import OutboundLink from "../components/outbound-link"
+import { links } from "../lib/site-links"
 import "../styles/resume.css"
 
-const ResumePage = () => {
-  return (
-    <Layout>
-      <div className="resume-container">
-        <div className="resume-hero glass-morphism">
-          <div className="profile-section">
-            <img src="/brian-profile.jpg" alt="Brian Keating" className="profile-image" />
-            <div className="profile-content">
-              <h1 className="resume-title">Brian Keating</h1>
-              <p className="resume-subtitle">Cloud Solutions Architect</p>
+const skills = [
+  {
+    title: "Cloud platforms",
+    body: "Azure Certified AI Engineer, AWS Certified Solutions Architect",
+  },
+  {
+    title: "Programming languages",
+    body: ".NET (C#), Python, TypeScript, Java, VC++ (MFC, ATL, WTL COM+), Objective-C",
+  },
+  { title: "Web development", body: "Angular, NGRX, RxJS, NestJS, Ionic2" },
+  {
+    title: "Backend development",
+    body: "ASP.net, FastAPI, Spring Boot, Drools, Camel, Node",
+  },
+  {
+    title: "AI",
+    body: "Agentic coding, AI agent development, Claude Agent SDK, agent harnesses, AWS Strands, Amazon Bedrock, Amazon Bedrock AgentCore, LangGraph",
+  },
+  {
+    title: "DevOps & infrastructure",
+    body: "Terraform, ARM, CloudFormation, SAM, CI/CD pipelines, Docker, Kubernetes (EKS/AKS)",
+  },
+  {
+    title: "Real-time systems",
+    body: "WebSockets, stream processing, event-driven architecture",
+  },
+  {
+    title: "Application architecture",
+    body: "Microservices, SOA, SaaS, workflow and BPM systems",
+  },
+  {
+    title: "Business domains",
+    body: "Workforce management, real-time data platforms, trading & risk, power & renewables",
+  },
+]
+
+const strengths = [
+  "Cloud adoption & Well-Architected Frameworks",
+  "End-to-end product lifecycle: scoping → architecture → delivery",
+  "Technical leadership with Agile/SCRUM, TDD, BDD, SecDevOps",
+  "Scalable CI/CD automation and containerised deployment",
+  "AI-first design thinking and innovation leveraging LangGraph & LLMs",
+]
+
+const achievements = [
+  "Cloud adoption using Azure/AWS Well-Architected Frameworks",
+  "Container & Kubernetes rollout (EKS, AKS, AKS ARM templates)",
+  "Enterprise CI/CD pipeline automation",
+  "International project deliveries with distributed teams",
+  "Angular & real-time data platform implementation at scale",
+  "GenAI rollout using RAG for intelligent data discovery, and promoting AI-first development with coding agents",
+  "PileupBuster.com — ham radio pileup training platform built entirely with AI assistance",
+  "Founded and grew OpenHPSDR Zeus into a massively successful multiplatform SDR solution",
+]
+
+const ownership = [
+  "Web stack modernisation & real-time data platforms",
+  "Workflow business process automation",
+  "HR time tracking solutions",
+  "Ticket management systems",
+  "PileupBuster.com — AI-built ham radio training platform",
+]
+
+const Section = ({ title, count, children }) => (
+  <section className="resume__section">
+    <div className="section-head">
+      <h2 className="section-head__title">{title}</h2>
+      {count && <span className="section-head__count">{count}</span>}
+    </div>
+    {children}
+  </section>
+)
+
+const ResumePage = () => (
+  <Layout>
+    <div className="page">
+      <div className="page__inner">
+        <header className="masthead resume__masthead">
+          <img
+            className="masthead__plate"
+            src="/images/resume-hero.jpg"
+            alt=""
+            loading="eager"
+            decoding="async"
+          />
+          <div className="resume__identity">
+            <img
+              className="resume__portrait"
+              src="/brian-profile.jpg"
+              alt="Brian Keating"
+              loading="eager"
+            />
+            <div>
+              <p className="eyebrow">Résumé / Practice</p>
+              <h1 className="masthead__title">Brian Keating</h1>
+              <p className="resume__role">AI Systems Architect</p>
             </div>
           </div>
-          <p className="resume-intro">
-            Cloud Solutions Architect certified in Azure and AWS, specializing in AI-first architectures 
-            and complex software solutions. Proven experience as Product Owner, Engineering Lead, and 
-            Consultant across global teams and domains. Passionate technologist with hands-on expertise 
-            spanning full-stack development, microservices, and distributed systems.
+          <p className="masthead__intro">
+            Cloud Solutions Architect certified in Azure and AWS, specialising in
+            AI-first architectures and complex software solutions. Proven
+            experience as Product Owner, Engineering Lead, and Consultant across
+            global teams and domains. Passionate technologist with hands-on
+            expertise spanning full-stack development, microservices, and
+            distributed systems.
           </p>
-        </div>
+        </header>
 
-        <section className="resume-section glass-morphism">
-          <h2 className="section-title">Technical Skills & Experience</h2>
-          <div className="skills-grid">
-            <div className="skill-item">
-              <span className="skill-icon">☁️</span>
-              <h3>Cloud Platforms</h3>
-              <p>Azure Certified AI Engineer, AWS Certified Solutions Architect</p>
-            </div>
-            <div className="skill-item">
-              <span className="skill-icon">💻</span>
-              <h3>Programming Languages</h3>
-              <p>.NET (C#), Python, TypeScript, Java, VC++ (MFC, ATL, WTL COM+), Objective-C</p>
-            </div>
-            <div className="skill-item">
-              <span className="skill-icon">🌐</span>
-              <h3>Web Development</h3>
-              <p>Angular, NGRX, RxJS, NestJS, Ionic2</p>
-            </div>
-            <div className="skill-item">
-              <span className="skill-icon">⚙️</span>
-              <h3>Backend Development</h3>
-              <p>ASP.net, FastAPI, Spring Boot, Drools, Camel, Node</p>
-            </div>
-            <div className="skill-item">
-              <span className="skill-icon">🤖</span>
-              <h3>AI</h3>
-              <p>Agentic coding, AI agent development, Claude Agent SDK, agent harnesses, AWS Strands, Amazon Bedrock, Amazon Bedrock AgentCore, LangGraph</p>
-            </div>
-            <div className="skill-item">
-              <span className="skill-icon">🔧</span>
-              <h3>DevOps & Infrastructure</h3>
-              <p>Terraform, ARM, CloudFormation, SAM, CI/CD Pipelines, Docker, Kubernetes (EKS/AKS)</p>
-            </div>
-            <div className="skill-item">
-              <span className="skill-icon">⚡</span>
-              <h3>Real-Time Systems</h3>
-              <p>WebSockets, Stream Processing, Event-Driven Architecture</p>
-            </div>
-            <div className="skill-item">
-              <span className="skill-icon">🏗️</span>
-              <h3>Application Architecture</h3>
-              <p>Microservices, SOA, SaaS, Workflow and BPM Systems</p>
-            </div>
-            <div className="skill-item">
-              <span className="skill-icon">💼</span>
-              <h3>Business Domains</h3>
-              <p>Workforce management, Real-Time data platforms, Trading &amp; Risk, Power &amp; Renewables</p>
-            </div>
+        <Section title="Technical skills" count={`${skills.length} areas`}>
+          <div className="skills">
+            {skills.map((skill, i) => (
+              <article className="panel skills__item" key={skill.title}>
+                <span className="skills__index">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="skills__title">{skill.title}</h3>
+                <p className="skills__body">{skill.body}</p>
+              </article>
+            ))}
+          </div>
+        </Section>
+
+        <Section title="Professional strengths">
+          <ul className="marks">
+            {strengths.map(item => (
+              <li className="marks__item" key={item}>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </Section>
+
+        <Section title="Achievements" count={`${achievements.length} logged`}>
+          <ul className="marks marks--two">
+            {achievements.map(item => (
+              <li className="marks__item" key={item}>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </Section>
+
+        <Section title="Product ownership">
+          <ul className="marks">
+            {ownership.map(item => (
+              <li className="marks__item" key={item}>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </Section>
+
+        <section className="resume__cta">
+          <h2 className="resume__ctaHeading">Want the long version?</h2>
+          <div className="actions">
+            <OutboundLink className="btn" href={links.email}>
+              Start a conversation&nbsp;↗
+            </OutboundLink>
+            <Link className="link" to="/blog/">
+              Read the writing&nbsp;→
+            </Link>
           </div>
         </section>
-
-        <section className="resume-section glass-morphism">
-          <h2 className="section-title">Professional Strengths</h2>
-          <div className="strengths-list">
-            <div className="strength-item">
-              <span className="strength-bullet">🔹</span>
-              <p>Cloud adoption & Well-Architected Frameworks</p>
-            </div>
-            <div className="strength-item">
-              <span className="strength-bullet">🔹</span>
-              <p>End-to-end product lifecycle: Scoping → Architecture → Delivery</p>
-            </div>
-            <div className="strength-item">
-              <span className="strength-bullet">🔹</span>
-              <p>Technical leadership with Agile/SCRUM, TDD, BDD, SecDevOps</p>
-            </div>
-            <div className="strength-item">
-              <span className="strength-bullet">🔹</span>
-              <p>Scalable CI/CD automation and containerized deployment</p>
-            </div>
-            <div className="strength-item">
-              <span className="strength-bullet">🔹</span>
-              <p>AI-first design thinking and innovation leveraging LangGraph & LLMs</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="resume-section glass-morphism">
-          <h2 className="section-title">Achievements</h2>
-          <div className="achievements-grid">
-            <div className="achievement-card">
-              <span className="achievement-icon">🏆</span>
-              <p>Cloud adoption using Azure/AWS Well-Architected Frameworks</p>
-            </div>
-            <div className="achievement-card">
-              <span className="achievement-icon">🏆</span>
-              <p>Container & Kubernetes rollout (EKS, AKS, AKS ARM templates)</p>
-            </div>
-            <div className="achievement-card">
-              <span className="achievement-icon">🏆</span>
-              <p>Enterprise CI/CD pipeline automation</p>
-            </div>
-            <div className="achievement-card">
-              <span className="achievement-icon">🏆</span>
-              <p>International project deliveries with distributed teams</p>
-            </div>
-            <div className="achievement-card">
-              <span className="achievement-icon">🏆</span>
-              <p>Angular & real-time data platform implementation at scale</p>
-            </div>
-            <div className="achievement-card">
-              <span className="achievement-icon">🏆</span>
-              <p>GenAI rollout using RAG for intelligent data discovery & promoting AI-first development with coding agents</p>
-            </div>
-            <div className="achievement-card">
-              <span className="achievement-icon">🚀</span>
-              <p>PileupBuster.com - Ham radio pileup training platform built entirely with AI assistance</p>
-            </div>
-            <div className="achievement-card">
-              <span className="achievement-icon">🏆</span>
-              <p>Founded and grew OpenHPSDR Zeus into a massively successful multiplatform SDR solution</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="resume-section glass-morphism">
-          <h2 className="section-title">Product Ownership</h2>
-          <div className="product-list">
-            <div className="product-item">
-              <span className="product-bullet">🔸</span>
-              <p>Web stack modernization & real-time data platforms</p>
-            </div>
-            <div className="product-item">
-              <span className="product-bullet">🔸</span>
-              <p>Workflow business process automation</p>
-            </div>
-            <div className="product-item">
-              <span className="product-bullet">🔸</span>
-              <p>HR time tracking solutions</p>
-            </div>
-            <div className="product-item">
-              <span className="product-bullet">🔸</span>
-              <p>Ticket management systems</p>
-            </div>
-            <div className="product-item">
-              <span className="product-bullet">🔸</span>
-              <p>PileupBuster.com - AI-built ham radio training platform</p>
-            </div>
-          </div>
-        </section>
-
-        <div className="resume-cta glass-morphism">
-          <Link to="/blog" className="cta-button">Read My Blog</Link>
-          <a href="mailto:contact@briankeating.net" className="cta-button secondary">Get In Touch</a>
-        </div>
       </div>
-    </Layout>
-  )
-}
+    </div>
+  </Layout>
+)
 
-export const Head = () => <Seo title="Resume - Brian Keating" />
+export const Head = () => (
+  <Seo
+    title="Résumé"
+    description="Brian Keating — AI Systems Architect. Cloud, distributed systems, and multi-agent AI delivery."
+  />
+)
 
 export default ResumePage

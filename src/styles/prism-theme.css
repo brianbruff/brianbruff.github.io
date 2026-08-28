@@ -1,61 +1,111 @@
-/* Custom styles for Prism.js syntax highlighting */
+/* ==========================================================================
+   Syntax highlighting, tuned to the studio palette.
 
-.gatsby-highlight {
-  background-color: #f5f5f5;
-  border-radius: 0.3em;
-  margin: 0.5em 0;
-  padding: 1em;
-  overflow: auto;
-  border: 1px solid #e0e0e0;
-}
+   Code is most of what a reader sees on this blog, so it has to belong to the
+   same room as everything else: warm neutrals on walnut, with amber and copper
+   carrying meaning. No cool greens or blues.
+   ========================================================================== */
 
-.gatsby-highlight pre[class*="language-"] {
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  overflow: initial;
-  float: left;
-  min-width: 100%;
-  color: #000;
-}
-
-.gatsby-highlight pre[class*="language-"] code {
+code[class*="language-"],
+pre[class*="language-"] {
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: var(--ivory-90);
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  tab-size: 2;
+  hyphens: none;
   background: none;
+  text-shadow: none;
 }
 
-.gatsby-highlight pre[class*="language-"].line-numbers {
-  padding-left: 2.8em;
+pre[class*="language-"] {
+  --code-pad-y: 1.35rem;
+  --code-pad-x: 1.5rem;
+  margin: 2rem 0;
+  padding: var(--code-pad-y) var(--code-pad-x);
+  overflow: auto;
+  background: linear-gradient(180deg, #150e09, #0e0906);
+  border: 1px solid var(--hairline-soft);
+  border-left: 2px solid var(--copper);
 }
 
-/* Line highlighting */
+:not(pre) > code[class*="language-"],
+.blog-post-content :not(pre) > code {
+  padding: 0.15em 0.4em;
+  background: rgb(178 106 60 / 0.14);
+  border: 1px solid var(--hairline-soft);
+  color: var(--tungsten);
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata { color: rgb(240 231 218 / 0.36); font-style: italic; }
+
+.token.punctuation { color: rgb(240 231 218 / 0.5); }
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted { color: #d98a5e; }
+
+.token.boolean,
+.token.number { color: var(--tungsten); }
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted { color: #c9a97a; }
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string { color: rgb(240 231 218 / 0.72); }
+
+.token.atrule,
+.token.attr-value,
+.token.keyword { color: var(--amber); font-weight: 500; }
+
+.token.function,
+.token.class-name { color: #e8b877; }
+
+.token.regex,
+.token.important,
+.token.variable { color: #d9714f; }
+
+.token.important,
+.token.bold { font-weight: 600; }
+.token.italic { font-style: italic; }
+
+/* Line numbers.
+   The rows are a direct child of <pre>, so they anchor to its padding box —
+   without this offset they float a line above the code they number. */
+pre[class*="language-"].line-numbers { position: relative; padding-left: 3.4em; }
+.line-numbers .line-numbers-rows {
+  top: var(--code-pad-y, 1.35rem);
+  border-right: 1px solid var(--hairline-soft);
+  left: -3.4em;
+  width: 3em;
+}
+.line-numbers-rows > span::before { color: rgb(240 231 218 / 0.22); }
+
+/* gatsby-remark-prismjs line highlighting */
 .gatsby-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.05);
   display: block;
-  margin-right: -1em;
-  margin-left: -1em;
-  padding-right: 1em;
-  padding-left: 0.75em;
-  border-left: 0.25em solid #007acc;
+  margin: 0 calc(-1 * var(--code-pad-x, 1.5rem));
+  padding: 0 var(--code-pad-x, 1.5rem);
+  background: rgb(178 106 60 / 0.16);
+  border-left: 2px solid var(--amber);
 }
-
-/* Token colors */
-.token {
-  background: none !important;
-}
-
-/* Language badges */
-.gatsby-highlight pre[class*="language-"]::before {
-  background: #d9d7e0;
-  border-radius: 0 0 4px 4px;
-  color: #232129;
-  font-size: 0.75rem;
-  font-family: monospace;
-  letter-spacing: 0.075em;
-  line-height: 1;
-  padding: 0.25rem 0.5rem;
-  position: absolute;
-  right: 1rem;
-  text-align: right;
-  text-transform: uppercase;
-  top: 0;
-}
+.gatsby-highlight { position: relative; }
+.gatsby-highlight pre[class*="language-"] { padding-left: var(--code-pad-x, 1.5rem); }

@@ -1,0 +1,145 @@
+/* ==========================================================================
+   Writing index — an archive, not a card grid.
+
+   With 279 posts spanning seventeen years, the date is the most useful thing
+   on each row, so it leads. Rows are separated by copper hairlines rather than
+   boxed into cards: a long list should read like a contents page.
+   ========================================================================== */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.45rem 0.8rem;
+  background: transparent;
+  border: 1px solid var(--hairline-soft);
+  border-radius: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ivory-64);
+  cursor: pointer;
+  transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out),
+              background 200ms var(--ease-out);
+}
+.tag:hover {
+  color: var(--tungsten);
+  border-color: var(--copper);
+  background: rgb(178 106 60 / 0.1);
+}
+.tag.is-active {
+  color: var(--ink);
+  background: var(--tungsten);
+  border-color: var(--tungsten);
+}
+.tag__count { font-size: 0.62rem; opacity: 0.66; }
+.tag--more { border-style: dashed; }
+
+/* --- The list ------------------------------------------------------------ */
+.posts { border-top: 1px solid var(--hairline-soft); }
+.posts__item { border-bottom: 1px solid var(--hairline-soft); }
+
+.post-row {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr) 2rem;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: baseline;
+  padding: clamp(1.25rem, 2.5vw, 1.9rem) 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background 220ms var(--ease-out);
+}
+.post-row:hover { background: rgb(178 106 60 / 0.07); }
+
+.post-row__date {
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ivory-44);
+  white-space: nowrap;
+  transition: color 220ms var(--ease-out);
+}
+.post-row:hover .post-row__date { color: var(--amber); }
+
+.post-row__title {
+  overflow-wrap: anywhere;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--ivory);
+  transition: color 220ms var(--ease-out);
+}
+.post-row:hover .post-row__title { color: var(--tungsten); }
+
+.post-row__excerpt {
+  overflow-wrap: anywhere;
+  margin: 0.5rem 0 0;
+  max-width: 68ch;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--ivory-64);
+}
+
+.post-row__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin-top: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--copper);
+}
+.post-row__tags li { display: flex; align-items: center; gap: 1rem; }
+.post-row__tags li + li::before {
+  content: "";
+  width: 3px; height: 3px;
+  background: var(--copper-dim);
+  transform: rotate(45deg);
+}
+
+.post-row__cue {
+  justify-self: end;
+  font-family: var(--font-mono);
+  color: var(--copper-dim);
+  opacity: 0;
+  transform: translateX(-0.35rem);
+  transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out),
+              color 220ms var(--ease-out);
+}
+.post-row:hover .post-row__cue,
+.post-row:focus-visible .post-row__cue {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--amber);
+}
+
+.posts__empty {
+  padding: 3rem 0;
+  color: var(--ivory-44);
+  font-style: italic;
+}
+
+@media (max-width: 720px) {
+  .post-row {
+    /* minmax(0,…) rather than 1fr: a bare 1fr floors at min-content, and one
+       long title is enough to push the whole page sideways. */
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.4rem;
+    padding-inline: 0;
+  }
+  .post-row__cue { display: none; }
+  .post-row__excerpt { font-size: 0.94rem; }
+}
