@@ -1,7 +1,8 @@
 ---
 title: "Using DataTables.net with Asp MVC Web Api"
 date: "2012-07-07"
-tags: ["Asp Web Api and Datatables"]
+category: "Front-end & JavaScript"
+tags: ["jquery", "web api", "json"]
 ---
 
 So I’ve been working on Web application that uses the ASP MVC4 Web API. I like this approach especially as it will easily allow me to support other clients I/others may write in future, in so far as, it returns Json and is a RestAPI.

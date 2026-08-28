@@ -1,7 +1,8 @@
 ---
 title: "The Ultimate Top 25 Chuck Norris “The Programmer” Jokes."
 date: "2011-06-05"
-tags: []
+category: "Tooling & Craft"
+tags: ["blogging", "humour"]
 ---
 
 1\. When Chuck Norris throws exceptions, it’s across the room.   

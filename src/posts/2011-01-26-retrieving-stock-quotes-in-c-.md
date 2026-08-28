@@ -1,7 +1,8 @@
 ---
 title: "Retrieving stock quotes in C#"
 date: "2011-01-26"
-tags: ["scott hanselman", ".net4", "c#", "google", "XDocument"]
+category: ".NET & C#"
+tags: ["linq", "web api"]
 ---
 
 I’ve been playing with the idea of writing an currency converter for my new Windows Phone 7. Stumbled across a tweet by Scot Hanselman regarding <http://channel9.msdn.com/coding4fun>. Turns out someone else beat me to it with the BING “api” (more of a url naming convention really).

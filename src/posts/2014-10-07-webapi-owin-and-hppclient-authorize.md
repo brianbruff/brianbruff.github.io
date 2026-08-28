@@ -1,7 +1,8 @@
 ---
 title: "WebAPI OWIN and HppClient Authorize"
 date: "2014-10-07"
-tags: ["Owin", "MVC5", "HttpClient", "Autorize", "Token", "Username", "Password"]
+category: "Web & APIs"
+tags: ["web api", "authentication", "iis"]
 ---
 
 Hi all, I know I promised my next post was going to be more Azure but I encountered a little task that took me a while to get working, the scenario was that I wanted to make a call to my WebAPI (MVC5) service using a C# HttpClient, the problem was that the resource I wished to access had the AuthorizeAttribute set

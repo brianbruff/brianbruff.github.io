@@ -1,6 +1,8 @@
 ---
 title: "Understanding AWS Lambda Concurrent Execution Quota"
 date: "2025-03-07"
+category: "Cloud & Infrastructure"
+tags: ["aws", "serverless", "performance"]
 description: "A comprehensive guide on AWS Lambda concurrent execution quota, how to increase it, and best practices for managing reserved capacity."
 ---
 

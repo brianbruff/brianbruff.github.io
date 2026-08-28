@@ -1,7 +1,8 @@
 ---
 title: "MVC Stories: Http Post alternatives in MVC2"
 date: "2010-10-09"
-tags: ["mvc2"]
+category: "Web & APIs"
+tags: ["asp.net mvc", "model binding"]
 ---
 
 Below are two screenshots of two alternative mechanisms for handling a MVC2 post.

@@ -1,7 +1,8 @@
 ---
 title: "BOOM! Bye bye iPhone, again…"
 date: "2013-09-24"
-tags: ["iPhone", "WP7", "Samsung Galaxy S4", "iOS", "Android"]
+category: "Mobile"
+tags: ["android", "ios"]
 ---
 
 So I’ve splashed out the 600euro and got me a SIM free Samsung Galaxy S4 Android phone.

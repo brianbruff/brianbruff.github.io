@@ -1,7 +1,8 @@
 ---
 title: "Pry it from my cold dead fingers"
 date: "2012-05-31"
-tags: ["Windows8 vs Windows7"]
+category: "Tooling & Craft"
+tags: ["windows 8", "blogging"]
 ---
 
 _I usually try avoid getting into the OS / Browser etc drama, yawn….  

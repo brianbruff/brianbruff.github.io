@@ -1,7 +1,8 @@
 ---
 title: "Be careful of deferred execution"
 date: "2014-01-31"
-tags: ["deferred execution"]
+category: ".NET & C#"
+tags: ["linq", "java", "performance"]
 ---
 
 Take the following code, if you have ReSharper installed you’ll be warned that there is possible multiple enumeration of your IEnumerable, this means that Select will be repeated twice for everything in the array.![](/images/./image.axd?picture=image_thumb_292.png)

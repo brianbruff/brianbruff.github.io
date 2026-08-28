@@ -1,7 +1,8 @@
 ---
 title: "Materialized Views and Microservices"
 date: "2021-01-06"
-tags: ["Design Patterns"]
+category: "Tooling & Craft"
+tags: ["design patterns", "microservices"]
 ---
 
   

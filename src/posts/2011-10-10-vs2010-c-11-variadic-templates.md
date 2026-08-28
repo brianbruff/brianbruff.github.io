@@ -1,7 +1,8 @@
 ---
 title: "VS2010 C++11 Variadic Templates"
 date: "2011-10-10"
-tags: ["Variadic templates"]
+category: ".NET & C#"
+tags: ["c++", "visual studio"]
 ---
 
 If you’ve been following the changes in the C++11 standard you may have heard of Variadic templates. In layman’s terms: var arg template parameters.

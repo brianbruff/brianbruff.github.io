@@ -1,7 +1,8 @@
 ---
 title: "Silverlight extra day of PDC..."
 date: "2010-11-17"
-tags: []
+category: "XAML & Desktop"
+tags: ["silverlight", "blogging"]
 ---
 
 Register now!

@@ -1,7 +1,8 @@
 ---
 title: "MVC Binding restriction"
 date: "2010-10-10"
-tags: []
+category: "Web & APIs"
+tags: ["asp.net mvc", "model binding"]
 ---
 
 There are a few options when restricting what properties of a type get automatically bound by the framework.

@@ -1,7 +1,8 @@
 ---
 title: "The happy life of a web developer"
 date: "2011-05-09"
-tags: []
+category: "Web & APIs"
+tags: ["asp.net mvc", "jquery", "odata"]
 ---
 
 Spent some of the weekend mucking about with getting a website to go with an iPhone and WP7 app I’m developing with one mister Tomas McGuinness, the whole idea is a wonderful combination of the MS stack of love with a bit of xcode thrown in for good measure.

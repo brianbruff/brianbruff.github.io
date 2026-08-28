@@ -1,7 +1,8 @@
 ---
 title: "Anonymous delegates and event execution"
 date: "2010-02-02"
-tags: ["event anonymous delegates"]
+category: ".NET & C#"
+tags: ["delegates", "events"]
 ---
 
 A nice little trick to save you always checking for null when firing custom events  

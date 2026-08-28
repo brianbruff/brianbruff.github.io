@@ -1,7 +1,8 @@
 ---
 title: "Using AI to Develop Applications End-to-End – A PileupBuster Showcase"
 date: "2025-06-15"
-tags: ["AI", "Development", "PileupBuster", "GitHub Copilot", "Sora"]
+category: "AI & Agents"
+tags: ["git", "sora", "ham radio"]
 ---
 
 ## Introduction

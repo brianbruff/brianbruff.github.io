@@ -1,7 +1,8 @@
 ---
 title: "Sql Server Compact Edition"
 date: "2010-01-26"
-tags: []
+category: "Data & Persistence"
+tags: ["sql server", "wcf"]
 ---
 
 I've been playing with a workflow service hosted here [/PSService/PSService.svc   

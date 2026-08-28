@@ -1,7 +1,8 @@
 ---
 title: "Azure Managed Identities"
 date: "2021-01-19"
-tags: ["Azure Managed Identities", "Azure Functions", "Azure Storage"]
+category: "Cloud & Infrastructure"
+tags: ["azure", "authentication", "serverless", "storage"]
 ---
 
 In this video I show you how to leverage Azure Managed Identities to allow access between Azure resources.

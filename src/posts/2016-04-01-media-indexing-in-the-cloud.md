@@ -1,7 +1,8 @@
 ---
 title: "Media Indexing In the Cloud"
 date: "2016-04-01"
-tags: ["CloudWars", "aws", "azure media indexer"]
+category: "Cloud & Infrastructure"
+tags: ["azure", "aws"]
 ---
 
 So out of the blue I found myself giving Azure Media Indexing a trial run, for no other reason other than I could, this is why I love cloud tech so much, it brings something that would have been very difficult 5-10 years ago, within reach of anyone with an public cloud account.

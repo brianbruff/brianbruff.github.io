@@ -1,7 +1,8 @@
 ---
 title: "Workflow Arguments how to"
 date: "2010-09-10"
-tags: []
+category: "Workflow (WF)"
+tags: ["wf4", "unit testing"]
 ---
 
 So you've started up your very first 4.0 Workflow application.  

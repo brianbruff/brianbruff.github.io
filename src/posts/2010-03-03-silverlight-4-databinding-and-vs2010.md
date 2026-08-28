@@ -1,7 +1,8 @@
 ---
 title: "Silverlight 4 Databinding and VS2010"
 date: "2010-03-03"
-tags: ["databinding"]
+category: "XAML & Desktop"
+tags: ["silverlight", "data binding", "visual studio"]
 ---
 
 If you've got a data driven application, databinding is the infrastructure of choice that makes the link between data and your UX

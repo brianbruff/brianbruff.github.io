@@ -1,7 +1,8 @@
 ---
 title: "A Custom Diagramming Library"
 date: "2009-12-05"
-tags: ["diagramming"]
+category: "XAML & Desktop"
+tags: ["wpf", "diagramming"]
 ---
 
 Recently I've been working with a 3rd party diagramming library written in windows forms. It's been great and it's pretty fast in building 80% of the application I'm working on.

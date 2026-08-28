@@ -1,7 +1,8 @@
 ---
 title: "Kendo Datasource & MVC4 WebApi, you broke my heart"
 date: "2012-08-31"
-tags: ["KendoUi MVC Web Api"]
+category: "Web & APIs"
+tags: ["kendo ui", "web api", "odata"]
 ---
 
 So I’ve spend many a sleepless night this week knowing that the webapplication i was working was not doing server side paging…

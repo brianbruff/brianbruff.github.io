@@ -1,7 +1,8 @@
 ---
 title: "Using NinJect MVC with WebApi Beta"
 date: "2012-04-27"
-tags: []
+category: "Web & APIs"
+tags: ["dependency injection", "web api", "asp.net mvc"]
 ---
 
 Tonight ( <\-- how sad is that). I started working on a work related REST API, and iPad client 

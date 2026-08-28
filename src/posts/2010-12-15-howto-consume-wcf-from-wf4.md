@@ -1,7 +1,8 @@
 ---
 title: "HowTo: Consume WCF From WF4"
 date: "2010-12-15"
-tags: ["windows workflow", "wcf 4.0", "wcf"]
+category: "Workflow (WF)"
+tags: ["wcf", "wf4", "visual studio"]
 ---
 
 Hi all.

@@ -1,7 +1,8 @@
 ---
 title: "WPF Routed events"
 date: "2010-01-07"
-tags: ["wpf routed events"]
+category: "XAML & Desktop"
+tags: ["wpf", "events"]
 ---
 
 Ever have a control on a window and want to be able to receive button clicks from this child control?   

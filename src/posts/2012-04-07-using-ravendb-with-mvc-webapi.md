@@ -1,7 +1,8 @@
 ---
 title: "Using RavenDb with Mvc WebApi"
 date: "2012-04-07"
-tags: ["Using RavenDb with Mvc WebApi"]
+category: "Data & Persistence"
+tags: ["ravendb", "web api", "asp.net mvc"]
 ---
 
 I’m starting this post with a disclaimer. I’m not a RavenDb expect, actually far from it, in fact I’ve only started working with it this evening! 

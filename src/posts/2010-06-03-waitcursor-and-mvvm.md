@@ -1,7 +1,8 @@
 ---
 title: "WaitCursor and MVVM"
 date: "2010-06-03"
-tags: ["silverlight wpf cursor databinding valueconverter"]
+category: "XAML & Desktop"
+tags: ["mvvm", "data binding", "wpf"]
 ---
 
 Ever wondered how to display the correct cursor in an application that is databinded to async methods?

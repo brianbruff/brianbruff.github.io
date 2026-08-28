@@ -1,7 +1,8 @@
 ---
 title: "Cloud costs: Shut those VM’s down"
 date: "2016-03-20"
-tags: ["CloudWars", "Azure VM", "AWS EC2", "shutdown vm weekends evenings"]
+category: "Cloud & Infrastructure"
+tags: ["azure", "aws", "deployment", "performance"]
 ---
 
 The public cloud is fantastic for numerous reasons, if you’re not faced with some restriction such as where you data lives or other factors, then my advise is get away from private clouds and get to the public clouds as fast as your legs can carry you!

@@ -1,7 +1,8 @@
 ---
 title: "Enabling Facebook OAuth in MVC4 SPA"
 date: "2013-03-09"
-tags: ["Facebook OAuth", "MVC4"]
+category: "Web & APIs"
+tags: ["authentication", "asp.net mvc", "security"]
 ---
 
 There are two steps, the first step is to register a facebook application, after you register you will have a key and password. The next step will be to insert these into you application.

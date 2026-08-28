@@ -1,7 +1,8 @@
 ---
 title: "Strategy pattern"
 date: "2012-01-30"
-tags: ["Strategy pattern in .net"]
+category: "Tooling & Craft"
+tags: ["design patterns", "unit testing"]
 ---
 
 So what is the strategy pattern? It’s one of the simplest object orientated design patterns, I find that it helps clean up day to day object orientated design. It’s purpose is to 

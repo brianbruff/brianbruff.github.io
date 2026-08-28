@@ -1,7 +1,8 @@
 ---
 title: "Automatically Scaling Telerik Radial Guage"
 date: "2011-03-03"
-tags: []
+category: "XAML & Desktop"
+tags: ["wpf", "kendo ui", "data binding"]
 ---
 
 Took a little time out tonight from the web application I’m working on as I want to create a little dashboard prototype that has to be desktop based as a result of where it will be used.

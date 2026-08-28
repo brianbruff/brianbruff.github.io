@@ -1,7 +1,8 @@
 ---
 title: "Cocoa Is My Girlfriend"
 date: "2010-03-03"
-tags: []
+category: "Mobile"
+tags: ["ios", "azure"]
 ---
 
 Tonight I've stumbled across an interesting Blog on cimgf.

@@ -1,7 +1,8 @@
 ---
 title: "ASP MVC Controller Exception handlers"
 date: "2011-04-11"
-tags: []
+category: "Web & APIs"
+tags: ["asp.net mvc", "action filters"]
 ---
 
 When you crate a new MVC project a view called Error.aspx is created for you in the Views/Shared folder.

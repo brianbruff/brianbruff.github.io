@@ -1,7 +1,8 @@
 ---
 title: "The lazy singleton pattern revisited."
 date: "2012-10-30"
-tags: ["Thread safe lazy singleton .net 4+"]
+category: ".NET & C#"
+tags: ["design patterns", "concurrency"]
 ---
 
 If you want to get a feel for the singleton pattern in C# one of the best resources I always revisit is on John Skeet’s (@jonskeet) website [http://www.yoda.arachsys.com/csharp/singleton.html](http://www.yoda.arachsys.com/csharp/singleton.html)

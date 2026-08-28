@@ -1,7 +1,8 @@
 ---
 title: "Serverless on my server"
 date: "2018-03-21"
-tags: ["Azure functions serverless"]
+category: "Cloud & Infrastructure"
+tags: ["serverless", "azure", "docker"]
 ---
 
 So I’ve been looking for a serverless framework that can run on-prem and in the cloud, I’ve been leaning towards OpenFaaS as it appears to be gaining more traction, however I love Azure functions and though let’s see if this is a viable solution.

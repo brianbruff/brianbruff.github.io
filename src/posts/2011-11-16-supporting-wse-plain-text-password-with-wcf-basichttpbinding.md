@@ -1,7 +1,8 @@
 ---
 title: "Supporting WSE plain text password with WCF BasicHttpBinding"
 date: "2011-11-16"
-tags: ["WSE Security"]
+category: "Web & APIs"
+tags: ["wcf", "security", "authentication"]
 ---
 
 Hi all,

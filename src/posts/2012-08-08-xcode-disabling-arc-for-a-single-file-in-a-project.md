@@ -1,7 +1,8 @@
 ---
 title: "XCode disabling ARC for a single file in a project"
 date: "2012-08-08"
-tags: ["IOS", "ARC.XCODE", "AFNetworking"]
+category: "Mobile"
+tags: ["ios", "objective-c"]
 ---
 
 So I’ll put it out there, I’m a novice Objective-C man, in fact I’m still sitting on the fence on whether I should write my iOS apps in C# (MonoTouch) or Objective-c (xcode), I’m leaning a little more towards the Monotouch approach and to be honest I’m just persevering with objective-c for a few reasons

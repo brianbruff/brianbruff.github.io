@@ -1,7 +1,8 @@
 ---
 title: "IntelliJ Application Servers Greyed Out"
 date: "2015-04-16"
-tags: ["IntelliJ", "JBoss"]
+category: "Java & JVM"
+tags: ["visual studio", "jboss"]
 ---
 
 If you ever come across the problem of the IntelliJ Application Servers menu greyed out like this:

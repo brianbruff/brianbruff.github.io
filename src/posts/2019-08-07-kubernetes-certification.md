@@ -1,7 +1,8 @@
 ---
 title: "Kubernetes Certification"
 date: "2019-08-07"
-tags: []
+category: "Cloud & Infrastructure"
+tags: ["kubernetes", "certification"]
 ---
 
 It’s been a few years since I became certified in AWS and Azure and it’s now time for something new.

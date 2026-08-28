@@ -1,6 +1,8 @@
 ---
 title: "Welcome to new Blog"
 date: "2025-02-14"
+category: "Tooling & Craft"
+tags: ["blogging", "gatsby"]
 description: "After many years of BlogEngine.NET, it's time for a change"
 ---
 

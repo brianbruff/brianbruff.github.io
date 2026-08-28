@@ -1,7 +1,8 @@
 ---
 title: "Embracing The Terminal: My Unexpected Journey from IDEs to the Command Line"
 date: "2026-01-07"
-tags: ["Terminal", "macOS", "AI", "Development", "CLI", "Productivity", "yazi", "lazydocker", "lazygit", "tmux"]
+category: "Tooling & Craft"
+tags: ["terminal", "git", "docker"]
 ---
 
 ## A New Beginning

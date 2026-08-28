@@ -1,7 +1,8 @@
 ---
 title: "Xaml gotya"
 date: "2010-12-06"
-tags: []
+category: "XAML & Desktop"
+tags: ["wpf", "data binding"]
 ---
 
 Here's one I'm ashamed to admit caught me as I was finishing up work this evening, it's been a good few weeks since I've gone near wpf/silverlight given I was on holidays and spend my time playing with WF4 and MVC2.

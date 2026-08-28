@@ -1,7 +1,8 @@
 ---
 title: "Azure Tools"
 date: "2011-12-21"
-tags: ["Azures Emulator"]
+category: "Cloud & Infrastructure"
+tags: ["azure", "visual studio"]
 ---
 
 This evening I decided I’d install the new Azure tools after watching the latest vids that have appeared.

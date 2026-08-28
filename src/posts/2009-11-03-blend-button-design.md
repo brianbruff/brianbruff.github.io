@@ -1,7 +1,8 @@
 ---
 title: "Blend Button Design"
 date: "2009-11-03"
-tags: []
+category: "XAML & Desktop"
+tags: ["expression blend", "silverlight"]
 ---
 
 Here's a video from Steve White, a program manager in expression blend.

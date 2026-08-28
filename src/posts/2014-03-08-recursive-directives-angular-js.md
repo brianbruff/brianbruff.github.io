@@ -1,7 +1,8 @@
 ---
 title: "Recursive Directives Angular.js"
 date: "2014-03-08"
-tags: ["angular.js", "knockout.js", "angular directives"]
+category: "Front-end & JavaScript"
+tags: ["angular", "json"]
 ---
 
 Another day, another post with me talking about something I barely know about. Today I’m going to show you my ~~first~~ second stab at a recursive Angular.js directive.

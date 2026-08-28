@@ -1,7 +1,8 @@
 ---
 title: ".NET DateTime Webservices UTC"
 date: "2009-12-02"
-tags: ["wcf", ".net 1.1", ".net 2.0"]
+category: "Web & APIs"
+tags: ["wcf", "soap"]
 ---
 
 With .NET 1.1 when we receive a UTC DateTime in a SOAP response from a Webservice it used to get converted to Local time.

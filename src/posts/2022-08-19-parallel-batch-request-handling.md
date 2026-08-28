@@ -1,7 +1,8 @@
 ---
 title: "Parallel Batch Request Handling"
 date: "2022-08-19"
-tags: ["Parallel", "Batch", "Tasks"]
+category: ".NET & C#"
+tags: ["async", "concurrency", "performance"]
 ---
 
 Picture this:

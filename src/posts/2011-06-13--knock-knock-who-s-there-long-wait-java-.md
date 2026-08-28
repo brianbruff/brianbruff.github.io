@@ -1,7 +1,8 @@
 ---
 title: "“Knock, knock.” -- “Who’s there?” -- long wait... -- “Java.”"
 date: "2011-06-13"
-tags: []
+category: "Java & JVM"
+tags: ["c++", "performance"]
 ---
 
 So whose faster? Well C# or Java if you are talking “RAD”, but who executes faster?

@@ -1,7 +1,8 @@
 ---
 title: "Dynamically load html into a div using jQuery"
 date: "2011-03-05"
-tags: ["jQuery", "vs2010"]
+category: "Front-end & JavaScript"
+tags: ["jquery", "html5"]
 ---
 
 Mucking about more and more with jQuery now that’s it’s pretty much become the industry standard, so I needed a little project to work on. I’ve previously created my online c.v. in a Silverlight4 app (must dig that out and add it to the site); this time I decided to stay clear of any server side tech. and do everything client side.

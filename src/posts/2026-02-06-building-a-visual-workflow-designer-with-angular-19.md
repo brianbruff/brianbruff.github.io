@@ -1,8 +1,8 @@
 ---
 title: "Building a Visual Workflow Designer with Angular 19"
 date: "2026-02-06"
-tags:
-  ["Angular", "TypeScript", "Software Architecture", "Frontend", "Open Source"]
+category: "Front-end & JavaScript"
+tags: ["angular", "typescript", "design patterns"]
 ---
 
 I recently built a visual workflow designer — a node-based canvas where you wire together processing steps to compose data pipelines. It's the kind of tool you see in platforms like Node-RED, Apache NiFi, or n8n, but built from scratch with Angular 19 and a handful of well-chosen libraries. You can <a href="https://briankeating.net/flow-design-canvas/" target="_blank">try it live here</a>.

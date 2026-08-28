@@ -1,7 +1,8 @@
 ---
 title: "Add XCode 4.3 project to git"
 date: "2012-10-17"
-tags: []
+category: "Tooling & Craft"
+tags: ["git", "ios"]
 ---
 
 So I’ve just submitted an application to the apple app store. I’ve been using XCode snapshot feature and skydrive all along, now I wanted to use a source control system as I’ve done all my professional live.

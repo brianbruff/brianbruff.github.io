@@ -1,7 +1,8 @@
 ---
 title: "Thread starvation in MVC"
 date: "2011-01-17"
-tags: []
+category: "Web & APIs"
+tags: ["async", "concurrency", "performance"]
 ---
 
 On IIS, the .NET Framework maintains a pool of threads that are used to service ASP.NET requests. When a request arrives, a thread from the pool is dispatched to process that request. If the request is processed synchronously, the thread that processes the request is blocked while the request is being processed, and that thread cannot service another request.

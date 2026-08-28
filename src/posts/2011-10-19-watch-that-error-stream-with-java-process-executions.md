@@ -1,7 +1,8 @@
 ---
 title: "Watch that error stream with Java process executions"
 date: "2011-10-19"
-tags: ["SreamGobbler java process execution"]
+category: "Java & JVM"
+tags: ["process execution", "concurrency"]
 ---
 
 I’m executing a windows process from java and I was bitten by a nasty oversight in one of my project today.   

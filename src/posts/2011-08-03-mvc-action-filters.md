@@ -1,7 +1,8 @@
 ---
 title: "MVC Action Filters"
 date: "2011-08-03"
-tags: ["MVC Action Filters"]
+category: "Web & APIs"
+tags: ["asp.net mvc", "design patterns"]
 ---
 
 So what are MVC Filters? To quote Professional ASP.NET MVC2 ISBN 978-0-470-64318-1   

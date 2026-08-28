@@ -1,7 +1,8 @@
 ---
 title: "C# Concurrency lesson–SemaphoreSlim"
 date: "2018-08-14"
-tags: ["Semaphore"]
+category: ".NET & C#"
+tags: ["concurrency", "async"]
 ---
 
 In windows we have two types of semaphores, local and named system semaphores.

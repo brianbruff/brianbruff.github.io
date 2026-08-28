@@ -1,7 +1,8 @@
 ---
 title: "Ninject Dependency Resolution in ASP MCV4 WebApi"
 date: "2012-07-06"
-tags: ["Dependency Injection with Ninject and ASP MVC WebApi"]
+category: "Web & APIs"
+tags: ["dependency injection", "web api", "asp.net mvc"]
 ---
 
 Ok so you’ve been using ASP MVC3+ and using Ninject as your Dependency Injection resolver. Now you want to start leveraging the Asp.WebApi and continue to use Ninject.

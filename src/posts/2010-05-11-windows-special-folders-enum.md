@@ -1,7 +1,8 @@
 ---
 title: "Windows special folders enum"
 date: "2010-05-11"
-tags: []
+category: ".NET & C#"
+tags: ["enums", "filesystem"]
 ---
 
   

@@ -1,7 +1,8 @@
 ---
 title: "Azure Arc Server Registration Error"
 date: "2021-07-08"
-tags: ["Azure Arc"]
+category: "Cloud & Infrastructure"
+tags: ["azure", "deployment"]
 ---
 
   

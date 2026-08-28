@@ -1,7 +1,8 @@
 ---
 title: "Charts in MVC3"
 date: "2011-07-04"
-tags: ["MVC Charting"]
+category: "Web & APIs"
+tags: ["asp.net mvc", "charts"]
 ---
 
 So you want to draw a chart in MVC and don’t know where to start?

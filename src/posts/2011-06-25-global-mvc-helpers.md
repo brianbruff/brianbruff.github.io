@@ -1,7 +1,8 @@
 ---
 title: "Global MVC Helpers"
 date: "2011-06-25"
-tags: ["MVC Global Helpers Razor"]
+category: "Web & APIs"
+tags: ["asp.net mvc", "jquery"]
 ---
 
 This evening while I was helping an ex colleague of mine, who was venturing onto the web platform for the first time, an interesting thing happened, he taught me a thing or two!

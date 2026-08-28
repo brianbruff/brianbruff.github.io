@@ -1,7 +1,8 @@
 ---
 title: "Streaming API–Quickstart"
 date: "2022-10-14"
-tags: ["Streaming API"]
+category: "Web & APIs"
+tags: ["web api", "async"]
 ---
 
   

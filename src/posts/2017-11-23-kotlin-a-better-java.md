@@ -1,7 +1,8 @@
 ---
 title: "Kotlin: A better Java"
 date: "2017-11-23"
-tags: []
+category: "Java & JVM"
+tags: ["kotlin", "golang"]
 ---
 
 I’ve been quite vocal in the past that the Java language syntax is low on my list of favourite languages. I believe this stems from the fact that I write lots of C# (and even Typescript) these days, and those languages are a lot nicer to work with. 

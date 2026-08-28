@@ -1,7 +1,8 @@
 ---
 title: "Linq to SQL"
 date: "2010-02-02"
-tags: []
+category: "Data & Persistence"
+tags: ["linq", "sql server"]
 ---
 
 ### Requirment:

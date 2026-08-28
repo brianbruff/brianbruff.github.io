@@ -1,7 +1,8 @@
 ---
 title: "JAX-WS, Eclipse, JBoss"
 date: "2013-02-16"
-tags: ["Java", "JBoss", "Eclipse", "JAX-WS"]
+category: "Java & JVM"
+tags: ["jax-ws", "jboss", "wcf"]
 ---
 
 Ok another Java post, they are few and far between, but I’ve already polluted this blog with objective-c, javascript and other non .net languages so why not.

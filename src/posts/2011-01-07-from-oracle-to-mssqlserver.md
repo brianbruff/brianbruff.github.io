@@ -1,7 +1,8 @@
 ---
 title: "From Oracle to MSSqlServer"
 date: "2011-01-07"
-tags: []
+category: "Data & Persistence"
+tags: ["oracle", "sql server"]
 ---
 
 Was asked how to do this the best today...

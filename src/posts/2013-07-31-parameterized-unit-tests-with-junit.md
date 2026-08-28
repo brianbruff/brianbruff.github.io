@@ -1,7 +1,8 @@
 ---
 title: "Parameterized Unit Tests with JUnit"
 date: "2013-07-31"
-tags: ["JUnit Parameterized Tests"]
+category: "Java & JVM"
+tags: ["unit testing", "java"]
 ---
 
 I’ve been shown a lovely little utility for testing with JUnit 4.11 whereby one can have a list of items performed as part of the single unit test.

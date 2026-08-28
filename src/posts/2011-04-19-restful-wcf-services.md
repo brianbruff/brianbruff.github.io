@@ -1,7 +1,8 @@
 ---
 title: "RESTful WCF Services"
 date: "2011-04-19"
-tags: []
+category: "Web & APIs"
+tags: ["wcf", "web api"]
 ---
 
 WCF not only provides SOAP, it’s also capable of providing RESTful services through use of the WebGet and WebInvoke attributes in the System.ServiceModel.Web assembly in conjunction with the webHttpBinding and webHttp behaviour. In fact, WebGet/WebInvoke are not really required required (however PUT is the default Http Verb and you won’t be able to specify what methods correspond to urls.

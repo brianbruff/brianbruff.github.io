@@ -1,7 +1,8 @@
 ---
 title: "RIA Services"
 date: "2010-03-15"
-tags: []
+category: "XAML & Desktop"
+tags: ["silverlight", "data binding"]
 ---
 
 Over the w/end I was helping a mate with his Data-driven Silverlight app.

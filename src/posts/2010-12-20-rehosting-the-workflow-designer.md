@@ -1,7 +1,8 @@
 ---
 title: "ReHosting the workflow designer"
 date: "2010-12-20"
-tags: ["wf4 designer re-hosting"]
+category: "Workflow (WF)"
+tags: ["wpf", "visual studio"]
 ---
 
 If you've attempted to host the workflow designer in .net <= 3.5 you'll remember it's not such an easy achievement.

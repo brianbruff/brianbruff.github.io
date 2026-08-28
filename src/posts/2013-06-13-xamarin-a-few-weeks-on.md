@@ -1,7 +1,8 @@
 ---
 title: "Xamarin a few weeks on"
 date: "2013-06-13"
-tags: ["Xamarin for .net people"]
+category: "Mobile"
+tags: ["xamarin", "ios", "objective-c"]
 ---
 
   * I’ve gotten my hands dirty, 

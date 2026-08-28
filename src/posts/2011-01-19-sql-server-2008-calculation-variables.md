@@ -1,7 +1,8 @@
 ---
 title: "SQL Server 2008 Calculation Variables"
 date: "2011-01-19"
-tags: []
+category: "Data & Persistence"
+tags: ["sql server", "t-sql"]
 ---
 
 SqlServer 2008 has a short hand/compact way of assigning calculation variables.

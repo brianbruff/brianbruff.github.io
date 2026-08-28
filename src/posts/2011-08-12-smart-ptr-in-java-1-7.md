@@ -1,7 +1,8 @@
 ---
 title: "smart_ptr in java 1.7"
 date: "2011-08-12"
-tags: []
+category: "Java & JVM"
+tags: ["smart pointers", "idisposable"]
 ---
 
 Darn it but I’ve being doing a lot of Java recently and u know what, I’m no expert but it I think I could even a raise the rating on my C.V. at this stage. My first experience of Java was reading a book back in 2001 belonging to a student friend of mine, the book was lying about so picked it up and read it over the course of a week (yes I had an early addiction to technologies even though I was living in c++ land at the time). I ended up helping with one Final year project a java applet game suite if I remember correctly and in a JBuilder IDE.

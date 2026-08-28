@@ -1,7 +1,8 @@
 ---
 title: "Converting APM operations to Tasks using the TPL"
 date: "2012-01-01"
-tags: ["APM and TPL"]
+category: ".NET & C#"
+tags: ["async", "concurrency"]
 ---
 
 Those of you have have already used .net 4.5 developer preview will know that tasks are becoming more common in the API, especially with the advent of the async await keywords.

@@ -1,7 +1,8 @@
 ---
 title: "BlogEngine and Silverlight"
 date: "2009-11-05"
-tags: ["blogengine", "silverlight", "c#"]
+category: "XAML & Desktop"
+tags: ["silverlight", "blogengine"]
 ---
 
 I've had a few people asking me how did I host Silverlight 3 in blog engine.

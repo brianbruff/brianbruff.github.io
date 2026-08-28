@@ -1,7 +1,8 @@
 ---
 title: "Azure Application Gateway CORS support"
 date: "2021-07-08"
-tags: ["Application Gateway"]
+category: "Cloud & Infrastructure"
+tags: ["azure", "web api"]
 ---
 
   

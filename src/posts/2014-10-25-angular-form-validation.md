@@ -1,7 +1,8 @@
 ---
 title: "Angular Form Validation"
 date: "2014-10-25"
-tags: []
+category: "Front-end & JavaScript"
+tags: ["angular", "validation"]
 ---
 
 Hi all, 

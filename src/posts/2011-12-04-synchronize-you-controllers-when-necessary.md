@@ -1,7 +1,8 @@
 ---
 title: "Synchronize you controllers when necessary"
 date: "2011-12-04"
-tags: ["Asyncronous MVC"]
+category: "Web & APIs"
+tags: ["asp.net mvc", "async", "concurrency"]
 ---
 
 Earlier today I happened to lend a hand to a friend of mine that was experiencing a race condition in an ASP.MVC application, like a rag to a bull is multithreading to me.

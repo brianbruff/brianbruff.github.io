@@ -1,7 +1,8 @@
 ---
 title: "INotifyPropertyChanged diagnostics"
 date: "2010-05-13"
-tags: ["inotifypropertychanged"]
+category: "XAML & Desktop"
+tags: ["data binding", "wpf", "mvvm"]
 ---
 
 Those of you that use INotifyPropertyChanged may have noticed it's easy to break the code if you choose to refactor/rename as the property name string does not get refactored.

@@ -1,7 +1,8 @@
 ---
 title: "That pesky iOS keyboard again"
 date: "2012-10-18"
-tags: ["Animating the UiView over keyboard"]
+category: "Mobile"
+tags: ["ios", "objective-c"]
 ---
 
 In my [previous post](/post/2012/09/18/IPhone-remove-the-IOS-Keyboard-on-Return.aspx) I showed you how to have the keyboard resign first responder status when Return is pressed.

@@ -1,7 +1,8 @@
 ---
 title: "jQuery and a little bit of javascript"
 date: "2011-11-27"
-tags: ["revealing module pattern"]
+category: "Front-end & JavaScript"
+tags: ["jquery", "design patterns"]
 ---
 
 I’m still working on the LiveResume website, just something I’m playing with in my free time, no I’m not looking for a job ![Smile](./image.axd?picture=wlEmoticon-smile_10.png) just have an idea that I’ve not seen anywhere else (no I’m not telling you what it is until the site is live ![Winking smile](./image.axd?picture=wlEmoticon-winkingsmile.png) )

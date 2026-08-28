@@ -1,7 +1,8 @@
 ---
 title: "Testing Silverlight"
 date: "2009-11-01"
-tags: ["silverlight"]
+category: "XAML & Desktop"
+tags: ["silverlight", "blogengine"]
 ---
 
 My first (public silverlight application)..

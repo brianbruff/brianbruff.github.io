@@ -1,7 +1,8 @@
 ---
 title: "MVC Stories"
 date: "2010-09-08"
-tags: ["asp mvc2 controller"]
+category: "Web & APIs"
+tags: ["asp.net mvc", "model binding"]
 ---
 
 Hi All,

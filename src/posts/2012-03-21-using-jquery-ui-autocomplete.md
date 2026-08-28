@@ -1,7 +1,8 @@
 ---
 title: "Using jQuery UI Autocomplete"
 date: "2012-03-21"
-tags: ["jquery autocomplete asp mvc3"]
+category: "Front-end & JavaScript"
+tags: ["jquery", "asp.net mvc"]
 ---
 
 Hi all, here’s an example of how to use jQuery UI Autocomplete in ASP MVC3.

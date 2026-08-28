@@ -1,7 +1,8 @@
 ---
 title: "Silverlight Fluid Motion"
 date: "2011-09-19"
-tags: ["expression blend silverlight animation"]
+category: "XAML & Desktop"
+tags: ["silverlight", "expression blend"]
 ---
 
 You know what?   

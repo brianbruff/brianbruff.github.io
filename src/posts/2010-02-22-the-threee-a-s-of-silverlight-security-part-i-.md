@@ -1,7 +1,8 @@
 ---
 title: "The threee A's of Silverlight Security.. (Part I)"
 date: "2010-02-22"
-tags: []
+category: "XAML & Desktop"
+tags: ["silverlight", "security", "authentication"]
 ---
 
 · Authentication

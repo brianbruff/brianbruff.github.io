@@ -1,7 +1,8 @@
 ---
 title: "Full height divs in html5"
 date: "2011-11-26"
-tags: ["height:100% html5"]
+category: "Front-end & JavaScript"
+tags: ["html5", "css"]
 ---
 
 Hi all, 

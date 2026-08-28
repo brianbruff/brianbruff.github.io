@@ -1,7 +1,8 @@
 ---
 title: "Cloud Computing (Azure) here I come"
 date: "2011-04-19"
-tags: []
+category: "Cloud & Infrastructure"
+tags: ["azure", "deployment", "visual studio"]
 ---
 
 ![](/images//blog/image.axd?picture=image_thumb_39.png)

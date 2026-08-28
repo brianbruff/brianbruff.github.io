@@ -1,7 +1,8 @@
 ---
 title: "Migrate SqlServer DB to Azure Sql"
 date: "2011-12-27"
-tags: ["Migrating SqlServer DB to the cloud"]
+category: "Data & Persistence"
+tags: ["sql server", "azure", "deployment"]
 ---
 
 Here’s one way to migrate your SqlServer Database to the Azure platform.

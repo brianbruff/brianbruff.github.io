@@ -1,7 +1,8 @@
 ---
 title: "Exposing OData with WCF Ria Services 4.0"
 date: "2010-05-03"
-tags: []
+category: "Web & APIs"
+tags: ["odata", "wcf", "silverlight"]
 ---
 
 I was just about to write up a little blog on the how and why of Exposing OData (Open Data Protocol) in WCF 4.0.  

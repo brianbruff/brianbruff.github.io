@@ -1,7 +1,8 @@
 ---
 title: "Azure, Sql User invalid from Azure Website"
 date: "2015-01-18"
-tags: ["sqlserver", "azure", "ConnectionString", "invalid login"]
+category: "Cloud & Infrastructure"
+tags: ["azure", "sql server", "deployment"]
 ---
 
 ## Problem

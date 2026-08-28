@@ -1,7 +1,8 @@
 ---
 title: "An invisible Azure Message"
 date: "2011-12-29"
-tags: ["Azure Service Bus"]
+category: "Cloud & Infrastructure"
+tags: ["azure", "storage"]
 ---
 
 When creating an Azure queue, you specify a lock duration, once a message is read from the queue it’s marked as invisible for other readers for a period of time, e.g. one minute.

@@ -1,7 +1,8 @@
 ---
 title: "Ain’t she sweet"
 date: "2011-07-05"
-tags: []
+category: "Tooling & Craft"
+tags: ["blogging", "asp.net mvc", "jquery"]
 ---
 
 Nothing, really ground breaking, but don’t it look neat! (if i say so myself). (that facebook link will be going up alongside flicker/twitter when i get around to it.).

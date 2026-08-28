@@ -1,16 +1,88 @@
 /* ==========================================================================
    Writing index — an archive, not a card grid.
 
-   With 279 posts spanning seventeen years, the date is the most useful thing
+   With 280 posts spanning seventeen years, the date is the most useful thing
    on each row, so it leads. Rows are separated by copper hairlines rather than
    boxed into cards: a long list should read like a contents page.
+
+   The controls above the list are ranked, not levelled. Search is the widest
+   net and sits at the top in its own frame; category chips are the boxed
+   primary row; era and tag refinement are hairline-only chips underneath,
+   quiet enough that the eye reads them as adjustments to a choice already
+   made rather than four equal decisions to take at once.
    ========================================================================== */
 
+.filters { margin-bottom: clamp(1.75rem, 4vw, 2.75rem); }
+
+/* --- Search ---------------------------------------------------------------
+   The highest-value control on the page. For most of these seventeen years
+   the posts carried no tags at all, so the words in a 2011 title are often
+   the only handle a reader has on it. 280 rows is small enough that filtering
+   on the keystroke beats any amount of debouncing. */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 0.9rem;
+  background: rgb(16 11 8 / 0.72);
+  border: 1px solid var(--hairline);
+  transition: border-color 200ms var(--ease-out);
+}
+/* The frame takes the focus ring for the field inside it, so the ring lands
+   on the whole instrument plate rather than on a borderless input. */
+.search:focus-within {
+  border-color: var(--copper);
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+}
+
+.search__label {
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  white-space: nowrap;
+}
+
+.search__input {
+  /* min-width:0 or a long query pushes the whole page sideways on a phone —
+     a flex item's default min-width is its content, not zero. */
+  flex: 1;
+  min-width: 0;
+  padding: 0.15rem 0;
+  background: transparent;
+  border: 0;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  color: var(--ivory);
+}
+.search__input::placeholder { color: var(--ivory-44); }
+.search__input:focus-visible { outline: none; }
+/* We ship our own clear control, in the right typeface. */
+.search__input::-webkit-search-cancel-button { display: none; }
+
+.search__clear {
+  padding: 0.25rem 0;
+  background: none;
+  border: 0;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ivory-44);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 200ms var(--ease-out);
+}
+.search__clear:hover { color: var(--tungsten); }
+
+/* --- Category chips: the primary row -------------------------------------- */
 .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+  margin-top: 1.1rem;
 }
 
 .tag {
@@ -41,23 +113,136 @@
   border-color: var(--tungsten);
 }
 .tag__count { font-size: 0.62rem; opacity: 0.66; }
-.tag--more { border-style: dashed; }
 
-/* --- The list ------------------------------------------------------------ */
-.posts { border-top: 1px solid var(--hairline-soft); }
+/* --- Era and tag chips: the subordinate rows ------------------------------
+   Deliberately unboxed. A bottom hairline is enough to read as a control, and
+   losing the box is what keeps these rows visually beneath the categories. */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.45rem;
+  margin-top: 0.8rem;
+}
+
+.chips__label {
+  margin-right: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ivory-44);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.28rem 0.5rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom-color: var(--hairline-soft);
+  border-radius: 0;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ivory-64);
+  cursor: pointer;
+  transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out),
+              background 200ms var(--ease-out);
+}
+.chip:hover {
+  color: var(--tungsten);
+  border-bottom-color: var(--copper);
+  background: rgb(178 106 60 / 0.1);
+}
+.chip.is-active {
+  color: var(--tungsten);
+  border-color: var(--copper);
+  background: rgb(178 106 60 / 0.18);
+}
+.chip__count { font-size: 0.58rem; opacity: 0.6; }
+.chip--more { border-bottom-style: dashed; color: var(--ivory-44); }
+
+/* --- The result summary ---------------------------------------------------
+   The count in the section head is the only number on the page computed
+   against every live filter, so the head has to say which filters those are.
+   It wraps onto its own line inside the head, above the rule.
+
+   Selected through the control block rather than as a bare .section-head:
+   these are overrides of a shared class defined in the design system, and
+   leaning on stylesheet order to win would be leaning on the bundler. */
+.filters + .section-head {
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.filters__summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1rem;
+  flex-basis: 100%;
+  margin: 0.5rem 0 0;
+  max-width: none;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  color: var(--ivory-44);
+}
+
+.filters__reset {
+  padding: 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--copper-dim);
+  font: inherit;
+  color: var(--copper);
+  cursor: pointer;
+  transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out);
+}
+.filters__reset:hover { color: var(--amber); border-bottom-color: var(--amber); }
+
+/* --- The list ------------------------------------------------------------
+   No top rule: the section head's own hairline is the top edge of the list.
+   Two hairlines a gap apart would read as an empty first row. */
+.posts {
+  /* Shared measurements. The date sits in the lede column and the tag strip
+     has to line up under the body, not under the date, so both need the
+     same numbers. */
+  --row-lede: 8.5rem;
+  --row-gap: clamp(1rem, 3vw, 2.5rem);
+  --row-pad: clamp(1.25rem, 2.5vw, 1.9rem);
+}
 .posts__item { border-bottom: 1px solid var(--hairline-soft); }
 
+/* The row is a container, not the link. The link covers the date, title and
+   excerpt; the tag strip sits outside it so those tags can be real buttons.
+   An anchor stretched over the whole row would swallow them, and nesting them
+   inside it would be invalid HTML. The hover treatment lives here so the whole
+   row still lights up as one object. */
 .post-row {
-  display: grid;
-  grid-template-columns: 8.5rem minmax(0, 1fr) 2rem;
-  gap: clamp(1rem, 3vw, 2.5rem);
-  align-items: baseline;
-  padding: clamp(1.25rem, 2.5vw, 1.9rem) 0.5rem;
-  text-decoration: none;
-  color: inherit;
+  padding: 0 0.5rem;
   transition: background 220ms var(--ease-out);
 }
 .post-row:hover { background: rgb(178 106 60 / 0.07); }
+
+.post-row__lead {
+  display: grid;
+  grid-template-columns: var(--row-lede) minmax(0, 1fr) 2rem;
+  gap: var(--row-gap);
+  align-items: baseline;
+  padding: var(--row-pad) 0 0.7rem;
+  text-decoration: none;
+  color: inherit;
+}
+/* A post with no tags has no strip to carry the bottom padding. */
+.post-row:not(:has(.post-row__tags)) .post-row__lead {
+  padding-bottom: var(--row-pad);
+}
 
 .post-row__date {
   font-family: var(--font-mono);
@@ -95,7 +280,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem 1rem;
-  margin-top: 0.7rem;
+  margin-left: calc(var(--row-lede) + var(--row-gap));
+  padding-bottom: var(--row-pad);
   font-family: var(--font-mono);
   font-size: 0.66rem;
   letter-spacing: 0.12em;
@@ -110,6 +296,22 @@
   transform: rotate(45deg);
 }
 
+/* No plate, no box: at rest a row tag looks exactly like the inert label it
+   used to be, and only hover admits that it does something. */
+.post-row__tag {
+  padding: 0;
+  background: none;
+  border: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: color 200ms var(--ease-out);
+}
+.post-row__tag:hover { color: var(--amber); }
+.post-row__tag.is-active { color: var(--tungsten); }
+
 .post-row__cue {
   justify-self: end;
   font-family: var(--font-mono);
@@ -120,7 +322,7 @@
               color 220ms var(--ease-out);
 }
 .post-row:hover .post-row__cue,
-.post-row:focus-visible .post-row__cue {
+.post-row__lead:focus-visible .post-row__cue {
   opacity: 1;
   transform: translateX(0);
   color: var(--amber);
@@ -128,18 +330,31 @@
 
 .posts__empty {
   padding: 3rem 0;
+  max-width: 52ch;
   color: var(--ivory-44);
   font-style: italic;
 }
+.posts__empty-reset {
+  padding: 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--copper-dim);
+  font: inherit;
+  color: var(--copper);
+  cursor: pointer;
+  transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out);
+}
+.posts__empty-reset:hover { color: var(--amber); border-bottom-color: var(--amber); }
 
 @media (max-width: 720px) {
-  .post-row {
+  .post-row { padding-inline: 0; }
+  .post-row__lead {
     /* minmax(0,…) rather than 1fr: a bare 1fr floors at min-content, and one
        long title is enough to push the whole page sideways. */
     grid-template-columns: minmax(0, 1fr);
     gap: 0.4rem;
-    padding-inline: 0;
   }
   .post-row__cue { display: none; }
   .post-row__excerpt { font-size: 0.94rem; }
+  .post-row__tags { margin-left: 0; }
 }

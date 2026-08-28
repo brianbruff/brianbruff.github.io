@@ -1,7 +1,8 @@
 ---
 title: "Expression blend for WPF/Silverlight 4"
 date: "2009-11-25"
-tags: ["expression blend 4"]
+category: "XAML & Desktop"
+tags: ["expression blend", "silverlight", "wpf"]
 ---
 
 Announced at PDC this week

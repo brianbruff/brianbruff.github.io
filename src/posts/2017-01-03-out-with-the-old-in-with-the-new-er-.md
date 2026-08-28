@@ -1,7 +1,8 @@
 ---
 title: "Out with the old in with the new(er)"
 date: "2017-01-03"
-tags: ["azure", "java", "c#", "typescript", "angular2"]
+category: "Tooling & Craft"
+tags: ["blogging", "typescript", "angular", "azure"]
 ---
 
 With 2016 drawing to a close and 2017 already in full swing for me, I thought this was a good opportunity to reflect on how 2016 went and what 2017 has in store for me from a technological point of view.

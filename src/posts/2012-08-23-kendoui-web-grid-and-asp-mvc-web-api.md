@@ -1,7 +1,8 @@
 ---
 title: "KendoUi Web Grid and ASP MVC Web Api"
 date: "2012-08-23"
-tags: ["KendoUi", "Grid", "HttpPost", "Grid refresh."]
+category: "Web & APIs"
+tags: ["kendo ui", "web api", "odata"]
 ---
 
 I’ve just been through the mill trying to get kendo grid working with a ASP MVC Web Api Http Post Action.   

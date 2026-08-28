@@ -1,7 +1,8 @@
 ---
 title: "MS Lync–What exactly is it…"
 date: "2011-01-28"
-tags: ["MS LYNC"]
+category: "Tooling & Craft"
+tags: ["lync", "productivity"]
 ---
 
 Couldn’t tell you! Installed it and got the following ![Sick smile](/blog/image.axd?picture=wlEmoticon-sicksmile.png)

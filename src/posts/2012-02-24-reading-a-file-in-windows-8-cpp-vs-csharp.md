@@ -1,7 +1,8 @@
 ---
 title: "Reading a file in windows 8 CPP vs CSharp"
 date: "2012-02-24"
-tags: ["C++ vs c#"]
+category: ".NET & C#"
+tags: ["c++", "winrt"]
 ---
 
 I left my last blog very indecisive, would I use CPP, would I use .NET or would it be html/js.

@@ -1,7 +1,8 @@
 ---
 title: "Simplifying SSH"
 date: "2025-07-01"
-tags: ["blog", "ssh"]
+category: "Tooling & Craft"
+tags: ["terminal", "security"]
 ---
 
 

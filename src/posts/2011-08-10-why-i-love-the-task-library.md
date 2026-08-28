@@ -1,7 +1,8 @@
 ---
 title: "Why I love the Task library"
 date: "2011-08-10"
-tags: ["Multithreading WPF"]
+category: ".NET & C#"
+tags: ["async", "concurrency", "wpf"]
 ---
 
 Ok, forget about mvvm, that’s not the point of this quick post…

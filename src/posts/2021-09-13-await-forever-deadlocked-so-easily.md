@@ -1,7 +1,8 @@
 ---
 title: "Await forever – deadlocked so easily"
 date: "2021-09-13"
-tags: ["Async Await Syncronization Context"]
+category: ".NET & C#"
+tags: ["async", "concurrency", "wpf"]
 ---
 
 Async/Await simplifies async code, use it everywhere and life becomes so simple right?  

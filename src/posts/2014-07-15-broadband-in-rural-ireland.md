@@ -1,7 +1,8 @@
 ---
 title: "Broadband in rural Ireland"
 date: "2014-07-15"
-tags: []
+category: "Radio & Signals"
+tags: ["antenna", "broadband"]
 ---
 
 ![](/images/./image.axd?picture=InlineRepresentation3a1d74d1-63d2-414d-a21b-e8b3dc582645.jpg)[View Full Album](https://skydrive.live.com/redir.aspx?cid=06ecb223c1f0268a&page=browse&resid=6ECB223C1F0268A!16549&parId=6ECB223C1F0268A!136&type=5)  

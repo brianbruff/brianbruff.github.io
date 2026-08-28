@@ -1,7 +1,8 @@
 ---
 title: "Not accepted here"
 date: "2015-02-24"
-tags: ["OData", "HttpStatus 406", "Not Accepted", "ODataConventionModelBuilder."]
+category: "Web & APIs"
+tags: ["odata", "web api", "json"]
 ---
 
 _and it's not because I'm Irish ;-)_

@@ -1,7 +1,8 @@
 ---
 title: ".NET 4.0 Code Contracts"
 date: "2011-06-10"
-tags: []
+category: ".NET & C#"
+tags: ["code contracts", "design patterns"]
 ---
 
 Yesterday I read an interesting [article](http://msdn.microsoft.com/en-us/magazine/gg983479.aspx) on a flight home from Amsterdam and though I would share it with you.

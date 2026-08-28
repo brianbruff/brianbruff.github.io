@@ -1,7 +1,8 @@
 ---
 title: "Progressive Enhancement with Modernizr"
 date: "2011-07-15"
-tags: []
+category: "Front-end & JavaScript"
+tags: ["html5", "asp.net mvc"]
 ---
 
 If you’ve been to a HTML5 session or lived in the html5 world for any length of time you’ll have come across the term “Progressive Enhancement”. It’s about taking a base application that works on downstream browsers and detecting features and increasing functionality if you have certain features.

@@ -1,7 +1,8 @@
 ---
 title: "Windows Workflow 4.0"
 date: "2009-11-01"
-tags: [".net 4.0", "windows workflow"]
+category: "Workflow (WF)"
+tags: ["wf4", "visual studio"]
 ---
 
 Ok, forget what you learned about workflow in 3.5.

@@ -1,7 +1,8 @@
 ---
 title: "Uploading a file in MVC4 C#5 .NET 4.5"
 date: "2012-04-04"
-tags: []
+category: "Web & APIs"
+tags: ["web api", "asp.net mvc", "html5"]
 ---
 
 Back on the bleeding edge again ![Hot smile](./image.axd?picture=wlEmoticon-hotsmile_2.png) I’m in the early stages of my next killer app and I’m investigating the pros and cons of using the new ASP WebApi.

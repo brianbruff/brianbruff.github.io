@@ -1,7 +1,8 @@
 ---
 title: "Specifying CSS classes and html attributes with MVC helpers"
 date: "2011-07-16"
-tags: []
+category: "Web & APIs"
+tags: ["asp.net mvc", "css"]
 ---
 
 Ok you’ve finally got you MVC controller and models all wired up, you BL is fine, now you want to pretty up those views, so you’ll start to use some css and javascript.

@@ -1,7 +1,8 @@
 ---
 title: "Http Header Propagation Asp net 6 with HttpClientFactory"
 date: "2022-09-26"
-tags: ["HttpClientFactory", "HeaderDelegation"]
+category: "Web & APIs"
+tags: ["web api", "httpclientfactory"]
 ---
 
   

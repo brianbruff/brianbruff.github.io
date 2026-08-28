@@ -1,7 +1,8 @@
 ---
 title: "Async Workflows in ASP.net"
 date: "2011-08-24"
-tags: []
+category: "Workflow (WF)"
+tags: ["async", "concurrency"]
 ---
 
 So tonight I’m going to show you one way on calling async workflows from ASP.net. I’ve decided to use web forms this time as I’m living in MVC land and it’ll help me keep the finger in.

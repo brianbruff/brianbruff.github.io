@@ -1,7 +1,8 @@
 ---
 title: "Deserializing Json"
 date: "2012-04-11"
-tags: ["JSon HttpClient deserialization"]
+category: "Web & APIs"
+tags: ["json", "web api"]
 ---
 
 With this post I’m back to my lovely OneNote screen clippings, my last few postings were done on Windows8 and I’d no OneNote installed. 

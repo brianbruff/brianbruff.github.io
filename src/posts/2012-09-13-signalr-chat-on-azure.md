@@ -1,7 +1,8 @@
 ---
 title: "SignalR chat on Azure"
 date: "2012-09-13"
-tags: ["SignalR on Azure"]
+category: "Web & APIs"
+tags: ["web api", "asp.net mvc", "azure"]
 ---
 
 At lunch today I created a little fun website and it only took about 15 minutes (as you can plainly see from the styling).

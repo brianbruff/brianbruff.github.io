@@ -1,7 +1,8 @@
 ---
 title: "The future is live"
 date: "2011-01-16"
-tags: []
+category: "Cloud & Infrastructure"
+tags: ["storage", "productivity"]
 ---
 
 Probably like a lot of other computer people I find myself working with more than one computer. There in lies the problem, is it worth the overhead of manually having to synchronize all these pcs?

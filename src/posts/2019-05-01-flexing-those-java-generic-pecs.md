@@ -1,7 +1,8 @@
 ---
 title: "Flexing those Java generic PECS"
 date: "2019-05-01"
-tags: []
+category: "Java & JVM"
+tags: ["generics", "covariance"]
 ---
 
 I believe I’ve previously covered c# generics covariance and contravariance in the past, now it’s javas turn

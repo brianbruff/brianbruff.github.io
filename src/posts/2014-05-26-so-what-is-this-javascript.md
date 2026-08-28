@@ -1,7 +1,8 @@
 ---
 title: "So what is this – javascript"
 date: "2014-05-26"
-tags: []
+category: "Front-end & JavaScript"
+tags: ["javascript", "design patterns"]
 ---
 
 To the uninitiated **this** can be really confusing in JavaScript. Consider the following:

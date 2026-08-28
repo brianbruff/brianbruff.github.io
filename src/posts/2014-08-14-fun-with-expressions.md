@@ -1,7 +1,8 @@
 ---
 title: "Fun with expressions"
 date: "2014-08-14"
-tags: []
+category: ".NET & C#"
+tags: ["linq", "expression trees"]
 ---
 
 Anyone that’s dealt with Linq will undoubtedly have encountered expressions, this post how provide an expression in your class to consumers of this class.

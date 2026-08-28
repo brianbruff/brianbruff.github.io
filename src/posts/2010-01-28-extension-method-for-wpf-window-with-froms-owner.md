@@ -1,7 +1,8 @@
 ---
 title: "Extension Method for Wpf Window with Froms Owner"
 date: "2010-01-28"
-tags: []
+category: "XAML & Desktop"
+tags: ["wpf", "extension methods"]
 ---
 
 ## Extension Method

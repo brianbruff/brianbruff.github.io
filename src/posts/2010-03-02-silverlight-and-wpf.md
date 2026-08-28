@@ -1,7 +1,8 @@
 ---
 title: "Silverlight and WPF"
 date: "2010-03-02"
-tags: []
+category: "XAML & Desktop"
+tags: ["silverlight", "wpf", "data binding"]
 ---
 
 Tonight I tried to use the FlowDocument that you'll know well if you are familiar with WPF....

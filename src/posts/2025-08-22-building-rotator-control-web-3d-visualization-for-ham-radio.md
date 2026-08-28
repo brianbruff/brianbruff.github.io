@@ -1,7 +1,8 @@
 ---
 title: "Building RotatorControlWeb: 3D Visualization for Ham Radio Antenna Control"
 date: "2025-08-22"
-tags: ["Ham Radio", "Node.js", "Three.js", "Docker", "Web Development", "Amateur Radio"]
+category: "Radio & Signals"
+tags: ["typescript", "docker", "ham radio"]
 ---
 
 ## Introduction

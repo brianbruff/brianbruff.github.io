@@ -1,7 +1,8 @@
 ---
 title: "Converting EPM operations to Tasks using the TPL"
 date: "2012-02-05"
-tags: []
+category: ".NET & C#"
+tags: ["async", "concurrency"]
 ---
 
 Previous post

@@ -1,7 +1,8 @@
 ---
 title: "Key modifiers"
 date: "2009-12-22"
-tags: []
+category: "XAML & Desktop"
+tags: ["wpf", "pinvoke"]
 ---
 
 Recently I used PInvoke to check if the SHIFT key was pressed while i was doing a drag operation......

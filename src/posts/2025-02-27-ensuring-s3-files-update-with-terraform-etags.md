@@ -1,7 +1,8 @@
 ---
 title: "Ensuring S3 Files Update with Terraform: The Power of etags"
 date: "2025-02-27"
-tags: ["AWS", "Terraform", "S3", "Infrastructure as Code"]
+category: "Cloud & Infrastructure"
+tags: ["aws", "deployment", "storage"]
 ---
 
 ## The Challenge with S3 File Updates in Terraform

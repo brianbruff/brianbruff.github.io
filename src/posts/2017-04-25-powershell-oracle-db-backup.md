@@ -1,7 +1,8 @@
 ---
 title: "Powershell Oracle Db Backup"
 date: "2017-04-25"
-tags: ["Oracle Export 7-Zip and upload to S3"]
+category: "Data & Persistence"
+tags: ["oracle", "terminal", "storage"]
 ---
 
 Hi all,

@@ -1,7 +1,8 @@
 ---
 title: "To Xammer or not to Xammer"
 date: "2013-05-04"
-tags: ["XCode", "ObjectiveC", "C#", "Xamarin", "Json"]
+category: "Mobile"
+tags: ["xamarin", "ios", "objective-c", "json"]
 ---
 
 ## Xamarin vs XCode

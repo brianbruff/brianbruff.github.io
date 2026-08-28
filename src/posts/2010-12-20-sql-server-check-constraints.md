@@ -1,7 +1,8 @@
 ---
 title: "SQL Server Check Constraints"
 date: "2010-12-20"
-tags: ["sqlserver"]
+category: "Data & Persistence"
+tags: ["sql server", "t-sql"]
 ---
 
 Here's an easy one to get caught out on.

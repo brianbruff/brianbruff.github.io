@@ -1,7 +1,8 @@
 ---
 title: "Hello IIS 7.5 Express"
 date: "2011-01-13"
-tags: []
+category: "Web & APIs"
+tags: ["iis", "visual studio"]
 ---
 
 Cassini; We’ve all used it and loved it, now it’s the end of the road for the visual studio webserver.

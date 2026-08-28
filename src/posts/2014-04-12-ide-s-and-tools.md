@@ -1,7 +1,8 @@
 ---
 title: "IDE’s and tools"
 date: "2014-04-12"
-tags: []
+category: "Tooling & Craft"
+tags: ["visual studio", "terminal"]
 ---
 
 I’ve gotten a few emails from last night’s post asking me why I’ve gone black (and will i go back?),, well you know what they say! 

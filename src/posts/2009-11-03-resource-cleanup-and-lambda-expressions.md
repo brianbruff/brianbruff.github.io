@@ -1,7 +1,8 @@
 ---
 title: "Resource Cleanup and Lambda Expressions"
 date: "2009-11-03"
-tags: ["c# 3.0"]
+category: ".NET & C#"
+tags: ["lambdas", "design patterns"]
 ---
 
 A neat way of always cleaning up resources is to use Lambdas as data.

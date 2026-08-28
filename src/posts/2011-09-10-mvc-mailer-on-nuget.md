@@ -1,7 +1,8 @@
 ---
 title: "MVC Mailer on NuGet"
 date: "2011-09-10"
-tags: ["Mvc Mailer ASP"]
+category: "Web & APIs"
+tags: ["asp.net mvc", "nuget"]
 ---
 
 So have you ever found yourself doing this?

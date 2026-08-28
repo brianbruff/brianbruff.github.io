@@ -1,7 +1,8 @@
 ---
 title: "A magical concoction Asp,WebApi,jQuery,KenodoUi,Knockout.js,WCF,Async,Moq"
 date: "2012-07-22"
-tags: ["asp webapi", "jquery", "kenodUI", "Knockout.js", "Wcf", "Async", "Moq"]
+category: "Web & APIs"
+tags: ["web api", "knockout", "kendo ui", "wcf"]
 ---
 
 So the heading for this post is a little bit of a mouthful, but I want to tell you a story of how some of these technologies play together, so often in blog posts we are presented with a trivial example (I’m holding my hands up here too) and what we really want to see is that next step, i.e is the tech in question just a nice concept or can it be utilized practically?

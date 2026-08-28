@@ -1,7 +1,8 @@
 ---
 title: "Create those delete views"
 date: "2011-02-27"
-tags: ["mvc3"]
+category: "Web & APIs"
+tags: ["asp.net mvc", "security"]
 ---
 
 You may wonder why you would create a view for the delete action
