@@ -48,6 +48,86 @@ test.describe("Homepage scroll story", () => {
       .toBe(5)
   })
 
+  /* The clips are 16:9. On an ultrawide the stage is far wider than that, so
+     `cover` fills to the width and throws the surplus height away — centred,
+     half of it off the top, which took the top of the head clean off on a 34"
+     panel. The heads sit 50px and 48px down their 900px frames, so the test is
+     simply that the crop stays inside that: measured in source pixels, not in
+     appearance, because that is the number the framing actually turns on. */
+  test.describe("ultrawide", () => {
+    const HEAD_TOP = { hero: 50, journey: 48 }
+
+    for (const [w, h, label] of [
+      [3440, 1206, "34in panel, real window height"],
+      [3440, 1440, "34in panel, full height"],
+      [3840, 1080, "32:9"],
+    ]) {
+      test(`keeps the heads out of the crop at ${w}x${h} (${label})`, async ({
+        page,
+      }) => {
+        await page.setViewportSize({ width: w, height: h })
+        await page.goto("/")
+
+        for (const [id, headTop] of Object.entries(HEAD_TOP)) {
+          const cropped = await page
+            .locator(`#${id} .stage__poster`)
+            .evaluate(img => {
+              const box = img.getBoundingClientRect()
+              const scale = box.width / img.naturalWidth
+              const overflow = img.naturalHeight * scale - box.height
+              const bias =
+                parseFloat(
+                  getComputedStyle(img).objectPosition.split(" ")[1]
+                ) / 100
+              return (overflow * bias) / scale
+            })
+
+          expect(cropped, `${id}: crop must stay above the head`).toBeLessThan(
+            headTop
+          )
+        }
+      })
+    }
+
+    /* The work clip has no headroom in the source at all, so the only correct
+       crop there is none: anything taken off the top is head. */
+    test("anchors the work clip, which has no headroom to give", async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width: 3440, height: 1206 })
+      await page.goto("/")
+      await expect(page.locator("#work .stage__poster")).toHaveCSS(
+        "object-position",
+        "50% 0%"
+      )
+    })
+
+    /* The bias is a share of the surplus, so at 16:9 — where the clip and the
+       stage are the same shape and there is no surplus — it must come to
+       nothing. Asserted as the crop rather than the CSS value on purpose: the
+       declaration does apply at 16:9, it just has nothing to act on, and it is
+       the crop that decides whether narrower screens moved. */
+    test("crops nothing at 16:9, where there is no surplus", async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width: 1920, height: 1080 })
+      await page.goto("/")
+
+      const cropped = await page
+        .locator("#hero .stage__poster")
+        .evaluate(img => {
+          const box = img.getBoundingClientRect()
+          const scale = box.width / img.naturalWidth
+          const overflow = img.naturalHeight * scale - box.height
+          const bias =
+            parseFloat(getComputedStyle(img).objectPosition.split(" ")[1]) / 100
+          return (Math.max(0, overflow) * bias) / scale
+        })
+
+      expect(cropped).toBeLessThan(1)
+    })
+  })
+
   test("no page-level horizontal scroll", async ({ page }) => {
     const { scrollWidth, clientWidth } = await page.evaluate(() => {
       const d = document.documentElement
