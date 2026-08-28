@@ -11,10 +11,9 @@ export const links = {
   resume: "/resume/",
   email: "mailto:b@briankeating.net",
 
-  // TODO(brian): confirm these two, then replace null with the URL.
-  // zeus     — the public Zeus / OpenHPSDR repository or organisation
-  // linkedin — the LinkedIn profile URL
-  zeus: null,
+  zeus: "https://github.com/zeus-sdr",
+
+  // TODO(brian): confirm the LinkedIn profile URL, then replace null with it.
   linkedin: null,
 }
 
