@@ -20,7 +20,7 @@ const steps = [
   },
   {
     label: "AI systems architecture",
-    note: "Bringing multi-agent, multi-model workflows into practical, robust delivery.",
+    note: "Bringing multi-agent, multi-modal workflows into practical, robust delivery.",
   },
 ]
 
