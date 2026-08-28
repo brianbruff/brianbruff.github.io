@@ -47,7 +47,14 @@ const SiteHeader = ({ variant = "site" }) => {
         </ul>
       </nav>
 
-      <a className="header__cta" href="#contact">
+      {/* The contact section lives on the homepage, so a bare "#contact"
+          only resolves while you are standing on it. Everywhere else the
+          link has to say which page to go to first, or the click lands on
+          a fragment that is not there and nothing happens at all. */}
+      <a
+        className="header__cta"
+        href={variant === "story" ? "#contact" : "/#contact"}
+      >
         Start a conversation&nbsp;↗
       </a>
     </header>
