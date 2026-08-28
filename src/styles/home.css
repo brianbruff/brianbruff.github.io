@@ -29,7 +29,42 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center var(--frame-y, 50%);
+}
+
+/* --- Framing on wide screens ---------------------------------------------
+   The full-bleed clips are 16:9. A viewport wider than that fills to the
+   width and throws the surplus height away: at 21:9 that is a quarter of
+   the frame gone, and centred cropping takes half of it off the top. The
+   top is where the faces are — none of these three clips carries more than
+   a few per cent of headroom above the hair — so on an ultrawide the heads
+   go and the floor stays.
+
+   Biasing the crop upward reverses that. The bias is a share of the
+   overflow rather than a fixed distance, so it scales itself: at 16:9 there
+   is no surplus and it changes nothing, which is why narrower screens were
+   never wrong and must not move now.
+
+   Plates are left out. They carry their own aspect-ratio, matched to their
+   source, so they never see the viewport's shape at all. */
+@media (min-aspect-ratio: 16 / 9) {
+  /* Measured against the clips: the hair starts 50px down the intro frame and
+     48px down the walk frame, of 900. At 21:9 a 12% bias spends 27 of those,
+     which leaves the heads clear with room to spare. */
+  #hero,
+  #journey { --frame-y: 12%; }
+  /* The work clip has no headroom at all — the hair is already flush with the
+     top edge of the source, so every pixel cropped is a pixel of head. Anchor
+     it and lose the desk instead; there is nothing above to trade. */
+  #work { --frame-y: 0%; }
+}
+
+/* Beyond about 2.5:1 — 32:9 panels, and any window left half-height on an
+   ultrawide — the surplus roughly doubles again, so the same share of it
+   costs twice as much frame. Halve the share to hold the same clearance. */
+@media (min-aspect-ratio: 5 / 2) {
+  #hero,
+  #journey { --frame-y: 6%; }
 }
 /* The video fades up over the poster once it can actually render a frame,
    so a slow or failed load leaves a composed still rather than black. */
@@ -407,6 +442,23 @@
   backdrop-filter: blur(3px);
 }
 .topology__svg { width: 100%; height: auto; overflow: visible; }
+
+/* The overlay is a block of content, not a canvas that takes whatever width
+   is going. Left to stretch, on a 34" panel the two columns reach ~1500px
+   each and the panel renders the 480×274 diagram at over three times natural
+   size — 1650px wide and tall enough to fill the stage top to bottom. The
+   subject of this clip stands in the right third of the frame, so the panel
+   grows straight over him: measured at 3440x1206, 94% of him was behind it.
+   At 16:9 the same panel lands near 40% of the stage height and he reads
+   clearly beside it, which is the proportion worth holding on to.
+
+   So cap the block. 120rem is the width it already has on a 1920 screen —
+   and the cap is on the border box, which carries 216px of padding — so
+   nothing at or below 1920 moves. Past it the block stops growing and the
+   surplus falls to the right, where the subject is. */
+@media (min-aspect-ratio: 16 / 9) {
+  .work__overlay { max-width: 120rem; }
+}
 
 .topology__path {
   fill: none;
