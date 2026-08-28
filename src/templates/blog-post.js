@@ -2,18 +2,35 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { slugifyCategory } from "../utils/taxonomy"
 import "../styles/blog-post.css"
 
 const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark
-  const { title, date, tags } = post.frontmatter
+  const { title, date, category, tags } = post.frontmatter
 
   return (
     <Layout>
       <div className="page">
         <article className="post">
           <header className="post__header">
-            <p className="eyebrow">Writing</p>
+            {/* The eyebrow used to read "Writing", which told the reader
+                nothing they could not already see. The category says what
+                this post is about and doubles as the way back to its
+                shelf on the index. Older posts predating the taxonomy
+                keep the generic label rather than an empty rule. */}
+            <p className="eyebrow">
+              {category ? (
+                <Link
+                  className="post__category"
+                  to={`/blog/?category=${slugifyCategory(category)}`}
+                >
+                  {category}
+                </Link>
+              ) : (
+                "Writing"
+              )}
+            </p>
             <h1 className="post__title">{title}</h1>
             <div className="post__meta">
               <time className="meta">{date}</time>
@@ -21,10 +38,18 @@ const BlogPostTemplate = ({ data }) => {
                 <span className="meta">{post.timeToRead} min read</span>
               )}
             </div>
+            {/* Tags were decoration until the index learned to filter on
+                them. Each one now carries the reader to every other post
+                that shares it. Tags are free text, so the value is encoded
+                rather than trusted to be URL-safe the way a slug is. */}
             {tags?.length > 0 && (
               <ul className="post__tags">
                 {tags.map(tag => (
-                  <li key={tag}>{tag}</li>
+                  <li key={tag}>
+                    <Link to={`/blog/?tag=${encodeURIComponent(tag)}`}>
+                      {tag}
+                    </Link>
+                  </li>
                 ))}
               </ul>
             )}
@@ -55,6 +80,7 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "DD MMMM YYYY")
+        category
         tags
         image
       }
