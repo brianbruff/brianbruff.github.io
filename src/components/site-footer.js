@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { links } from "../lib/site-links"
+import { links } from "../site/links"
 import OutboundLink from "./outbound-link"
 
 const SiteFooter = () => (

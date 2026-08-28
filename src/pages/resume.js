@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import OutboundLink from "../components/outbound-link"
-import { links } from "../lib/site-links"
+import { links } from "../site/links"
 import "../styles/resume.css"
 
 const skills = [

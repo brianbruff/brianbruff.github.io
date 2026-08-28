@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Chapter, Media, Scrim } from "./stage"
 import OutboundLink from "../outbound-link"
-import { links } from "../../lib/site-links"
+import { links } from "../../site/links"
 
 const features = [
   "Modern SDR experience",

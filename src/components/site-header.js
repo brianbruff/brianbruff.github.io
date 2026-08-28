@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { storyNav, siteNav } from "../lib/site-links"
+import { storyNav, siteNav } from "../site/links"
 
 /**
  * Quiet fixed header. Transparent over the story, warm-black once scrolled.

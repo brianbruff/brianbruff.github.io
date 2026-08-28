@@ -9,8 +9,8 @@ import Journey from "../components/home/journey"
 import Work from "../components/home/work"
 import OpenSource from "../components/home/open-source"
 import Commodity from "../components/home/commodity"
-import { links } from "../lib/site-links"
-import { mountScrollStory } from "../lib/scroll-story"
+import { links } from "../site/links"
+import { mountScrollStory } from "../site/scroll-story"
 
 import "../styles/home.css"
 

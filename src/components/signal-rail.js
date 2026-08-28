@@ -1,5 +1,5 @@
 import * as React from "react"
-import { chapters } from "../lib/site-links"
+import { chapters } from "../site/links"
 
 /**
  * The signal rail: a copper hairline down the left edge carrying a chapter
