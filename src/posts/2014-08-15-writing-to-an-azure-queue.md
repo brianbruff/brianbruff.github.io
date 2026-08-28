@@ -1,7 +1,8 @@
 ---
 title: "Writing to an Azure Queue"
 date: "2014-08-15"
-tags: ["Azure Queue"]
+category: "Cloud & Infrastructure"
+tags: ["azure", "storage", "json"]
 ---
 
 If you've seen my [previous post](https://briankeating.net/post/Uploading-a-Blob-to-Azure-container) then this post is quite similar, this time however I write to an Azure Queue and not to a blob.

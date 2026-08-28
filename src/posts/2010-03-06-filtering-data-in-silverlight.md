@@ -1,7 +1,8 @@
 ---
 title: "Filtering data in Silverlight"
 date: "2010-03-06"
-tags: ["lmabda", "silverlight", "wpf"]
+category: "XAML & Desktop"
+tags: ["silverlight", "wpf", "data binding"]
 ---
 
 Ever want to filter data in Silverlight? here's a simple example that uses a lambda expression to search on name (case sensitive)

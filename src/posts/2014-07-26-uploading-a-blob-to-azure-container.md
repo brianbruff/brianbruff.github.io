@@ -1,7 +1,8 @@
 ---
 title: "Uploading a Blob to Azure container"
 date: "2014-07-26"
-tags: ["Azure", "Blob", "ConnectionString"]
+category: "Cloud & Infrastructure"
+tags: ["azure", "storage"]
 ---
 
 ![](/images//images/image_thumb_324.png)  

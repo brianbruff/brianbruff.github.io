@@ -1,7 +1,8 @@
 ---
 title: "Proxying a Rest API with AWS API Gateway"
 date: "2021-06-30"
-tags: []
+category: "Cloud & Infrastructure"
+tags: ["aws", "web api"]
 ---
 
   

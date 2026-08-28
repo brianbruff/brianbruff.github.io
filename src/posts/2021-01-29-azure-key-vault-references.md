@@ -1,7 +1,8 @@
 ---
 title: "Azure Key Vault References"
 date: "2021-01-29"
-tags: []
+category: "Cloud & Infrastructure"
+tags: ["azure", "authentication", "security"]
 ---
 
 In this video I show you how move application secrets into Azure Key Vault without any code changes.I do this by using a vault access policy.

@@ -1,7 +1,8 @@
 ---
 title: "Configuring IIS to host WCF services"
 date: "2009-11-05"
-tags: ["iis7", "wcf"]
+category: "Web & APIs"
+tags: ["iis", "wcf"]
 ---
 
 It's true what they say, to learn new technologies it's simple a matter of ABC (Always be coding), I've watched many the video, read many the book but it's only when I went to try to do something the it sinks in.   

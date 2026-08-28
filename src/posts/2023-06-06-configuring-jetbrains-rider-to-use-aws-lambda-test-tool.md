@@ -1,7 +1,8 @@
 ---
 title: "Configuring JetBrains Rider to use AWS Lambda Test Tool"
 date: "2023-06-06"
-tags: []
+category: "Tooling & Craft"
+tags: ["visual studio", "aws", "serverless"]
 ---
 
 eveloping serverless applications using AWS Lambda can be an exciting journey into the world of event-driven programming. However, testing and debugging these applications can be a slightly more intricate process than usual. Fortunately, AWS provides a valuable tool known as the 'AWS Lambda Test Tool' that simplifies local testing and debugging of your Lambda functions.

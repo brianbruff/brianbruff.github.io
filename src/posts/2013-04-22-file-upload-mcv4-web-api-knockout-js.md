@@ -1,7 +1,8 @@
 ---
 title: "File Upload MCV4 Web API, Knockout.js"
 date: "2013-04-22"
-tags: ["Fileupload in SPA WebApi"]
+category: "Front-end & JavaScript"
+tags: ["knockout", "web api", "html5"]
 ---
 
 I wish to follow up on my previous post [Uploading a file in MVC4 C#5 .NET 4.5](/post/2012/04/04/Uploading-a-file-in-MVC4-C5-NET-45.aspx)

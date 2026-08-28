@@ -1,7 +1,8 @@
 ---
 title: "Too easy to be simple"
 date: "2011-02-21"
-tags: []
+category: "Web & APIs"
+tags: ["sql server", "asp.net mvc", "visual studio"]
 ---
 
 Was having a conversation this evening with an ex colleague of mine, he’s recently ventured into the world of Silverlight which he loves, for him; even though it didn’t start out that way; this has become a stepping stone to the the wonderful world of web development.

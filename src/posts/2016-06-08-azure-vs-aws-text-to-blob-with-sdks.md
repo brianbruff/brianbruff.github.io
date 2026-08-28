@@ -1,7 +1,8 @@
 ---
 title: "Azure vs. AWS Text to Blob with SDKs"
 date: "2016-06-08"
-tags: ["Azure", "AWS", "CloudWars"]
+category: "Cloud & Infrastructure"
+tags: ["azure", "aws", "storage"]
 ---
 
 This demonstrates what is involved in writing and reading some text to an Azure and an AWS blob.

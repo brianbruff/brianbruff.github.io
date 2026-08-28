@@ -1,7 +1,8 @@
 ---
 title: "Angular.js Auth with ASP WebApi2"
 date: "2014-10-17"
-tags: ["Authentication", "AngularJS", "OWIN", "WEBAPI"]
+category: "Front-end & JavaScript"
+tags: ["angular", "authentication", "web api"]
 ---
 
 So in my [previous post](https://briankeating.net/post/WebAPI-OWIN-and-HppClient-Authorize) I show you how to auth with a bearer token against WebApi2 with the OWIN middleware using a HttpClient. Next up I show you how to do the same with AngularJS.

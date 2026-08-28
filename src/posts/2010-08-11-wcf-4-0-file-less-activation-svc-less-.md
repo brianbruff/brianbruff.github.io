@@ -1,7 +1,8 @@
 ---
 title: "WCF 4.0  File-less Activation (.svc less)"
 date: "2010-08-11"
-tags: ["wcf 4.0"]
+category: "Web & APIs"
+tags: ["wcf", "iis", "web api"]
 ---
 
   

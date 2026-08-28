@@ -1,7 +1,8 @@
 ---
 title: "Tech of the week"
 date: "2015-01-01"
-tags: []
+category: "Tooling & Craft"
+tags: ["blogging", "ionic", "angular"]
 ---
 
 Appears to be the story of my life lately, just as I get excited and proficient on one stack I get side tracked with something else. The latest stack I’m playing with is the Ionic2 framework, but first some history.

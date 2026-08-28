@@ -1,7 +1,8 @@
 ---
 title: "IE 11 Disassembly"
 date: "2015-11-10"
-tags: ["IE11", "crash", "debug", "assembly", "css", "LeaveStylesheetDownload"]
+category: "Front-end & JavaScript"
+tags: ["css", "visual studio"]
 ---
 
 So I’ve been looking at an issue for a client today where by an application working perfectly well on most browsers was failing on internet explorer 11. Users were presented with the following error:

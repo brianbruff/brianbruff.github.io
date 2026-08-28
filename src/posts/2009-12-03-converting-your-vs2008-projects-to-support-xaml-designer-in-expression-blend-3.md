@@ -1,7 +1,8 @@
 ---
 title: "Converting your VS2008 projects to support xaml designer in Expression blend 3"
 date: "2009-12-03"
-tags: ["vs2008", "expression blend"]
+category: "XAML & Desktop"
+tags: ["expression blend", "visual studio", "wpf"]
 ---
 
 If you've created a new WPF project in VS2008 and then you try to design your UX in Expression Blend 3 you'll find that you get xaml view only.

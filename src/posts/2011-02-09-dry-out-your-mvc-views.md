@@ -1,7 +1,8 @@
 ---
 title: "DRY out your MVC Views"
 date: "2011-02-09"
-tags: []
+category: "Web & APIs"
+tags: ["asp.net mvc", "design patterns"]
 ---
 
 For those of you that don’t know DRY : Don’t Repeat Yourself.

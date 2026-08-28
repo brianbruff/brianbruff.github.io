@@ -1,7 +1,8 @@
 ---
 title: "ASP MVC4 Web API file upload: Unexpected end of MIME"
 date: "2013-04-03"
-tags: ["Unexpected end of MIME MVC WebApi"]
+category: "Web & APIs"
+tags: ["web api", "asp.net mvc", "html5"]
 ---
 
 So I’ve had a problem uploading a file using a HTML5 input of type file field.

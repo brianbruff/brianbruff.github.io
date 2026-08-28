@@ -1,7 +1,8 @@
 ---
 title: "Oracle Database Restore"
 date: "2011-01-04"
-tags: ["oracle"]
+category: "Data & Persistence"
+tags: ["oracle", "backup"]
 ---
 
 How to create an oracle user/schema and resore an existing database to this new schema.

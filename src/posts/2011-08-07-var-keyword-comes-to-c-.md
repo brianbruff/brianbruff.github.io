@@ -1,7 +1,8 @@
 ---
 title: "var keyword comes to c++"
 date: "2011-08-07"
-tags: ["auto"]
+category: ".NET & C#"
+tags: ["c++", "linq"]
 ---
 
 > Ok so it’s not the **var** keyword in c++, but in C++11 it’s called **auto.  

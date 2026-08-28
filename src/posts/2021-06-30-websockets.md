@@ -1,7 +1,8 @@
 ---
 title: "Websockets"
 date: "2021-06-30"
-tags: []
+category: "Java & JVM"
+tags: ["web api", "websockets"]
 ---
 
 This video shows you how to create a websocket server in java

@@ -1,7 +1,8 @@
 ---
 title: "Asp MVC Entity Framework and Data annotations"
 date: "2011-02-28"
-tags: ["entity framework", "data annotations"]
+category: "Web & APIs"
+tags: ["entity framework", "asp.net mvc"]
 ---
 
 ![](/images//blog/image.axd?picture=image_thumb_30.png)

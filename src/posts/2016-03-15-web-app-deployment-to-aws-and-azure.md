@@ -1,7 +1,8 @@
 ---
 title: "Web App deployment to AWS and Azure"
 date: "2016-03-15"
-tags: ["CloudWars", "Elasticbeanstalk", "AppService"]
+category: "Cloud & Infrastructure"
+tags: ["aws", "azure", "deployment"]
 ---
 
 As promised, hereby the first instalment of the AWS vs Azure blog post saga, again I’m trying to remain impartial throughout.

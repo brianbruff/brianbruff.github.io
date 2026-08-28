@@ -1,7 +1,8 @@
 ---
 title: "ASP WebApi query single entity"
 date: "2012-04-09"
-tags: ["Using Raven with Asp Web Api"]
+category: "Web & APIs"
+tags: ["web api", "ravendb"]
 ---
 
 What’s wrong with this?

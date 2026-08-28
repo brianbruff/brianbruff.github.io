@@ -1,7 +1,8 @@
 ---
 title: "Reading a file in Windows 8 html5 js"
 date: "2012-02-24"
-tags: []
+category: "Front-end & JavaScript"
+tags: ["html5", "winrt"]
 ---
 
 Hi again, this is my last post were I compare the same WinRT application written in three different ways.

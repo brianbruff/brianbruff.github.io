@@ -1,7 +1,8 @@
 ---
 title: "Linq DistinctBy"
 date: "2012-04-05"
-tags: ["Linq DistinctBy"]
+category: ".NET & C#"
+tags: ["linq", "extension methods"]
 ---
 
 Here is an extension method that I just had to share, TBH I’ve forgotten what I robbed the initial idea from, it wasn’t mine, but it’s something I found that I use over and over.

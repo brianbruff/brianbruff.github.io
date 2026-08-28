@@ -1,7 +1,8 @@
 ---
 title: "Data Validation in Silverlight (Method 1)"
 date: "2010-02-14"
-tags: []
+category: "XAML & Desktop"
+tags: ["silverlight", "validation", "data binding"]
 ---
 
 Here's one way to do validation in silverlight.

@@ -1,7 +1,8 @@
 ---
 title: "vs2010 parallelism"
 date: "2010-10-03"
-tags: []
+category: ".NET & C#"
+tags: ["concurrency", "async", "visual studio"]
 ---
 
 Take some time to explore the new vs2010 debugger.

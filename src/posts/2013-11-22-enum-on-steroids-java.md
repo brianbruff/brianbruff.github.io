@@ -1,7 +1,8 @@
 ---
 title: "Enum on steroids – java"
 date: "2013-11-22"
-tags: ["java", "enum"]
+category: "Java & JVM"
+tags: ["java", "enums"]
 ---
 
 Hi was reviewing some java code this week and came across this wonderful way of establishing structured enums.

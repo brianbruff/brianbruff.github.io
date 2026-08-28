@@ -1,7 +1,8 @@
 ---
 title: "Azure DB is much slower than AWS, why?"
 date: "2016-07-11"
-tags: []
+category: "Cloud & Infrastructure"
+tags: ["azure", "aws", "performance", "sql server"]
 ---
 
 This is a rather unusual post for me, while I’ve gone to the trouble of getting certified on both Azure and AWS platforms and try to make my posts on the same as unbiased as possible, the fact is that I’m pro Azure, and always have been, perhaps it’s because I’ve grown up on Microsoft Stacks, perhaps it’s because other platforms offer such a myriad of options that’s it not only hard to pick some, but getting the to work cohesively is beyond painful. 

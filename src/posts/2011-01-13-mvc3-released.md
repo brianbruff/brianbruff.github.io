@@ -1,7 +1,8 @@
 ---
 title: "MVC3 Released"
 date: "2011-01-13"
-tags: []
+category: "Web & APIs"
+tags: ["asp.net mvc", "jquery"]
 ---
 
 Today Microsoft announced the (actual, final, honest) releases of:

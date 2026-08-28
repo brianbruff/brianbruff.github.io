@@ -1,7 +1,8 @@
 ---
 title: "Typescript Gang of 4 Series"
 date: "2015-12-09"
-tags: []
+category: "Tooling & Craft"
+tags: ["design patterns", "typescript"]
 ---
 
 When I started out writing this blog way back circa 2008 timeframe it was fully focused on .NET tech, things have changed with time and while .NET is still my second love (my first love was C++) I now find myself in a multiple of different language frameworks and tech. I also find that I’m not so much on bleeding edge but rather focus my efforts where I expect I’ll get most rewards. I stayed away from ASP5 until about now-ish i.e when the RC1 version is out in the wild and given so much has changed I’m glad I did. 

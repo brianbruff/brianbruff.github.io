@@ -1,7 +1,8 @@
 ---
 title: "Azure AD Angular7 .net Core 2.2 ADAL"
 date: "2018-12-27"
-tags: []
+category: "Web & APIs"
+tags: ["azure", "angular", "authentication"]
 ---
 
 Hi Everyone,

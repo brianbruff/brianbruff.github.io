@@ -1,7 +1,8 @@
 ---
 title: "jQuery Template Example"
 date: "2011-06-07"
-tags: []
+category: "Front-end & JavaScript"
+tags: ["jquery", "json"]
 ---
 
 Straight to screenshot

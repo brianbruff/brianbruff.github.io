@@ -1,7 +1,8 @@
 ---
 title: "How to deploy apps to your windows phone 7"
 date: "2011-01-23"
-tags: []
+category: "Mobile"
+tags: ["windows phone", "deployment"]
 ---
 
 1) Download and install [Windows Phone Developer Tools](http://www.microsoft.com/downloads/en/details.aspx?FamilyID=04704acf-a63a-4f97-952c-8b51b34b00ce)

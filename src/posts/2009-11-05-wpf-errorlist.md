@@ -1,6 +1,7 @@
 ---
 title: "WPF ErrorList"
 date: "2009-11-05"
+category: "XAML & Desktop"
 tags: ["wpf", "visual studio"]
 ---
 

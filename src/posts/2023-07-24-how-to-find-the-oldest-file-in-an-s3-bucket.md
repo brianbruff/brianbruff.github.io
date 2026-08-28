@@ -1,7 +1,8 @@
 ---
 title: "How to find the oldest file in an S3 bucket"
 date: "2023-07-24"
-tags: ["Python"]
+category: "Cloud & Infrastructure"
+tags: ["aws", "storage", "python"]
 ---
 
 This python example searches for the oldest file in a bucket and prints same.

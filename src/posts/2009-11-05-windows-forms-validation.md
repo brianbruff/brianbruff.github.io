@@ -1,7 +1,8 @@
 ---
 title: "Windows Forms Validation"
 date: "2009-11-05"
-tags: ["windowsforms validation"]
+category: "XAML & Desktop"
+tags: ["wpf", "validation"]
 ---
 
 One approach for validating child controls on windows froms is to

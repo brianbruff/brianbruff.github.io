@@ -1,7 +1,8 @@
 ---
 title: "Declarative Ria Data and Controls"
 date: "2010-03-24"
-tags: []
+category: "XAML & Desktop"
+tags: ["silverlight", "data binding", "kendo ui"]
 ---
 
 I'm really loving this declarative approach with silverlight and wpf... (ask me why and I can't tell you ! :-)

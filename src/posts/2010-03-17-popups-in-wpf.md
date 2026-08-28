@@ -1,7 +1,8 @@
 ---
 title: "Popups in wpf"
 date: "2010-03-17"
-tags: []
+category: "XAML & Desktop"
+tags: ["wpf", "data binding"]
 ---
 
 Here is come code to show a popup in wpf, i've nothing in the popup at the moment, just a gradient background and border.

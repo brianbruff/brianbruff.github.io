@@ -1,7 +1,8 @@
 ---
 title: "Eureka moment"
 date: "2013-01-28"
-tags: ["Visual Studio web.config transformations"]
+category: "Tooling & Craft"
+tags: ["visual studio", "iis", "deployment"]
 ---
 
 After all these years, where I’ve modified connections strings etc in the web.config release folder.   

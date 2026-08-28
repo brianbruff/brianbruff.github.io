@@ -1,7 +1,8 @@
 ---
 title: "Layout in Windows Phone 7"
 date: "2012-03-04"
-tags: ["WINRT", "WP7"]
+category: "Mobile"
+tags: ["windows phone", "silverlight", "expression blend"]
 ---
 
 So my wife left me for a hen weekend and I needed something to do with my time.   

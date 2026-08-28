@@ -1,9 +1,9 @@
 ---
 title: "AI Does What I Tell It"
 date: "2026-01-26"
+category: "AI & Agents"
+tags: ["agentic coding", "productivity"]
 description: "AI is transforming software engineering - not by replacing engineers, but by reshaping their role. Understanding where AI excels and where it struggles is the key to leveraging this powerful technology."
-tags:
-  ["AI", "Machine Learning", "Software Engineering", "Productivity", "Coding"]
 ---
 
 ![Future Innovation](/images/Future-Innovation.png)

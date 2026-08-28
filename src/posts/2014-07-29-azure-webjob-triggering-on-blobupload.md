@@ -1,7 +1,8 @@
 ---
 title: "Azure WebJob triggering on BlobUpload"
 date: "2014-07-29"
-tags: ["Azure WebJobs"]
+category: "Cloud & Infrastructure"
+tags: ["azure", "serverless", "storage"]
 ---
 
 Tonight I’m going to follow up on my previous post where I promised to show you how to react on somone/something uploading a Blob.

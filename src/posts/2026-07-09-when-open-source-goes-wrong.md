@@ -1,7 +1,8 @@
 ---
 title: "When Open Source Goes Wrong"
 date: "2026-07-09"
-tags: ["OpenSource", "SDR", "Zeus", "OpenHPSDR"]
+category: "Radio & Signals"
+tags: ["sdr", "open source"]
 image: "/images/os_gone_wrong.png"
 ---
 

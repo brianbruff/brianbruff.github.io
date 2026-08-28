@@ -1,7 +1,8 @@
 ---
 title: "Async MVC Controllers"
 date: "2012-03-14"
-tags: ["MVC4 AsyncControllers"]
+category: "Web & APIs"
+tags: ["asp.net mvc", "async"]
 ---
 
 I previously wrote a [post on MVC async controllers](/post/2011/01/17/Thread-starvation-in-MVC.aspx). Now I want to follow up on something that’s more cutting edge, unfortunately I’m one of those people that like nosing about with what new, how it will affect me and how I could leverage it in future etc., Often, I’ll readily admit it’s more bleeding edge than cutting edge (xaml support in Blend5 for example ![Thumbs down](./image.axd?picture=wlEmoticon-thumbsdown.png)).

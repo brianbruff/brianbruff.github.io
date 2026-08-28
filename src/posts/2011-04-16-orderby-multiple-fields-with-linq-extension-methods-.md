@@ -1,7 +1,8 @@
 ---
 title: "OrderBy multiple fields with Linq extension methods."
 date: "2011-04-16"
-tags: []
+category: ".NET & C#"
+tags: ["linq", "extension methods"]
 ---
 
 Not many comments needed I imagine.

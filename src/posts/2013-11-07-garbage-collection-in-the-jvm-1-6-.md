@@ -1,7 +1,8 @@
 ---
 title: "Garbage Collection in the JVM (1.6)"
 date: "2013-11-07"
-tags: ["GarbageCollection", "java", "jvm"]
+category: "Java & JVM"
+tags: ["java", "performance"]
 ---
 
 Hi guys, 

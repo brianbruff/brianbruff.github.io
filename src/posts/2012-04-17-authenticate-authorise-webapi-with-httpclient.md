@@ -1,7 +1,8 @@
 ---
 title: "Authenticate, Authorise WebApi with HttpClient"
 date: "2012-04-17"
-tags: ["ASP WebApi login using HttpClient"]
+category: "Web & APIs"
+tags: ["web api", "authentication", "json"]
 ---
 
 Hi all, I said I’d post this because I didn’t manage to find a suitable blog post or documentation indicating how to do this with the HttpClient (beta). (bleeding edge again ey).

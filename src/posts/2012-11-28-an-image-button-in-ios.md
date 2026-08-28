@@ -1,7 +1,8 @@
 ---
 title: "An image button in iOS"
 date: "2012-11-28"
-tags: ["UiImageButton"]
+category: "Mobile"
+tags: ["ios", "objective-c"]
 ---
 
 So as I wait for my second iPhone application to be approved by the apple store, I start to wonder a few little things. How can I improve my existing apps through functionality and user experience.

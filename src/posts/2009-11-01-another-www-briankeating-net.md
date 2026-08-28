@@ -1,7 +1,8 @@
 ---
 title: "Another www.briankeating.net"
 date: "2009-11-01"
-tags: ["blog", "welcome"]
+category: "Tooling & Craft"
+tags: ["blogging", "blogengine"]
 ---
 
 Hello and welcome.   

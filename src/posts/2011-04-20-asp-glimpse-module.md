@@ -1,7 +1,8 @@
 ---
 title: "ASP Glimpse Module"
 date: "2011-04-20"
-tags: []
+category: "Tooling & Craft"
+tags: ["visual studio", "nuget", "asp.net mvc"]
 ---
 
 Now there’s a pretty sweet way of looking at what’s happening on your server, I’ve picked this tip up from watching SHanselmans MS Stack Of Love (recommended watch) @ MIX11 this year.

@@ -1,7 +1,8 @@
 ---
 title: "Linq to Xlsx"
 date: "2010-04-26"
-tags: ["openxml linq"]
+category: "Data & Persistence"
+tags: ["linq", "openxml"]
 ---
 
 A sample how to read a Excel 2007/2010 using Open XML SDK V2

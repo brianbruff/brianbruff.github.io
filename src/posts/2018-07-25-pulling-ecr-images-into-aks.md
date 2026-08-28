@@ -1,7 +1,8 @@
 ---
 title: "Pulling ECR images into AKS"
 date: "2018-07-25"
-tags: ["imagePullSecrets", "AKS", "ECR", "job", "cronjob"]
+category: "Cloud & Infrastructure"
+tags: ["kubernetes", "docker", "aws", "azure"]
 ---
 
 Hi everyone,

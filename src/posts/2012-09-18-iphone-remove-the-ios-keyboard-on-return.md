@@ -1,7 +1,8 @@
 ---
 title: "IPhone: remove the IOS Keyboard on Return"
 date: "2012-09-18"
-tags: ["Remove keyboard on IOS"]
+category: "Mobile"
+tags: ["ios", "objective-c"]
 ---
 
 Ok this is another XCode/ Objective-c/ IOS post. Stop reading now if you feel sick MSFT fans ![Winking smile](./image.axd?picture=wlEmoticon-winkingsmile_3.png)

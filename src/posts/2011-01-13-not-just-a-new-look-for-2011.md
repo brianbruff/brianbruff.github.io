@@ -1,7 +1,8 @@
 ---
 title: "Not just a new look for 2011"
 date: "2011-01-13"
-tags: []
+category: "Tooling & Craft"
+tags: ["blogging", "css"]
 ---
 
 Have updated a host of new features on my blog, (running Blog Engine 2.0 released on 1st January)

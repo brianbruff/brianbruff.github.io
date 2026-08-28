@@ -1,7 +1,8 @@
 ---
 title: "Knockout.js accept terms and conditions checkbox and submit button"
 date: "2012-08-14"
-tags: []
+category: "Front-end & JavaScript"
+tags: ["knockout", "data binding"]
 ---
 
 Here’s a nice way of enabling a button on a form IFF the Accept T&C; checkbox has been clicked

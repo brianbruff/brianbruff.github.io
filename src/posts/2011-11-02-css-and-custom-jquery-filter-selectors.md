@@ -1,7 +1,8 @@
 ---
 title: "CSS and custom jQuery filter selectors"
 date: "2011-11-02"
-tags: []
+category: "Front-end & JavaScript"
+tags: ["jquery", "css"]
 ---
 
 I’ve discovered a nice set of jQuery filter selectors.

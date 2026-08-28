@@ -1,7 +1,8 @@
 ---
 title: "Visual Studio Project Dependencies"
 date: "2009-11-03"
-tags: []
+category: "Tooling & Craft"
+tags: ["visual studio", "build"]
 ---
 
 Adding project dependencies on Visual studio is done automatically with .NET projects when Add Reference dialog chooses another project from your solution.

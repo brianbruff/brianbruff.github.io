@@ -1,7 +1,8 @@
 ---
 title: "Setting your C# language level"
 date: "2018-08-16"
-tags: ["c# language level visual studio"]
+category: ".NET & C#"
+tags: ["visual studio", "compiler"]
 ---
 
 The C# compiler defaults to the latest major version of the language that has been released. You may choose to compile any project using a new point release of the language. Choosing a newer version of the language enables your project to make use of the latest language features. In other scenarios, you may need to validate that a project compiles cleanly when using an older version of the language.

@@ -1,7 +1,8 @@
 ---
 title: "jQuery–Preventing default link behaviour"
 date: "2011-06-16"
-tags: []
+category: "Front-end & JavaScript"
+tags: ["jquery", "html5"]
 ---
 
 This sample shows you how to hijack the default behaviour of the anchor tag and do something different.   

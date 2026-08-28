@@ -1,7 +1,8 @@
 ---
 title: "Anonymous delegates and Lambdas"
 date: "2010-02-22"
-tags: ["lambda anonymous"]
+category: ".NET & C#"
+tags: ["delegates", "lambdas"]
 ---
 
 Just a sample that may catch you eye as unusual..

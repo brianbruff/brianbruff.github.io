@@ -1,7 +1,8 @@
 ---
 title: "Customization of WebApi"
 date: "2013-02-05"
-tags: ["webapi customization"]
+category: "Web & APIs"
+tags: ["web api", "json"]
 ---
 
 If you’ve used Asp MVC Web Api then you are most likely familiar with the notion of content negotiation, this is the process where the content returned in the response is dictated by the accepts header in the request. In sort if you request xml you get xml back, if you request json you get json back. 

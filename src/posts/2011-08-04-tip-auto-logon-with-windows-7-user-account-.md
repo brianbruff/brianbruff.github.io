@@ -1,7 +1,8 @@
 ---
 title: "Tip: Auto Logon with Windows 7 User account."
 date: "2011-08-04"
-tags: []
+category: "Tooling & Craft"
+tags: ["windows", "security"]
 ---
 
 Ok, only you can decide if this is something you want to do, keeping in mind the security concerns.

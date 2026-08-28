@@ -1,7 +1,8 @@
 ---
 title: "Idiot’s guide to Angular service vs factory"
 date: "2014-04-11"
-tags: ["Angular.js service factories"]
+category: "Front-end & JavaScript"
+tags: ["angular", "design patterns", "dependency injection"]
 ---
 
 You won’t believe the amount on questions I’ve come across regarding the confusion between angular services factories and providers. This blog post attempts to help clarify same and get you started.

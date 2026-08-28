@@ -1,7 +1,8 @@
 ---
 title: "Azure Logic Apps"
 date: "2017-02-10"
-tags: []
+category: "Cloud & Infrastructure"
+tags: ["azure", "serverless"]
 ---
 
 ![](/images//images/image_thumb_435.png)  

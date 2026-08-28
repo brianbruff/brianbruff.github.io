@@ -1,7 +1,8 @@
 ---
 title: "I’ve achieved my coding certification"
 date: "2011-02-22"
-tags: []
+category: "Tooling & Craft"
+tags: ["blogging", "unit testing"]
 ---
 
 ##### [The "Works on My Machine" Certification Program](http://www.codinghorror.com/blog/2007/03/the-works-on-my-machine-certification-program.html)

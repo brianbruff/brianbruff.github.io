@@ -1,7 +1,8 @@
 ---
 title: "Asyncronous WF4 activities"
 date: "2011-01-02"
-tags: ["wf4"]
+category: "Workflow (WF)"
+tags: ["async", "concurrency"]
 ---
 
 Anyone that's ever written UX/GUI code will know that while it once was acceptable (unavoidable) to block the UX thread with long running operations, it's now almost always done in a background thread/task etc.

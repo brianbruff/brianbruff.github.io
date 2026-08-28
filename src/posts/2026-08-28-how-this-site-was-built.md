@@ -1,8 +1,8 @@
 ---
 title: "How This Site Was Built (And Why Web Design Just Changed)"
 date: "2026-08-28"
-tags:
-  ["AI", "Agentic Coding", "Web Design", "Higgsfield", "Claude Code", "Gatsby"]
+category: "Tooling & Craft"
+tags: ["blogging", "agentic coding", "gatsby"]
 image: "/images/newsite-1-studio.jpg"
 ---
 

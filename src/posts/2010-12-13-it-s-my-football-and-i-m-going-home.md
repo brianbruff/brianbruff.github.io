@@ -1,7 +1,8 @@
 ---
 title: "It's my football and I'm going home"
 date: "2010-12-13"
-tags: [".net security"]
+category: ".NET & C#"
+tags: ["security", "assemblies"]
 ---
 
 We've all created API libraries, and libraries by their nature encourage resuse.  

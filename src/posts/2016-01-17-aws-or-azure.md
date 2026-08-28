@@ -1,7 +1,8 @@
 ---
 title: "AWS or AZURE"
 date: "2016-01-17"
-tags: ["CloudWars", "introduction"]
+category: "Cloud & Infrastructure"
+tags: ["aws", "azure"]
 ---
 
 ## History

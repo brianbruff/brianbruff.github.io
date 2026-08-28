@@ -1,7 +1,8 @@
 ---
 title: "Visual Studio you rock."
 date: "2012-02-09"
-tags: ["Visual Studio Regular expressions."]
+category: "Tooling & Craft"
+tags: ["visual studio", "regex"]
 ---
 
 I’m was not sure what I’d installed but tonight I needed to create a few regular expressions, and as i started typing this appeared in VS2010

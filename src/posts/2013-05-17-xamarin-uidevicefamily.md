@@ -1,7 +1,8 @@
 ---
 title: "Xamarin UIDeviceFamily"
 date: "2013-05-17"
-tags: []
+category: "Mobile"
+tags: ["xamarin", "ios"]
 ---
 
 I was releasing an app to the the Apple App store tonight (actually two apps, I've done an Atley Hunter ;-) )

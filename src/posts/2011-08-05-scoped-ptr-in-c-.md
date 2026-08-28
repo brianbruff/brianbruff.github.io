@@ -1,7 +1,8 @@
 ---
 title: "scoped_ptr in C#"
 date: "2011-08-05"
-tags: ["Disposing"]
+category: ".NET & C#"
+tags: ["idisposable", "design patterns", "c++"]
 ---
 
 Is there a better way? Or at least a more generic way to leverage the dispose pattern? Well here’s one I thought of tonight

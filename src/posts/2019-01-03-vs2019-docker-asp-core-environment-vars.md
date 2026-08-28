@@ -1,7 +1,8 @@
 ---
 title: "VS2019 Docker ASP Core Environment Vars"
 date: "2019-01-03"
-tags: ["vs2017", "vs2019", "docker"]
+category: "Cloud & Infrastructure"
+tags: ["docker", "visual studio"]
 ---
 
 ## Tip

@@ -1,7 +1,8 @@
 ---
 title: "Getting started with Azure Data Factory"
 date: "2022-12-05"
-tags: []
+category: "Data & Persistence"
+tags: ["azure", "storage"]
 ---
 
   

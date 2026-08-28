@@ -1,7 +1,8 @@
 ---
 title: "Inline XML Linq manipulation sample"
 date: "2009-11-04"
-tags: ["linq", "c# 3.0"]
+category: ".NET & C#"
+tags: ["linq", "xml"]
 ---
 
 ## A quick example of inline xml and Linq

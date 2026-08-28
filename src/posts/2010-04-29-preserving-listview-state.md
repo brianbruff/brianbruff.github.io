@@ -1,7 +1,8 @@
 ---
 title: "Preserving ListView state"
 date: "2010-04-29"
-tags: []
+category: "XAML & Desktop"
+tags: ["wpf", "data binding"]
 ---
 
 ## Xaml Serialization to the rescue.

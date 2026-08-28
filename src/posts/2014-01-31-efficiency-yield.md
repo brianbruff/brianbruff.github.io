@@ -1,7 +1,8 @@
 ---
 title: "Efficiency Yield"
 date: "2014-01-31"
-tags: ["C#", "Yield"]
+category: ".NET & C#"
+tags: ["linq", "performance"]
 ---
 
 Talking to an ex colleague of mine this evening about some use cases for yield, it’s quite a handy little keyword, i often use it for splitting a large collection into smaller ones (Chunk).

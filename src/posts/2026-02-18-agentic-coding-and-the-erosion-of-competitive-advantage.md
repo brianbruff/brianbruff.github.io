@@ -1,8 +1,8 @@
 ---
 title: "Agentic Coding and the Erosion of Competitive Advantage"
 date: "2026-02-18"
-tags:
-  ["AI", "Open Source", "Ham Radio", "Software Engineering", "Agentic Coding"]
+category: "AI & Agents"
+tags: ["agentic coding", "open source", "ham radio"]
 ---
 
 ![Veteran developer versus Bob with an AI agent](/images/agentic-1.hero.png)

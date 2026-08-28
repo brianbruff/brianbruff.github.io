@@ -1,7 +1,8 @@
 ---
 title: "Angular.js .NET File Upload"
 date: "2014-05-23"
-tags: ["FileUpload"]
+category: "Front-end & JavaScript"
+tags: ["angular", "web api", "html5"]
 ---
 
 In this post I’m going to show you how to upload a file using Angular.js on the client side and Asp WebApi on the back end.

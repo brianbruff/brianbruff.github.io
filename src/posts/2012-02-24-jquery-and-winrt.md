@@ -1,7 +1,8 @@
 ---
 title: "jQuery and WinRT"
 date: "2012-02-24"
-tags: []
+category: "Front-end & JavaScript"
+tags: ["jquery", "winrt"]
 ---
 
 As part of this WinRT comparison I’m doing, I next need to recreate my apps in html+js. 

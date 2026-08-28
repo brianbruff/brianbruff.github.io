@@ -1,7 +1,8 @@
 ---
 title: "Title: Getting Started with AWS Glue: A Comprehensive Guide"
 date: "2023-03-29"
-tags: ["GLUE", "ETL", "DATAFACTORY"]
+category: "Data & Persistence"
+tags: ["aws", "serverless", "storage"]
 ---
 
   

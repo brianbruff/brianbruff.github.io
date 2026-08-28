@@ -1,7 +1,8 @@
 ---
 title: "Using Telerik RadScheduler with MVC3"
 date: "2011-02-23"
-tags: []
+category: "Web & APIs"
+tags: ["kendo ui", "asp.net mvc"]
 ---
 
 The cool hip thing these days is MVC, hang ur head in shame if you are still plodding along with plain old asp.net.

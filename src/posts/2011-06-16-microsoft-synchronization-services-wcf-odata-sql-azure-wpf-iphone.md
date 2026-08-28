@@ -1,7 +1,8 @@
 ---
 title: "Microsoft Synchronization Services, WCF OData, Sql Azure, WPF, iPhone"
 date: "2011-06-16"
-tags: []
+category: "Web & APIs"
+tags: ["odata", "wcf", "azure", "sql server"]
 ---
 
 ###### Part1 – Setting up your database

@@ -1,7 +1,8 @@
 ---
 title: "Linq in asp.net"
 date: "2010-09-25"
-tags: []
+category: "Web & APIs"
+tags: ["linq", "asp.net mvc"]
 ---
 
 A quick sample of how to use linq in your webpages

@@ -1,7 +1,8 @@
 ---
 title: "C# on the iPhone"
 date: "2010-02-24"
-tags: []
+category: "Mobile"
+tags: ["ios", "mono"]
 ---
 
 Recently I've noticed that the country has gone iPhone mad and I'm starting to buy into it myself... my blackberry days may be numbered as the only distinct advantage I see is that bandwidth is not used retrieving emails... but nowadays bandwidth is not so much as issue,, e.g. you get 2gb a month on a vodafone contract ![Cool](/blog/editors/tiny_mce3/plugins/emotions/img/smiley-cool.gif)

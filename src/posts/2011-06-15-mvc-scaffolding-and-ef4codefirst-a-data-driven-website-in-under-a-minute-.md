@@ -1,7 +1,8 @@
 ---
 title: "MVC Scaffolding and EF4CodeFirst–A data driven website in under a minute!"
 date: "2011-06-15"
-tags: []
+category: "Web & APIs"
+tags: ["asp.net mvc", "entity framework", "sql server"]
 ---
 
 .

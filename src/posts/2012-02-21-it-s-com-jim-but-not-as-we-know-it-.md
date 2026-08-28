@@ -1,7 +1,8 @@
 ---
 title: "It’s COM Jim, but not as we know it!"
 date: "2012-02-21"
-tags: []
+category: ".NET & C#"
+tags: ["c++", "winrt"]
 ---
 
 Those of you that started out in windows c++ like me are likely familiar with COM![Punch](./image.axd?picture=wlEmoticon-punch.png), COM+![Ghost](./image.axd?picture=wlEmoticon-ghost.png), DCOM ![Ninja](./image.axd?picture=wlEmoticon-ninja_2.png)   

@@ -1,7 +1,8 @@
 ---
 title: "Prevent angular event bubbling"
 date: "2014-10-27"
-tags: ["prevent angular event bubbling"]
+category: "Front-end & JavaScript"
+tags: ["angular", "events"]
 ---
 
 In this screencast I show you how to prevent a click event on a table cell content from propagating up to its parent.

@@ -1,7 +1,8 @@
 ---
 title: "@helper  / razor"
 date: "2011-02-10"
-tags: []
+category: "Web & APIs"
+tags: ["asp.net mvc", "visual studio"]
 ---
 
 Here’s a neat little trick.

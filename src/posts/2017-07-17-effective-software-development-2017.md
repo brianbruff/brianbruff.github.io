@@ -1,7 +1,8 @@
 ---
 title: "Effective Software Development 2017"
 date: "2017-07-17"
-tags: []
+category: "Tooling & Craft"
+tags: ["blogging", "microservices", "design patterns"]
 ---
 
 I’ve been thinking a lot about the state of software development recently and moreover taking a step back trying to identify and articulate where I stand on past, present, future trends or concepts and define how to employ these ideas and approaches to become more effective in delivering successful production software. 

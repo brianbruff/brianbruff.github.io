@@ -1,7 +1,8 @@
 ---
 title: "Expression blend visual states"
 date: "2010-03-23"
-tags: []
+category: "XAML & Desktop"
+tags: ["expression blend", "silverlight"]
 ---
 
 A few people have asked me what's the easiest way of doing transitions on Silverlight.

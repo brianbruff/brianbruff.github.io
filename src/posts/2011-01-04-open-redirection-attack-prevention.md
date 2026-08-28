@@ -1,7 +1,8 @@
 ---
 title: "Open Redirection Attack prevention"
 date: "2011-01-04"
-tags: ["mvc", "open redirection attack prevention"]
+category: "Web & APIs"
+tags: ["asp.net mvc", "security", "authentication"]
 ---
 
 If you've had a look at the MVC3 preview generated code you will notice the Url.IsLocalUrl method getting called from the LogOn action.

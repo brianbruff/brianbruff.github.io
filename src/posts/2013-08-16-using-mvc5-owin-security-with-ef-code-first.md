@@ -1,7 +1,8 @@
 ---
 title: "Using MVC5 Owin Security with EF Code First"
 date: "2013-08-16"
-tags: ["Owin", "Security", "EF Code First", "Identity", "IdentityStoreManager", "IdentityStoreContext", "IdentityDbContext"]
+category: "Web & APIs"
+tags: ["authentication", "entity framework", "asp.net mvc", "security"]
 ---
 
 Good evening, I’d like to share my solution for using MVC5 Owin security with VS2013 Update 1.   

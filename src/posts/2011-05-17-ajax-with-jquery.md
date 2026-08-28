@@ -1,7 +1,8 @@
 ---
 title: "Ajax with jQuery"
 date: "2011-05-17"
-tags: []
+category: "Front-end & JavaScript"
+tags: ["jquery", "json", "asp.net mvc"]
 ---
 
 Hi all,

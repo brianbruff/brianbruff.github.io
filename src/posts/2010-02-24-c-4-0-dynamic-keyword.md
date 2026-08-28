@@ -1,7 +1,8 @@
 ---
 title: "C# 4.0 Dynamic Keyword"
 date: "2010-02-24"
-tags: []
+category: ".NET & C#"
+tags: ["dynamic", "c# 4.0"]
 ---
 
 "object x" is a shorthand for "System.Object x".   

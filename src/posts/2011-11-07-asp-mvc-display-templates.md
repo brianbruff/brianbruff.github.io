@@ -1,7 +1,8 @@
 ---
 title: "ASP MVC Display Templates"
 date: "2011-11-07"
-tags: ["MVC3 DataTemplates"]
+category: "Web & APIs"
+tags: ["asp.net mvc", "display templates"]
 ---
 
 So I’m still working on the Live CV website I’m creating in my spare time. The idea is pretty simple the web application will let users create an online CV, I’ll not get into the details of it until I’ve something more interesting to show.

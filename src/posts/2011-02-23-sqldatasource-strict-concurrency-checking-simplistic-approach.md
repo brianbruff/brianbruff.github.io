@@ -1,7 +1,8 @@
 ---
 title: "SqlDatasource Strict Concurrency Checking–Simplistic approach"
 date: "2011-02-23"
-tags: ["SqlDataSource"]
+category: "Data & Persistence"
+tags: ["sql server", "concurrency"]
 ---
 
 Lets say you have simple UPDATE command

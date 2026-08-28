@@ -1,7 +1,8 @@
 ---
 title: "WebAPI OData DTO"
 date: "2015-04-22"
-tags: []
+category: "Web & APIs"
+tags: ["odata", "web api", "json"]
 ---
 
 So I’ve started using OData in anger and pretty much immediately stumbled on a problem when using Data Transfer Objects (DTOs). This post explains that problem and the solution.

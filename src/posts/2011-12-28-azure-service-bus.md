@@ -1,7 +1,8 @@
 ---
 title: "Azure Service Bus"
 date: "2011-12-28"
-tags: ["Scalability on the Azure Platform"]
+category: "Cloud & Infrastructure"
+tags: ["azure", "storage", "performance"]
 ---
 
 When communicating between roles in an Azure application we’ve a few options; to name a few:

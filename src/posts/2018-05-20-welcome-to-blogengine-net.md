@@ -1,7 +1,8 @@
 ---
 title: "Welcome to BlogEngine.NET"
 date: "2018-05-20"
-tags: ["Blogging", "welcome"]
+category: "Tooling & Craft"
+tags: ["blogging", "blogengine"]
 ---
 
 ![](/image.axd?picture=/blogengine.png)

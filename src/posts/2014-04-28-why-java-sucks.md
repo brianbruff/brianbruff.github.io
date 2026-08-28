@@ -1,7 +1,8 @@
 ---
 title: "Why Java Sucks"
 date: "2014-04-28"
-tags: []
+category: "Java & JVM"
+tags: ["java", "blogging"]
 ---
 
 <http://2014.javazone.no/videos.html>An ex colleague of mine sent me this link this morning. [www.whyjavasucks.com](http://www.whyjavasucks.com)   

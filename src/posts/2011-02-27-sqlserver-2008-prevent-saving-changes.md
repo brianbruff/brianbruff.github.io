@@ -1,7 +1,8 @@
 ---
 title: "SqlServer 2008 Prevent Saving changes"
 date: "2011-02-27"
-tags: []
+category: "Data & Persistence"
+tags: ["sql server", "database design"]
 ---
 
 When you modify a table in SqlServer and this change requires the table to be dropped and recreated, it’s necessary that SSMS is configured to allow this.

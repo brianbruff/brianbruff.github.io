@@ -1,7 +1,8 @@
 ---
 title: ".NET Concurrency"
 date: "2010-04-16"
-tags: []
+category: "Data & Persistence"
+tags: ["concurrency", "performance"]
 ---
 
 # Optimistic Concurrency

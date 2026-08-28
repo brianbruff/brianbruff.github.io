@@ -1,7 +1,8 @@
 ---
 title: "RIA Service in 5 minutes"
 date: "2011-04-27"
-tags: []
+category: "XAML & Desktop"
+tags: ["silverlight", "entity framework", "data binding"]
 ---
 
 Hi all,

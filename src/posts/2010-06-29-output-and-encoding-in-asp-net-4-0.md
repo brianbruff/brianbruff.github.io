@@ -1,7 +1,8 @@
 ---
 title: "Output and Encoding in ASP.net 4.0"
 date: "2010-06-29"
-tags: ["asp mvc"]
+category: "Web & APIs"
+tags: ["asp.net mvc", "security", "iis"]
 ---
 
 ## Pre .NET 4.O

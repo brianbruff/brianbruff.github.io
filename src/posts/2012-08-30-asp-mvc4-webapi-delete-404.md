@@ -1,7 +1,8 @@
 ---
 title: "ASP MVC4 WebApi Delete 404"
 date: "2012-08-30"
-tags: ["ASP WebApi DELETE 404"]
+category: "Web & APIs"
+tags: ["web api", "asp.net mvc", "iis"]
 ---
 
 ### runAllManagedModulesForAllRequests 

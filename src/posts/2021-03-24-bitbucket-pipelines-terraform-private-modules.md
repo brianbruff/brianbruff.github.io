@@ -1,7 +1,8 @@
 ---
 title: "Bitbucket- Pipelines -Terraform - Private Modules"
 date: "2021-03-24"
-tags: []
+category: "Cloud & Infrastructure"
+tags: ["deployment", "git"]
 ---
 
 So you’ve started using terraform

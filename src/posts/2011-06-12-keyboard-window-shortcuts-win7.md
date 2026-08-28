@@ -1,7 +1,8 @@
 ---
 title: "Keyboard window shortcuts Win7"
 date: "2011-06-12"
-tags: []
+category: "Tooling & Craft"
+tags: ["productivity", "windows"]
 ---
 
 If like me you prefer to learn keyboard shortcuts and sell your soul in order to avoid moving the mouse, then you’ll like these shortcuts that I’ve stumbled upon this evening.

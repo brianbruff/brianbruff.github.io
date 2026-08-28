@@ -1,7 +1,8 @@
 ---
 title: "Syncronization Context"
 date: "2010-09-08"
-tags: []
+category: ".NET & C#"
+tags: ["concurrency", "async", "wpf"]
 ---
 
 A sample of using SyncronizationContext to post a message back to the UX thread

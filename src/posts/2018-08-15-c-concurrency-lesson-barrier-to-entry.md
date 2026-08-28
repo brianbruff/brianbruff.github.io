@@ -1,7 +1,8 @@
 ---
 title: "C# Concurrency lesson–Barrier to entry"
 date: "2018-08-15"
-tags: []
+category: ".NET & C#"
+tags: ["concurrency", "async"]
 ---
 
 Imagine the scenario you are on a team race, there are a number of stages along the route however only once all you teammates have gotten the the end of a stage can anyone proceed to the next stage.
