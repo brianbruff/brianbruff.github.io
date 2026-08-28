@@ -14,10 +14,14 @@
   gap: clamp(1.25rem, 3vw, 2rem);
 }
 
+/* The frame takes the photograph's native ratio rather than the photograph
+   being cropped to fit a frame — the same approach as the homepage plates,
+   so nothing is cut and the two pages share a vocabulary. */
 .resume__portrait {
   flex: none;
-  width: clamp(5rem, 9vw, 7.5rem);
-  height: clamp(5rem, 9vw, 7.5rem);
+  width: clamp(5.5rem, 9.5vw, 8rem);
+  height: auto;
+  aspect-ratio: 784 / 1068;
   object-fit: cover;
   border: 1px solid var(--hairline);
   filter: saturate(0.85) sepia(0.12);

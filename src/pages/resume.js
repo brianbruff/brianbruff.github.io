@@ -94,7 +94,7 @@ const ResumePage = () => (
           <div className="resume__identity">
             <img
               className="resume__portrait"
-              src="/brian-profile.jpg"
+              src="/images/brian-portrait.jpg"
               alt="Brian Keating"
               loading="eager"
             />
