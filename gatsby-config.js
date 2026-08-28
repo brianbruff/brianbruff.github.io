@@ -10,7 +10,7 @@
 module.exports = {
   siteMetadata: {
     title: `Brian Keating`,
-    description: `Brian Keating designs multi-agent, multi-model AI systems for complex, high-consequence work. Independent consultant, Ireland.`,
+    description: `Brian Keating designs multi-agent, multi-modal AI systems for complex, high-consequence work. Independent consultant, Ireland.`,
     author: `@briankeating`,
     siteUrl: `https://briankeating.net/`,
   },

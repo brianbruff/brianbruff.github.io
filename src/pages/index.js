@@ -48,7 +48,7 @@ export const Head = () => (
   <Seo
     title="Brian Keating — AI Systems Architect"
     absolute
-    description="Designing multi-agent, multi-model systems for complex, high-consequence work. Independent consultant, Ireland."
+    description="Designing multi-agent, multi-modal systems for complex, high-consequence work. Independent consultant, Ireland."
   />
 )
 

@@ -34,7 +34,7 @@ const Hero = () => (
         </h1>
         <p className="hero__role">AI Systems Architect</p>
         <p className="hero__support">
-          Designing multi-agent, multi-model systems for complex,
+          Designing multi-agent, multi-modal systems for complex,
           high-consequence work.
         </p>
 
@@ -50,7 +50,7 @@ const Hero = () => (
         </div>
 
         <div className="hero__foot">
-          <span className="meta hero__cue">Scroll to enter&nbsp;→</span>
+          <span className="meta hero__cue">Scroll for the journey&nbsp;→</span>
         </div>
       </div>
     </div>
