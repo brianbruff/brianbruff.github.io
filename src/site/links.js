@@ -12,9 +12,7 @@ export const links = {
   email: "mailto:b@briankeating.net",
 
   zeus: "https://github.com/zeus-sdr",
-
-  // TODO(brian): confirm the LinkedIn profile URL, then replace null with it.
-  linkedin: null,
+  linkedin: "https://www.linkedin.com/in/brianbruff/",
 }
 
 /** Chapters of the homepage scroll story, in order. */
