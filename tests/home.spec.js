@@ -283,10 +283,34 @@ test.describe("Site navigation", () => {
       "Journey",
       "Work",
       "Open source",
+      "Analyst",
     ])
 
     await page.goto("/blog/")
     expect(await links(page)).toEqual(CORE)
+  })
+
+  /* Every chapter below the hero needs a way in from the header. Commodity
+     was the one that did not have one, so the newest piece of work was also
+     the hardest to reach. The hero is excluded because Home already goes
+     there — so the count is the rail's chapters, less that one. */
+  test("every chapter below the hero is reachable from the header", async ({
+    page,
+  }) => {
+    await page.goto("/")
+    const targets = await page
+      .locator(".header__item--chapter .header__link")
+      .evaluateAll(as => as.map(a => a.getAttribute("href")))
+
+    const railTargets = await page
+      .locator(".rail__tick")
+      .evaluateAll(as => as.map(a => a.getAttribute("href")))
+
+    expect(targets).toEqual(railTargets.filter(href => href !== "#hero"))
+
+    for (const href of targets) {
+      await expect(page.locator(href)).toHaveCount(1)
+    }
   })
 
   /* Whichever page you are on should be the one lit in the menu — including

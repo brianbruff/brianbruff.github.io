@@ -48,10 +48,19 @@ export const siteNav = [
  * The homepage appends its chapters to that core rather than replacing it.
  * They are in-page anchors and only mean anything while you are on the story,
  * which is why they do not travel to the other pages.
+ *
+ * Every chapter below the hero is here. The commodity chapter used to be left
+ * out, which made it the one piece of work you could only reach by scrolling
+ * past everything else or by finding its tick on the rail. The hero has no
+ * entry because Home already goes there.
+ *
+ * Labels are the menu's own, not the chapter ids: the anchors follow the
+ * section names in the markup while the words follow what the link is for.
  */
 export const storyNav = [
   ...siteNav,
   { label: "Journey", to: "/#journey", chapter: true },
   { label: "Work", to: "/#work", chapter: true },
   { label: "Open source", to: "/#open-source", chapter: true },
+  { label: "Analyst", to: "/#commodity", chapter: true },
 ]
