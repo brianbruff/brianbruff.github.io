@@ -4,8 +4,8 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/
  */
 
+import "./src/styles/design-system.css"
+import "./src/styles/site-chrome.css"
+// The plugin stylesheet first, so our theme gets the last word on it.
+import "prismjs/plugins/line-numbers/prism-line-numbers.css"
 import "./src/styles/prism-theme.css"
-require("prismjs/themes/prism-tomorrow.css")
-require("prismjs/plugins/line-numbers/prism-line-numbers.css")
-
-// You can delete this file if you're not using it

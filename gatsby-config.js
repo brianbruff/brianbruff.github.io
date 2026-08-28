@@ -9,8 +9,8 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Brian Keating's Tech Blog`,
-    description: `Technical insights and experiences from a Software Architect, Developer, and Engineer. Exploring software architecture, development practices, and engineering solutions.`,
+    title: `Brian Keating`,
+    description: `Brian Keating designs multi-agent, multi-model AI systems for complex, high-consequence work. Independent consultant, Ireland.`,
     author: `@briankeating`,
     siteUrl: `https://briankeating.net/`,
   },
@@ -58,11 +58,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `brian-keating-tech-blog`,
-        short_name: `BK Tech Blog`,
+        name: `Brian Keating — AI Systems Architect`,
+        short_name: `Brian Keating`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#333333`,
+        background_color: `#0a0705`,
+        theme_color: `#0a0705`,
         display: `minimal-ui`,
         icon: `src/images/site-icon.png`,
       },

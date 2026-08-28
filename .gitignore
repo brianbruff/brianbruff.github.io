@@ -67,3 +67,13 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# Playwright
+test-results/
+playwright-report/
+.playwright-mcp/
+
+# Local media working directories. The deployed clips live in static/assets/;
+# re-create them from the originals with scripts/encode-media.sh.
+media-source/
+newDesign/

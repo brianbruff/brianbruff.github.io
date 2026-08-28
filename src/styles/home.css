@@ -1,0 +1,718 @@
+/* ==========================================================================
+   Chapters — the scroll narrative.
+
+   Every chapter is a tall block with a sticky, full-height stage inside it.
+   CSS `position: sticky` does the pinning; GSAP ScrollTrigger only reads
+   progress and drives the video time and the reveals. Sticky survives mobile
+   browser-chrome resize and dynamic viewport units, which transform-based
+   pinning does not — so the scrub stays smooth on a phone.
+   ========================================================================== */
+
+.chapter {
+  position: relative;
+  height: calc(100svh + var(--pin, 0px));
+}
+
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* --- Media --------------------------------------------------------------- */
+.stage__media { position: absolute; inset: 0; z-index: 0; background: var(--ink); }
+
+.stage__video,
+.stage__poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+/* The video fades up over the poster once it can actually render a frame,
+   so a slow or failed load leaves a composed still rather than black. */
+.stage__video {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 520ms var(--ease-out);
+}
+.stage__video.is-ready { opacity: 1; }
+
+/* The clips carry cool monitor light that fights the tungsten palette.
+   A light grade pulls the screens back toward copper without flattening
+   skin tones; the plates below push it a little further. */
+.stage__video,
+.stage__poster { filter: saturate(0.88) sepia(0.1); }
+
+/* Warm grade + hair-light: the raw clips are cooler than the palette. */
+.stage__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(90% 70% at 50% 38%, rgb(242 197 124 / 0.10), transparent 70%),
+    linear-gradient(to bottom, rgb(26 17 11 / 0.35), rgb(10 7 5 / 0.30));
+  mix-blend-mode: soft-light;
+}
+
+/* Scrims. Only where type actually sits — never a flat wash over the frame. */
+.scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.scrim--bottom {
+  background: linear-gradient(to top,
+    rgb(10 7 5 / 0.94) 0%, rgb(10 7 5 / 0.72) 22%, transparent 58%);
+}
+.scrim--top {
+  background: linear-gradient(to bottom,
+    rgb(10 7 5 / 0.82) 0%, transparent 30%);
+}
+.scrim--right {
+  background: linear-gradient(to left,
+    rgb(10 7 5 / 0.93) 0%, rgb(10 7 5 / 0.70) 34%, transparent 66%);
+}
+.scrim--soft { opacity: 0.6; }
+.scrim--left {
+  background: linear-gradient(to right,
+    rgb(10 7 5 / 0.93) 0%, rgb(10 7 5 / 0.70) 34%, transparent 66%);
+}
+
+@media (max-width: 860px) {
+  .scrim--left, .scrim--right {
+    background: linear-gradient(to bottom, rgb(10 7 5 / 0.70), rgb(10 7 5 / 0.88));
+  }
+  .scrim--soft { opacity: 1; }
+}
+
+.stage__overlay {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: calc(var(--header-h) + 1.5rem) var(--gutter) clamp(2rem, 5vh, 3.5rem)
+           calc(var(--rail-w) + var(--gutter));
+}
+@media (max-width: 860px) {
+  .stage__overlay {
+    padding-left: var(--gutter);
+    padding-top: calc(var(--header-h) + 1rem);
+    padding-bottom: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   01 — Hero orbit
+   ========================================================================== */
+.hero__overlay {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+/* The subject owns the middle of the frame. Type is kept to the lower band
+   and to a column narrow enough that it never crosses the face. */
+.hero__block { position: relative; max-width: min(58ch, 78%); }
+
+.hero__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+/* Outlined ghost word. Restrained: one word, low opacity, slow parallax. */
+.hero__ghost {
+  position: absolute;
+  top: -0.12em;
+  left: 7%;
+  z-index: -1;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 15vw, 14rem);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(178 106 60 / 0.22);
+  pointer-events: none;
+  transform: translateY(calc(-1 * var(--ghost-shift, 0px)));
+}
+
+.hero__title {
+  font-size: var(--t-hero);
+  font-weight: 800;
+  line-height: 0.82;
+  text-transform: uppercase;
+  /* Letters track in and settle: scrub.js eases --track from 0.09em to 0. */
+  letter-spacing: var(--track, 0em);
+  margin-bottom: 0.35em;
+}
+.hero__title span { display: block; }
+
+.hero__role {
+  font-family: var(--font-mono);
+  font-size: clamp(0.78rem, 1.15vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--tungsten);
+  margin: 0 0 1.5rem;
+}
+
+.hero__support {
+  font-size: var(--t-lead);
+  max-width: 34ch;
+  color: var(--ivory-90);
+  border-left: 1px solid var(--copper);
+  padding-left: 1.25rem;
+}
+
+/* Rotating tagline — one phrase at a time, indexed by orbit progress rather
+   than a timer, so the words are tied to where the visitor actually is. */
+.hero__taglines {
+  position: relative;
+  height: 2.4em;
+  margin-top: 1.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--amber);
+}
+.hero__tagline {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(0.45em);
+  transition: opacity 460ms var(--ease-out), transform 560ms var(--ease-out);
+}
+.hero__tagline.is-active { opacity: 1; transform: translateY(0); }
+
+.hero__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+}
+.hero__cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.hero__cue::after {
+  content: "";
+  width: 3rem; height: 1px;
+  background: var(--copper);
+  transform-origin: left;
+  animation: cue 2.6s var(--ease-soft) infinite;
+}
+@keyframes cue {
+  0%, 100% { transform: scaleX(0.35); opacity: 0.5; }
+  50%      { transform: scaleX(1);    opacity: 1; }
+}
+
+@media (max-width: 860px) {
+  .hero__support { font-size: 1.02rem; max-width: 100%; }
+  .hero__block { max-width: 100%; }
+  /* At this width the outlined duplicate only competes with the title. */
+  .hero__ghost { display: none; }
+  .hero__meta > :last-child { display: none; }
+}
+
+/* ==========================================================================
+   02 — Timeline walk
+   ========================================================================== */
+.journey__overlay {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  gap: var(--gutter);
+  align-content: center;
+}
+.journey__intro { align-self: center; }
+.journey__heading {
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  max-width: 12ch;
+}
+
+.journey__list {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 1.6vh, 1.35rem);
+  border-left: 1px solid var(--hairline-soft);
+  padding-left: clamp(1.25rem, 2.5vw, 2.25rem);
+}
+
+.journey__item {
+  position: relative;
+  opacity: 0.24;
+  transform: translateX(1.75rem);
+  transition: opacity 520ms var(--ease-out), transform 620ms var(--ease-out);
+}
+.journey__item::before {                    /* tick on the timeline rule */
+  content: "";
+  position: absolute;
+  left: calc(-1 * clamp(1.25rem, 2.5vw, 2.25rem) - 1px);
+  top: 0.75em;
+  width: 0.85rem; height: 1px;
+  background: var(--copper-dim);
+  transition: width 520ms var(--ease-out), background 520ms var(--ease-out);
+}
+.journey__item.is-active { opacity: 1; transform: translateX(0); }
+.journey__item.is-active::before {
+  width: clamp(1.25rem, 2.5vw, 2.25rem);
+  background: var(--amber);
+}
+.journey__item.is-past { opacity: 0.5; transform: translateX(0); }
+
+.journey__index {
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  letter-spacing: 0.2em;
+  color: var(--copper);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.journey__item.is-active .journey__index { color: var(--amber); }
+.journey__label {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2.05rem);
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--ivory);
+}
+.journey__note {
+  margin: 0.4rem 0 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--ivory-64);
+  max-width: 44ch;
+}
+
+/* Technology ribbon, revealed at the end of the walk. */
+.ribbon {
+  grid-column: 1 / -1;
+  align-self: end;
+  margin-top: clamp(1rem, 3vh, 2.25rem);
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--hairline);
+  opacity: 0;
+  transform: translateY(0.75rem);
+  transition: opacity 620ms var(--ease-out), transform 720ms var(--ease-out);
+}
+.ribbon.is-revealed { opacity: 1; transform: translateY(0); }
+.ribbon__label { display: block; margin-bottom: 0.6rem; }
+.ribbon__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  color: var(--ivory-64);
+}
+.ribbon__list li { display: flex; align-items: center; gap: 0.9rem; }
+.ribbon__list li + li::before {
+  content: "";
+  width: 3px; height: 3px;
+  background: var(--copper-dim);
+  transform: rotate(45deg);
+}
+
+@media (max-width: 980px) {
+  .journey__overlay { grid-template-columns: 1fr; align-content: start; gap: 1rem; }
+  .journey__heading { max-width: 100%; font-size: clamp(1.9rem, 7vw, 2.6rem); }
+  /* No hidden copy on a phone: every step reads, the active one leads. */
+  .journey__item { opacity: 0.45; transform: none; }
+  .ribbon { opacity: 1; transform: none; }
+
+  /* A phone screen cannot hold five steps and five notes at once, so the
+     list becomes an index: every label stays legible, and the note belongs
+     to the step you are actually on. Scrolling reaches all of them. */
+  .journey__list { gap: 0.65rem; }
+  .journey__index { font-size: 0.62rem; margin-bottom: 0; }
+  .journey__label { font-size: 1.3rem; }
+  .journey__note { display: none; }
+  .journey__item.is-active .journey__note {
+    display: block;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    max-width: 100%;
+  }
+  .ribbon { margin-top: 0.75rem; padding-top: 0.75rem; }
+  .ribbon__label { display: none; }
+  .ribbon__list { font-size: 0.68rem; gap: 0.3rem 0.7rem; }
+}
+
+/* ==========================================================================
+   03 — Multi-agent build
+   ========================================================================== */
+.work__overlay {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: var(--gutter);
+  align-content: center;
+}
+.work__copy { align-self: center; max-width: 46ch; }
+.work__heading {
+  font-size: clamp(2rem, 4.2vw, 3.6rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+}
+.work__callout {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  /* Hug the text on one line where the column allows it, wrap where it does
+     not. `nowrap` kept it on one line but pushed it through the border. */
+  width: max-content;
+  max-width: 100%;
+  margin-top: 1.75rem;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--hairline);
+  background: rgb(26 17 11 / 0.55);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.07em;
+  color: var(--ivory-90);
+}
+.work__callout::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--status);
+  box-shadow: 0 0 0.45rem rgb(217 59 43 / 0.8);
+  flex: none;
+}
+
+/* Topology diagram. Real system shape: one signal, three context sources
+   converging on an agent team, gated by evaluation, resolving to a decision. */
+/* The diagram sits on its own panel rather than floating over the frame:
+   it keeps clear of the subject, holds its contrast against any video
+   frame behind it, and reads as an instrument rather than an overlay. */
+.topology {
+  align-self: center;
+  width: 100%;
+  margin: 0;
+  padding: clamp(1.1rem, 2.2vw, 1.9rem) clamp(1.35rem, 2.6vw, 2.4rem)
+           clamp(1.35rem, 2.6vw, 2rem);
+  background: linear-gradient(180deg, rgb(16 11 8 / 0.88), rgb(10 7 5 / 0.92));
+  border: 1px solid var(--hairline);
+  backdrop-filter: blur(3px);
+}
+.topology__svg { width: 100%; height: auto; overflow: visible; }
+
+.topology__path {
+  fill: none;
+  stroke: var(--copper-dim);
+  stroke-width: 1;
+}
+.topology__path--live {
+  stroke: var(--amber);
+  stroke-width: 1.25;
+  filter: drop-shadow(0 0 3px rgb(227 155 74 / 0.55));
+  stroke-dasharray: var(--len, 400);
+  stroke-dashoffset: calc(var(--len, 400) * (1 - var(--flow, 0)));
+}
+.topology__node {
+  fill: var(--ink-lift);
+  stroke: var(--copper-dim);
+  stroke-width: 1;
+  transition: stroke 420ms var(--ease-out), fill 420ms var(--ease-out);
+}
+.topology__group.is-live .topology__node {
+  stroke: var(--amber);
+  fill: var(--walnut-lift);
+}
+.topology__dot { fill: var(--copper-dim); transition: fill 420ms var(--ease-out); }
+.topology__group.is-live .topology__dot { fill: var(--tungsten); }
+.topology__label {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  fill: var(--ivory-44);
+  transition: fill 420ms var(--ease-out);
+}
+.topology__group.is-live .topology__label { fill: var(--ivory); }
+.topology__sub {
+  font-family: var(--font-mono);
+  font-size: 6.5px;
+  letter-spacing: 0.1em;
+  fill: rgb(240 231 218 / 0.38);
+}
+
+@media (max-width: 980px) {
+  .work__overlay { grid-template-columns: 1fr; align-content: center; gap: 1.75rem; }
+  .work__copy { max-width: 100%; }
+  .topology__label { font-size: 10px; }
+  .topology__sub { font-size: 7.5px; }
+}
+
+/* ==========================================================================
+   04 / 05 — Portrait plate chapters
+   The zeus and commodity clips are shot 3:4. Rather than crop a portrait
+   frame into a letterbox, they are presented as framed plates — which reads
+   like a print on a studio wall, and keeps the composition intact.
+   ========================================================================== */
+.plate__overlay {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1.5rem, 4.5vw, 4.5rem);
+  align-content: center;
+  align-items: center;
+}
+.plate__overlay--flip { grid-template-columns: minmax(0, 1fr) auto; }
+.plate__overlay--flip .plate__frame { order: 2; }
+
+/* These two clips are shot 3:4. The frame keeps that ratio so the
+   composition is never cropped to a letterbox. */
+.plate__frame {
+  position: relative;
+  height: min(72svh, 35rem);
+  aspect-ratio: var(--plate-ratio, 3 / 4);
+  border: 1px solid var(--hairline);
+  background: var(--ink-lift);
+  overflow: hidden;
+}
+/* The commodity clip is cropped to drop a burned-in caption, so its plate
+   is squarer. Matching widths keeps the two plates reading as a pair. */
+#commodity .plate__frame {
+  --plate-ratio: 834 / 844;
+  height: min(55svh, 26.6rem);
+}
+
+/* The source footage carries cool screen light that fights the palette;
+   a light warm grade pulls it back without touching skin tones. */
+.plate__frame .stage__video,
+.plate__frame .stage__poster { filter: saturate(0.82) sepia(0.14); }
+.plate__frame::after {                      /* thin copper inner rule */
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgb(178 106 60 / 0.16);
+  pointer-events: none;
+}
+.plate__frame .stage__video,
+.plate__frame .stage__poster { object-fit: cover; }
+
+.plate__copy { max-width: 58ch; }
+.plate__heading {
+  font-size: clamp(1.9rem, 3.9vw, 3.35rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1.3rem;
+}
+.plate__body p { font-size: 1.02rem; }
+
+/* Feature labels that emerge as the clip is scrubbed. */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.75rem 0 0;
+}
+.features__item {
+  padding: 0.55rem 0.95rem;
+  border: 1px solid var(--hairline-soft);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ivory-44);
+  opacity: 0;
+  transform: translateY(0.55rem);
+  transition: opacity 520ms var(--ease-out), transform 560ms var(--ease-out),
+              color 520ms var(--ease-out), border-color 520ms var(--ease-out);
+}
+.features__item.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  color: var(--ivory-90);
+  border-color: var(--hairline);
+}
+.plate__actions { margin-top: 2rem; }
+
+@media (max-width: 980px) {
+  .plate__overlay,
+  .plate__overlay--flip { grid-template-columns: 1fr; gap: 1.5rem; }
+  .plate__overlay--flip .plate__frame { order: 0; }
+  /* On a phone these 3:4 clips match the screen, so the plate stops being a
+     framed print and becomes the full-bleed stage — which also gives the copy
+     the whole height instead of stacking under a thumbnail. */
+  .plate__frame {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: auto;
+    height: auto;
+    aspect-ratio: auto;
+    border: 0;
+  }
+  .plate__frame::after {
+    inset: 0;
+    border: 0;
+    background: linear-gradient(to bottom, rgb(10 7 5 / 0.74), rgb(10 7 5 / 0.92));
+  }
+  .plate__copy { position: relative; z-index: 1; align-self: center; }
+  .plate__heading { margin-bottom: 0.9rem; }
+  .plate__body p { font-size: 0.94rem; line-height: 1.5; margin-bottom: 0.8em; }
+  .features { margin-top: 1.1rem; gap: 0.45rem; }
+  .features__item { padding: 0.4rem 0.7rem; font-size: 0.64rem; }
+  .plate__actions { margin-top: 1.25rem; }
+  .phrases { margin-top: 1.1rem; gap: 0.35rem; }
+  .plate__copy { max-width: 100%; }
+  .features__item { opacity: 1; transform: none; color: var(--ivory-64); }
+}
+
+/* ==========================================================================
+   05 — Commodity traces
+   Thin amber traces that start scattered and cohere into a single resolved
+   line as the chapter completes. Drawn as SVG, no ticker clichés.
+   ========================================================================== */
+.traces {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  height: 42%;
+  pointer-events: none;
+  opacity: 0.85;
+}
+.traces__svg { width: 100%; height: 100%; }
+.traces__noise {
+  fill: none;
+  stroke: var(--copper-dim);
+  stroke-width: 0.6;
+  opacity: calc(0.55 * (1 - var(--cohere, 0)));
+  transform: translateY(calc(var(--drift, 0) * 1px));
+}
+.traces__signal {
+  fill: none;
+  stroke: var(--amber);
+  stroke-width: 1.1;
+  filter: drop-shadow(0 0 4px rgb(227 155 74 / 0.45));
+  stroke-dasharray: var(--len, 1000);
+  stroke-dashoffset: calc(var(--len, 1000) * (1 - var(--cohere, 0)));
+}
+
+.phrases {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 1.75rem 0 0;
+}
+.phrases__item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.1vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ivory-22);
+  transition: color 720ms var(--ease-out), transform 720ms var(--ease-out);
+  transform: translateX(-0.6rem);
+}
+.phrases__item::before {
+  content: "";
+  flex: none;
+  width: 0.5rem; height: 1px;
+  background: var(--copper-dim);
+  transition: width 720ms var(--ease-out), background 720ms var(--ease-out);
+}
+.phrases__item.is-revealed {
+  color: var(--ivory);
+  transform: translateX(0);
+}
+.phrases__item.is-revealed::before { width: 2rem; background: var(--amber); }
+
+@media (max-width: 980px) {
+  .traces { height: 30%; opacity: 0.5; }
+  .phrases__item { color: var(--ivory-64); transform: none; }
+}
+
+/* ==========================================================================
+   Reduced motion — no sticky stages, no scrub, nothing hidden behind scroll.
+   ========================================================================== */
+:root[data-motion="reduced"] .chapter { height: auto; }
+:root[data-motion="reduced"] .stage {
+  position: static;
+  height: auto;
+  min-height: 0;
+}
+:root[data-motion="reduced"] .stage__media {
+  position: relative;
+  inset: auto;
+  height: min(58svh, 30rem);
+}
+:root[data-motion="reduced"] .plate__frame { height: min(58svh, 26rem); justify-self: start; }
+:root[data-motion="reduced"] .scrim { display: none; }
+:root[data-motion="reduced"] .stage__overlay {
+  height: auto;
+  padding-block: clamp(3rem, 8vh, 5.5rem);
+}
+:root[data-motion="reduced"] .hero__overlay,
+:root[data-motion="reduced"] .journey__overlay,
+:root[data-motion="reduced"] .work__overlay,
+:root[data-motion="reduced"] .plate__overlay,
+:root[data-motion="reduced"] .plate__overlay--flip { grid-template-columns: 1fr; }
+:root[data-motion="reduced"] .hero__ghost { display: none; }
+:root[data-motion="reduced"] .hero__taglines { height: auto; }
+:root[data-motion="reduced"] .hero__tagline {
+  position: static;
+  opacity: 1;
+  transform: none;
+  display: block;
+  font-size: 0.55em;
+}
+:root[data-motion="reduced"] .journey__item,
+:root[data-motion="reduced"] .ribbon,
+:root[data-motion="reduced"] .features__item,
+:root[data-motion="reduced"] .phrases__item {
+  opacity: 1;
+  transform: none;
+  color: var(--ivory-90);
+}
+:root[data-motion="reduced"] .journey__item::before {
+  width: clamp(1.25rem, 2.5vw, 2.25rem);
+}
+:root[data-motion="reduced"] .traces { display: none; }
+:root[data-motion="reduced"] .hero__cue::after { animation: none; transform: scaleX(1); }
+:root[data-motion="reduced"] .topology__path--live { stroke-dashoffset: 0; }
+:root[data-motion="reduced"] .topology__node { stroke: var(--amber); }
+:root[data-motion="reduced"] .topology__label { fill: var(--ivory); }
+
+/* --- Contact ------------------------------------------------------------- */
+.contact {
+  position: relative;
+  padding: clamp(7rem, 18vh, 13rem) var(--gutter) clamp(4rem, 9vh, 7rem)
+           calc(var(--rail-w) + var(--gutter));
+  background:
+    radial-gradient(70% 100% at 22% 0%, rgb(126 59 36 / 0.24), transparent 68%),
+    var(--ink);
+  border-top: 1px solid var(--hairline-soft);
+}
+.contact__heading {
+  font-size: var(--t-display);
+  font-weight: 600;
+  max-width: 16ch;
+  text-transform: uppercase;
+}
+.contact__heading em {
+  display: block;
+  font-style: normal;
+  color: var(--tungsten);
+}
+
+
+
+@media (max-width: 860px) {
+  .contact { padding-left: var(--gutter); }
+}

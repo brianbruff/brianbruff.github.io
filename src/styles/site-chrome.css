@@ -1,0 +1,288 @@
+/* ==========================================================================
+   Site chrome — header, signal rail, footer. Shared by every page.
+   ========================================================================== */
+
+/* --- Header --------------------------------------------------------------
+   Quiet by default, warm-black and slightly solid once you have scrolled. */
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  height: var(--header-h);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 var(--gutter) 0 calc(var(--rail-w) + 0.25rem);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 320ms var(--ease-out), border-color 320ms var(--ease-out),
+              backdrop-filter 320ms var(--ease-out);
+}
+.header.is-scrolled {
+  background: rgb(10 7 5 / 0.82);
+  backdrop-filter: blur(14px) saturate(1.1);
+  border-bottom-color: var(--hairline-soft);
+}
+
+.header__mark {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--ivory);
+  transition: color 200ms var(--ease-out);
+}
+.header__mark:hover { color: var(--tungsten); }
+
+.header__nav { justify-self: center; }
+.header__list {
+  display: flex;
+  gap: clamp(1.25rem, 3vw, 2.75rem);
+}
+.header__link {
+  position: relative;
+  display: inline-block;
+  padding: 0.4rem 0;
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ivory-64);
+  transition: color 200ms var(--ease-out);
+}
+.header__link::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 1px;
+  background: var(--copper);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 260ms var(--ease-out);
+}
+.header__link:hover { color: var(--ivory); }
+.header__link:hover::after,
+.header__link.is-current::after,
+.header__link[aria-current="true"]::after { transform: scaleX(1); }
+.header__link.is-current,
+.header__link[aria-current="true"] { color: var(--tungsten); }
+
+.header__cta {
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ivory);
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--hairline);
+  white-space: nowrap;
+  transition: border-color 220ms var(--ease-out), color 220ms var(--ease-out),
+              background 220ms var(--ease-out);
+}
+.header__cta:hover {
+  color: var(--tungsten);
+  border-color: var(--copper);
+  background: rgb(178 106 60 / 0.1);
+}
+
+@media (max-width: 860px) {
+  .header { grid-template-columns: auto 1fr; padding-left: var(--gutter); }
+
+  /* On the story the chapters are reached by scrolling and the rail shows
+     position, so the bar keeps the call to action. Every other page needs
+     real navigation more than it needs a second contact button — there is
+     one in the contact band and another in the footer. */
+  .header--story .header__nav { display: none; }
+  .header--story .header__cta {
+    justify-self: end;
+    padding: 0.55rem 0.8rem;
+    font-size: 0.62rem;
+  }
+
+  .header--site .header__nav { justify-self: end; }
+  .header--site .header__cta { display: none; }
+  .header--site .header__list { gap: 1.1rem; }
+  .header--site .header__link { font-size: 0.64rem; letter-spacing: 0.16em; }
+}
+
+@media (max-width: 380px) {
+  .header--site .header__list { gap: 0.8rem; }
+  .header--site .header__link { font-size: 0.6rem; letter-spacing: 0.1em; }
+}
+
+/* --- Signal rail ---------------------------------------------------------
+   The signature element. A hairline copper rule down the left edge carrying
+   a chapter index, a travelling amber marker for page progress, and a red
+   status LED that lights only while a video is actually being scrubbed.
+   It is real instrumentation: every tick is a link to its chapter. */
+.rail {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  z-index: 95;
+  width: var(--rail-w);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  pointer-events: none;
+}
+.rail::before {                            /* the rule itself */
+  content: "";
+  position: absolute;
+  top: 12vh; bottom: 12vh;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(
+    to bottom, transparent, var(--hairline) 12%, var(--hairline) 88%, transparent);
+}
+
+.rail__marker {                            /* travelling page-progress index */
+  position: absolute;
+  left: 50%;
+  top: calc(12vh + (76vh * var(--rail-progress, 0)));
+  width: 9px; height: 9px;
+  margin: -4px 0 0 -4px;
+  background: var(--amber);
+  box-shadow: 0 0 0.85rem rgb(227 155 74 / 0.75);
+  transform: rotate(45deg);
+}
+
+.rail__ticks {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  pointer-events: auto;
+}
+.rail__tick {
+  display: grid;
+  place-items: center;
+  width: 1.9rem; height: 1.9rem;
+  text-decoration: none;
+  color: var(--ivory-44);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  transition: color 240ms var(--ease-out);
+}
+.rail__tick::before {
+  content: "";
+  position: absolute;
+  width: 5px; height: 5px;
+  border: 1px solid var(--copper-dim);
+  background: var(--ink);
+  transform: rotate(45deg);
+  transition: background 240ms var(--ease-out), border-color 240ms var(--ease-out),
+              transform 320ms var(--ease-out);
+}
+.rail__tick span {                         /* the 01…05 numeral */
+  position: relative;
+  opacity: 0;
+  transform: translateX(0.4rem);
+  transition: opacity 240ms var(--ease-out), transform 240ms var(--ease-out);
+}
+.rail__tick:hover, .rail__tick:focus-visible { color: var(--tungsten); }
+.rail__tick:hover::before { border-color: var(--amber); }
+.rail__tick[aria-current="true"]::before {
+  background: var(--amber);
+  border-color: var(--amber);
+  transform: rotate(45deg) scale(1.35);
+}
+.rail__tick[aria-current="true"] span,
+.rail__tick:hover span { opacity: 1; transform: translateX(0); }
+.rail__tick[aria-current="true"] { color: var(--tungsten); }
+
+.rail__status {
+  position: absolute;
+  bottom: 2.5rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+}
+.rail__led {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--rust);
+  transition: background 160ms linear, box-shadow 160ms linear;
+}
+:root.is-scrubbing .rail__led {
+  background: var(--status);
+  box-shadow: 0 0 0.5rem rgb(217 59 43 / 0.9);
+}
+.rail__readout {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  color: var(--ivory-44);
+  writing-mode: vertical-rl;
+}
+
+/* On small screens the rail collapses to a progress hairline under the
+   header — no fixed gutter eating the layout, no tiny tap targets. */
+@media (max-width: 860px) {
+  .rail {
+    top: var(--header-h); bottom: auto;
+    width: 100%; height: 2px;
+    flex-direction: row;
+  }
+  .rail::before {
+    top: 0; bottom: 0; left: 0;
+    width: 100%; height: 1px;
+    background: var(--hairline-soft);
+  }
+  .rail__marker {
+    top: 0; left: 0;
+    width: calc(100% * var(--rail-progress, 0));
+    height: 2px;
+    margin: 0;
+    transform: none;
+    background: var(--amber);
+    box-shadow: none;
+  }
+  .rail__ticks, .rail__status { display: none; }
+}
+
+/* --- Footer -------------------------------------------------------------- */
+.footer {
+  padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) clamp(2.5rem, 5vw, 3.5rem)
+           calc(var(--rail-w) + var(--gutter));
+  border-top: 1px solid var(--hairline-soft);
+  background: var(--ink);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.footer__name {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  line-height: 1;
+}
+.footer__role { margin-top: 0.5rem; }
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.4rem;
+}
+.footer__copy { align-self: flex-end; }
+
+@media (max-width: 860px) {
+  .footer { padding-left: var(--gutter); }
+}
