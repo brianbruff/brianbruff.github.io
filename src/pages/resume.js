@@ -58,7 +58,7 @@ const achievements = [
   "International project deliveries with distributed teams",
   "Angular & real-time data platform implementation at scale",
   "GenAI rollout using RAG for intelligent data discovery, and promoting AI-first development with coding agents",
-  "PileupBuster.com — ham radio pileup training platform built entirely with AI assistance",
+  "PileupBuster.com — ham radio pileup platform built entirely with AI assistance",
   "Founded and grew OpenHPSDR Zeus into a massively successful multiplatform SDR solution",
 ]
 
