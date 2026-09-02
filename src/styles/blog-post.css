@@ -196,8 +196,12 @@
 .post__body pre,
 .post__body .table-wrap { overflow-x: auto; }
 
+/* Remark emits a bare <table>, never a .table-wrap, so the table is its own
+   scroll container — otherwise a wide one is clipped rather than scrollable. */
 .post__body table {
+  display: block;
   width: 100%;
+  overflow-x: auto;
   margin: 2em 0;
   border-collapse: collapse;
   font-size: 0.95rem;
