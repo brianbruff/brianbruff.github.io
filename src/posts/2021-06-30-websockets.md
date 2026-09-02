@@ -21,3 +21,7 @@ Azure:
 
 AWS:  
 <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html>
+
+<div class="youtube-embed">
+  <iframe src="https://www.youtube-nocookie.com/embed/DHXps8IgBWw" title="Spring Websocket Server" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
