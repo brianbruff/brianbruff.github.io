@@ -5,12 +5,12 @@ category: "XAML & Desktop"
 tags: ["wpf", "layout"]
 ---
 
-Addin splitters to the WPF grid couldn't be easier.
+Adding splitters to the WPF grid couldn't be easier.
 
-### Veritcal
+### Vertical
 
 ### Horizontal
 
-ResizeDirection="Rows" Background="Transparent"   
-HorizontalAlignment="Stretch"   
+ResizeDirection="Rows" Background="Transparent"  
+HorizontalAlignment="Stretch"  
 VerticalAlignment="Stretch" Grid.Row="1" />

@@ -7,7 +7,7 @@ tags: ["sql server", "t-sql"]
 
 Here's an easy one to get caught out on.
 
-Say you remove a constraint on a table to do some maintainance ect.
+Say you remove a constraint on a table to do some maintenance etc.
 
 e.g.
 
@@ -17,18 +17,18 @@ When you wish to bring the constraint back on stream you may be surprised to fin
 
 ALTER TABLE BANDWIDTH CHECK CONSTRAINT FKUserLimits;
 
-You may be be able to see this in the execution plan on SSMS if the constraint was used in query optimization.
+You may be able to see this in the execution plan on SSMS if the constraint was used in query optimization.
 
-but you can check for sure by executing the following
+But you can check for sure by executing the following.
 
 select name, is_not_trusted FROM sys.foreign_keys where name = 'FKUserLimits';
 
-you'll find that is_not_trusted is 1, indicating that the constraint is not trusted, this is because someone could have modified the table while the constaint was turned off, the sql to reenable the constraint needs to be told to check it while doing so..
+You'll find that is_not_trusted is 1, indicating that the constraint is not trusted. This is because someone could have modified the table while the constraint was turned off, the SQL to re-enable the constraint needs to be told to check it while doing so...
 
-here's how
+Here's how:
 
 ALTER TABLE BANDWIDTH   
 WITH CHECK  
 CHECK CONSTRAINT FKUserLimits;
 
-This option tells SQL server to verify that all rows in the table comply with the constraint prior to turning it back on. If any rows do not comply with the constraint, an error message is returned and the alter table statement is rolled back.
+This option tells SQL Server to verify that all rows in the table comply with the constraint prior to turning it back on. If any rows do not comply with the constraint, an error message is returned and the alter table statement is rolled back.

@@ -1,32 +1,30 @@
 ---
-title: "Syncronization Context"
+title: "Synchronization Context"
 date: "2010-09-08"
 category: ".NET & C#"
 tags: ["concurrency", "async", "wpf"]
 ---
 
-A sample of using SyncronizationContext to post a message back to the UX thread
+A sample of using SynchronizationContext to post a message back to the UX thread.
 
-[code:c#]
-
-private void Window_Loaded(object sender, RoutedEventArgs e)  
-{  
-SynchronizationContext ctx = SynchronizationContext.Current;
-
-ThreadPool.QueueUserWorkItem(_ =>  
+```csharp
+private void Window_Loaded(object sender, RoutedEventArgs e)
 {
+    SynchronizationContext ctx = SynchronizationContext.Current;
 
-WebClient client = new WebClient();
+    ThreadPool.QueueUserWorkItem(_ =>
+    {
 
-string html = client.DownloadString("https://www.briankeating.net");  
-ctx.Post(state =>  
-{  
-tbDetails.Text = (string)state;
+        WebClient client = new WebClient();
 
-}, html);
+        string html = client.DownloadString("https://www.briankeating.net");
+        ctx.Post(state =>
+        {
+            tbDetails.Text = (string)state;
 
-});
+        }, html);
+
+    });
 
 }
-
-[/code]
+```

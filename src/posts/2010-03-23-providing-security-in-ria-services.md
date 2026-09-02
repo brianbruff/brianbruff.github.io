@@ -5,12 +5,10 @@ category: "XAML & Desktop"
 tags: ["silverlight", "security", "authentication"]
 ---
 
-If you wish to prevent clients accessing your data
+If you wish to prevent clients accessing your data:
 
-[code:c#]
-
-[RequiresAuthentication]  
-[EnableClientAccess()]  
-public class LolerService : LinqToSqlDomainService
-
-[/code]
+```csharp
+[RequiresAuthentication]
+[EnableClientAccess()]
+public class LolerService : LinqToSqlDomainService<LolerModelDataContext>
+```

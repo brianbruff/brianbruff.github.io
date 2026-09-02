@@ -9,38 +9,38 @@ This demonstrates what is involved in writing and reading some text to an Azure 
 
 ## Use case
 
-What i set out to achieve was to demonstrate how to read and write some text to a blob with the SDKs. Just to make it a little more interesting I decided to use .NET for the reading and Java for the writing.
+What I set out to achieve was to demonstrate how to read and write some text to a blob with the SDKs. Just to make it a little more interesting I decided to use .NET for the reading and Java for the writing.
 
 ## Obtaining the SDKs
 
-Adding the SDKs was a seamless process, for .NET Nuget was used and for Java Maven was used
+Adding the SDKs was a seamless process, for .NET NuGet was used and for Java Maven was used.
 
-**.Net** | **Java**  
+**.NET** | **Java**  
 ---|---  
-| ![](/images/./image.axd?picture=image_thumb_424.png)  
+| ![](/images/blog/image_thumb_424.png)  
 
-![](/images/./image.axd?picture=image_thumb_425.png)  
-![](/images/./image.axd?picture=image_thumb_426.png)  
+![](/images/blog/image_thumb_425.png)  
+![](/images/blog/image_thumb_426.png)  
   
 ### Write
 
 #### Azure
 
-![](/images/./image.axd?picture=image_thumb_420.png)  
+![](/images/blog/image_thumb_420.png)  
 
 #### AWS
 
-![](/images/./image.axd?picture=image_thumb_421.png)  
+![](/images/blog/image_thumb_421.png)  
 
 ### Read
 
 #### Azure
 
-![](/images/./image.axd?picture=image_thumb_422.png)  
+![](/images/blog/image_thumb_422.png)  
 
 #### AWS
 
-![](/images/./image.axd?picture=image_thumb_423.png)  
+![](/images/blog/image_thumb_423.png)  
 
 ## Conclusions
 

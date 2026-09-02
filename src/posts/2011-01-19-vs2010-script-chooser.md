@@ -5,4 +5,4 @@ category: "Tooling & Craft"
 tags: ["visual studio", "jquery"]
 ---
 
-In a visual studio 2010 asp page, start typing 
+In a Visual Studio 2010 ASP page, start typing 

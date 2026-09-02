@@ -14,23 +14,21 @@ Please feel free to give me any feedback I’d appreciate it.
 ## The problem
 
 I wanted one single database containing my own entities and also the security entities.   
-I wanted to use the latest MVC5 built on the [OWIN](http://owin.org/) (open web interface for .net).   
+I wanted to use the latest MVC5 built on the [OWIN](http://owin.org/) (open web interface for .NET).   
 I wanted to use code first migrations to keep my database up to date.   
-I could find no documentation..
+I could find no documentation...
 
 ## The Solution
 
   * Create my own entity class   
-![](/images/./image.axd?picture=image_thumb_271.png)
+![](/images/blog/image_thumb_271.png)
 
   * Create my own DBContext and IdentityStoreContext (the secret sauce) 
 
-![](/images/./image.axd?picture=image_thumb_272.png) The SiteCertDbContext derives from the IdentityDbContext used by default in MVC5 Update1.
+![](/images/blog/image_thumb_272.png) The SiteCertDbContext derives from the IdentityDbContext used by default in MVC5 Update1.
 
-  * Tell the account controller use this new DbContext
+  * Tell the account controller to use this new DbContext
 
-![](/images/./image.axd?picture=image_thumb_273.png)
+![](/images/blog/image_thumb_273.png)
 
-  * 
-
-That’s pretty much it, hope it helps someone else out you can now open the Nuget package manager and Enable-Migrations.
+That’s pretty much it, hope it helps someone else out. You can now open the Nuget package manager and Enable-Migrations.

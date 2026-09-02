@@ -7,5 +7,5 @@ tags: ["azure", "web api"]
 
   
 
-In this video I show you how to add CORS support to an Azure Application Gateway Route
+In this video I show you how to add CORS support to an Azure Application Gateway Route.
 

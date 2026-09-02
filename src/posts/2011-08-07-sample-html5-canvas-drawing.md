@@ -1,42 +1,48 @@
 ---
-title: "Sample html5 canvas drawing"
+title: "Sample HTML5 canvas drawing"
 date: "2011-08-07"
 category: "Front-end & JavaScript"
 tags: ["html5", "asp.net mvc"]
 ---
 
-So how hard is it to draw on a html5 canvas? Well if you ever lived in a GDI+ world like I once did, then it’s pretty simple. In fact it’s somewhat familiar to silverlight/wpf people too, the parameters passed to draw a rectangle for example are , left, top, width, height. (GDI/Windows API people would me more familiar to using left,top,right,bottom (the RECT struct). Nonetheless, IMO drawing with the html5 canvas couldn’t be easier.
+So how hard is it to draw on an HTML5 canvas? Well if you ever lived in a GDI+ world like I once did, then it’s pretty simple. In fact it’s somewhat familiar to Silverlight/WPF people too, the parameters passed to draw a rectangle for example are left, top, width, height. (GDI/Windows API people would be more familiar with using left,top,right,bottom (the RECT struct)). Nonetheless, IMO drawing with the HTML5 canvas couldn’t be easier.
 
-![](/images//blog/image.axd?picture=image_thumb_75.png)
+![](/images/blog/image_thumb_75.png)
 
-Here’s the code
+Here’s the code:
 
-       1:  @{
+```html
+@{
+    ViewBag.Title = "Home Page";
+}
+<h2>@ViewBag.Message</h2>
 
-       2:      ViewBag.Title = "Home Page";
+<canvas id="canvas" width="300" height="300">
+    Canvas not supported
+</canvas>
 
-       3:  }
 
-       4:  <h2>@ViewBag.Messageh2>
+@section Scripts
+{
 
-       5:   
 
-       6:  <canvas id="canvas" width="300" height="300">
+    <script type="application/javascript">
 
-       7:      Canvas not supported
+        $(function() {
+            draw();
+        });
+    </script>
 
-       8:  canvas>
+    <script type="application/javascript">
+        function draw() {
+            if (Modernizr.canvas ) {
+                var canvas = document.getElementById("canvas");
+                var ctx = canvas.getContext("2d");
 
-       9:   
-
-      10:   
-
-      11:  @section Scripts
-
-      12:  {
-
-      13:      
-
-      14:   
-
-      15:      
+                ctx.fillStyle = "rgb(200,0,0)";
+                ctx.fillRect(10, 10, 100, 1000);
+            }
+        }
+    </script>
+}
+```

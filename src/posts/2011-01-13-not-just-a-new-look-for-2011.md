@@ -5,9 +5,9 @@ category: "Tooling & Craft"
 tags: ["blogging", "css"]
 ---
 
-Have updated a host of new features on my blog, (running Blog Engine 2.0 released on 1st January)
+Have updated a host of new features on my blog (running Blog Engine 2.0 released on 1st January).
 
-I’m now writing my blogs offline with Wndows Live Writer, and click of the mouse posting them to [www.briankeating.net](https://www.briankeating.net), no more manually fighting with rich text markup formatting and html.
+I’m now writing my blogs offline with Windows Live Writer, and with a click of the mouse posting them to [www.briankeating.net](https://www.briankeating.net), no more manually fighting with rich text markup formatting and HTML.
 
 New features:
 

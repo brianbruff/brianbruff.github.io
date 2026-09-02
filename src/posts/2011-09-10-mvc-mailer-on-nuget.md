@@ -7,10 +7,10 @@ tags: ["asp.net mvc", "nuget"]
 
 So have you ever found yourself doing this?
 
-![](/images/./image.axd?picture=image_thumb_89.png)
+![](/images/blog/image_thumb_89.png)
 
-Well no there’s a nicer alternative whereby you can build up your mail in html.   
-Check out the MVCMailer package on Nuget.
+Well no there’s a nicer alternative whereby you can build up your mail in HTML.   
+Check out the MVCMailer package on NuGet.
 
 PM> Install-Package MvcMailer   
 Attempting to resolve dependency 'T4Scaffolding (≥ 0.9.7)'.   

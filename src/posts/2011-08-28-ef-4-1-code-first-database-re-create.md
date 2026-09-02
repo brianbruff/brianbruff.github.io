@@ -7,10 +7,11 @@ tags: ["entity framework", "asp.net mvc"]
 
 If you’ve upgraded to Entity Framework 4.1 you may have noticed the following no longer compiles. (the line of code that causes the database to drop and recreate on schema change).
 
-![](/images/./image.axd?picture=image_thumb_86.png)
+![](/images/blog/image_thumb_86.png)
 
 ## Solution
 
-    DbDatabase.SetInitializer(new DropCreateDatabaseIfModelChanges());
-
-![](/images/./image.axd?picture=image_thumb_87.png)
+```csharp
+DbDatabase.SetInitializer(new DropCreateDatabaseIfModelChanges<TCF.Models.TCFContext>());
+```
+![](/images/blog/image_thumb_87.png)

@@ -9,11 +9,10 @@ Ok, so in my case it was not so sensitive, I had generated a publish profile for
 
 ## Here’s how
 
-    git filter-branch --index-filter 'git rm --cached --ignore-unmatch mySensitive.data' 
-      --prune-empty --tag-name-filter cat -- --all
-
-    git commit -m "Add Rakefile to .gitignore"
-
-    git push origin master –force
-
-The above removes the file from history, you could add it to your .gitignore to ensure it’s not accidently added again.
+```text
+git filter-branch --index-filter 'git rm --cached --ignore-unmatch mySensitive.data'
+  --prune-empty --tag-name-filter cat -- --all
+git commit -m "Add Rakefile to .gitignore"
+git push origin master –force
+```
+The above removes the file from history, you could add it to your .gitignore to ensure it’s not accidentally added again.

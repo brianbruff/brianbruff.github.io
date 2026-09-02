@@ -5,7 +5,7 @@ category: "Java & JVM"
 tags: ["web api", "websockets"]
 ---
 
-This video shows you how to create a websocket server in java
+This video shows you how to create a websocket server in Java.
 
 Links:
 

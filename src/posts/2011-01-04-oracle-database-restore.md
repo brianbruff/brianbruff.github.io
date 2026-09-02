@@ -5,7 +5,7 @@ category: "Data & Persistence"
 tags: ["oracle", "backup"]
 ---
 
-How to create an oracle user/schema and resore an existing database to this new schema.
+How to create an Oracle user/schema and restore an existing database to this new schema.
 
 drop tablespace xxx_demo_data including contents and datafiles;
 
@@ -32,7 +32,7 @@ GRANT RESOURCE TO xxx_demo;
 
 ALTER USER xxx_demo QUOTA unlimited ON xxx_demo_data;
 
-// change the passworkd.   
+// change the password.   
 //drop to command line
 
 impdp xxx_demo/{passwd} DIRECTORY=expdp_dir DUMPFILE=20101220-DEMO.DMP REMAP_SCHEMA=xxx:xxx_demo REMAP_tablespace=xxx:xxx_demo

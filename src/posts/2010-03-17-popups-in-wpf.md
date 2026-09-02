@@ -1,24 +1,24 @@
 ---
-title: "Popups in wpf"
+title: "Popups in WPF"
 date: "2010-03-17"
 category: "XAML & Desktop"
 tags: ["wpf", "data binding"]
 ---
 
-Here is come code to show a popup in wpf, i've nothing in the popup at the moment, just a gradient background and border.
+Here is some code to show a popup in WPF, I've nothing in the popup at the moment, just a gradient background and border.
 
-[code:c#]
+```xml
+<Popup Name="popup1"
+   Width="{Binding ElementName=bdrCalendar, Path=ActualWidth, Converter={StaticResource MarginValueConverter}}"
+   Height="150"
+   Placement="Center"
+   PopupAnimation="Scroll"
+   AllowsTransparency="True"
+   PlacementTarget="{Binding ElementName=bdrCalendar}"
+   MouseDown="popup1_MouseDown" >
+ <ctrls:PopupContent />
+</Popup>
+```
+![](/images/blog/2010/3/popdown.jpg)
 
-Width="{Binding ElementName=bdrCalendar, Path=ActualWidth, Converter={StaticResource MarginValueConverter}}"  
-Height="150"   
-Placement="Center"   
-PopupAnimation="Scroll"  
-AllowsTransparency="True"  
-PlacementTarget="{Binding ElementName=bdrCalendar}"   
-MouseDown="popup1_MouseDown" >  
-
-[/code]
-
-![](/blog/image.axd?picture=2010%2f3%2fpopdown.jpg)
-
-![](/blog/image.axd?picture=2010%2f3%2fpopup.jpg)
+![](/images/blog/2010/3/popup.jpg)

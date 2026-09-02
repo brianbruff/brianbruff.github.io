@@ -1,13 +1,13 @@
 ---
-title: "C# Concurrency lesson–Barrier to entry"
+title: "C# Concurrency lesson – Barrier to entry"
 date: "2018-08-15"
 category: ".NET & C#"
 tags: ["concurrency", "async"]
 ---
 
-Imagine the scenario you are on a team race, there are a number of stages along the route however only once all you teammates have gotten the the end of a stage can anyone proceed to the next stage.
+Imagine the scenario you are on a team race, there are a number of stages along the route however only once all your teammates have gotten to the end of a stage can anyone proceed to the next stage.
 
-Now imagine the competitors are threads/tasks and that you had to write this code…. with the .net Barrier class this is quite trivial.
+Now imagine the competitors are threads/tasks and that you had to write this code... with the .NET Barrier class this is quite trivial.
 
 The result looks like this:
 

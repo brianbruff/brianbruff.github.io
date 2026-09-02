@@ -11,4 +11,4 @@ Learn about the future of Silverlight from Corporate Vice President, Scott Guthr
   
 <http://www.silverlight.net/news/events/firestarter/>
 
-If you are a INETA User Group Leader or INETA Country Lead er, please help us to deliver this message and spread it. Thanks!
+If you are an INETA User Group Leader or INETA Country Leader, please help us to deliver this message and spread it. Thanks!

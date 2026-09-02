@@ -11,30 +11,26 @@ The bug manifests when you have a route with two consecutive _optional_ URL para
 
 For example, suppose you have the following route defined: 
 
-    routes.MapRoute("by-day",          "archive/{month}/{day}",        
-
-     new { controller = "Home", action = "Index",           
-
-       month = UrlParameter.Optional, day = UrlParameter.Optional } );
-
+```csharp
+routes.MapRoute("by-day",          "archive/{month}/{day}",
+ new { controller = "Home", action = "Index",
+   month = UrlParameter.Optional, day = UrlParameter.Optional } );<?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" />
+```
 Notice that the month and day parameters are both optional.
 
-    routes.MapRoute("by-day",          
-
-        "archive/{month}/{day}",
-
-        new { controller = "Home", action = "Index", 
-
-        month = UrlParameter.Optional, day = UrlParameter.Optional } );
-
+```csharp
+routes.MapRoute("by-day",
+    "archive/{month}/{day}",
+    new { controller = "Home", action = "Index",
+    month = UrlParameter.Optional, day = UrlParameter.Optional } );<?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" />
+```
 Now suppose you have the following view code to generate URLs using this route. 
 
-    @Url.RouteUrl("by-day", new { month = 1, day = 23 })
-
-    @Url.RouteUrl("by-day", new { month = 1 })
-
-    @Url.RouteUrl("by-day", null)
-
+```csharp
+@Url.RouteUrl("by-day", new { month = 1, day = 23 })
+@Url.RouteUrl("by-day", new { month = 1 })
+@Url.RouteUrl("by-day", null)<?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" />
+```
 In ASP.NET MVC 2 the above code (well actually, the equivalent to the above code since Razor didn’t exist in ASP.NET MVC 2) would result in the following URLs as you would expect: 
 
 * /archive/1/23 
@@ -57,51 +53,42 @@ We then add a new route for the other two cases, but this route only has one opt
 
 Here are the two routes after we’re done with these changes. 
 
-    routes.MapRoute("by-day",         
+```csharp
+routes.MapRoute("by-day",
+ "archive/{month}/{day}",
+ new { controller = "Home", action = "Index"} );
 
-     "archive/{month}/{day}",        
-
-     new { controller = "Home", action = "Index"} ); 
-
-     routes.MapRoute("by-month",          "archive/{month}",       
-
-      new { controller = "Home", action = "Index",      
-
-            month = UrlParameter.Optional} );
-
+ routes.MapRoute("by-month",          "archive/{month}",
+  new { controller = "Home", action = "Index",
+        month = UrlParameter.Optional} );<?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" />
+```
 And now, we need to change the last two calls to generate URLs to use the _by-month_ route. 
 
-    @Url.RouteUrl("by-day", new { month = 1, day = 23 }) @Url.RouteUrl("by-month", new { month = 1 }) @Url.RouteUrl("by-month", null)
-
+```csharp
+@Url.RouteUrl("by-day", new { month = 1, day = 23 }) @Url.RouteUrl("by-month", new { month = 1 }) @Url.RouteUrl("by-month", null)<?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" />
+```
 Just to be clear, this bug affects all the URL generation methods in ASP.NET MVC. So if you were generating action links like so: 
 
-    @Html.ActionLink("sample", "Index", "Home", new { month = 1, day = 23 }, null) 
-
-    @Html.ActionLink("sample", "Index", "Home", new { month = 1}, null)
-
-     @Html.ActionLink("sample", "Index", "Home")
-
+```csharp
+@Html.ActionLink("sample", "Index", "Home", new { month = 1, day = 23 }, null)
+@Html.ActionLink("sample", "Index", "Home", new { month = 1}, null)
+ @Html.ActionLink("sample", "Index", "Home")<?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" />
+```
 The last one would be broken without the workaround just provided. 
 
-The workaround is not too bad if you happen to follow the practice of centralizing your URL generation. For example, the developers building [http://forums.asp.net/](http://forums.asp.net/) ran into this problem as well during the upgrade to ASP.NET MVC 3. But rather than having calls to 
-
-ActionLink all over their views, they have calls to methods that are specific to their 
-
-application domain such as ForumDetailUrl. This allowed them to workaround this issue by updating a single method.
+The workaround is not too bad if you happen to follow the practice of centralizing your URL generation. For example, the developers building [http://forums.asp.net/](http://forums.asp.net/) ran into this problem as well during the upgrade to ASP.NET MVC 3. But rather than having calls to ActionLink all over their views, they have calls to methods that are specific to their application domain such as ForumDetailUrl. This allowed them to work around this issue by updating a single method.
 
 ## The Root Cause 
 
 For the insanely curious, let’s look at the root cause of this bug. Going back to the original route defined at the top of this post, we never tried generating an URL where only the _second_ optional parameter was specified. 
 
-    @Url.RouteUrl("by-day", new { day = 23 })
+```csharp
+@Url.RouteUrl("by-day", new { day = 23 })<?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" />
+```
 
 This call really should fail because we didn’t specify a value for the first optional parameter, month. If it’s not clear why it should fail, suppose we allowed this to succeed, what URL would it generate? _/archive/23_? Well that’s obviously not correct because when a request is made for that URL, 23 will be interpreted to be the month, not the date. 
 
-In ASP.NET MVC 2, if you made this call, you ended up 
-
-with /archive/System.Web.Mvc.UrlParameter/23. UrlParameter.Optional
-
-is a class introduced by ASP.NET MVC 2 which ships on its own schedule outside of the core ASP.NET Framework. What that means is we added this new class which provided this new behavior in ASP.NET MVC, but core routing didn’t know about it. 
+In ASP.NET MVC 2, if you made this call, you ended up with /archive/System.Web.Mvc.UrlParameter/23. UrlParameter.Optional is a class introduced by ASP.NET MVC 2 which ships on its own schedule outside of the core ASP.NET Framework. What that means is we added this new class which provided this new behavior in ASP.NET MVC, but core routing didn’t know about it. 
 
 The way we fixed this in ASP.NET MVC 3 was to make the ToString method of UrlParameter.Optional return an empty string. That solved this bug, but uncovered a bug in _core routing_ where a route with optional parameters having default values behaves incorrectly when two of them don’t have values specified during URL generation. Sound familiar? 
 

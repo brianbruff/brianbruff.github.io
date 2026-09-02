@@ -5,25 +5,25 @@ category: "Tooling & Craft"
 tags: ["visual studio", "regex"]
 ---
 
-I’m was not sure what I’d installed but tonight I needed to create a few regular expressions, and as i started typing this appeared in VS2010
+I was not sure what I’d installed but tonight I needed to create a few regular expressions, and as I started typing this appeared in VS2010.
 
-![](/images/./image.axd?picture=image_thumb_156.png)
+![](/images/blog/image_thumb_156.png)
 
 Pretty cool if I say so myself.
 
 A quick look at my extension manager and I see
 
-![](/images/./image.axd?picture=image_thumb_157.png)
+![](/images/blog/image_thumb_157.png)
 
 Visual Studio you rock!
 
-I’ve used quite a few IDE’s lately
+I’ve used quite a few IDE’s lately:
 
   * Netbeans
   * Eclipse
   * IntelliJ (pretty good)
   * XCode 4.0
 
-One thing is for certain, only IntelliJ comes close (but then the Refactor developers are pretty familiar with VStudio ![Nyah-Nyah](./image.axd?picture=wlEmoticon-nyahnyah_1.png)
+One thing is for certain, only IntelliJ comes close (but then the Refactor developers are pretty familiar with VStudio).
 
-Disclaimer: I’ve been using visual studio since the mid 90ies so I’m truly biased.
+Disclaimer: I’ve been using Visual Studio since the mid 90s so I’m truly biased.

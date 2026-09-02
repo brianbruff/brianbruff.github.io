@@ -5,15 +5,15 @@ category: "Java & JVM"
 tags: ["process execution", "concurrency"]
 ---
 
-I’m executing a windows process from java and I was bitten by a nasty oversight in one of my project today.   
+I’m executing a Windows process from Java and I was bitten by a nasty oversight in one of my projects today.   
 Everything’s been working fine for some time, but today the application I’m calling started spitting out errors to the error stream.
 
-However I’d not been reading the errorstream in my code and it appears to be the culprit for hanging the process execution.
+However I’d not been reading the error stream in my code and it appears to be the culprit for hanging the process execution.
 
-I don’t really care about the error stream or even the inputsteam myself as the thirdparty application does its own logging.
+I don’t really care about the error stream or even the input stream myself as the third party application does its own logging.
 
-The solution was a follows: I used a SteamGobbler class to purge the input and error streams. Hope this helps someone.
+The solution was as follows: I used a StreamGobbler class to purge the input and error streams. Hope this helps someone.
 
-![](/images/./image.axd?picture=image_thumb_107.png)
+![](/images/blog/image_thumb_107.png)
 
-![](/images/./image.axd?picture=image_thumb_108.png)
+![](/images/blog/image_thumb_108.png)

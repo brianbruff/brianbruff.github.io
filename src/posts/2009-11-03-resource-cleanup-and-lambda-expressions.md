@@ -7,76 +7,68 @@ tags: ["lambdas", "design patterns"]
 
 A neat way of always cleaning up resources is to use Lambdas as data.
 
-Take the following
+Take the following.
 
 ## Source
 
-[code:c#]
+```csharp
+    internal interface ITryCatchReport
+    {
+        void Try(Action<IServer> action);
+    }
 
-internal interface ITryCatchReport   
-{   
-void Try(Action action);   
-}
+    internal class TryCatchReport : ITryCatchReport
+    {
+        public TryCatchReport(IServer server)
+        {
+            _server = server;
+        }
 
-internal class TryCatchReport : ITryCatchReport   
-{   
-public TryCatchReport(IServer server)   
-{   
-_server = server;   
-}
+        public void Try(Action<IServer> action)
+        {
+            try
+            {
+                action(_server);
+            }
+            catch (Exception e)
+            {
+                Trace.WriteLine(e.Message);
+                // Clean up resources
+                // Report errors
+            }
+        }
 
-public void Try(Action action)   
-{   
-try   
-{   
-action(_server);   
-}   
-catch (Exception e)   
-{   
-Trace.WriteLine(e.Message);   
-// Clean up resources   
-// Report errors   
-}   
-}
-
-private IServer _server;   
-}
-
-[/code]
-
+        private IServer _server;
+    }
+```
 ## Usage
 
-[code:c#]
-
-TryCatchReport safeInvoker = new TryCatchReport(_data.Server);   
-safeInvoker.Try(x =>   
-{   
-x.MakeInterfaceCall();   
-}); 
-
-[/code]
-
-We are now guaranteed that in the case of an exception that the resources will get cleaned up.
+```csharp
+TryCatchReport safeInvoker = new TryCatchReport(_data.Server);
+safeInvoker.Try(x =>
+{
+ x.MakeInterfaceCall();
+});
+```
+We are now guaranteed that in the case of an exception the resources will get cleaned up.
 
 ## Usage with code blocks
 
 If you wish to execute many statements in the action look at this sample.
 
-[code:c#]
+```csharp
+ private List<WFActionDefinition> GetActionDefinitions()
+{
+    if (_actionDefinitions == null)
+    {
+        safeInvoker.Try(x =>
+            {
+                x.Do1();
+                x.DoSomething();
+                OtherFunc();
+            });
+    }
 
-private List GetActionDefinitions()   
-{   
-if (_actionDefinitions == null)   
-{   
-safeInvoker.Try(x =>   
-{   
-x.Do1();   
-x.DoSomething();   
-OtherFunc();   
-});   
+    return _actionDefinitions;
 }
-
-return _actionDefinitions;   
-}
-
-[/code]
+```

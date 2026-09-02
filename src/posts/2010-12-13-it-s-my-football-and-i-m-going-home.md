@@ -5,9 +5,9 @@ category: ".NET & C#"
 tags: ["security", "assemblies"]
 ---
 
-We've all created API libraries, and libraries by their nature encourage resuse.  
+We've all created API libraries, and libraries by their nature encourage reuse.  
 However what happens if you want to be selective in who else uses your assembly?  
-One simplistic approach would be to ensure that the calling assembly has the same public key  
+One simplistic approach would be to ensure that the calling assembly has the same public key.  
 
 private void CheckCallerAllowed()   
 {  

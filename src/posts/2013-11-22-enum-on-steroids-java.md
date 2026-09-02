@@ -1,11 +1,11 @@
 ---
-title: "Enum on steroids – java"
+title: "Enum on steroids – Java"
 date: "2013-11-22"
 category: "Java & JVM"
 tags: ["java", "enums"]
 ---
 
-Hi was reviewing some java code this week and came across this wonderful way of establishing structured enums.
+Hi, I was reviewing some Java code this week and came across this wonderful way of establishing structured enums.
 
 ## Code
 

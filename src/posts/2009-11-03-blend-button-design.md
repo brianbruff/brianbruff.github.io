@@ -5,9 +5,9 @@ category: "XAML & Desktop"
 tags: ["expression blend", "silverlight"]
 ---
 
-Here's a video from Steve White, a program manager in expression blend.
+Here's a video from Steve White, a program manager in Expression Blend.
 
-He shows how to Style a button in Silverlight using expression blend 3.
+He shows how to style a button in Silverlight using Expression Blend 3.
 
 <http://electricbeach.org/apps/Silverlight Button Control Styling Tips/Default.html>
 

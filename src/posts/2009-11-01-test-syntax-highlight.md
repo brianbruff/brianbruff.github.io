@@ -7,6 +7,6 @@ tags: ["blogging", "blogengine"]
 
 Testing the syntax highlighting option with the blog engine.
 
-[code:c#]  
-int test = 0;  
-[/code]
+```csharp
+int test = 0;
+```

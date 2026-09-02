@@ -5,17 +5,15 @@ category: "XAML & Desktop"
 tags: ["silverlight", "wpf", "data binding"]
 ---
 
-Ever want to filter data in Silverlight? here's a simple example that uses a lambda expression to search on name (case sensitive)
+Ever want to filter data in Silverlight? Here's a simple example that uses a lambda expression to search on name (case sensitive).
 
-[code:c#]
-
+```csharp
 ComboBox cbx = ((ComboBox)sender);
 
-ICollectionView dataView =  
-CollectionViewSource.GetDefaultView(this.DataContext);  
-if (!string.IsNullOrEmpty(cbx.Text))  
-dataView.Filter = f => ((Job)f).Name.Contains(cbx.Text);  
-else  
-dataView.Filter = null;
-
-[/code]
+ICollectionView dataView =
+            CollectionViewSource.GetDefaultView(this.DataContext);
+if (!string.IsNullOrEmpty(cbx.Text))
+    dataView.Filter = f => ((Job)f).Name.Contains(cbx.Text);
+else
+    dataView.Filter = null;
+```

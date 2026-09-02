@@ -1,13 +1,13 @@
 ---
-title: "Microsoft Synchronization Services, WCF OData, Sql Azure, WPF, iPhone"
+title: "Microsoft Synchronization Services, WCF OData, SQL Azure, WPF, iPhone"
 date: "2011-06-16"
 category: "Web & APIs"
 tags: ["odata", "wcf", "azure", "sql server"]
 ---
 
-###### Part1 – Setting up your database
+###### Part 1 – Setting up your database
 
-I did some work with an interesting piece of tech lately, Microsoft Syncronization services 4.0 CTP. This post aims to give an overview of where to start, but firstly, let me describe the how all this plugs together and what it buys me.
+I did some work with an interesting piece of tech lately, Microsoft Synchronization Services 4.0 CTP. This post aims to give an overview of where to start, but firstly, let me describe how all this plugs together and what it buys me.
 
 **_Overview_**
 
@@ -15,39 +15,39 @@ The OData + Sync protocol uses the OData format for the data payload that can be
 
 _**Server**_
 
-The CTP release includes server components that make it easy for you to build a sync Web service that exposes data to be synchronized via the OData + Sync protocol. For example, you can easily expose data in a SQL Server database or a SQL Azure database via a WCF sync endpoint using these server components. In our case our server in sitting in the Azure Cloud providing an OData endpoint, the data is also hosted in the Cloud in Sq1 Azure.
+The CTP release includes server components that make it easy for you to build a sync Web service that exposes data to be synchronized via the OData + Sync protocol. For example, you can easily expose data in a SQL Server database or a SQL Azure database via a WCF sync endpoint using these server components. In our case our server is sitting in the Azure Cloud providing an OData endpoint, the data is also hosted in the Cloud in SQL Azure.
 
 **_Clients_**
 
-We have 3 clients, (well 4 actually but our Silverlight version has lagged behind and in not yet publically available).
+We have 3 clients, (well 4 actually but our Silverlight version has lagged behind and is not yet publicly available).
 
   1. WP7 – Local data stored in Isolated Storage, DataVisualizationToolkit for charting, SL3
-  2. iPhone – Connecting directly to the server via OData/Json
+  2. iPhone – Connecting directly to the server via OData/JSON
   3. ASP.MVC Ajax – A powerful web interface written using MVC3 and jQuery
   4. Silverlight – Initially used RIA Services to access the server but synchronization model is nearly identical to the WP7 SL3 approach with isolated storage now.   
 
 **_How to create the server._**
 
-  1. Create you database schema in SSMS (SqlServer managment studio)
-  2. Now that your database has been created you’ll need to provision it, think of this much in the same way that you would provision an existing sql server database for asp membership tables and stored procedures. The syncronization framework will provide you with a tool called **SyncSvcUtilHelper.exe** this basically is a GUI for the command line version.
+  1. Create your database schema in SSMS (SQL Server Management Studio)
+  2. Now that your database has been created you’ll need to provision it, think of this much in the same way that you would provision an existing SQL Server database for asp membership tables and stored procedures. The synchronization framework will provide you with a tool called **SyncSvcUtilHelper.exe**. This basically is a GUI for the command line version.
 
-![](/images//blog/image.axd?picture=image_thumb_59.png)   
+![](/images/blog/image_thumb_59.png)   
 
-before provisioning you’ll need to create a Sync configuration, so choose option on, select a filename in step 1 and select your database in step2
+Before provisioning you’ll need to create a Sync configuration, so choose option one, select a filename in step 1 and select your database in step 2.
 
-![](/images//blog/image.axd?picture=image_thumb_60.png)
+![](/images/blog/image_thumb_60.png)
 
-![](/images//blog/image.axd?picture=image_thumb_61.png)
+![](/images/blog/image_thumb_61.png)
 
-Select the list of tables that you are interested in syncing
+Select the list of tables that you are interested in syncing.
 
-![](/images//blog/image.axd?picture=image_thumb_62.png)
+![](/images/blog/image_thumb_62.png)
 
-That’s pretty much it. Now you’ll need to choose option2 to provision the database.   
+That’s pretty much it. Now you’ll need to choose option 2 to provision the database.   
 Select the configuration file you created as part of step 1 and choose the provisioning option.
 
-![](/images//blog/image.axd?picture=image_thumb_63.png)
+![](/images/blog/image_thumb_63.png)
 
-That’s all that’s involved, your Database is now ready to be synchronized, of course there are come considerations, unique id’s etc, but you’ll find all this in the documentation.
+That’s all that’s involved, your Database is now ready to be synchronized, of course there are some considerations, unique id’s etc, but you’ll find all this in the documentation.
 
 My next post will cover creating the WCF service for exposing the database, after that I’ll run through creating the clients.

@@ -9,9 +9,9 @@ tags: ["azure", "storage"]
 
 In the video I show you (with no/low code), how to:
 
-* Download xml from a website
+* Download XML from a website
 
-* Transform this data into csv
+* Transform this data into CSV
 
 * Upload it to cloud storage
 

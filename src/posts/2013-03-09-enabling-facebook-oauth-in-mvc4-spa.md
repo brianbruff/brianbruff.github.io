@@ -5,7 +5,7 @@ category: "Web & APIs"
 tags: ["authentication", "asp.net mvc", "security"]
 ---
 
-There are two steps, the first step is to register a facebook application, after you register you will have a key and password. The next step will be to insert these into you application.
+There are two steps, the first step is to register a Facebook application, after you register you will have a key and password. The next step will be to insert these into your application.
 
 ## Step 1.
 
@@ -21,16 +21,14 @@ Note If you are running a site on your local computer with a URL like [http://lo
      * Choose the Save Changes button. 
      * Choose the Apps tab again, and then view the start page for your application. 
      * Copy the App ID and App Secret values for your application, here is what it looks like, I’ve blurred my app id and secret.
-     * ![](/images/./image.axd?picture=image_thumb_249.png)
+     * ![](/images/blog/image_thumb_249.png)
      * Exit the Facebook developer site
-
-## 
 
 ## Step 2.
 
 Edit your App_Start/AuthConfig.cs with these new settings
 
-![](/images/./image.axd?picture=image_thumb_250.png)
+![](/images/blog/image_thumb_250.png)
 
-That’s it, you can no log in with facebook, see the placeholder template below. ![](/images/./image.axd?picture=image_thumb_251.png) 
+That’s it, you can now log in with Facebook, see the placeholder template below. ![](/images/blog/image_thumb_251.png) 
 

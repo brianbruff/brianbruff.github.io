@@ -7,11 +7,9 @@ tags: ["silverlight", "concurrency"]
 
 When you wish to know if you are on the UI thread and you've no access to any UIElement how do you do it?
 
-[code:c#]
-
-static bool IsUiThread()  
-{  
-return Deployment.Current.Dispatcher.CheckAssess();  
+```csharp
+static bool IsUiThread()
+{
+    return Deployment.Current.Dispatcher.CheckAssess();
 }
-
-[/code]
+```

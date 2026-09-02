@@ -5,58 +5,53 @@ category: ".NET & C#"
 tags: ["delegates", "lambdas"]
 ---
 
-Just a sample that may catch you eye as unusual..
+Just a sample that may catch your eye as unusual...
 
-[code:c#]
+```csharp
+ class WorkItem
+{
+    public WaitCallback Callback;
+    public object State;
+    public ExecutionContext Context;
 
-class WorkItem  
-{  
-public WaitCallback Callback;  
-public object State;  
-public ExecutionContext Context;
+    private static ContextCallback _contextCallback = s =>
+    {
+        var item = s as WorkItem;
+        item.Callback(item.State);
+    };
 
-private static ContextCallback _contextCallback = s =>  
-{  
-var item = s as WorkItem;  
-item.Callback(item.State);  
-};
+    public void Execute()
+    {
+        if (Context != null)
+            ExecutionContext.Run(Context, _contextCallback, this);
+        else
+            Callback(State);
 
-public void Execute()  
-{  
-if (Context != null)  
-ExecutionContext.Run(Context, _contextCallback, this);  
-else  
-Callback(State);
-
-}  
+    }
 }
+```
+But here's the same code using anon delegates.
 
-[/code]
+```csharp
+class WorkItem
+{
+    public WaitCallback Callback;
+    public object State;
+    public ExecutionContext Context;
 
-but here's the same code using anon delegates
+    private static ContextCallback _contextCallback = delegate(object s)
+    {
+        var item = s as WorkItem;
+        item.Callback(item.State);
+    };
 
-[code:c#]
+    public void Execute()
+    {
+        if (Context != null)
+            ExecutionContext.Run(Context, _contextCallback, this);
+        else
+            Callback(State);
 
-class WorkItem  
-{  
-public WaitCallback Callback;  
-public object State;  
-public ExecutionContext Context;
-
-private static ContextCallback _contextCallback = delegate(object s)  
-{  
-var item = s as WorkItem;  
-item.Callback(item.State);  
-};
-
-public void Execute()  
-{  
-if (Context != null)  
-ExecutionContext.Run(Context, _contextCallback, this);  
-else  
-Callback(State);
-
-}  
+    }
 }
-
-[/code]
+```

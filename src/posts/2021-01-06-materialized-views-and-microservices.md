@@ -13,6 +13,6 @@ However when dealing with microservices that have well defined domain boundaries
 
 ## Why?
 
-When data is stored it’s often stored in a format that feels native to the format of the data itself or in a format that manages data size and of data integrity
+When data is stored it’s often stored in a format that feels native to the format of the data itself or in a format that manages data size and of data integrity.
 
-The downside is that this can have negative effect on queries, When a query only needs a subset of the data from some entities, such as a summary of orders for several customers without all of the order details, it must extract all of the data for the relevant entities in order to obtain the required information.
+The downside is that this can have a negative effect on queries. When a query only needs a subset of the data from some entities, such as a summary of orders for several customers without all of the order details, it must extract all of the data for the relevant entities in order to obtain the required information.

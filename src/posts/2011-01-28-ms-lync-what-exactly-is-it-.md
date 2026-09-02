@@ -5,6 +5,6 @@ category: "Tooling & Craft"
 tags: ["lync", "productivity"]
 ---
 
-Couldn’t tell you! Installed it and got the following ![Sick smile](/blog/image.axd?picture=wlEmoticon-sicksmile.png)
+Couldn’t tell you! Installed it and got the following.
 
-![](/images//blog/image.axd?picture=image_thumb_6.png)
+![](/images/blog/image_thumb_6.png)

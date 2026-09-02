@@ -7,4 +7,4 @@ tags: ["azure", "authentication", "serverless", "storage"]
 
 In this video I show you how to leverage Azure Managed Identities to allow access between Azure resources.
 
-(excuse the audio quality.. i need to improve on this)
+(excuse the audio quality... I need to improve on this)

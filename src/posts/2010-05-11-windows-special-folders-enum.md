@@ -5,15 +5,11 @@ category: ".NET & C#"
 tags: ["enums", "filesystem"]
 ---
 
-  
-Ever want to find out from c# where some "special" folders are located so you can use them in your desktop application?
+Ever want to find out from C# where some "special" folders are located so you can use them in your desktop application?
 
 Here's how.
 
-[code:c#]
-
+```text
 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)
-
-[/code]
-
+```
 See Environment.SpecialFolder enumeration for more locations.

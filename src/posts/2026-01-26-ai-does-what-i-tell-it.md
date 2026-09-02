@@ -40,6 +40,6 @@ Power tools allow more work to be done in less time. As always, the economy will
 
 The future of software engineering isn't about AI replacing humans—it's about humans learning to work effectively with AI. This means developing new skills: understanding AI's capabilities and limitations, knowing when to trust its suggestions and when to question them, and building systems that make collaboration seamless and productive.
 
-Organizations that succeed will be those that recognize this shift and invest in their engineering teams accordingly. This means providing training, tools, and processes that enable engineers to leverage AI effectively while maintaining the standards of quality, security, and maintainability that distinguish professional software development from code generation.
+Organisations that succeed will be those that recognise this shift and invest in their engineering teams accordingly. This means providing training, tools, and processes that enable engineers to leverage AI effectively while maintaining the standards of quality, security, and maintainability that distinguish professional software development from code generation.
 
 The engineers who thrive in this new landscape won't be those who resist change or embrace uncritically—they'll be the ones who understand that AI is a powerful tool in their arsenal, not a replacement for their expertise. They'll use AI to amplify their capabilities, not outsource their judgment. And in doing so, they'll help shape the future of what it means to be a software engineer in the age of AI.

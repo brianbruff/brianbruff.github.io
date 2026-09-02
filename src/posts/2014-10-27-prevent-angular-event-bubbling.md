@@ -1,5 +1,5 @@
 ---
-title: "Prevent angular event bubbling"
+title: "Prevent Angular event bubbling"
 date: "2014-10-27"
 category: "Front-end & JavaScript"
 tags: ["angular", "events"]
@@ -9,7 +9,7 @@ In this screencast I show you how to prevent a click event on a table cell conte
 
 ## Screenshots
 
-![](/images//images/image_thumb_359.png)  
+![](/images/image_thumb_359.png)  
 
-![](/images//images/image_thumb_360.png)  
+![](/images/image_thumb_360.png)  
 

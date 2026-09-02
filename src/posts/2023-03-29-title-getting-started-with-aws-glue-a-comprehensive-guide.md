@@ -1,5 +1,5 @@
 ---
-title: "Title: Getting Started with AWS Glue: A Comprehensive Guide"
+title: "Getting Started with AWS Glue: A Comprehensive Guide"
 date: "2023-03-29"
 category: "Data & Persistence"
 tags: ["aws", "serverless", "storage"]
@@ -88,8 +88,6 @@ a. Use AWS Glue Console's job history and logs to track job progress, view runti
 b. Enable Amazon CloudWatch metrics and alarms for monitoring job performance and sending notifications based on specific thresholds.
 
 c. Access the underlying Apache Spark logs and UI for a more in-depth analysis of your ETL job execution.
-
-##   
 
 ## Conclusion
 

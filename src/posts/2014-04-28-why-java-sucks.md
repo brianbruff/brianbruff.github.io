@@ -7,12 +7,12 @@ tags: ["java", "blogging"]
 
 > **Editor's note:** The videos referenced in this post are no longer present on the remote site... but looking back ... you didn't miss much 😜
 
-<http://2014.javazone.no/videos.html>An ex colleague of mine sent me this link this morning. [www.whyjavasucks.com](http://www.whyjavasucks.com)   
-Apparently I got associated with it, haha, yes at one time I used to shoot down java at every occurrence, this was most likely because I didn’t know it well enough at the time; now I just yawn a little and continue ;-)
+<http://2014.javazone.no/videos.html> An ex colleague of mine sent me this link this morning. [www.whyjavasucks.com](http://www.whyjavasucks.com)   
+Apparently I got associated with it, haha, yes at one time I used to shoot down Java at every occurrence, this was most likely because I didn’t know it well enough at the time; now I just yawn a little and continue ;-)
 
 ## [Programming in C# after using Java](http://whyjavasucks.com/Blog/2/Java_Feel_of_the_Day/2088/Programming_in_CSharp_after_using_Java)
 
-![](/images/./image.axd?picture=image_thumb_311.png)  
+![](/images/blog/image_thumb_311.png)  
 
 Enjoy the website! I did ;-)
 

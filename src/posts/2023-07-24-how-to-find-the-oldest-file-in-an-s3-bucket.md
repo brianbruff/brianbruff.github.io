@@ -5,9 +5,9 @@ category: "Cloud & Infrastructure"
 tags: ["aws", "storage", "python"]
 ---
 
-This python example searches for the oldest file in a bucket and prints same.
+This Python example searches for the oldest file in a bucket and prints same.
 
-Ensure to pip install boto3
+Ensure to pip install boto3.
 
     import boto3
     

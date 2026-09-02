@@ -1,5 +1,5 @@
 ---
-title: "How to deploy apps to your windows phone 7"
+title: "How to deploy apps to your Windows Phone 7"
 date: "2011-01-23"
 category: "Mobile"
 tags: ["windows phone", "deployment"]
@@ -9,8 +9,8 @@ tags: ["windows phone", "deployment"]
 
 2) Select the registration in the start menu
 
-![](/images//blog/image.axd?picture=image_thumb_3.png)
+![](/images/blog/image_thumb_3.png)
 
-3) Enter your live id (ensure you’re registered at the developer portal to create wp7/xbox apps <http://create.msdn.com/en-US/> (remember have your phone connected)
+3) Enter your live id (ensure you’re registered at the developer portal to create wp7/xbox apps <http://create.msdn.com/en-US/>) (remember to have your phone connected).
 
-![](/images//blog/image.axd?picture=image_thumb_4.png)
+![](/images/blog/image_thumb_4.png)

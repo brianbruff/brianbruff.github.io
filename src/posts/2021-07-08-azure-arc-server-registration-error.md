@@ -11,4 +11,4 @@ Today while adding a new server to an Azure subscription I encountered the follo
 
 The subscription is not registered to use namespace 'Microsoft.HybridCompute'
 
-In this video I show you how register the Hybrid Compute provider in your subscription to overcome this obstacle.
+In this video I show you how to register the Hybrid Compute provider in your subscription to overcome this obstacle.

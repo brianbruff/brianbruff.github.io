@@ -5,15 +5,15 @@ category: "Java & JVM"
 tags: ["generics", "covariance"]
 ---
 
-I believe I’ve previously covered c# generics covariance and contravariance in the past, now it’s javas turn
+I believe I’ve previously covered C# generics covariance and contravariance in the past, now it’s Java’s turn.
 
 As you may or may not know 
 
-The term PECS stands for “Producer Extends, Consumer Super,” which is an odd acronym coined by Joshua Block in his Effective Java book, but provides a mnemonic on what to do. It means that if a parameterized type represents a producer, use extends. If it represents a consumer, use super. If the parameter is both, don’t use wildcards at all—the only type that satisfies both requirements is the explicit type itself.
+The term PECS stands for “Producer Extends, Consumer Super,” which is an odd acronym coined by Joshua Bloch in his Effective Java book, but provides a mnemonic on what to do. It means that if a parameterized type represents a producer, use extends. If it represents a consumer, use super. If the parameter is both, don’t use wildcards at all—the only type that satisfies both requirements is the explicit type itself.
 
-Covariance in java uses the extends keyword (yes even with interfaces), e.g. List accommodates all types that derive from Number
+Covariance in Java uses the extends keyword (yes even with interfaces), e.g. List accommodates all types that derive from Number.
 
-Contravariance on the other hand uses the super keyword e.g. List accommodates all the types that Number derives from and of course number itself.
+Contravariance on the other hand uses the super keyword e.g. List accommodates all the types that Number derives from and of course Number itself.
 
 So what exactly is PECS recommending we do?
 

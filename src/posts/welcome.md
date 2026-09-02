@@ -1,5 +1,5 @@
 ---
-title: "Welcome to new Blog"
+title: "Welcome to New Blog"
 date: "2025-02-14"
 category: "Tooling & Craft"
 tags: ["blogging", "gatsby"]

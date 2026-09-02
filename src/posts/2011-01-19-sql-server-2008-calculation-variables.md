@@ -5,9 +5,9 @@ category: "Data & Persistence"
 tags: ["sql server", "t-sql"]
 ---
 
-SqlServer 2008 has a short hand/compact way of assigning calculation variables.
+SQL Server 2008 has a shorthand/compact way of assigning calculation variables.
 
-e.g
+e.g.
 
 _Sql2005_
 
@@ -21,4 +21,4 @@ DECLARE @val INT
 set @val = 1;   
 set @val += 1;
 
-Same applies to other operators, *=, –=, /=
+Same applies to other operators, *=, -=, /=

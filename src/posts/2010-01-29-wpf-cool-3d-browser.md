@@ -5,6 +5,6 @@ category: "XAML & Desktop"
 tags: ["wpf", "3d"]
 ---
 
-Pretty cool app to pass a minute or so <http://chriscavanagh.wordpress.com/>
+Pretty cool app to pass a minute or so <http://chriscavanagh.wordpress.com/>.
 
-![](/blog/image.axd?picture=2010%2f1%2fcoolWpf.jpg)
+![](/images/blog/2010/1/coolWpf.jpg)

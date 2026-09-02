@@ -13,7 +13,7 @@ Ok, only you can decide if this is something you want to do, keeping in mind the
   * Type in **control userpasswords2** \+ ENTER
   * The User Accounts window will display.   
 
-![](/images//blog/image.axd?picture=image_thumb_73.png)
+![](/images/blog/image_thumb_73.png)
 
   * Uncheck “Users must enter a user name and password to use this computer”
   * Click OK

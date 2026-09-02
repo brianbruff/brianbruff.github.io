@@ -7,9 +7,14 @@ tags: ["wpf", "mvvm", "data binding"]
 
 If you're interested to see how to attach commands to listview items for use with an implementation of the MVVM pattern, have a look at this.
 
-[code:c#]
-
-TargetType="{x:Type ListViewItem}">   
-Value="MouseDoubleClick" />   
-Value="{Binding ElementName=uiEntityListDisplay, Path=DataContext.OpenEntityCommand}" />   
-Value="{Binding}" />   
+```xml
+<Style x:Key="Local_OpenEntityStyle"
+           TargetType="{x:Type ListViewItem}">
+        <Setter Property="acb:CommandBehavior.Event"
+                        Value="MouseDoubleClick" />
+        <Setter Property="acb:CommandBehavior.Command"
+                        Value="{Binding ElementName=uiEntityListDisplay, Path=DataContext.OpenEntityCommand}" />
+        <Setter Property="acb:CommandBehavior.CommandParameter"
+                        Value="{Binding}" />
+</Style>
+```

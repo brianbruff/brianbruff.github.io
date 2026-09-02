@@ -7,7 +7,7 @@ tags: ["async", "concurrency", "wpf"]
 
 Ok, forget about mvvm, that’s not the point of this quick post…
 
-![](/images//blog/image.axd?picture=image_thumb_78.png)
+![](/images/blog/image_thumb_78.png)
 
 Have a look at that, ain’t it a thing of beauty!?
 

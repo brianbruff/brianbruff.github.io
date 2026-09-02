@@ -7,18 +7,18 @@ tags: ["asp.net mvc", "model binding"]
 
 Hi All,
 
-Been a while since I've writen some posts, been pretty hectic hours at work and weekends building a house so my chances to blog have been limited.
+Been a while since I've written some posts, been pretty hectic hours at work and weekends building a house so my chances to blog have been limited.
 
-I intend over the coming few days to give a few tips and tricks on MCV2.
+I intend over the coming few days to give a few tips and tricks on MVC2.
 
-Here's on gottya..
+Here's one gotcha...
 
-Be carefull how you name your formal arguements in your controller functions.
+Be careful how you name your formal arguments in your controller functions.
 
-You can see from the screenshot below that I created two args, "Name" and "name"
+You can see from the screenshot below that I created two args, "Name" and "name".
 
 By default the first matching case insensitive value will be applied to both variables by MVC...
 
-Usually this will be avoided by good naming conventions but be carefull nonetheless :-)
+Usually this will be avoided by good naming conventions but be careful nonetheless :-)
 
-![](/blog/image.axd?picture=2010%2f9%2fmvc1.png)
+![](/images/blog/2010/9/mvc1.png)

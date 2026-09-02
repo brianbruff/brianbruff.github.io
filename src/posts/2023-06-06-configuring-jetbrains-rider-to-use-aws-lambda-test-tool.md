@@ -5,7 +5,7 @@ category: "Tooling & Craft"
 tags: ["visual studio", "aws", "serverless"]
 ---
 
-eveloping serverless applications using AWS Lambda can be an exciting journey into the world of event-driven programming. However, testing and debugging these applications can be a slightly more intricate process than usual. Fortunately, AWS provides a valuable tool known as the 'AWS Lambda Test Tool' that simplifies local testing and debugging of your Lambda functions.
+Developing serverless applications using AWS Lambda can be an exciting journey into the world of event-driven programming. However, testing and debugging these applications can be a slightly more intricate process than usual. Fortunately, AWS provides a valuable tool known as the 'AWS Lambda Test Tool' that simplifies local testing and debugging of your Lambda functions.
 
 In this blog post, we will walk you through configuring JetBrains Rider IDE to work with the AWS Lambda Test Tool. While this guide focuses on one specific method of setup, it's important to note that there are multiple ways to achieve local testing of AWS Lambda functions. Rider itself has excellent Lambda tooling capabilities that work with Docker, providing a more integrated and managed environment for your development needs.
 
@@ -65,9 +65,7 @@ This approach offers several benefits, such as:
   2. Simulating event sources like Amazon S3, Amazon DynamoDB, and others.
   3. Easier management of dependencies and environment variables.
 
-To use this approach, you'll need Docker installed
-
-on your machine, and you may also need to adjust your Rider settings to enable Docker support.
+To use this approach, you'll need Docker installed on your machine, and you may also need to adjust your Rider settings to enable Docker support.
 
 ## Conclusion
 

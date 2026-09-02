@@ -7,21 +7,21 @@ tags: ["async", "concurrency", "performance"]
 
 On IIS, the .NET Framework maintains a pool of threads that are used to service ASP.NET requests. When a request arrives, a thread from the pool is dispatched to process that request. If the request is processed synchronously, the thread that processes the request is blocked while the request is being processed, and that thread cannot service another request.
 
-This is generally not a problem insofar as ASP.net may have enough threads (depending on version) to accommodate a few blocked threads, however when all threads are blocked you’ll see a 503 http error presented – now in thread starvation.
+This is generally not a problem insofar as ASP.NET may have enough threads (depending on version) to accommodate a few blocked threads, however when all threads are blocked you’ll see a 503 HTTP error presented – now in thread starvation.
 
-Firstly, lets talk about standard asp.NET, how can we overcome this problem?
+Firstly, let's talk about standard ASP.NET, how can we overcome this problem?
 
-Seasoned .NET developers may attempt to begin invoke on a delegate (using lambdas these days ![Hot smile](/blog/image.axd?picture=wlEmoticon-hotsmile_1.png)) or use the ThreadPool.QueueUserWorkItem, however both these approaches are futile as the both draw from the same thread pool as asp.NET ![Confused smile](/blog/image.axd?picture=wlEmoticon-confusedsmile.png)
+Seasoned .NET developers may attempt to begin invoke on a delegate (using lambdas these days) or use the ThreadPool.QueueUserWorkItem, however both these approaches are futile as they both draw from the same thread pool as ASP.NET.
 
 Another naïve approach would be to serve up your own thread, think about this for a second, your website is there to handle multiple requests…! Needless to say it could promptly run out of resources as a new thread would be created for each request.
 
-The asp.NET solution is to use async pages , <%@ Page Async=”true” …> / Page.AddOnPreRenderCompleteAsync 
+The ASP.NET solution is to use async pages, <%@ Page Async=”true” …> / Page.AddOnPreRenderCompleteAsync 
 
-So what about mvc?
+So what about MVC?
 
 # MVC – Async Actions
 
-![](/images//blog/image.axd?picture=clip_image001_thumb.png)
+![](/images/blog/clip_image001_thumb.png)
 
   1. The Web server gets a thread from the thread pool (the worker thread) and schedules it to handle an incoming request. This worker thread initiates an asynchronous operation. 
 

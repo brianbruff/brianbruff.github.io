@@ -1,5 +1,5 @@
 ---
-title: "Asyncronous WF4 activities"
+title: "Asynchronous WF4 activities"
 date: "2011-01-02"
 category: "Workflow (WF)"
 tags: ["async", "concurrency"]
@@ -7,9 +7,9 @@ tags: ["async", "concurrency"]
 
 Anyone that's ever written UX/GUI code will know that while it once was acceptable (unavoidable) to block the UX thread with long running operations, it's now almost always done in a background thread/task etc.
 
-Well with WF4 it's pretty much the same story, it's not the best idea to block the workflow thread while preforming longing running operations.
+Well with WF4 it's pretty much the same story, it's not the best idea to block the workflow thread while performing long running operations.
 
-Take the following example, where I make a webservice call to a server for some information, webservices can take quite some time depending on network load latency etc.
+Take the following example, where I make a webservice call to a server for some information. Webservices can take quite some time depending on network load latency etc.
 
 public sealed class GetCurveTenor : AsyncCodeActivity
 
@@ -80,6 +80,6 @@ If you've not seen the "Func" syntax before it's basically just a delegate defin
 
 public delegate TResult Func<in T, out TResult>(T arg); (Note the .NET 4 in modifier to indicate contravariance)  
 
-I've used lambdas to point to delegate towards the RetrieveCurveDetails function, it's this function that gets executed on the background thread.
+I've used lambdas to point the delegate towards the RetrieveCurveDetails function, it's this function that gets executed on the background thread.
 
 Hope this has been of some assistance.

@@ -1,5 +1,5 @@
 ---
-title: "Powershell Oracle Db Backup"
+title: "PowerShell Oracle Db Backup"
 date: "2017-04-25"
 category: "Data & Persistence"
 tags: ["oracle", "terminal", "storage"]
@@ -7,7 +7,7 @@ tags: ["oracle", "terminal", "storage"]
 
 Hi all,
 
-I thought I would share with you this quick Powershell script I created to Export an oracle database, 7Zip it and then upload it to AmazonS3
+I thought I would share with you this quick PowerShell script I created to Export an Oracle database, 7Zip it and then upload it to AmazonS3.
 
 ## Export.ps1
 
@@ -15,20 +15,20 @@ param([String]$dumpname=(get-date -format dd-MM-yyyy)) Set-Alias sz "$env:Progra
 
 ## How it works:
 
-It uses the current date as the dumpname variable (unless specified as a parameter to the script)
+It uses the current date as the dumpname variable (unless specified as a parameter to the script).
 
-It uses Oracle DbPump to export the database (assumes 7-Zip is installed in %\program files\\)
+It uses Oracle DbPump to export the database (assumes 7-Zip is installed in %\program files\\).
 
-It then writes the 7z file to AWS S3
+It then writes the 7z file to AWS S3.
 
 Finally it removes the dump and log files.
 
-### AWS Powershell
+### AWS PowerShell
 
-ASW Powershell is installed on this server and I have already set a profile “brian.keating” with the following command.
+AWS PowerShell is installed on this server and I have already set a profile “brian.keating” with the following command.
 
 set-awscredentials –AccessKey  –SecretKey  -storeAs brian.keating
 
 ## Trivia
 
-The server in this case is running in AWS, the 7zipped db is about 4Gb, and it uploads to S3 in about 30seconds (nice!)
+The server in this case is running in AWS, the 7zipped db is about 4Gb, and it uploads to S3 in about 30 seconds (nice!)

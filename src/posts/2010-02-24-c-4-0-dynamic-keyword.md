@@ -14,4 +14,4 @@ The E is required, not optional. This is a strongly typed declaration, and you c
 
 "dynamic x" declares the variable x to have dynamic semantics.   
 This means that the C# compiler will generate code that will allow dynamic invocations on x.  
-The actual meaning of "x.M" is deferred until runtime and will depend on the semantics of the IDynamicObject implementation
+The actual meaning of "x.M" is deferred until runtime and will depend on the semantics of the IDynamicObject implementation.

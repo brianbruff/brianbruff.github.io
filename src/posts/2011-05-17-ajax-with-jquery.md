@@ -7,64 +7,51 @@ tags: ["jquery", "json", "asp.net mvc"]
 
 Hi all,
 
-I’m sitting here waiting for a 50meg upload to finish,,, god my internet is slow.
+I’m sitting here waiting for a 50meg upload to finish... god my internet is slow.
 
-May as well add a post ey ![Smile](/blog/image.axd?picture=wlEmoticon-smile_1.png)
+May as well add a post ey.
 
-So I’ll show you how you can request some JSON data from a MVC action using jQuery, You are probably familiar with AJAX.BeginForm extension from Microsoft, but lets do this the jQuery way.
+So I’ll show you how you can request some JSON data from a MVC action using jQuery. You are probably familiar with AJAX.BeginForm extension from Microsoft, but let’s do this the jQuery way.
 
   * Set up your action method to return some JSON
 
-    public ActionResult GetJson()
-
-    {
-
-         return Json(new { Id = 1, value = "First" }, JsonRequestBehavior.AllowGet);
-
-    }
-
-  * Set up a div to hold the json data and some jQuery to request it on document load,   
+```csharp
+public ActionResult GetJson()
+{
+     return Json(new { Id = 1, value = "First" }, JsonRequestBehavior.AllowGet);
+}
+```
+  * Set up a div to hold the JSON data and some jQuery to request it on document load,   
 the getJSON takes the action url and when it returns it places the formatted JSON into the DIV.   
-pretty simple ey..
+Pretty simple ey...
 
-       1:  @{
+```html
+@{
+    ViewBag.Title = "Home Page";
+}
 
-       2:      ViewBag.Title = "Home Page";    
 
-       3:  }
+@section head {
 
-       4:   
+}
 
-       5:   
+<h2>@ViewBag.Message</h2>
 
-       6:  @section head {
 
-       7:   
+<DIV id=json></DIV>
 
-       8:  }
 
-       9:   
+@section footer {
 
-      10:  
-    
-    ## @ViewBag.Message
+<script type="text/javascript">
+    $(function () {
 
-      11:   
+        $.getJSON('@Url.Action("GetJson")', function (obj) {
+            $('#json').html(obj.Id.toString() + " : " + obj.value.toString());
+        });
 
-      12:   
+    });
+</script>
 
-      13:  
-
-      14:   
-
-      15:   
-
-      16:  @section footer {
-
-      17:   
-
-      18:  
-
-      27:   
-
-      28:  }
+}
+```

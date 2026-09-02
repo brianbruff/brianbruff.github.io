@@ -7,9 +7,9 @@ tags: ["blogging", "unit testing"]
 
 ##### [The "Works on My Machine" Certification Program](http://www.codinghorror.com/blog/2007/03/the-works-on-my-machine-certification-program.html)
 
-Joseph Cooney had a brilliant idea for a new [application certification program](http://jcooney.net/archive/2007/02/01/42999.aspx). But Vista's bland white-on-gray badge, in my opinion, doesn't properly communicate the.. authoritative.. nature of said program. With the help of [Jon Galloway](http://weblogs.asp.net/jgalloway/), we zazzed things up a bit:
+Joseph Cooney had a brilliant idea for a new [application certification program](http://jcooney.net/archive/2007/02/01/42999.aspx). But Vista's bland white-on-gray badge, in my opinion, doesn't properly communicate the... authoritative... nature of said program. With the help of [Jon Galloway](http://weblogs.asp.net/jgalloway/), we zazzed things up a bit:
 
-![](/WOMM.png)
+![](/images/blog/WOMM.png)
 
 You might think attaining such a prestigious, rigorous level of certification would be far too challenging. But fear not! Participating in this innovative new application certification program is as simple as pressing the F5 key on your keyboard. Just follow the [four easy steps Joseph outlined](http://jcooney.net/archive/2007/02/01/42999.aspx):
 
@@ -20,4 +20,4 @@ You might think attaining such a prestigious, rigorous level of certification wo
 
 Congratulations! You're fully certified. Brand your app with your shiny new **Works on My Machine** badge. You'll certainly want to show it off to your fellow team members and key stakeholders. But please-- do try to keep your ego in check. Not everyone is capable of such an epic commitment to quality in software engineering.
 
-source: codinghorror.
+Source: codinghorror.
