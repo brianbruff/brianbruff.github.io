@@ -3,32 +3,36 @@
 <p>What better way to experience new tech than to come up with a pet project and get stuck in, so far we’ve gotten down and dirty with</p>
 <ul>
 <li>MS Sync Framework: the backbone of our interoperability using OData and WCF Services.</li>
-<li>WP7 Silverlight : The windows phone app</li>
-<li>Silverlight Ria services: The rich internet application that also runs OOB (out of the browser on the desktop)</li>
-<li>MVC JQuery Ajax.</li>
-<li>Html 5: (low level stuff just now but really excited about this)</li>
+<li>WP7 Silverlight: The Windows Phone app</li>
+<li>Silverlight RIA services: The rich internet application that also runs OOB (out of the browser on the desktop)</li>
+<li>MVC jQuery Ajax.</li>
+<li>HTML5: (low level stuff just now but really excited about this)</li>
 <li>XCode: iPhone app.</li>
 <li>IE9 Jump lists: quick site navigation.</li>
 </ul>
 <p>Dusted off the old Photoshop shortcut, to modify a template and apply it to our MVC application, and it’s been a hell of a lot of fun, jQuery is pretty impressive at the visual end too, animations etc. are trivial and a joy to play with.</p>
 <p>Site coming to an internet near you soon (if we manage to get some free time).</p>
-<p><img src="/images//blog/image.axd?picture=image_thumb_52.png" alt=""></p>
+<p><img src="/images/blog/image_thumb_52.png" alt=""></p>
 <p>Now the techie bit, a sample how to slide in a panel/div.</p>
-<div class="gatsby-highlight" data-language="text"><pre style="counter-reset: linenumber NaN" class="language-text line-numbers"><code class="language-text">@{
+<div class="gatsby-highlight" data-language="csharp"><pre style="counter-reset: linenumber NaN" class="language-csharp line-numbers"><code class="language-csharp">@<span class="token punctuation">{</span>
+    ViewBag<span class="token punctuation">.</span>Title1 <span class="token operator">=</span> <span class="token string">"Grass"</span><span class="token punctuation">;</span>
+    ViewBag<span class="token punctuation">.</span>Title2 <span class="token operator">=</span> <span class="token string">"Manager"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-    ViewBag.Title1 = "Grass";
+<span class="token return-type class-name">@section</span> head <span class="token punctuation">{</span>
+    @<span class="token operator">*</span>BEK<span class="token punctuation">:</span> Add some animation <span class="token keyword">using</span> jquery<span class="token operator">*</span>@
+    <span class="token operator">&lt;</span>script<span class="token operator">></span>
+        $<span class="token punctuation">(</span>function <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-    ViewBag.Title2 = "Manager";   
-
-}
-
-@section head {    
-
-    @*BEK: Add some animation using jquery*@
-
-}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+            $<span class="token punctuation">(</span><span class="token string">"#wel_topd"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            $<span class="token punctuation">(</span><span class="token string">"#wel_topd"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slideDown</span><span class="token punctuation">(</span>'slow'<span class="token punctuation">,</span> function <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// Animation complete.</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p>@section is used to inject some scripts into the head of the html page.</p>
-<p>Then you see a little bit of jQuery that hides the div “Welcome to iFarm” in the screenshot above and slide it in from top</p></div><footer class="post__footer"><a class="link" href="/blog/">← All writing</a></footer></article></div></main><footer class="footer"><div><p class="footer__name">Brian Keating</p><p class="meta footer__role">AI Systems Architect</p></div><ul class="footer__links"><li><a class="link" href="https://github.com/brianbruff" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a></li><li><a class="link" href="/blog/">Blog</a></li><li><a class="link" href="/resume/">Résumé</a></li><li><a class="link" href="https://www.linkedin.com/in/brianbruff/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></li></ul><p class="meta footer__copy">© <!-- -->2026</p></footer><div class="vignette" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/2011-05-09-the-happy-life-of-a-web-developer/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+<p>Then you see a little bit of jQuery that hides the div “Welcome to iFarm” in the screenshot above and slides it in from the top.</p></div><footer class="post__footer"><a class="link" href="/blog/">← All writing</a></footer></article></div></main><footer class="footer"><div><p class="footer__name">Brian Keating</p><p class="meta footer__role">AI Systems Architect</p></div><ul class="footer__links"><li><a class="link" href="https://github.com/brianbruff" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a></li><li><a class="link" href="/blog/">Blog</a></li><li><a class="link" href="/resume/">Résumé</a></li><li><a class="link" href="https://www.linkedin.com/in/brianbruff/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></li></ul><p class="meta footer__copy">© <!-- -->2026</p></footer><div class="vignette" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/2011-05-09-the-happy-life-of-a-web-developer/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >

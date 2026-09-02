@@ -5,26 +5,23 @@ I wanted to have my own DBContext contain both my own DBSets and also the securi
 Please feel free to give me any feedback I’d appreciate it.</p>
 <h2>The problem</h2>
 <p>I wanted one single database containing my own entities and also the security entities.<br>
-I wanted to use the latest MVC5 built on the <a href="http://owin.org/">OWIN</a> (open web interface for .net).<br>
+I wanted to use the latest MVC5 built on the <a href="http://owin.org/">OWIN</a> (open web interface for .NET).<br>
 I wanted to use code first migrations to keep my database up to date.<br>
-I could find no documentation..</p>
+I could find no documentation...</p>
 <h2>The Solution</h2>
 <ul>
 <li>Create my own entity class</li>
 </ul>
-<p><img src="/images/./image.axd?picture=image_thumb_271.png" alt=""></p>
+<p><img src="/images/blog/image_thumb_271.png" alt=""></p>
 <ul>
 <li>Create my own DBContext and IdentityStoreContext (the secret sauce)</li>
 </ul>
-<p><img src="/images/./image.axd?picture=image_thumb_272.png" alt=""> The SiteCertDbContext derives from the IdentityDbContext used by default in MVC5 Update1.</p>
+<p><img src="/images/blog/image_thumb_272.png" alt=""> The SiteCertDbContext derives from the IdentityDbContext used by default in MVC5 Update1.</p>
 <ul>
-<li>Tell the account controller use this new DbContext</li>
+<li>Tell the account controller to use this new DbContext</li>
 </ul>
-<p><img src="/images/./image.axd?picture=image_thumb_273.png" alt=""></p>
-<ul>
-<li></li>
-</ul>
-<p>That’s pretty much it, hope it helps someone else out you can now open the Nuget package manager and Enable-Migrations.</p></div><footer class="post__footer"><a class="link" href="/blog/">← All writing</a></footer></article></div></main><footer class="footer"><div><p class="footer__name">Brian Keating</p><p class="meta footer__role">AI Systems Architect</p></div><ul class="footer__links"><li><a class="link" href="https://github.com/brianbruff" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a></li><li><a class="link" href="/blog/">Blog</a></li><li><a class="link" href="/resume/">Résumé</a></li><li><a class="link" href="https://www.linkedin.com/in/brianbruff/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></li></ul><p class="meta footer__copy">© <!-- -->2026</p></footer><div class="vignette" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/2013-08-16-using-mvc5-owin-security-with-ef-code-first/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+<p><img src="/images/blog/image_thumb_273.png" alt=""></p>
+<p>That’s pretty much it, hope it helps someone else out. You can now open the Nuget package manager and Enable-Migrations.</p></div><footer class="post__footer"><a class="link" href="/blog/">← All writing</a></footer></article></div></main><footer class="footer"><div><p class="footer__name">Brian Keating</p><p class="meta footer__role">AI Systems Architect</p></div><ul class="footer__links"><li><a class="link" href="https://github.com/brianbruff" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a></li><li><a class="link" href="/blog/">Blog</a></li><li><a class="link" href="/resume/">Résumé</a></li><li><a class="link" href="https://www.linkedin.com/in/brianbruff/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></li></ul><p class="meta footer__copy">© <!-- -->2026</p></footer><div class="vignette" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/2013-08-16-using-mvc5-owin-security-with-ef-code-first/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >
