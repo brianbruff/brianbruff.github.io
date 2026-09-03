@@ -25,6 +25,7 @@ export const CATEGORY_ORDER = [
   "Workflow (WF)",
   "AI & Agents",
   "Radio & Signals",
+  "Security",
 ]
 
 /* Lowercase, then every run of non-alphanumerics becomes a single hyphen and

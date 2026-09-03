@@ -230,3 +230,211 @@
 @media (max-width: 720px) {
   .post__body { font-size: 1.03rem; }
 }
+
+/* ==========================================================================
+   Long-form patterns: the duel, the reveal, the drawn figure.
+
+   Every selector below is a new class name. Nothing here reaches an element
+   an existing post emits, so the archive renders exactly as it did before.
+   Motion is decoration on top of a layout that already reads without it, and
+   all of it is switched off under prefers-reduced-motion.
+   ========================================================================== */
+
+/* ---- Duel ---------------------------------------------------------------
+   A defence beside the line that defeats it. The pairing is the argument, so
+   the two panels have to be readable together — side by side on a wide
+   screen, and stacked in the same order on a narrow one. Copper is the
+   defence, status red is the breach; red appears nowhere else in the post,
+   which is what makes it mean something when it does.
+   ------------------------------------------------------------------------ */
+.post__body .duel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;                       /* the hairline between panels IS the gap */
+  background: var(--hairline-soft);
+  border: 1px solid var(--hairline-soft);
+  margin: 2.4em 0;
+
+  /* Two columns of code will not fit the prose measure, so the pair breaks
+     out of it and centres on the page. The measure exists to keep prose
+     readable; code has its own, and forcing it into the first one is what
+     produces a panel nobody can read without scrolling sideways. */
+  width: min(94vw, 70rem);
+  max-width: none;                /* opt out of the .post__body > * cap */
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.post__body .duel__side {
+  background: var(--ink-lift);
+  padding: 1.1rem 1.2rem 0.4rem;
+  min-width: 0;                   /* let a wide <pre> scroll, not stretch */
+}
+
+.post__body .duel__label {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 0.85rem;
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+/* The LED. On the breach side it is lit and breathing; on the defence side it
+   is a dark bulb, which is the whole joke — the armour reports nothing. */
+.post__body .duel__label::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--copper-dim);
+}
+
+.post__body .duel__side--bypass .duel__label { color: var(--status); }
+.post__body .duel__side--bypass .duel__label::before {
+  background: var(--status);
+  box-shadow: 0 0 0 0 rgb(217 59 43 / 0.55);
+  animation: duelLed 2.6s ease-out infinite;
+}
+
+@keyframes duelLed {
+  0%        { box-shadow: 0 0 0 0 rgb(217 59 43 / 0.55); }
+  70%, 100% { box-shadow: 0 0 0 7px rgb(217 59 43 / 0); }
+}
+
+/* Line numbers are worth their width beside a long listing. Beside a
+   four-line snippet in a half-width panel they only cost characters. */
+.post__body .duel__side pre[class*="language-"].line-numbers { padding-left: 1em; }
+.post__body .duel__side .line-numbers-rows { display: none; }
+
+/* Panels supply their own rhythm, so the code block inside drops the margins
+   it carries when it sits directly in the prose column. */
+.post__body .duel__side .gatsby-highlight,
+.post__body .duel__side pre { margin: 0 0 0.9rem; }
+.post__body .duel__side p {
+  margin: 0 0 0.9rem;
+  font-size: 0.96rem;
+  color: var(--ivory-64);
+}
+.post__body .duel__side p code { font-size: 0.85em; }
+
+/* Side by side only while both panels can hold a line of Python. Below that
+   the pair stacks and each panel gets the full width, which reads far better
+   than two columns the reader has to scroll sideways. */
+@media (max-width: 1100px) {
+  .post__body .duel { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---- Reveal -------------------------------------------------------------
+   The reader is asked how they would break something, and opens the answer
+   when they have had a go. A <details> already does this; it just needs to
+   stop looking like a browser default.
+   ------------------------------------------------------------------------ */
+.post__body .reveal {
+  margin: 2em 0;
+  border: 1px solid var(--hairline-soft);
+  border-left: 2px solid var(--copper);
+  background: var(--ink-lift);
+}
+
+.post__body .reveal > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.9rem 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--amber);
+}
+.post__body .reveal > summary::-webkit-details-marker { display: none; }
+
+.post__body .reveal > summary::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: 0.6rem;
+  color: var(--copper);
+  transition: transform 160ms ease;
+}
+.post__body .reveal[open] > summary::before { transform: rotate(90deg); }
+.post__body .reveal > summary:hover { color: var(--tungsten); }
+
+.post__body .reveal__body { padding: 0 1.2rem 0.3rem; }
+.post__body .reveal__body > :first-child { margin-top: 0; }
+
+/* ---- Drawn figures ------------------------------------------------------
+   Diagrams are inline SVG rather than exported images: they are drawn in the
+   site's own tokens, so they stay legible at any zoom and cannot drift out of
+   step with the palette the way a flat file would.
+   ------------------------------------------------------------------------ */
+.post__body .figure {
+  margin: 2.6em 0;
+  width: min(94vw, 56rem);
+  max-width: none;                /* opt out of the .post__body > * cap */
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.post__body .figure svg { display: block; width: 100%; height: auto; }
+.post__body .figure figcaption {
+  margin-top: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--ivory-44);
+}
+
+/* Figure typography. Set here rather than on each element so the two diagrams
+   stay in step with one another. */
+.post__body .figure .f-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  fill: var(--ivory-44);
+}
+.post__body .figure .f-node {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  fill: var(--ivory-90);
+}
+.post__body .figure .f-note {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  fill: var(--ivory-44);
+}
+.post__body .figure .f-hot { fill: var(--status); }
+.post__body .figure .f-warm { fill: var(--amber); }
+
+/* The three routes converge on one object, and the dashes moving along them
+   are the point: they all arrive. */
+.post__body .figure .f-route {
+  stroke-dasharray: 5 9;
+  animation: figureFlow 1.9s linear infinite;
+}
+.post__body .figure .f-route--2 { animation-delay: -0.63s; }
+.post__body .figure .f-route--3 { animation-delay: -1.26s; }
+
+@keyframes figureFlow { to { stroke-dashoffset: -14; } }
+
+/* The request crosses the boundary; the credential never does. */
+.post__body .figure .f-packet { animation: figureCross 4.2s ease-in-out infinite; }
+
+@keyframes figureCross {
+  0%,  8%   { transform: translateX(0);     opacity: 0; }
+  14%       { opacity: 1; }
+  46%, 54%  { transform: translateX(214px); opacity: 1; }
+  86%       { transform: translateX(0);     opacity: 1; }
+  94%, 100% { transform: translateX(0);     opacity: 0; }
+}
+
+/* A reader who has asked for stillness gets the same diagram, held still. */
+@media (prefers-reduced-motion: reduce) {
+  .post__body .duel__side--bypass .duel__label::before,
+  .post__body .figure .f-route,
+  .post__body .figure .f-packet { animation: none; }
+  .post__body .figure .f-packet { transform: translateX(214px); }
+  .post__body .reveal > summary::before { transition: none; }
+}
