@@ -9,7 +9,7 @@ description: "Adding speech to a Strands agent with ElevenLabs Speech Engine —
 
 ![A workshop bench with a brass ear trumpet, a ribbon microphone and a sealed black flight case, the open window behind looking onto felted green hills, a windmill, a baby-faced sun, and four antennae just cresting the nearest hill](/images/speech-1-bench.jpg)
 
-I spent an evening giving a [Strands](https://strandsagents.com/) agent a voice using **ElevenLabs Speech Engine**. It is four Python files, runs in one process, and a good third of it is comments. The code is at <a href="https://github.com/brianbruff/speech-poc" target="_new" rel="noopener">brianbruff/speech-poc</a>.
+I spent 10 mins this evening giving a [Strands](https://strandsagents.com/) agent a voice using **ElevenLabs Speech Engine**. It is four Python files, runs in one process, and a good third of it is comments. The code is at <a href="https://github.com/brianbruff/speech-poc" target="_new" rel="noopener">brianbruff/speech-poc</a>.
 
 The headline result is the thing I care about most: `agent.py` has no ElevenLabs imports. None. It doesn't import a WebSocket library, it doesn't know what a transcript is, and it has never heard of turn-taking. It is the same Strands agent I would have written for a text chat, and the voice layer bolts onto the outside of it.
 
