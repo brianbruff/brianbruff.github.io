@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Seo, { summarise } from "../components/seo"
 import { slugifyCategory } from "../utils/taxonomy"
 import "../styles/blog-post.css"
 
@@ -76,10 +76,11 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       timeToRead
-      excerpt(pruneLength: 200)
+      excerpt(pruneLength: 500, format: HTML)
       frontmatter {
         title
         date(formatString: "DD MMMM YYYY")
+        description
         category
         tags
         image
@@ -89,11 +90,16 @@ export const query = graphql`
 `
 
 /* A post with its own hero image uses it as the social card; the rest fall
-   back to the site card. */
+   back to the site card. The blurb is the post's own description when it has
+   one, and otherwise the opening prose — see summarise() for why that comes
+   from the HTML excerpt rather than the plain one. */
 export const Head = ({ data }) => (
   <Seo
     title={data.markdownRemark.frontmatter.title}
-    description={data.markdownRemark.excerpt}
+    description={
+      data.markdownRemark.frontmatter.description ||
+      summarise(data.markdownRemark.excerpt)
+    }
     image={data.markdownRemark.frontmatter.image}
   />
 )

@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Seo, { summarise } from "../components/seo"
 import { CATEGORY_ORDER, ERAS, slugifyCategory } from "../utils/taxonomy"
 import "../styles/blog.css"
 
@@ -84,7 +84,7 @@ const BlogPage = ({ data, location }) => {
       posts.map(post => {
         const fm = post.frontmatter
         const tags = (fm.tags || []).map(tag => tag.trim()).filter(Boolean)
-        const summary = fm.description || post.excerpt || ""
+        const summary = fm.description || summarise(post.excerpt, 220)
         const category = fm.category || ""
         return {
           post,
@@ -489,7 +489,7 @@ export const query = graphql`
     allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       nodes {
         id
-        excerpt(pruneLength: 220)
+        excerpt(pruneLength: 500, format: HTML)
         fields {
           slug
         }
