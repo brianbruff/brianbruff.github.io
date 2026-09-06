@@ -32,6 +32,38 @@ The docs have a [feature grid](https://docs.aws.amazon.com/bedrock-agentcore/lat
 
 Everything else in the grid is ✅ for the harness with "customer code required: No", and for Runtime it's "supported, but you maintain the implementation". That's the whole trade. If none of the four ❌s applies to you, you are choosing to write and maintain code that the service would otherwise own.
 
+<div class="figure">
+<figure>
+<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two columns showing the same stack of agent infrastructure. On the harness side the agent loop sits below the boundary, in the managed half. On the Runtime side every other component stays managed and only the agent loop moves above the boundary, into code you write.">
+  <text class="f-label" x="8" y="16">The same stack. One piece changes side.</text>
+  <text class="f-node" x="20" y="46">AgentCore harness</text>
+  <text class="f-node" x="430" y="46">AgentCore Runtime</text>
+  <rect x="20" y="60" width="310" height="70" fill="none" stroke="#b26a3c" stroke-width="1"/>
+  <text class="f-note" x="32" y="84">configuration only</text>
+  <text class="f-note" x="32" y="106">model · instructions · tools</text>
+  <rect x="430" y="60" width="310" height="70" fill="none" stroke="#b26a3c" stroke-width="1"/>
+  <text class="f-note" x="442" y="84">your agent code</text>
+  <text class="f-note f-warm" x="442" y="106">the agent loop · hooks · graph</text>
+  <line x1="20" y1="152" x2="740" y2="152" stroke="#b26a3c" stroke-width="1" stroke-dasharray="3 5"/>
+  <text class="f-label" x="740" y="144" text-anchor="end">you write it</text>
+  <text class="f-label" x="740" y="170" text-anchor="end">aws runs it</text>
+  <rect x="20" y="184" width="310" height="116" fill="none" stroke="#b26a3c" stroke-width="1"/>
+  <text class="f-note f-warm" x="32" y="208">the agent loop</text>
+  <text class="f-note" x="32" y="232">session isolation · memory</text>
+  <text class="f-note" x="32" y="254">identity · traces · endpoint</text>
+  <text class="f-note" x="32" y="276">auth · microVM · filesystem</text>
+  <rect x="430" y="184" width="310" height="116" fill="none" stroke="#b26a3c" stroke-width="1"/>
+  <text class="f-note" x="442" y="232">session isolation · memory</text>
+  <text class="f-note" x="442" y="254">identity · traces · endpoint</text>
+  <text class="f-note" x="442" y="276">auth · microVM · filesystem</text>
+  <path d="M 336 204 C 380 200, 384 108, 420 104" fill="none" stroke="#e39b4a" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <path d="M 426 103 L 415 98 L 416 108 Z" fill="#e39b4a"/>
+  <text class="f-note f-warm" x="380" y="164" text-anchor="middle">moves</text>
+</svg>
+<figcaption>Everything below the line is managed either way. Choosing Runtime does not buy you more infrastructure, it moves one component into your repository, and with it the four things the harness cannot do.</figcaption>
+</figure>
+</div>
+
 ## What "configuration" actually looks like
 
 Two API calls stand a harness up. One more invokes it.
@@ -137,6 +169,38 @@ client.invoke_harness(
 ```
 
 Both messages, the assistant's `toolUse` *and* your `toolResult`. That's deliberate: the harness doesn't persist the inline turn to the session, because if your client died before answering, a half-turn in the history would corrupt every later call. So you replay both halves and the session stays clean whether or not you came back.
+
+<div class="figure">
+<figure>
+<svg viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A sequence between your client and the harness. You invoke, the harness pauses and returns a toolUse block, you carry out the approval outside the session, then you invoke again on the same session replaying both the assistant toolUse and your toolResult. Between the pause and the replay the harness stores nothing for that turn.">
+  <text class="f-label" x="8" y="16">One inline_function round trip</text>
+  <rect x="454" y="34" width="228" height="52" fill="none" stroke="#b26a3c" stroke-width="1"/>
+  <text class="f-note" x="466" y="56">the approval happens here</text>
+  <text class="f-note" x="466" y="74">Slack · a ticket · a person</text>
+  <line x1="568" y1="86" x2="568" y2="116" stroke="#b26a3c" stroke-width="1" stroke-dasharray="3 4"/>
+  <line x1="130" y1="116" x2="744" y2="116" stroke="#b26a3c" stroke-width="1"/>
+  <text class="f-node" x="122" y="112" text-anchor="end">your client</text>
+  <line x1="130" y1="286" x2="744" y2="286" stroke="#b26a3c" stroke-width="1"/>
+  <text class="f-node" x="122" y="282" text-anchor="end">the harness</text>
+  <line x1="182" y1="124" x2="182" y2="276" stroke="#b26a3c" stroke-width="1.5"/>
+  <path d="M182 282 L177 271 L187 271 Z" fill="#b26a3c"/>
+  <text class="f-note" x="192" y="150">invoke</text>
+  <text class="f-note" x="192" y="168">your message</text>
+  <line x1="352" y1="276" x2="352" y2="124" stroke="#b26a3c" stroke-width="1.5"/>
+  <path d="M352 118 L347 129 L357 129 Z" fill="#b26a3c"/>
+  <text class="f-note" x="362" y="150">pause</text>
+  <text class="f-note" x="362" y="168">stopReason: tool_use</text>
+  <line x1="700" y1="124" x2="700" y2="276" stroke="#e39b4a" stroke-width="1.5"/>
+  <path d="M700 282 L695 271 L705 271 Z" fill="#e39b4a"/>
+  <text class="f-note" x="690" y="150" text-anchor="end">invoke again, same session</text>
+  <text class="f-note f-warm" x="690" y="172" text-anchor="end">assistant toolUse</text>
+  <text class="f-note f-warm" x="690" y="190" text-anchor="end">+ user toolResult</text>
+  <rect x="362" y="272" width="328" height="28" fill="none" stroke="#d93b2b" stroke-width="1" stroke-dasharray="4 4"/>
+  <text class="f-note f-hot" x="372" y="322">nothing is stored for the inline turn</text>
+</svg>
+<figcaption>The harness keeps no record of the paused turn, so the session cannot be left holding half of one. That is why the replay carries both halves: the assistant's call and your result. If your client never comes back, there is nothing to clean up.</figcaption>
+</figure>
+</div>
 
 That's human-in-the-loop as a first-class pattern, without a hook. It's also the escape hatch for "call my internal thing" when you don't want to expose it as an MCP server yet.
 
