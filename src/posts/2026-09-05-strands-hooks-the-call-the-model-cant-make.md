@@ -4,14 +4,10 @@ date: "2026-09-05"
 category: "AI & Agents"
 tags: ["aws", "strands", "ai agents", "python", "guardrails"]
 description: "A system prompt is a request. A Strands hook is a rule. Where to put the checks your agent must never talk its way past, and how cancel_tool, interrupts and retry fit together."
-# image: "/images/hooks-1-bench.jpg"  — placeholder: generate from the hero prompt below, then uncomment
+image: "/images/hooks-1-bench.jpg"
 ---
 
-<!-- IMAGE PLACEHOLDER: hero
-File: /images/hooks-1-bench.jpg
-Prompt: A brass turnstile in a dim tiled corridor, the bar locked in place, a single warm light overhead. A folded paper note is tucked into the mechanism. Editorial photography, shallow depth of field, muted teal and amber palette, no readable text.
-Alt: A locked brass turnstile in a tiled corridor with a paper note tucked into the mechanism
--->
+![A locked brass turnstile in a tiled corridor with a paper note tucked into the mechanism](/images/hooks-1-bench.jpg)
 
 Every agent I've shipped has had a paragraph in its system prompt that starts with "Never". Never delete without confirming. Never book more than ten guests. Never call `pay` before `verify_card` has returned. And every one of those paragraphs has been ignored at least once, usually on the demo, because a system prompt is a *request*. A polite, well-formatted, strongly-worded request that the model weighs against everything else in its context.
 
@@ -49,11 +45,7 @@ Set `cancel_tool` to a string and the tool never executes. The string is placed 
 
 That is the entire difference between the two mechanisms. A system prompt says *please don't*. A hook says *you didn't*.
 
-<!-- IMAGE PLACEHOLDER: in-body
-File: /images/hooks-2-stamp.jpg
-Prompt: An old wooden desk with a form being stamped in red ink, the stamp mid-press and the impression partly visible. A second, unstamped form sits beside it. Overhead light, film grain, no readable words on the forms.
-Alt: A red rubber stamp coming down on a paper form on a wooden desk
--->
+![A red rubber stamp coming down on a paper form on a wooden desk](/images/hooks-2-stamp.jpg)
 
 ## Where the checks go
 
@@ -107,11 +99,7 @@ The shape is worth noticing. The hook doesn't know how the human is asked. The c
 
 Compare that with AgentCore harness's inline functions, which I covered last time: same pause-and-resume idea, but there the *model* decides to call the approval tool. Here the *hook* decides, and the model doesn't get a vote. For anything where the whole point is that the model can't be trusted to ask, that distinction is the feature.
 
-<!-- IMAGE PLACEHOLDER: in-body
-File: /images/hooks-3-bell.jpg
-Prompt: A brass counter bell on a dark reception desk, a hand hovering just above it, a closed ledger to one side. Moody side lighting, shallow focus on the bell, no text.
-Alt: A hand hovering over a brass counter bell on a dark desk
--->
+![A hand hovering over a brass counter bell on a dark desk](/images/hooks-3-bell.jpg)
 
 ## Give the hook something to check against
 
