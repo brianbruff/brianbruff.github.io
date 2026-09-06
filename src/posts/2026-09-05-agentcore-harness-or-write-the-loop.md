@@ -4,14 +4,10 @@ date: "2026-09-05"
 category: "AI & Agents"
 tags: ["aws", "agentcore", "strands", "ai agents", "python"]
 description: "AgentCore's managed harness turns the agent loop and everything around it into configuration. Here is the one question that decides whether that's for you, and the four rows in the feature grid that answer it."
-# image: "/images/harness-1-bench.jpg"  — placeholder: generate from the hero prompt below, then uncomment
+image: "/images/harness-1-bench.jpg"
 ---
 
-<!-- IMAGE PLACEHOLDER: hero
-File: /images/harness-1-bench.jpg
-Prompt: A wooden workbench in warm side light. On the left, a fully assembled brass clockwork mechanism sealed in a glass bell jar with a single dial on the front. On the right, the same mechanism disassembled into springs, gears and screws laid out on a cloth beside a small screwdriver set. Shallow depth of field, muted palette, editorial photography, no text.
-Alt: A clockwork mechanism sealed under a bell jar beside the same mechanism taken apart on a cloth
--->
+![A clockwork mechanism sealed under a bell jar beside the same mechanism taken apart on a cloth](/images/harness-1-bench.jpg)
 
 The loop in a [Strands](https://strandsagents.com/) agent is about five lines. `Agent(model=..., tools=[...], system_prompt=...)`, call it, done. Nobody's project has ever been late because of those five lines.
 
@@ -102,11 +98,7 @@ client.invoke_harness(
 
 Notice `tools=` is on the *invoke*. You can hand a harness a different tool set per request without touching the deployed thing. That's a config change in the literal sense: nothing gets rebuilt.
 
-<!-- IMAGE PLACEHOLDER: in-body
-File: /images/harness-2-panel.jpg
-Prompt: Close-up of a vintage telephone switchboard panel with labelled brass sockets and a handful of patch cables plugged in, one cable being inserted by a hand at the edge of frame. Warm tungsten light, slight film grain, no readable text.
-Alt: A vintage switchboard with a few patch cables plugged in and one being inserted
--->
+![A vintage switchboard with a few patch cables plugged in and one being inserted](/images/harness-2-panel.jpg)
 
 ## The tool that runs on your side of the wire
 
@@ -161,11 +153,7 @@ Out comes ordinary Python using Strands — model, tools, skills, memory, execut
 
 That changes the calculus. "Start with the harness" used to mean "accept a rewrite later". Now it means "start with config, export to code the day you hit one of the four ❌s, and keep going". Prototype in the cheap medium, graduate when you have a reason.
 
-<!-- IMAGE PLACEHOLDER: in-body
-File: /images/harness-3-door.jpg
-Prompt: A heavy steel fire door in a plain brick wall, propped slightly open with a wooden wedge, daylight spilling through the gap onto a concrete floor. Documentary style, cool light, no signage or text.
-Alt: A steel fire door wedged slightly open, daylight coming through the gap
--->
+![A steel fire door wedged slightly open, daylight coming through the gap](/images/harness-3-door.jpg)
 
 ## Three things that will bite
 
