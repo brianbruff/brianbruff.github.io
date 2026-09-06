@@ -17,6 +17,7 @@ That did not make me a command-line purist. It made me notice a change in the sh
 
 So I collected terminal tools with the enthusiasm of someone who has just found a better workshop.
 
+- [herdr](https://herdr.dev/) for running many agents at once, across worktrees and across projects.
 - [Yazi](https://yazi-rs.github.io/) for navigating and previewing files.
 - [tuicr](https://tuicr.dev/) for reviewing a continuous diff and exporting anchored comments back into an agent loop.
 - [k9s](https://k9scli.io/) for Kubernetes, plus `lazydocker` and `lazygit` for the two things whose native CLIs are brilliant but not always relaxing.
@@ -40,6 +41,18 @@ On macOS, computer-use agents make the loop even tighter. I can stay in a termin
 
 There is a psychological advantage too. A terminal session encourages a small, explicit loop: inspect, decide, act, verify. Agents are at their best inside that loop. They can be given a bounded task, shown its output and corrected at the exact point their assumptions depart from reality. The workflow feels less like issuing a wish to a black box and more like pair programming with a colleague who happens to type very fast.
 
+## The parallel part already happens in the terminal
+
+![An antique annunciator board of small brass indicator windows, two flags standing raised among many dropped](/images/tui-gui-3-board.jpg)
+
+herdr is the tool that changed the shape of my week, and it is worth being specific about why.
+
+It runs each agent in a real terminal pane, and it keeps those panes on a background server rather than inside whichever window I happen to have open. So a session survives a closed laptop, a dropped connection and an SSH hop. On top of that it rolls every agent up into a status list: working, blocked, done, idle. I point agents at different worktrees, and at different projects entirely, and let them run at the same time.
+
+Coming from tmux this felt immediately familiar. Sessions, panes, attach, detach, work that carries on without me watching it. The difference is the one that matters: tmux sees panes, and herdr knows which of those panes are agents and what state each one is in. That single piece of semantic knowledge is what turns a wall of terminals into something a person can actually supervise. I am not scanning for a prompt that has stopped moving. I am reading a list that tells me which agent is stuck waiting on me.
+
+I labour the point because it settles an argument the rest of this post would otherwise get wrong. The obvious case for a graphical agent app is parallelism, and in my setup parallelism is already handled, in a terminal, by a tool that behaves like the multiplexer I have used for years. So when I reach for a desktop app, breadth is not what I am reaching for.
+
 ## What the terminal actually gives me
 
 The terminal deserves its reputation for customisability, but that word can sound cosmetic. The useful kind is structural.
@@ -58,11 +71,11 @@ That produces some genuine advantages:
 
 There are costs, and enthusiasts tend to wave them away too quickly. A highly tuned terminal is a private language. My keybindings and aliases make _me_ faster; they can make pairing slower. Discoverability is poor because a blank prompt does not advertise its capabilities. Configuration carries maintenance cost. A tool that assumes a particular terminal protocol, font, shell, operating system or plugin manager can turn a clean installation into a small archaeological dig.
 
-And text is not automatically the clearest representation of everything. A rich diff, a large dependency graph, an image comparison, a timeline, a browser layout and a multi-agent queue all have spatial information that the terminal can express only by borrowing conventions or sacrificing context. Anyone who has tried to understand a difficult merge conflict through a narrow terminal pane knows that keyboard efficiency has a point of diminishing return.
+And text is not automatically the clearest representation of everything. A rich diff, a large dependency graph, an image comparison, a timeline and a browser layout all have spatial information that the terminal can express only by borrowing conventions or sacrificing context. Anyone who has tried to understand a difficult merge conflict through a narrow terminal pane knows that keyboard efficiency has a point of diminishing return.
 
 ## The graphical counter-offer
 
-![An antique annunciator board of small brass indicator windows, two flags standing raised among many dropped](/images/tui-gui-3-board.jpg)
+![A brass jeweller's loupe on an articulated arm over an open pocket watch, the movement magnified in sharp detail](/images/tui-gui-5-loupe.jpg)
 
 This is where the new agent apps have become interesting rather than merely convenient.
 
@@ -70,17 +83,24 @@ Claude Code Desktop explicitly frames itself as the same coding engine in a grap
 
 The Codex app makes a similar bet from a different angle: the hard problem is increasingly not _asking an agent to change a file_ but directing several long-running agents, keeping their work isolated, seeing what changed and knowing where to look next. Its worktree support, task threads and review surface turn a folder full of terminals into a command centre. [OpenAI describes it in exactly those terms.](https://openai.com/index/introducing-the-codex-app/)
 
-The GUI earns its keep when it makes the state of a system visible at a glance. An app preview beside the change that caused it. A graphical diff where comments sit where the reader needs them. A sidebar of concurrent tasks with their status, repository and worktree. A visual indication that one agent is waiting on an approval while another has finished. These are not decorative touches. They reduce the amount of state I have to reconstruct in my head.
+What these apps actually give me is not breadth across agents. It is depth into one of them. A much richer account of what a single agent did, and is doing.
 
-That last part is the real shift. When one agent did one task, a terminal tab was enough. When several agents have separate branches, tools, context windows and runtimes, the bottleneck moves from execution to supervision. A graphical interface can make supervision humane.
+The change summary is the clearest example. A terminal can show me a diff, and tuicr shows me a very good one, but the desktop shows me the shape of a change before I read a line of it: which files moved, how much each one absorbed, and where I should look first. That is a different question from what the lines say, and it is usually the question I have.
 
-| GUI / agent desktop     | What it makes easier                                                                                         |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Spatial layout          | Compare an implementation, its diff, its running UI and the conversation without constant pane choreography. |
-| Visual review           | Notice hierarchy, design regressions, screenshots and code changes together.                                 |
-| Parallel-task awareness | See which agent is running, needs attention or has a review ready.                                           |
-| Lower discovery cost    | Available actions, integrations and settings can be found rather than memorised.                             |
-| Cross-app work          | An agent can interact with browsers and native macOS applications that have no sensible CLI.                 |
+Background work is the second. When an agent starts a long build, a test run or a subagent, a terminal gives me a scrolling log and a status word. The desktop gives me something closer to a progress surface, where the thing that is running stays visible without me deciding to go and look at it.
+
+Tool calls are the third, and they mattered more than I expected. Seeing which tools an agent reached for, in order, with which arguments, turns a paragraph of confident prose into an auditable sequence. When a run goes wrong, the answer is almost always in that sequence. The same goes for workflows that change shape while they run. A plan that branched partway through is obvious laid out and very easy to miss in a transcript.
+
+The built-in browser is the one that surprised me. For web work it collapses the loop. The agent changes the code, the page reloads beside the change, and I judge the result without leaving the window or alt-tabbing into anything. Single pane of glass is an overused phrase, but for front-end work it is simply the accurate one. The agent and I end up looking at the same thing at the same time, which is harder to arrange than it sounds.
+
+| GUI / agent desktop  | What it makes easier                                                                        |
+| -------------------- | ------------------------------------------------------------------------------------------- |
+| Change summaries     | See the shape of a diff, which files moved and how much, before reading any of it.           |
+| Background work      | Watch a build, a test run or a subagent make progress without going to look for it.          |
+| Tool-call visibility | Read back what the agent actually did, in order, when a run needs explaining.                |
+| Dynamic workflows    | See where a plan branched partway through instead of reconstructing it from a transcript.    |
+| Integrated browser   | Change the code and watch the page reload beside it, in one window.                          |
+| Lower discovery cost | Available actions, integrations and settings can be found rather than memorised.             |
 
 The cost is the inverse of the terminal's strength. A GUI often hides its state behind controls, local preferences and product decisions. It is harder to pipe a click into another process. Its most convenient workflow may not be portable, scriptable or versionable. It can be richer while also being less ownable.
 
@@ -102,10 +122,10 @@ Neither position is intellectually pure. Terminal tools have their own opinions 
 
 For now, my default is deliberately mixed.
 
-I begin close to the repository: terminal, shell, agent CLI, Git status, tests, logs and the small TUI tools that make those things pleasant. It is the fastest way for me to establish what is true. If the task benefits from scripts, remote access, a custom tool chain or a tight feedback loop with an agent, I stay there.
+I begin close to the repository: terminal, shell, agent CLIs, herdr for anything that runs more than one thing at once, Git status, tests, logs and the small TUI tools that make those things pleasant. It is the fastest way for me to establish what is true. If the task benefits from scripts, remote access, a custom tool chain or a tight feedback loop with an agent, I stay there.
 
-I move to a graphical agent environment when the thing I need is broad situational awareness: parallel tasks, visual comparison, application behaviour, screenshots, a browser, a diff that deserves slow reading, or a native macOS application that must actually be operated. I do not regard that as leaving the terminal behind. I regard it as using the right representation for the part of the problem in front of me.
+I move to a graphical agent environment when I need to understand a change rather than start one: a diff that deserves slow reading, a background task worth watching, a sequence of tool calls that has to be explained, a workflow that changed shape while it ran, or any web work where the page and the code belong in the same window. I do not regard that as leaving the terminal behind. I regard it as using the right representation for the part of the problem in front of me.
 
-What I have not decided is whether that division will hold. The more capable coding agents become, the more valuable their graphical command centres look. The more those apps conceal customisation or resist composition, the more I want my terminal back. For the moment I am straddling both: a terminal full of sharply made tools on one side, richer agent workspaces on the other, and an increasingly interesting question in the gap between them.
+What I have not decided is whether that division will hold. The more capable coding agents become, the more valuable a rich account of their work becomes. The more those apps conceal customisation or resist composition, the more I want my terminal back. For the moment I am straddling both: a terminal full of sharply made tools on one side, richer agent workspaces on the other, and an increasingly interesting question in the gap between them.
 
 That seems like the right place to be while the tools are still changing this quickly.
