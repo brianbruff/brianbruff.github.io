@@ -51,6 +51,44 @@ That is the entire difference between the two mechanisms. A system prompt says *
 
 Once you accept that the SDK is the enforcement point, the question is which event to hang each check on. Strands gives you more than you'll need; these are the ones I actually reach for.
 
+<div class="figure">
+<figure>
+<svg viewBox="0 0 760 410" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A single vertical spine running down the page representing one cycle of the agent loop. Seven points sit on it in order: BeforeModelCallEvent, which can cancel and carries projected input tokens; the model call itself; BeforeToolsEvent, which can cancel the whole batch at once; BeforeToolCallEvent, which can set cancel_tool, raise an interrupt, rewrite the input or swap the tool; the tool executing; AfterToolCallEvent, which can rewrite the result or retry; and AfterToolsEvent, which can end the turn. A dashed arrow returns from the bottom of the spine to the top, marking the next cycle. Filled markers are the points that can stop what happens next; hollow markers only shape what comes back.">
+  <defs>
+    <marker id="hk1-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#b26a3c"/></marker>
+  </defs>
+  <text class="f-label" x="8" y="16">Where your code runs in one cycle</text>
+  <line x1="118" y1="46" x2="118" y2="348" stroke="#b26a3c" stroke-width="1"/>
+  <circle cx="118" cy="64" r="5.5" fill="#e39b4a"/>
+  <text class="f-node" x="140" y="69">BeforeModelCallEvent</text>
+  <text class="f-note" x="370" y="68">cancel · projected_input_tokens</text>
+  <rect x="96" y="95" width="190" height="34" fill="#26180f" stroke="#b26a3c" stroke-width="1"/>
+  <text class="f-node" x="191" y="117" text-anchor="middle">the model call</text>
+  <circle cx="118" cy="162" r="5.5" fill="#e39b4a"/>
+  <text class="f-node" x="140" y="167">BeforeToolsEvent</text>
+  <text class="f-note" x="370" y="166">cancel the whole batch at once</text>
+  <circle cx="118" cy="204" r="5.5" fill="#e39b4a"/>
+  <text class="f-node" x="140" y="209">BeforeToolCallEvent</text>
+  <text class="f-note" x="370" y="208">cancel_tool · interrupt() · rewrite input · swap the tool</text>
+  <rect x="96" y="235" width="190" height="34" fill="#26180f" stroke="#b26a3c" stroke-width="1"/>
+  <text class="f-node" x="191" y="257" text-anchor="middle">the tool executes</text>
+  <circle cx="118" cy="300" r="5" fill="#0a0705" stroke="#b26a3c" stroke-width="1.5"/>
+  <text class="f-node" x="140" y="305">AfterToolCallEvent</text>
+  <text class="f-note" x="370" y="304">rewrite the result · retry</text>
+  <circle cx="118" cy="340" r="5" fill="#0a0705" stroke="#b26a3c" stroke-width="1.5"/>
+  <text class="f-node" x="140" y="345">AfterToolsEvent</text>
+  <text class="f-note" x="370" y="344">end_turn</text>
+  <path d="M 118 348 V 366 H 58 V 64 H 108" fill="none" stroke="#b26a3c" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#hk1-c)"/>
+  <text class="f-note" x="46" y="200" transform="rotate(-90 46 200)" text-anchor="middle">next cycle</text>
+  <circle cx="124" cy="396" r="5.5" fill="#e39b4a"/>
+  <text class="f-note" x="136" y="400">can stop what happens next</text>
+  <circle cx="330" cy="396" r="5" fill="#0a0705" stroke="#b26a3c" stroke-width="1.5"/>
+  <text class="f-note" x="342" y="400">shapes what comes back</text>
+</svg>
+<figcaption>Fixed points in the SDK's own loop, not instructions the model weighs. Filled markers can stop what happens next; hollow ones only shape what comes back. Where two hooks listen to the same event, the <em>before</em> ones run in registration order and the <em>after</em> ones in reverse — so the hook you registered first gets the last word on a result.</figcaption>
+</figure>
+</div>
+
 **`BeforeToolCallEvent` — one call, one decision.** Parameter bounds, allow-lists, "this tool is read-only in this environment". You also get `event.tool_use["input"]` as a mutable dict, so a hook can *fix* arguments rather than refuse them — force `dry_run=True`, clamp a `limit`, inject the tenant ID the model isn't allowed to choose. And `event.selected_tool` is writable, which means you can swap the implementation entirely and the model is none the wiser.
 
 **`BeforeToolsEvent` — the whole batch.** Models increasingly emit several tool calls in one turn. If the rule is "not while there's a `delete` anywhere in this batch", inspect `event.message["content"]` for every `toolUse` block and set `event.cancel` once. Cancelling per call would let the harmless ones through alongside the one you were worried about.
@@ -94,6 +132,54 @@ while result.stop_reason == "interrupt":
         })
     result = agent(responses)
 ```
+
+<div class="figure">
+<figure>
+<svg viewBox="0 0 760 372" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One tool call emitted by the model, delete_files, arrives at a BeforeToolCallEvent gate, and three paths lead out of it. On the left, the hook returns and the tool runs, sending a real result to the model. In the middle, the hook sets cancel_tool, the tool never runs, and an error result goes to the model. Both of these are enclosed in a dashed box marked: the loop never stops, the model gets a tool result either way. On the right, the hook calls interrupt, the run suspends, and control returns to the caller with stop_reason equal to interrupt, leaving the loop entirely. A dashed arrow labelled agent(responses) returns from that box back to the gate, showing the hook runs again on resume.">
+  <defs>
+    <marker id="hk2-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#b26a3c"/></marker>
+    <marker id="hk2-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e39b4a"/></marker>
+  </defs>
+  <text class="f-label" x="8" y="16">Three things a hook can do with one tool call</text>
+  <text class="f-note" x="380" y="36" text-anchor="middle">the model emits</text>
+  <rect x="272" y="44" width="216" height="32" fill="#26180f" stroke="#b26a3c" stroke-width="1"/>
+  <text class="f-node" x="380" y="65" text-anchor="middle">delete_files(paths=…)</text>
+  <line x1="380" y1="76" x2="380" y2="96" stroke="#b26a3c" stroke-width="1" marker-end="url(#hk2-c)"/>
+  <rect x="90" y="100" width="580" height="32" fill="rgb(227 155 74 / 0.14)" stroke="#e39b4a" stroke-width="1"/>
+  <text class="f-node f-warm" x="380" y="121" text-anchor="middle">BeforeToolCallEvent</text>
+  <line x1="180" y1="132" x2="180" y2="156" stroke="#b26a3c" stroke-width="1" marker-end="url(#hk2-c)"/>
+  <line x1="380" y1="132" x2="380" y2="156" stroke="#b26a3c" stroke-width="1" marker-end="url(#hk2-c)"/>
+  <line x1="580" y1="132" x2="580" y2="156" stroke="#e39b4a" stroke-width="1" marker-end="url(#hk2-a)"/>
+  <rect x="96" y="160" width="168" height="30" fill="none" stroke="#b26a3c" stroke-width="1"/>
+  <text class="f-note" x="180" y="179" text-anchor="middle">the hook returns</text>
+  <rect x="296" y="160" width="168" height="30" fill="none" stroke="#b26a3c" stroke-width="1"/>
+  <text class="f-note" x="380" y="179" text-anchor="middle">cancel_tool = "…"</text>
+  <rect x="490" y="160" width="180" height="30" fill="none" stroke="#e39b4a" stroke-width="1"/>
+  <text class="f-note f-warm" x="580" y="179" text-anchor="middle">event.interrupt(…)</text>
+  <line x1="180" y1="190" x2="180" y2="212" stroke="#b26a3c" stroke-width="1" marker-end="url(#hk2-c)"/>
+  <line x1="380" y1="190" x2="380" y2="212" stroke="#b26a3c" stroke-width="1" marker-end="url(#hk2-c)"/>
+  <line x1="580" y1="190" x2="580" y2="212" stroke="#e39b4a" stroke-width="1" marker-end="url(#hk2-a)"/>
+  <rect x="96" y="216" width="168" height="32" fill="#26180f" stroke="#b26a3c" stroke-width="1"/>
+  <text class="f-node" x="180" y="237" text-anchor="middle">the tool runs</text>
+  <rect x="296" y="216" width="168" height="32" fill="none" stroke="#b26a3c" stroke-width="1" stroke-dasharray="4 4"/>
+  <text class="f-note" x="380" y="237" text-anchor="middle">the tool never runs</text>
+  <rect x="490" y="216" width="180" height="32" fill="#26180f" stroke="#e39b4a" stroke-width="1"/>
+  <text class="f-node f-warm" x="580" y="237" text-anchor="middle">the run suspends</text>
+  <text class="f-note" x="180" y="276" text-anchor="middle">real result → the model</text>
+  <text class="f-note" x="380" y="276" text-anchor="middle">error result → the model</text>
+  <text class="f-note" x="580" y="276" text-anchor="middle">→ back to your caller</text>
+  <rect x="88" y="300" width="384" height="48" rx="3" fill="none" stroke="#b26a3c" stroke-width="1" stroke-dasharray="4 4"/>
+  <text class="f-note" x="280" y="320" text-anchor="middle">the loop never stops —</text>
+  <text class="f-note" x="280" y="336" text-anchor="middle">the model gets a tool result either way</text>
+  <rect x="490" y="300" width="230" height="48" rx="3" fill="rgb(227 155 74 / 0.10)" stroke="#e39b4a" stroke-width="1"/>
+  <text class="f-note f-warm" x="605" y="320" text-anchor="middle">stop_reason == "interrupt"</text>
+  <text class="f-note" x="605" y="336" text-anchor="middle">control leaves the loop</text>
+  <path d="M 720 324 H 740 V 116 H 674" fill="none" stroke="#e39b4a" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#hk2-a)"/>
+  <text class="f-note f-warm" x="740" y="92" text-anchor="end">agent(responses)</text>
+</svg>
+<figcaption>Both <code>cancel_tool</code> and <code>interrupt()</code> refuse, but only one of them leaves the process. A cancelled call is finished inside the loop — the model gets an error result and replans. An interrupt suspends the whole run and hands it to your caller; resuming re-runs the hook, and the second time <code>interrupt()</code> returns the human's answer instead of suspending.</figcaption>
+</figure>
+</div>
 
 The shape is worth noticing. The hook doesn't know how the human is asked. The caller doesn't know which tool triggered it. The interrupt's `name` is the only contract between them, which is exactly the seam you want when the approval UI changes and the agent shouldn't.
 
