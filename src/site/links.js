@@ -11,7 +11,7 @@ export const links = {
   resume: "/resume/",
   email: "mailto:b@briankeating.net",
 
-  zeus: "https://github.com/zeus-sdr",
+  zeus: "https://github.com/abhishekprakash22/zeus",
   linkedin: "https://www.linkedin.com/in/brianbruff/",
 }
 
