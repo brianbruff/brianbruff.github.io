@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">The engineer sets the direction</title>
+  <desc id="desc">A human operator guides an AI system through a constellation of engineering decisions.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101630"/><stop offset="1" stop-color="#321d49"/></linearGradient>
+    <linearGradient id="beam" x2="1"><stop stop-color="#67e8f9"/><stop offset="1" stop-color="#c084fc"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#f0abfc" stop-opacity=".5"/><stop offset="1" stop-color="#f0abfc" stop-opacity="0"/></radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="28"/></filter>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1600v900H0z"/>
+  <circle cx="1150" cy="320" r="260" fill="url(#glow)" filter="url(#blur)"/>
+  <g fill="none" stroke="#a5b4fc" stroke-opacity=".18">
+    <path d="M0 708 498 384l287 88 342-226 473 171M0 805l525-329 303 88 349-231 423 142M166 900l433-327 322 66 353-229 326 108"/>
+    <path d="M1030 0 882 278l109 116-132 212 87 294M1260 0l-104 232 98 156-99 232 116 280M1476 0l-124 234 85 148-77 230 91 288"/>
+  </g>
+  <g stroke="url(#beam)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M246 611h219l119-120 159 58 164-171 175 37 138-138"/>
+    <path d="M426 699 584 549m159 0 164-171m175 37 138-138" stroke-dasharray="7 18" opacity=".7"/>
+  </g>
+  <g fill="#0b1024" stroke="url(#beam)" stroke-width="5">
+    <circle cx="246" cy="611" r="20"/><circle cx="465" cy="611" r="15"/><circle cx="584" cy="491" r="18"/>
+    <circle cx="743" cy="549" r="17"/><circle cx="907" cy="378" r="18"/><circle cx="1082" cy="415" r="15"/><circle cx="1220" cy="277" r="20"/>
+  </g>
+  <g fill="#eef2ff" font-family="ui-monospace,monospace" font-size="22" letter-spacing="3">
+    <text x="183" y="670">INTENT</text><text x="529" y="453">CONTEXT</text><text x="846" y="342">DESIGN</text><text x="1138" y="238">REVIEW</text>
+  </g>
+  <g transform="translate(1320 548)">
+    <circle r="100" fill="#16152d" stroke="#f0abfc" stroke-width="3"/>
+    <path d="M-32 21c-9-23-7-39 2-46 8-6 15 1 22 17l8 18-3-52c0-14 17-16 19-1l7 47 3-32c2-13 18-11 19 2l2 37 7-21c5-12 20-6 16 7l-10 46c-7 30-25 46-51 46h-7c-19 0-37-19-45-43z" fill="#ddd6fe" stroke="#f5d0fe" stroke-width="3"/>
+    <path d="M-26 81h88" stroke="#67e8f9" stroke-width="3" opacity=".8"/>
+  </g>
+  <text x="90" y="120" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="40" font-weight="650">THE HUMAN SETS THE STANDARD</text>
+  <text x="92" y="159" fill="#c4b5fd" font-family="system-ui,sans-serif" font-size="19" letter-spacing="4">AI CODING / PROFESSIONAL JUDGEMENT</text>
+</svg>
