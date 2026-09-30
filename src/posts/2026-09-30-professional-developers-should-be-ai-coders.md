@@ -4,10 +4,10 @@ date: "2026-09-30"
 category: "Tooling & Craft"
 tags: ["AI coding", "software engineering", "developer experience", "craft"]
 description: "AI-generated code is not the problem. Unreviewed, context-free code is. Professional developers should be using AI to do more of the typing—and applying their craft to everything that makes the result software."
-image: "/images/ai-coding-1-supervision.svg"
+image: "/images/ai-coding-1-supervision.jpg"
 ---
 
-![A professional developer directing a capable machine through a wall of constraints, tests and architectural choices](/images/ai-coding-1-supervision.svg)
+![An experienced developer reviewing a code change at a desk by the window](/images/ai-coding-1-supervision.jpg)
 
 There is a familiar complaint making the rounds: the internet is filling up with *vibe-coded* software, and vibe coders have no value.
 
@@ -37,7 +37,7 @@ I want the model to write the routine implementation. I want it to draft the tes
 
 That is not a lesser version of development. It is a change in where a developer spends attention. The scarce input shifts from keystrokes to judgement.
 
-![A stream of generated code passing through a human-designed sequence of review gates, tests and deployment controls](/images/ai-coding-2-quality-gates.svg)
+![Two software engineers reviewing a code change and test results together](/images/ai-coding-2-quality-gates.jpg)
 
 ## The productivity case is real, but it is not a magic number
 
@@ -69,7 +69,7 @@ For a tiny, well-understood change, hand-editing may be the shortest path. For u
 
 This is engineering judgement applied to a new tool. It is not a case for keeping the human as a typist out of principle.
 
-![A developer and AI working at the same bench: the machine handles repetition while the engineer examines a small critical component](/images/ai-coding-3-pairing.svg)
+![An engineer comparing a hand-drawn system diagram with the implementation on a laptop](/images/ai-coding-3-pairing.jpg)
 
 ## The bar is not “was AI involved?”
 
