@@ -5,6 +5,15 @@ on:
     branches:
       - master
 
+# One deploy at a time, in push order. Without this, two merges close together
+# build in parallel and whichever finishes last overwrites gh-pages, even if it
+# built the older commit. Queued runs are never cancelled mid-deploy; a newer
+# push replaces an older one that is still waiting, which is fine because the
+# newer commit contains it.
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
